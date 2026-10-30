@@ -1,0 +1,3698 @@
+{
+ "categories": [
+  {
+   "id": "gun",
+   "name": "枪械配件",
+   "en": "Gun Mods",
+   "color": "#e0574c",
+   "intro": "装在手枪、冲锋枪、步枪、霰弹枪和机枪上：瞄具、枪管、枪口、弹匣、握把、枪托、扳机组。",
+   "count": 22
+  },
+  {
+   "id": "melee",
+   "name": "近战与工具",
+   "en": "Melee & Tool",
+   "color": "#e2b03c",
+   "intro": "装在近战武器和工具上：刀刃、锤头、握把、钉刺、特效伤害。",
+   "count": 21
+  },
+  {
+   "id": "bow",
+   "name": "弓弩配件",
+   "en": "Bow Mods",
+   "color": "#57b95f",
+   "intro": "弓箭与弩专用：弓弦、箭台、箭矢效果。",
+   "count": 2
+  },
+  {
+   "id": "armor",
+   "name": "护甲配件",
+   "en": "Armor Mods",
+   "color": "#49b6e8",
+   "intro": "装在头盔、胸甲、手套、靴子上：内衬、装甲板、口袋、降噪、属性 +1、夜视。",
+   "count": 27
+  },
+  {
+   "id": "vehicle",
+   "name": "载具配件",
+   "en": "Vehicle Mods",
+   "color": "#a06fd0",
+   "intro": "装在载具上：引擎、车灯、座位、油箱、车铲、车体装甲、储物。",
+   "count": 8
+  },
+  {
+   "id": "drone",
+   "name": "无人机配件",
+   "en": "Drone Mods",
+   "color": "#8fa3ad",
+   "intro": "装在垃圾无人机上：装甲、货舱、士气、头灯、医疗、武器。",
+   "count": 7
+  },
+  {
+   "id": "dye",
+   "name": "染料",
+   "en": "Dyes",
+   "color": "#c8762a",
+   "intro": "纯外观，不占属性：给武器、工具、载具、无人机换色。",
+   "count": 10
+  }
+ ],
+ "mods": [
+  {
+   "id": "modGunScopeSmall",
+   "name": "2倍镜模组",
+   "name_en": "Scope 2x Mod",
+   "cat": "gun",
+   "install": [
+    "小瞄具位"
+   ],
+   "install_raw": [
+    "smallTopAttachments"
+   ],
+   "chips": [
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ]
+    },
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "瞄准时增加放大倍率。\n可安装在短火器和弓弩上。",
+   "tiered": false
+  },
+  {
+   "id": "modGunScopeMedium",
+   "name": "4倍镜模组",
+   "name_en": "Scope 4x Mod",
+   "cat": "gun",
+   "install": [
+    "中瞄具位"
+   ],
+   "install_raw": [
+    "mediumTopAttachments"
+   ],
+   "chips": [
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.18,
+       -0.18,
+       -0.18,
+       -0.18,
+       -0.18,
+       -0.18
+      ]
+     ]
+    },
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "瞄准时增加放大倍率。\n可安装在中等长度的火器和弓弩上。",
+   "tiered": false
+  },
+  {
+   "id": "modGunScopeLarge",
+   "name": "8倍镜模组",
+   "name_en": "Scope 8x Mod",
+   "cat": "gun",
+   "install": [
+    "大瞄具位"
+   ],
+   "install_raw": [
+    "largeTopAttachments"
+   ],
+   "chips": [
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25
+      ]
+     ]
+    },
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "瞄准时增加放大倍率。\n可安装在长步枪上。",
+   "tiered": false
+  },
+  {
+   "id": "modShotgunSawedOffBarrel",
+   "name": "削短型霰弹枪模组",
+   "name_en": "Sawed-Off Shotgun Mod",
+   "cat": "gun",
+   "install": [
+    "霰弹枪"
+   ],
+   "install_raw": [
+    "shotgun"
+   ],
+   "chips": [
+    {
+     "k": "最大射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "有效射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "散布（垂直）",
+     "fmt": "rawset",
+     "variants": [
+      [
+       1.2,
+       1.2,
+       1.2,
+       1.2,
+       1.2,
+       1.2
+      ]
+     ]
+    },
+    {
+     "k": "散布（水平）",
+     "fmt": "rawset",
+     "variants": [
+      [
+       1.2,
+       1.2,
+       1.2,
+       1.2,
+       1.2,
+       1.2
+      ]
+     ]
+    }
+   ],
+   "desc": "增加弹丸扩散。",
+   "tiered": false
+  },
+  {
+   "id": "modGunForegrip",
+   "name": "前握把模组",
+   "name_en": "Fore Grip Mod",
+   "cat": "gun",
+   "install": [
+    "下挂位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "bottomAttachments",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "蹲伏精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "移动精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.13,
+       0.13,
+       0.13,
+       0.13,
+       0.13,
+       0.13
+      ],
+      [
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（垂直·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（垂直·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ]
+    }
+   ],
+   "desc": "提升腰射或移动时射击的操作性和精度。",
+   "tiered": false
+  },
+  {
+   "id": "modGunBipod",
+   "name": "双脚支架模组",
+   "name_en": "Bipod Mod",
+   "cat": "gun",
+   "install": [
+    "下挂位"
+   ],
+   "install_raw": [
+    "bottomAttachments"
+   ],
+   "chips": [
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08
+      ],
+      [
+       -0.09,
+       -0.09,
+       -0.09,
+       -0.09,
+       -0.09,
+       -0.09
+      ]
+     ]
+    },
+    {
+     "k": "移动精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    },
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05
+      ],
+      [
+       0.35,
+       0.35,
+       0.35,
+       0.35,
+       0.35,
+       0.35
+      ]
+     ]
+    }
+   ],
+   "desc": "武器瞄准时，提高精度和操控性。",
+   "tiered": false
+  },
+  {
+   "id": "modGunReflexSight",
+   "name": "反射式瞄准镜模组",
+   "name_en": "Reflex Sight Mod",
+   "cat": "gun",
+   "install": [
+    "小瞄具位"
+   ],
+   "install_raw": [
+    "smallTopAttachments"
+   ],
+   "chips": [
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.3,
+       0.3,
+       0.3,
+       0.3,
+       0.3,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "可快速捕获目标并提升武器的操控性。",
+   "tiered": false
+  },
+  {
+   "id": "modGunMagazineExtender",
+   "name": "弹匣扩充模组",
+   "name_en": "Magazine Extender Mod",
+   "cat": "gun",
+   "install": [
+    "弹匣位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "magazine",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    },
+    {
+     "k": "弹匣尺寸",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.2,
+       0.3,
+       0.4,
+       0.5,
+       0.6
+      ]
+     ]
+    }
+   ],
+   "desc": "提高弹匣容量。",
+   "tiered": true
+  },
+  {
+   "id": "modGunDrumMagazineExtender",
+   "name": "弹鼓模组",
+   "name_en": "Drum Magazine Mod",
+   "cat": "gun",
+   "install": [
+    "弹鼓位"
+   ],
+   "install_raw": [
+    "drumMagazine"
+   ],
+   "chips": [
+    {
+     "k": "弹匣尺寸",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.5,
+       0.6,
+       0.7,
+       0.8,
+       0.9,
+       1.0
+      ]
+     ]
+    },
+    {
+     "k": "装填速度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.25,
+       -0.2,
+       -0.15,
+       -0.1,
+       -0.05,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这种大型弹鼓会增加机枪的装弹量，但装填速度较慢。",
+   "tiered": true
+  },
+  {
+   "id": "modGunRetractingStock",
+   "name": "收缩枪托模组",
+   "name_en": "Retracting Stock Mod",
+   "cat": "gun",
+   "install": [
+    "枪托位"
+   ],
+   "install_raw": [
+    "stock"
+   ],
+   "chips": [
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    }
+   ],
+   "desc": "提升移动或腰射时武器的操控性，因为近距离时武器变得更易掌控。",
+   "tiered": false
+  },
+  {
+   "id": "modGunMuzzleBrake",
+   "name": "枪口制动模组",
+   "name_en": "Muzzle Brake Mod",
+   "cat": "gun",
+   "install": [
+    "枪管位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "barrelAttachments",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "后坐力（垂直·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（垂直·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.08,
+       0.08,
+       0.08,
+       0.08,
+       0.08,
+       0.08
+      ]
+     ]
+    }
+   ],
+   "desc": "转移推进剂气体以减少后座力。",
+   "tiered": false
+  },
+  {
+   "id": "modGunBarrelExtender",
+   "name": "枪管延伸模组",
+   "name_en": "Barrel Extender Mod",
+   "cat": "gun",
+   "install": [
+    "枪管位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "barrelAttachments",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "有效射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ]
+     ]
+    },
+    {
+     "k": "最大射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ]
+     ]
+    },
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（垂直·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（垂直·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·小）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    },
+    {
+     "k": "后坐力（水平·大）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08,
+       -0.08
+      ]
+     ]
+    }
+   ],
+   "desc": "提升伤害、射程和瞄准精度，但腰射时武器会更难操作。",
+   "tiered": false
+  },
+  {
+   "id": "modGunFlashlight",
+   "name": "武器照明模组",
+   "name_en": "Weapon Flashlight Mod",
+   "cat": "gun",
+   "install": [
+    "侧挂位"
+   ],
+   "install_raw": [
+    "sideAttachments"
+   ],
+   "chips": [],
+   "desc": "可安装到任意枪支或弓弩上。\n\n使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。长按灯源动作激活多个物品。",
+   "tiered": false
+  },
+  {
+   "id": "modGunSoundSuppressorSilencer",
+   "name": "消声器模组",
+   "name_en": "Silencer Mod",
+   "cat": "gun",
+   "install": [
+    "枪械"
+   ],
+   "install_raw": [
+    "gun"
+   ],
+   "chips": [
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "有效射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2
+      ]
+     ]
+    },
+    {
+     "k": "最大射程",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25,
+       -0.25
+      ]
+     ]
+    }
+   ],
+   "desc": "消声器可大大降低发射时的声音，但也会降低最大射程和伤害。\n适用于小口径和低射速的枪支。",
+   "tiered": false
+  },
+  {
+   "id": "modGunLaserSight",
+   "name": "激光瞄准器模组",
+   "name_en": "Laser Sight Mod",
+   "cat": "gun",
+   "install": [
+    "侧挂位"
+   ],
+   "install_raw": [
+    "sideAttachments"
+   ],
+   "chips": [
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2,
+       -0.2
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ]
+     ]
+    }
+   ],
+   "desc": "有助于更快瞄准，并提高腰射时的精度。\n可安装到任意枪支或弓弩上。\n\n使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。长按灯源动作激活多个物品。",
+   "tiered": false
+  },
+  {
+   "id": "modGunCrippleEm",
+   "name": "致残模组",
+   "name_en": "Cripple 'Em Mod",
+   "cat": "gun",
+   "install": [
+    "远程武器"
+   ],
+   "install_raw": [
+    "ranged"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    }
+   ],
+   "desc": "每次射击有一定几率致残双足目标。",
+   "tiered": true
+  },
+  {
+   "id": "modGunTriggerGroupBurst3",
+   "name": "触发器组：三发点放模组",
+   "name_en": "Trigger Group: Burst Mod",
+   "cat": "gun",
+   "install": [
+    "射击模式位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "firingMode",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "连发数",
+     "fmt": "rawset",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0
+      ]
+     ]
+    },
+    {
+     "k": "发/每分钟",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "连射散布",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    }
+   ],
+   "desc": "将触发器组改装为 3 连发。\n提高射击速度并略微增加后坐力。",
+   "tiered": false
+  },
+  {
+   "id": "modGunTriggerGroupAutomatic",
+   "name": "触发器组：全自动模组",
+   "name_en": "Trigger Group: Full Auto Mod",
+   "cat": "gun",
+   "install": [
+    "射击模式位",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "firingMode",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "连发数",
+     "fmt": "rawset",
+     "variants": [
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     ]
+    },
+    {
+     "k": "发/每分钟",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.12,
+       0.12,
+       0.12,
+       0.12,
+       0.12,
+       0.12
+      ]
+     ]
+    },
+    {
+     "k": "连射散布",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.06,
+       0.06,
+       0.06,
+       0.06,
+       0.06,
+       0.06
+      ]
+     ]
+    }
+   ],
+   "desc": "将触发器组装为仅全自动。\n提高射击速度并略微增加后坐力。",
+   "tiered": false
+  },
+  {
+   "id": "modGunTriggerGroupSemi",
+   "name": "触发器组：半自动模组",
+   "name_en": "Trigger Group: Semi Mod",
+   "cat": "gun",
+   "install": [
+    "射击模式位"
+   ],
+   "install_raw": [
+    "firingMode"
+   ],
+   "chips": [
+    {
+     "k": "连发数",
+     "fmt": "rawset",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    },
+    {
+     "k": "发/每分钟",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "连射散布",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ]
+    }
+   ],
+   "desc": "将触发器组改装为仅半自动。\n提高射击速度并略微增加后坐力。",
+   "tiered": false
+  },
+  {
+   "id": "modGunChoke",
+   "name": "霰弹枪喉缩模组",
+   "name_en": "Shotgun Choke Mod",
+   "cat": "gun",
+   "install": [
+    "霰弹枪",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "shotgun",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "散布（垂直）",
+     "fmt": "raw",
+     "variants": [
+      [
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4
+      ]
+     ]
+    },
+    {
+     "k": "散布（水平）",
+     "fmt": "raw",
+     "variants": [
+      [
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4,
+       -0.4
+      ]
+     ]
+    }
+   ],
+   "desc": "使霰弹枪的弹丸散布更小。",
+   "tiered": false
+  },
+  {
+   "id": "modGunShotgunTubeExtenderMagazine",
+   "name": "霰弹枪管扩充模组",
+   "name_en": "Shotgun Tube Extender Mod",
+   "cat": "gun",
+   "install": [
+    "霰弹枪弹仓"
+   ],
+   "install_raw": [
+    "modGunShotgunTubeExtenderMagazine"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    },
+    {
+     "k": "弹匣尺寸",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.0,
+       4.0,
+       6.0,
+       8.0,
+       10.0,
+       12.0
+      ]
+     ]
+    }
+   ],
+   "desc": "增加泵动式霰弹枪的弹匣容量。",
+   "tiered": true
+  },
+  {
+   "id": "modGunDuckbill",
+   "name": "霰弹枪鸭嘴枪口模组",
+   "name_en": "Shotgun Duckbill Mod",
+   "cat": "gun",
+   "install": [
+    "霰弹枪",
+    "远程炮塔"
+   ],
+   "install_raw": [
+    "shotgun",
+    "turretRanged"
+   ],
+   "chips": [
+    {
+     "k": "散布（垂直）",
+     "fmt": "raw",
+     "variants": [
+      [
+       -0.45,
+       -0.45,
+       -0.45,
+       -0.45,
+       -0.45,
+       -0.45
+      ]
+     ]
+    },
+    {
+     "k": "散布（水平）",
+     "fmt": "raw",
+     "variants": [
+      [
+       0.75,
+       0.75,
+       0.75,
+       0.75,
+       0.75,
+       0.75
+      ]
+     ]
+    }
+   ],
+   "desc": "将弹丸散布模式修改为水平发射，而不是平常的圆状。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeErgonomicGrip",
+   "name": "人体工学握把模组",
+   "name_en": "Ergonomic Grip Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器",
+    "弓"
+   ],
+   "install_raw": [
+    "melee",
+    "bow"
+   ],
+   "chips": [
+    {
+     "k": "体力值消耗",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.1,
+       -0.15,
+       -0.2,
+       -0.25,
+       -0.3
+      ]
+     ]
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.02,
+       0.04,
+       0.06,
+       0.08,
+       0.1,
+       0.15
+      ]
+     ]
+    }
+   ],
+   "desc": "降低近战的体力消耗量，并提高弓箭的操控性。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeWoodSplitter",
+   "name": "劈木模组",
+   "name_en": "Wood Splitter Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器"
+   ],
+   "install_raw": [
+    "melee"
+   ],
+   "chips": [
+    {
+     "k": "伤害（按材质）（木头）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "对木头造成更多伤害。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeFortifyingGrip",
+   "name": "强化握把模组",
+   "name_en": "Fortifying Grip Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器"
+   ],
+   "install_raw": [
+    "melee"
+   ],
+   "chips": [],
+   "desc": "当生命值低于 50% 时，持续回复生命值。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeGraveDigger",
+   "name": "掘墓者模组",
+   "name_en": "Grave Digger Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器"
+   ],
+   "install_raw": [
+    "melee"
+   ],
+   "chips": [
+    {
+     "k": "伤害（按材质）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "对泥土造成更多伤害。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeBunkerBuster",
+   "name": "掩体炸弹模组",
+   "name_en": "Bunker Buster Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器"
+   ],
+   "install_raw": [
+    "melee"
+   ],
+   "chips": [
+    {
+     "k": "伤害（按材质）（石头）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "对石头造成更多伤害。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeFiremansAxeMod",
+   "name": "消防斧模组",
+   "name_en": "Fireman's Axe Mod",
+   "cat": "melee",
+   "install": [
+    "斧头"
+   ],
+   "install_raw": [
+    "axe"
+   ],
+   "chips": [
+    {
+     "k": "物块伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    },
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.1,
+       -0.15,
+       -0.2,
+       -0.25,
+       -0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "对物块的伤害提高，但对敌人的伤害降低。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeClubBurningShaft",
+   "name": "燃烧杆模组",
+   "name_en": "Burning Shaft Mod",
+   "cat": "melee",
+   "install": [
+    "长柄武器"
+   ],
+   "install_raw": [
+    "longShaft"
+   ],
+   "chips": [
+    {
+     "k": "亮度",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.28,
+       0.28,
+       0.28,
+       0.28,
+       0.28,
+       0.28
+      ]
+     ]
+    },
+    {
+     "k": "寒冷抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       20.0,
+       20.0,
+       20.0,
+       20.0,
+       20.0,
+       20.0
+      ]
+     ]
+    }
+   ],
+   "desc": "近战物品，同时兼具三种用途，既可当光源也可使敌人着火，还能用作热源。\n\n可安装在带有长杆或刀刃的近战工具和武器上。",
+   "tiered": false
+  },
+  {
+   "id": "modGunMeleeTheHunter",
+   "name": "猎人模组",
+   "name_en": "The Hunter Mod",
+   "cat": "melee",
+   "install": [
+    "武器",
+    "工具"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool"
+   ],
+   "chips": [
+    {
+     "k": "实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    },
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    }
+   ],
+   "desc": "对所有动物造成更多伤害。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeStunBatonRepulsor",
+   "name": "电击棒冲击波模组",
+   "name_en": "Stun Baton Repulsor Mod",
+   "cat": "melee",
+   "install": [
+    "电击棍"
+   ],
+   "install_raw": [
+    "perkElectrocutioner"
+   ],
+   "chips": [],
+   "desc": "将该模组安装到电击棒中，让僵尸在电击时飞起来。",
+   "tiered": false
+  },
+  {
+   "id": "modFuelTankLarge",
+   "name": "电动工具大油箱模组",
+   "name_en": "Motor Tool Large Tank Mod",
+   "cat": "melee",
+   "install": [
+    "电动工具"
+   ],
+   "install_raw": [
+    "motorTool"
+   ],
+   "chips": [
+    {
+     "k": "弹匣尺寸",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.6,
+       0.7,
+       0.8,
+       0.9,
+       1.0,
+       2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "大幅增加电锯和螺旋钻的油箱尺寸。",
+   "tiered": true
+  },
+  {
+   "id": "modFuelTankSmall",
+   "name": "电动工具小油箱模组",
+   "name_en": "Motor Tool Small Tank Mod",
+   "cat": "melee",
+   "install": [
+    "电动工具"
+   ],
+   "install_raw": [
+    "motorTool"
+   ],
+   "chips": [
+    {
+     "k": "弹匣尺寸",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.2,
+       0.3,
+       0.4,
+       0.5,
+       0.6
+      ]
+     ]
+    }
+   ],
+   "desc": "适度增加电锯和螺旋钻的油箱尺寸。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeStructuralBrace",
+   "name": "结构支撑模组",
+   "name_en": "Structural Brace Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器",
+    "弓弩"
+   ],
+   "install_raw": [
+    "melee",
+    "perkArchery"
+   ],
+   "chips": [
+    {
+     "k": "损坏",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.1,
+       -0.15,
+       -0.2,
+       -0.25,
+       -0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "此项改装可降低近战武器、工具和弓箭的损坏速度。",
+   "tiered": true
+  },
+  {
+   "id": "modGunMeleeRadRemover",
+   "name": "辐射去除模组",
+   "name_en": "Rad Remover Mod",
+   "cat": "melee",
+   "install": [
+    "武器",
+    "工具"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    }
+   ],
+   "desc": "暂时禁用辐射、带电与炼狱僵尸的再生能力。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeWeightedHead",
+   "name": "重头模组",
+   "name_en": "Weighted Head Mod",
+   "cat": "melee",
+   "install": [
+    "轻型棍棒",
+    "中型棍棒",
+    "重型棍棒",
+    "近战炮塔"
+   ],
+   "install_raw": [
+    "light",
+    "medium",
+    "heavy",
+    "turretMelee"
+   ],
+   "chips": [],
+   "desc": "可用于所有近战武器和工具的模组。\n有几率眩晕并减速目标。\n\n匕首和砍刀没有可平衡重量的刀头。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeDiamondTip",
+   "name": "金刚石刀刃模组",
+   "name_en": "Diamond Blade Tip Mod",
+   "cat": "melee",
+   "install": [
+    "工具",
+    "铁拳",
+    "长矛",
+    "利刃"
+   ],
+   "install_raw": [
+    "tool",
+    "perkBrawler",
+    "perkJavelinMaster",
+    "perkDeepCuts"
+   ],
+   "chips": [
+    {
+     "k": "损坏",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.1,
+       -0.15,
+       -0.2,
+       -0.25,
+       -0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "此项改装可降低任何手持工具或有刃武器的损坏速度。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeClubMetalChain",
+   "name": "金属链模组",
+   "name_en": "Metal Chain Mod",
+   "cat": "melee",
+   "install": [
+    "棍棒"
+   ],
+   "install_raw": [
+    "club"
+   ],
+   "chips": [],
+   "desc": "有一定几率击倒敌人。\n可安装在棍棒上。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeClubMetalSpikes",
+   "name": "金属长钉模组",
+   "name_en": "Metal Spikes Mod",
+   "cat": "melee",
+   "install": [
+    "棍棒"
+   ],
+   "install_raw": [
+    "club"
+   ],
+   "chips": [],
+   "desc": "每次连续攻击可降低敌人的护甲等级。\n可安装在棍棒上。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeTemperedBlade",
+   "name": "钢化刀片模组",
+   "name_en": "Tempered Blade Mod",
+   "cat": "melee",
+   "install": [
+    "工具",
+    "铁拳",
+    "长矛",
+    "利刃"
+   ],
+   "install_raw": [
+    "tool",
+    "perkBrawler",
+    "perkJavelinMaster",
+    "perkDeepCuts"
+   ],
+   "chips": [
+    {
+     "k": "物块伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    },
+    {
+     "k": "损坏",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.04,
+       -0.06,
+       -0.08,
+       -0.1,
+       -0.12,
+       -0.15
+      ]
+     ]
+    }
+   ],
+   "desc": "此项刀刃改装可增加物块伤害，降低损坏速度。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeClubBarbedWire",
+   "name": "铁丝网模组",
+   "name_en": "Barbed Wire Mod",
+   "cat": "melee",
+   "install": [
+    "棍棒"
+   ],
+   "install_raw": [
+    "club"
+   ],
+   "chips": [],
+   "desc": "使用主要攻击有一定几率造成流血伤害。\n使用强力攻击有更高的几率。\n可安装在棍棒上。",
+   "tiered": false
+  },
+  {
+   "id": "modMeleeIronBreaker",
+   "name": "铁见愁模组",
+   "name_en": "Iron Breaker Mod",
+   "cat": "melee",
+   "install": [
+    "近战武器"
+   ],
+   "install_raw": [
+    "melee"
+   ],
+   "chips": [
+    {
+     "k": "伤害（按材质）",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "对铁造成更多伤害。",
+   "tiered": true
+  },
+  {
+   "id": "modMeleeSerratedBlade",
+   "name": "锯齿刀片模组",
+   "name_en": "Serrated Blade Mod",
+   "cat": "melee",
+   "install": [
+    "小刀",
+    "砍刀",
+    "斧头",
+    "铲子",
+    "铁拳",
+    "长矛"
+   ],
+   "install_raw": [
+    "knife",
+    "machete",
+    "axe",
+    "shovel",
+    "perkBrawler",
+    "perkJavelinMaster"
+   ],
+   "chips": [],
+   "desc": "普通攻击有一定几率造成流血创伤。",
+   "tiered": false
+  },
+  {
+   "id": "modGunBowArrowRest",
+   "name": "箭托模组",
+   "name_en": "Arrow Rest Mod",
+   "cat": "bow",
+   "install": [
+    "弓"
+   ],
+   "install_raw": [
+    "bow"
+   ],
+   "chips": [
+    {
+     "k": "瞄准精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.02,
+       -0.04,
+       -0.06,
+       -0.08,
+       -0.1,
+       -0.15
+      ]
+     ]
+    },
+    {
+     "k": "腰射精确度",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.02,
+       -0.04,
+       -0.06,
+       -0.08,
+       -0.1,
+       -0.15
+      ]
+     ]
+    }
+   ],
+   "desc": "箭托可提高弓箭的精度。",
+   "tiered": true
+  },
+  {
+   "id": "modGunBowPolymerString",
+   "name": "聚合物弓弦模组",
+   "name_en": "Polymer String Mod",
+   "cat": "bow",
+   "install": [
+    "弓弩"
+   ],
+   "install_raw": [
+    "perkArchery"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    },
+    {
+     "k": "发射速度",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "此模组可使弓弩箭矢射速更快，射程更远。",
+   "tiered": true
+  },
+  {
+   "id": "modArmorImpactBracing",
+   "name": "冲击支撑模组",
+   "name_en": "Impact Bracing Mod",
+   "cat": "armor",
+   "install": [
+    "靴子"
+   ],
+   "install_raw": [
+    "armorFeet"
+   ],
+   "chips": [],
+   "desc": "降低摔落伤害。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorWaterPurifier",
+   "name": "净水器模组",
+   "name_en": "Water Purifier Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "护甲暴击抵抗",
+     "fmt": "pct",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "可安全饮用浑浊的水。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorStrength",
+   "name": "力量模组",
+   "name_en": "Strength Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（力量）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这款人工智能神经芯片，其设计是安装到头部护甲上，绕过肌肉生长抑制素来增强力量。\n\n+1 力量",
+   "tiered": false
+  },
+  {
+   "id": "modArmorNightVision",
+   "name": "夜视模组",
+   "name_en": "Night Vision Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [],
+   "desc": "使用这款高科技夜视头部护甲模组，在黑暗中也能看清东西。\n\n使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorHelmetLight",
+   "name": "头盔灯模组",
+   "name_en": "Helmet Light Mod",
+   "cat": "armor",
+   "install": [
+    "头部"
+   ],
+   "install_raw": [
+    "head"
+   ],
+   "chips": [],
+   "desc": "一个可安装到任何头盔上的光源。\n\n使用灯源（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）动作激活。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorTreasureHunter",
+   "name": "寻宝者模组",
+   "name_en": "Treasure Hunter's Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "战利品奖励",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       2.0,
+       3.0,
+       4.0,
+       5.0,
+       6.0
+      ]
+     ]
+    },
+    {
+     "k": "获得的经验值",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.1,
+       0.15,
+       0.2,
+       0.25,
+       0.3
+      ]
+     ]
+    },
+    {
+     "k": "宝藏方块减少",
+     "fmt": "raw",
+     "variants": [
+      [
+       -1.0,
+       -1.0,
+       -1.0,
+       -1.0,
+       -1.0,
+       -2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这款人工智能增强头部装备模组会提升学习速度，提高使用者发现有价值的战利品和埋藏宝藏的能力。",
+   "tiered": true
+  },
+  {
+   "id": "modArmorBandolier",
+   "name": "弹药带模组",
+   "name_en": "Bandolier Mod",
+   "cat": "armor",
+   "install": [
+    "胸甲"
+   ],
+   "install_raw": [
+    "armorChest"
+   ],
+   "chips": [],
+   "desc": "装填速度加快。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorFortitude",
+   "name": "强健模组",
+   "name_en": "Fortitude Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（强健）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这款由人工智能驱动的神经接口接入头部装备后，会增强免疫系统。\n\n+1 强健",
+   "tiered": false
+  },
+  {
+   "id": "modArmorPerception",
+   "name": "感知模组",
+   "name_en": "Perception Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（感知）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "安装到头部装备上后，这种配备人工智能功能的隐形眼镜会提升视力和瞄准能力。\n\n+1 感知",
+   "tiered": false
+  },
+  {
+   "id": "modArmorTripleStoragePocket",
+   "name": "护甲三收纳口袋模组",
+   "name_en": "Armor Triple Pocket Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "载货量",
+     "fmt": "raw",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0
+      ]
+     ]
+    }
+   ],
+   "desc": "将该模组安装到你的护甲上，可减少3点超重惩罚。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorDoubleStoragePocket",
+   "name": "护甲双收纳口袋模组",
+   "name_en": "Armor Double Pocket Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "载货量",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "将该模组安装到你的护甲上，可减少2点超重惩罚。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorQuadStoragePocket",
+   "name": "护甲四收纳口袋模组",
+   "name_en": "Armor Quad Pocket Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "载货量",
+     "fmt": "raw",
+     "variants": [
+      [
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ]
+    }
+   ],
+   "desc": "将该模组安装到你的护甲上，可减少 4 点超重惩罚。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorStoragePocket",
+   "name": "护甲收纳口袋模组",
+   "name_en": "Armor Pocket Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "载货量",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "将该模组安装到你的护甲上，可减少1点超重惩罚。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorImprovedFittings",
+   "name": "护甲配件模组",
+   "name_en": "Armor Fittings Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "移动能力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.02,
+       0.02,
+       0.02,
+       0.02,
+       0.02,
+       0.02
+      ]
+     ]
+    },
+    {
+     "k": "走动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.014,
+       0.014,
+       0.014,
+       0.014,
+       0.014,
+       0.014
+      ]
+     ]
+    },
+    {
+     "k": "跑动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.028,
+       0.028,
+       0.028,
+       0.028,
+       0.028,
+       0.028
+      ]
+     ]
+    }
+   ],
+   "desc": "降低护甲带来的移动与体力惩罚。\n\n无法安装于轻型护甲。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorInsulatedLinerT2",
+   "name": "拼布绝缘装甲模组",
+   "name_en": "Patchwork Insulated Armor Mod",
+   "cat": "armor",
+   "install": [
+    "头盔",
+    "胸甲",
+    "手套",
+    "靴子"
+   ],
+   "install_raw": [
+    "armorHead",
+    "armorChest",
+    "armorHands",
+    "armorFeet"
+   ],
+   "chips": [
+    {
+     "k": "寒冷抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.8,
+       3.1,
+       3.4,
+       3.7,
+       4.0,
+       4.3
+      ]
+     ]
+    },
+    {
+     "k": "炎热抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.8,
+       3.1,
+       3.4,
+       3.7,
+       4.0,
+       4.3
+      ]
+     ]
+    }
+   ],
+   "desc": "提升炎热和寒冷抗性",
+   "tiered": true
+  },
+  {
+   "id": "modArmorAgility",
+   "name": "敏捷模组",
+   "name_en": "Agility Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（敏捷）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这款由人工智能驱动的神经接口接入头部装备后，会大大加快神经信号的传输。\n\n+1 敏捷",
+   "tiered": false
+  },
+  {
+   "id": "modArmorIntellect",
+   "name": "智慧模组",
+   "name_en": "Intellect Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（智慧）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "这款方便的人工智能头部装备伴侣会为你提供灾变发生之前的存档信息，以刺激你的智力。\n\n+1 智慧",
+   "tiered": false
+  },
+  {
+   "id": "modArmorMuffledConnectors",
+   "name": "消音连接器模组",
+   "name_en": "Muffled Connectors Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "噪音",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05,
+       -0.05
+      ]
+     ]
+    }
+   ],
+   "desc": "降低护甲产生的噪音。\n\n无法安装于轻型和刺客护甲。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorStealthBoots",
+   "name": "潜行靴模组",
+   "name_en": "Stealth Boots Mod",
+   "cat": "armor",
+   "install": [
+    "靴子"
+   ],
+   "install_raw": [
+    "armorFeet"
+   ],
+   "chips": [
+    {
+     "k": "走动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.03,
+       0.03,
+       0.03,
+       0.03,
+       0.03,
+       0.03
+      ]
+     ]
+    },
+    {
+     "k": "跑动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "噪音",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "降低中型和重型靴子的噪音和体力惩罚。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorInsulatedLinerT3",
+   "name": "热核绝缘装甲模组",
+   "name_en": "ThermaCore Insulated Armor Mod",
+   "cat": "armor",
+   "install": [
+    "头盔",
+    "胸甲",
+    "手套",
+    "靴子"
+   ],
+   "install_raw": [
+    "armorHead",
+    "armorChest",
+    "armorHands",
+    "armorFeet"
+   ],
+   "chips": [
+    {
+     "k": "寒冷抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       4.6,
+       4.9,
+       5.2,
+       5.5,
+       5.8,
+       6.0
+      ]
+     ]
+    },
+    {
+     "k": "炎热抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       4.6,
+       4.9,
+       5.2,
+       5.5,
+       5.8,
+       6.0
+      ]
+     ]
+    }
+   ],
+   "desc": "提升炎热和寒冷抗性",
+   "tiered": true
+  },
+  {
+   "id": "modArmorInsulatedLinerT1",
+   "name": "破旧绝缘装甲模组",
+   "name_en": "Tattered Insulated Armor Mod",
+   "cat": "armor",
+   "install": [
+    "头盔",
+    "胸甲",
+    "手套",
+    "靴子"
+   ],
+   "install_raw": [
+    "armorHead",
+    "armorChest",
+    "armorHands",
+    "armorFeet"
+   ],
+   "chips": [
+    {
+     "k": "寒冷抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.3,
+       1.6,
+       1.9,
+       2.2,
+       2.5
+      ]
+     ]
+    },
+    {
+     "k": "炎热抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.3,
+       1.6,
+       1.9,
+       2.2,
+       2.5
+      ]
+     ]
+    }
+   ],
+   "desc": "提升炎热和寒冷抗性",
+   "tiered": true
+  },
+  {
+   "id": "modArmorPlatingBasic",
+   "name": "装甲板模组",
+   "name_en": "Armor Plating Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "护甲等级",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "desc": "使用额外的装甲板提升你的护甲等级。\n\n无法在重甲上安装。",
+   "tiered": false
+  },
+  {
+   "id": "modRadiationReady",
+   "name": "辐射就绪模组",
+   "name_en": "Radiation Ready Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "元素抗性",
+     "fmt": "raw",
+     "variants": [
+      [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ]
+     ]
+    }
+   ],
+   "desc": "增加辐射防护。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorCigar",
+   "name": "雪茄模组",
+   "name_en": "Cigar Mod",
+   "cat": "armor",
+   "install": [
+    "头盔"
+   ],
+   "install_raw": [
+    "armorHead"
+   ],
+   "chips": [
+    {
+     "k": "属性等级（力量）",
+     "fmt": "raw",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ]
+    },
+    {
+     "k": "买入价格",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.06,
+       0.07,
+       0.08,
+       0.09,
+       0.1
+      ]
+     ]
+    },
+    {
+     "k": "卖出价格",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.05,
+       0.06,
+       0.07,
+       0.08,
+       0.09,
+       0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "看起来很唬人，可以从商人处获得更多优惠。同时可以增强力量！",
+   "tiered": true
+  },
+  {
+   "id": "modArmorCustomizedFittings",
+   "name": "高级护甲配件模组",
+   "name_en": "Advanced Armor Fittings Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "移动能力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.03,
+       0.03,
+       0.03,
+       0.03,
+       0.03,
+       0.03
+      ]
+     ]
+    },
+    {
+     "k": "走动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.021,
+       0.021,
+       0.021,
+       0.021,
+       0.021,
+       0.021
+      ]
+     ]
+    },
+    {
+     "k": "跑动体力",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.056,
+       0.056,
+       0.056,
+       0.056,
+       0.056,
+       0.056
+      ]
+     ]
+    }
+   ],
+   "desc": "大幅降低护甲带来的移动与体力惩罚。\n\n无法安装于轻型护甲。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorPlatingReinforced",
+   "name": "高级护甲镀层模组",
+   "name_en": "Advanced Armor Plating Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "护甲等级",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "使用额外的装甲板提升你的护甲等级。\n\n无法在重甲上安装。",
+   "tiered": false
+  },
+  {
+   "id": "modArmorAdvancedMuffledConnectors",
+   "name": "高级消音连接器模组",
+   "name_en": "Advanced Muffled Connectors Mod",
+   "cat": "armor",
+   "install": [
+    "护甲"
+   ],
+   "install_raw": [
+    "armor"
+   ],
+   "chips": [
+    {
+     "k": "噪音",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ]
+    }
+   ],
+   "desc": "大幅降低护甲产生的噪音。\n\n无法安装于轻型和刺客护甲。",
+   "tiered": false
+  },
+  {
+   "id": "modVehicleStorage",
+   "name": "载具储物模组",
+   "name_en": "Vehicle Storage Mod",
+   "cat": "vehicle",
+   "install": [
+    "载具储物"
+   ],
+   "install_raw": [
+    "vstorage"
+   ],
+   "chips": [],
+   "desc": "用此模组提高你载具的储物容量。\n每辆载具最多可增加两个模组。",
+   "tiered": false
+  },
+  {
+   "id": "modVehicleSuperCharger",
+   "name": "载具增压器模组",
+   "name_en": "Vehicle Super Charger Mod",
+   "cat": "vehicle",
+   "install": [
+    "引擎"
+   ],
+   "install_raw": [
+    "vengine"
+   ],
+   "chips": [
+    {
+     "k": "引擎扭矩",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.12,
+       0.12,
+       0.12,
+       0.12,
+       0.12,
+       0.12
+      ]
+     ]
+    },
+    {
+     "k": "载具极速",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.18,
+       0.18,
+       0.18,
+       0.18,
+       0.18,
+       0.18
+      ]
+     ]
+    }
+   ],
+   "desc": "此增压器模组可以提高载具的加速度和最高速度。",
+   "tiered": false
+  },
+  {
+   "id": "modVehicleReserveFuelTank",
+   "name": "载具备用油箱模组",
+   "name_en": "Vehicle Reserve Fuel Tank Mod",
+   "cat": "vehicle",
+   "install": [
+    "油箱"
+   ],
+   "install_raw": [
+    "vfuel"
+   ],
+   "chips": [
+    {
+     "k": "油箱容量",
+     "fmt": "mulset",
+     "variants": [
+      [
+       1.5,
+       1.6,
+       1.7,
+       1.8,
+       1.9,
+       2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "使用此模组可增加你载具的燃料储量。",
+   "tiered": true
+  },
+  {
+   "id": "modVehicleExpandedSeat",
+   "name": "载具扩展座椅模组",
+   "name_en": "Vehicle Expanded Seating Mod",
+   "cat": "vehicle",
+   "install": [
+    "座位"
+   ],
+   "install_raw": [
+    "vseat"
+   ],
+   "chips": [
+    {
+     "k": "座位数",
+     "fmt": "raw",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0
+      ]
+     ]
+    }
+   ],
+   "desc": "使用此模组扩展你的座位承载量。",
+   "tiered": false
+  },
+  {
+   "id": "modVehicleArmor",
+   "name": "载具护甲模组",
+   "name_en": "Vehicle Armor Mod",
+   "cat": "vehicle",
+   "install": [
+    "车体装甲"
+   ],
+   "install_raw": [
+    "varmor"
+   ],
+   "chips": [
+    {
+     "k": "载具实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ]
+     ]
+    },
+    {
+     "k": "载具物块伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.38,
+       0.38,
+       0.38,
+       0.38,
+       0.38,
+       0.38
+      ]
+     ]
+    },
+    {
+     "k": "载具自伤",
+     "fmt": "pctset",
+     "variants": [
+      [
+       0.3,
+       0.3,
+       0.3,
+       0.3,
+       0.3,
+       0.3
+      ]
+     ]
+    }
+   ],
+   "desc": "摩托车和旋翼机用的强化装甲。\n\n减少物体撞击载具前部时载具受到的伤害。增加对物块和实体的伤害。",
+   "tiered": false
+  },
+  {
+   "id": "modVehiclePlow",
+   "name": "载具犁模组",
+   "name_en": "Vehicle Plow Mod",
+   "cat": "vehicle",
+   "install": [
+    "车铲"
+   ],
+   "install_raw": [
+    "vplow"
+   ],
+   "chips": [
+    {
+     "k": "载具实体伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.6,
+       0.6,
+       0.6,
+       0.6,
+       0.6,
+       0.6
+      ]
+     ]
+    },
+    {
+     "k": "载具物块伤害",
+     "fmt": "pct",
+     "variants": [
+      [
+       0.56,
+       0.56,
+       0.56,
+       0.56,
+       0.56,
+       0.56
+      ]
+     ]
+    },
+    {
+     "k": "载具自伤",
+     "fmt": "pctset",
+     "variants": [
+      [
+       0.25,
+       0.25,
+       0.25,
+       0.25,
+       0.25,
+       0.25
+      ]
+     ]
+    }
+   ],
+   "desc": "一款坚固耐用的 4x4 卡车犁，非常适合用来在成群的丧尸中开辟道路。\n\n会减少物体撞击 4x4 卡车前部时卡车受到的伤害。会增加对物块和实体的伤害。",
+   "tiered": false
+  },
+  {
+   "id": "modVehicleFuelSaver",
+   "name": "载具节油器模组",
+   "name_en": "Vehicle Fuel Saver Mod",
+   "cat": "vehicle",
+   "install": [
+    "引擎"
+   ],
+   "install_raw": [
+    "vengine"
+   ],
+   "chips": [
+    {
+     "k": "载具油耗",
+     "fmt": "mulset",
+     "variants": [
+      [
+       0.9,
+       0.8,
+       0.7,
+       0.6,
+       0.5,
+       0.4
+      ]
+     ]
+    }
+   ],
+   "desc": "载具耗油降低。",
+   "tiered": true
+  },
+  {
+   "id": "modVehicleOffRoadHeadlights",
+   "name": "载具越野头灯模组",
+   "name_en": "Vehicle Off Road Headlights Mod",
+   "cat": "vehicle",
+   "install": [
+    "车灯"
+   ],
+   "install_raw": [
+    "vlight"
+   ],
+   "chips": [
+    {
+     "k": "灯光强度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       2.2,
+       2.2,
+       2.2,
+       2.2,
+       2.2,
+       2.2
+      ]
+     ]
+    }
+   ],
+   "desc": "这些越野头灯可以在最黑暗的夜色里照亮路途。\n\n使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneCargoMod",
+   "name": "机器人无人机储物模组",
+   "name_en": "Robotic Drone Cargo Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [],
+   "desc": "用此模组提高无人机的储物容量。安装更多模组以获得额外容量。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneMedicMod",
+   "name": "机器人无人机医疗模组",
+   "name_en": "Robotic Drone Medic Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [
+    {
+     "k": "最大射程",
+     "fmt": "rawset",
+     "variants": [
+      [
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ]
+    },
+    {
+     "k": "无人机冷却",
+     "fmt": "rawset",
+     "variants": [
+      [
+       15.0,
+       15.0,
+       15.0,
+       15.0,
+       15.0,
+       15.0
+      ]
+     ]
+    }
+   ],
+   "desc": "将你的无人机改造为机器人野战军医，会在其物品栏内有医疗绷带或急救包时自动治疗你。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneHeadlampMod",
+   "name": "机器人无人机头灯模组",
+   "name_en": "Robotic Headlamp Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [],
+   "desc": "此机器人无人机模组会为你的无人机加装一盏头灯，以改善黑暗空间的能见度。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneWeaponMod",
+   "name": "机器人无人机武器模组",
+   "name_en": "Robotic Drone Weapon Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [],
+   "desc": "此机器人无人机模组能将你的无人机升级为移动的杀戮机器，向敌人发射机器人弹药。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneStunWeaponMod",
+   "name": "机器人无人机眩晕模组",
+   "name_en": "Robotic Drone Stun Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [
+    {
+     "k": "最大耐久度",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       20.0,
+       30.0,
+       40.0,
+       50.0,
+       60.0
+      ]
+     ]
+    },
+    {
+     "k": "最大射程",
+     "fmt": "rawset",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0,
+       2.0
+      ]
+     ]
+    },
+    {
+     "k": "无人机冷却",
+     "fmt": "rawset",
+     "variants": [
+      [
+       10.0,
+       9.0,
+       8.0,
+       7.0,
+       6.0,
+       5.0
+      ]
+     ]
+    }
+   ],
+   "desc": "为你的无人机装备一把电击枪，攻击能使丧尸停在原地。",
+   "tiered": true
+  },
+  {
+   "id": "modRoboticDroneArmorPlatingMod",
+   "name": "机器人无人机装甲板模组",
+   "name_en": "Robotic Drone Armor Plating Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [],
+   "desc": "使用此模组升级机器人无人机的防御能力。伤害和损坏降低 50%。",
+   "tiered": false
+  },
+  {
+   "id": "modRoboticDroneMoraleBoosterMod",
+   "name": "机器人无人机鼓舞士气模组",
+   "name_en": "Robotic Drone Morale Booster Mod",
+   "cat": "drone",
+   "install": [
+    "无人机"
+   ],
+   "install_raw": [
+    "drone"
+   ],
+   "chips": [],
+   "desc": "当附近有安装此模组的无人机时，体力值再生提高10%。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeBrown",
+   "name": "染色剂:棕色",
+   "name_en": "Dye: Brown",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeOrange",
+   "name": "染色剂:橙色",
+   "name_en": "Dye: Orange",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeWhite",
+   "name": "染色剂:溶剂",
+   "name_en": "Dye: Solvent",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyePink",
+   "name": "染色剂:粉色",
+   "name_en": "Dye: Pink",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyePurple",
+   "name": "染色剂:紫色",
+   "name_en": "Dye: Purple",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeRed",
+   "name": "染色剂:红色",
+   "name_en": "Dye: Red",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeGreen",
+   "name": "染色剂:绿色",
+   "name_en": "Dye: Green",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeBlue",
+   "name": "染色剂:蓝色",
+   "name_en": "Dye: Blue",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeYellow",
+   "name": "染色剂:黄色",
+   "name_en": "Dye: Yellow",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  },
+  {
+   "id": "modDyeBlack",
+   "name": "染色剂:黑色",
+   "name_en": "Dye: Black",
+   "cat": "dye",
+   "install": [
+    "武器",
+    "工具",
+    "载具",
+    "无人机"
+   ],
+   "install_raw": [
+    "weapon",
+    "tool",
+    "vehicle",
+    "drone"
+   ],
+   "chips": [],
+   "desc": "添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。",
+   "tiered": false
+  }
+ ],
+ "skipped": [
+  "modGeneralMaster",
+  "modVehicleMega",
+  "questWhiteRiverSupplies",
+  "questCassadoreSupplies",
+  "modGunButtkick3000",
+  "modGunButtkick4000",
+  "modMeleeGunToolDecapitizer",
+  "modArmorJumpJets",
+  "modGunBowAdminArcheryReloadRecovery",
+  "modArmorAdminToughGuyShirt"
+ ]
+}

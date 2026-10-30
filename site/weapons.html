@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七日杀 V3.4 武器速查表</title>
+<style>
+:root{
+  --bg:#100e0c; --panel:#1a1714; --panel2:#221d19; --line:#332b24;
+  --text:#e8e1d8; --dim:#a2988c; --accent:#e8a33d; --accent2:#c8762a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px;letter-spacing:.5px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:22px 0 4px}
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:6px;padding:12px 14px}
+.rule b{display:block;color:var(--accent);font-size:13px;letter-spacing:.5px;margin-bottom:4px}
+.rule span{color:var(--dim);font-size:13px}
+.rule span em{color:var(--text);font-style:normal}
+
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.chipbtn small{opacity:.65;margin-left:4px;font-size:11px}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+.search input::placeholder{color:#6f665c}
+
+section.cat{margin:0 0 42px;scroll-margin-top:84px}
+.cat-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:0 0 10px;border-bottom:2px solid var(--line);margin-bottom:8px}
+.cat-head .bar{width:6px;height:26px;border-radius:3px;display:inline-block}
+.cat-head h2{margin:0;font-size:21px}
+.cat-head .en{color:var(--dim);font-size:13px;letter-spacing:1px}
+.cat-head .cnt{margin-left:auto;color:var(--dim);font-size:12px}
+.cat-intro{color:#c4b8a9;font-size:13.5px;margin:0 0 18px;max-width:920px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.wpn{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden;
+  display:flex;flex-direction:column;padding-bottom:12px}
+.whead{display:flex;align-items:center;gap:8px;padding:12px 15px 6px;flex-wrap:wrap}
+.whead h3{margin:0;font-size:16px;color:#f3eadc}
+.whead h3 em{font-style:normal;font-weight:400;font-size:11px;color:#7d7367;
+  letter-spacing:.3px;margin-left:7px}
+.badge{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:10px;color:#141210}
+.badge.handgun{background:#e0574c}.badge.shotgun{background:#e08a3c}.badge.rifle{background:#e2b03c}
+.badge.mg{background:#c8762a}.badge.bow{background:#57b95f}.badge.explosive{background:#a06fd0}
+.badge.blade{background:#49b6e8}.badge.club{background:#8fa3ad}.badge.sledge{background:#ef8377}
+.badge.spear{background:#6ec6ef}.badge.knuckles{background:#c58ae0}.badge.baton{background:#7fd487}
+.badge.misc{background:#9a8f80}
+.tier{font-size:10.5px;font-weight:700;color:#d9b477;border:1px solid #4a3a24;
+  border-radius:4px;padding:1px 6px}
+.ammo{padding:0 15px 6px;font-size:11px;color:#7d7367;line-height:1.5}
+.ammo b{color:#b9ab97;font-weight:600}
+.setq{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.setq .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.setq input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a3c2b,#c8762a,#e8a33d);outline:0}
+.setq input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:#f3eadc;border:3px solid var(--accent);cursor:pointer;
+  box-shadow:0 0 5px rgba(232,163,61,.55)}
+.setq input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
+.setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
+.fixed{padding:0 15px 9px;font-size:11px;color:#6f665c}
+.chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 8px}
+.chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
+  border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
+.chips i b{font-weight:700;color:#f0c98a}
+.chips i.core{color:#e8d1a5;border-color:#6b5334;background:#302518}
+details.more{padding:0 15px 6px}
+details.more summary{cursor:pointer;font-size:11px;color:#8b8175;outline:0;padding:2px 0 4px}
+details.more summary::marker{color:var(--accent2)}
+details.more .chips{padding:2px 0 4px}
+.desc{margin:8px 15px 0;padding-top:8px;font-size:11.5px;color:#8f857a;line-height:1.55;
+  border-top:1px dashed #2c2520}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none !important}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .search input{width:100px}
+  h1{font-size:22px}
+  .setq input[type=range]{width:110px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  nav.jump,.setq{display:none}
+  .wpn{background:#fff;border-color:#ccc;break-inside:avoid}
+  .whead h3,.desc{color:#000}
+}
+</style>
+
+<meta name="description" content="51 把武器按 13 类整理，伤害、射速、弹匣、射程、耐久与隐藏数值，品质 1–6 逐级切换。">
+<link rel="icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 武器速查表">
+<meta property="og:description" content="51 把武器按 13 类整理，伤害、射速、弹匣、射程、耐久与隐藏数值，品质 1–6 逐级切换。">
+<meta property="og:image" content="https://example.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body><div class='wrap'>
+<header class='top'>
+<h1>七日杀 · 武器速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-10-30 16:51 ｜ 51 把武器 · 13 个分类（已排除零件/开发物品）</div>
+<div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每把武器卡片有自己的 1–6 品质滑杆，拖动即可切换该卡显示的数值。<br><span style='color:#e8a33d'>更多数值：</span>核心数值直接显示，散布、后坐力、穿透等折叠在「更多数值」里。<br><span style='color:#e8a33d'>配套页面：</span><a href='perks.html'>天赋速查表</a> · <a href='armor.html'>装甲速查表</a> · <a href='mods.html'>模组速查表</a></div>
+</header>
+<div class='rules'>
+<div class='rule'><b>伤害怎么算</b><span>近战 = 武器基础值 × 品质加成；枪械 = <em>默认弹药基础伤害 + 枪械修正</em>，再乘品质加成。所以同一把枪换穿甲弹，伤害会变。</span></div>
+<div class='rule'><b>品质 1→6</b><span>大多数武器<em>从品质 2 起</em>才有伤害加成（1 级是白板），耐久和模组槽也会随品质涨。</span></div>
+<div class='rule'><b>霰弹枪标“伤害/弹丸”</b><span>一发打出多颗弹丸，卡片上的伤害是<em>单颗</em>的；实际总伤害要乘弹丸数。</span></div>
+</div>
+<nav class='jump'><div class='navrow'>
+<button class='chipbtn on' data-cat='all'>全部<small>51</small></button>
+<button class='chipbtn' data-cat='handgun'>手枪与冲锋枪<small>5</small></button>
+<button class='chipbtn' data-cat='shotgun'>霰弹枪<small>4</small></button>
+<button class='chipbtn' data-cat='rifle'>步枪<small>4</small></button>
+<button class='chipbtn' data-cat='mg'>机枪<small>4</small></button>
+<button class='chipbtn' data-cat='bow'>弓弩<small>5</small></button>
+<button class='chipbtn' data-cat='explosive'>爆炸物<small>7</small></button>
+<button class='chipbtn' data-cat='blade'>刀剑<small>4</small></button>
+<button class='chipbtn' data-cat='club'>棍棒<small>4</small></button>
+<button class='chipbtn' data-cat='sledge'>大锤<small>3</small></button>
+<button class='chipbtn' data-cat='spear'>长矛<small>3</small></button>
+<button class='chipbtn' data-cat='knuckles'>拳套<small>3</small></button>
+<button class='chipbtn' data-cat='baton'>电击棍<small>2</small></button>
+<button class='chipbtn' data-cat='misc'>炮塔与杂项<small>3</small></button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索武器 / 种类'></label>
+</div></nav>
+<section class='cat' id='handgun'>
+<div class='cat-head'><span class='bar' style='background:#e0574c'></span><h2>手枪与冲锋枪</h2><span class='en'>Handguns &amp; SMG</span><span class='cnt'>5 把</span></div>
+<p class='cat-intro'>9mm 系列：射速与机动性平衡，弹药便宜。</p>
+<div class='grid'>
+<article class='wpn' data-id='gunHandgunT0PipePistol' data-cat='handgun' data-text='铁管手枪 pipe pistol 发射9毫米弹药的自制手枪。
+
+可使用短铁管修理。
+可分解为铁。 手枪与冲锋枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T0</span><h3>铁管手枪<em>Pipe Pistol</em></h3></div>
+<div class='ammo'><b>弹药</b> 9毫米弹药 · 9毫米空心弹 · 9毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁管手枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='28,29.4,30.8,32.2,33.6,35' data-fmt='num'>35</b></i><i class='core'>射速（发/分） <b data-vals='126,126,126,126,126,126' data-fmt='num'>126</b></i><i class='core'>弹匣 <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class='core'>射程 <b data-vals='40,40,40,40,40,40' data-fmt='num'>40</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>有效射程 <b data-vals='12,12,12,12,12,12' data-fmt='num'>12</b></i><i class=''>散布（垂直） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>散布（水平） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='num'>0.8</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.9,0.9,0.9,0.9,0.9,0.9' data-fmt='num'>0.9</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='num'>0.3</b></i></div></details>
+<p class='desc'>发射9毫米弹药的自制手枪。<br><br>可使用短铁管修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='gunHandgunT1Pistol' data-cat='handgun' data-text='手枪 pistol 一把基础手枪，使用9毫米弹药。
+
+可使用维修工具修理。
+可分解为手枪零件。 手枪与冲锋枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T1</span><h3>手枪<em>Pistol</em></h3></div>
+<div class='ammo'><b>弹药</b> 9毫米弹药 · 9毫米空心弹 · 9毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='手枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='37,38.85,40.7,42.55,44.4,46.25' data-fmt='num'>46.3</b></i><i class='core'>射速（发/分） <b data-vals='180,180,180,180,180,180' data-fmt='num'>180</b></i><i class='core'>弹匣 <b data-vals='15,15,15,15,15,15' data-fmt='num'>15</b></i><i class='core'>射程 <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>耐久 <b data-vals='300,320,340,360,380,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='17,17,17,17,17,17' data-fmt='num'>17</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>散布（水平） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='num'>0.7</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='num'>0.8</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.25,0.25,0.25,0.25,0.25,0.25' data-fmt='num'>0.3</b></i></div></details>
+<p class='desc'>一把基础手枪，使用9毫米弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
+</article>
+<article class='wpn' data-id='gunHandgunT2Magnum44' data-cat='handgun' data-text='.44马格南 .44 magnum .44马格南是手枪之王。火力十分强劲，但噪音也特别大。拿起这把好家伙，让克林特骄傲吧。
+
+可使用维修工具修理。
+可分解为手枪零件。 手枪与冲锋枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T2</span><h3>.44马格南<em>.44 Magnum</em></h3></div>
+<div class='ammo'><b>弹药</b> .44马格南弹药 · .44马格南空心弹 · .44马格南穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='.44马格南 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='65,68.25,71.5,74.75,78,81.25' data-fmt='num'>81.3</b></i><i class='core'>射速（发/分） <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>弹匣 <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class='core'>射程 <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>耐久 <b data-vals='400,420,440,460,480,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='27,27,27,27,27,27' data-fmt='num'>27</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>散布（水平） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>后坐力（垂直·小） <b data-vals='4.5,4.5,4.5,4.5,4.5,4.5' data-fmt='num'>4.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='num'>0.2</b></i></div></details>
+<p class='desc'>.44马格南是手枪之王。火力十分强劲，但噪音也特别大。拿起这把好家伙，让克林特骄傲吧。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
+</article>
+<article class='wpn' data-id='gunHandgunT3DesertVulture' data-cat='handgun' data-text='.44 口径沙漠秃鹰 .44 desert vulture 这把重型手枪使用.44 口径的弹药。
+
+可使用维修工具修理。
+可分解为手枪零件。 手枪与冲锋枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T3</span><h3>.44 口径沙漠秃鹰<em>.44 Desert Vulture</em></h3></div>
+<div class='ammo'><b>弹药</b> .44马格南弹药 · .44马格南空心弹 · .44马格南穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='.44 口径沙漠秃鹰 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='90,94.5,99,103.5,108,112.5' data-fmt='num'>112.5</b></i><i class='core'>射速（发/分） <b data-vals='130,130,130,130,130,130' data-fmt='num'>130</b></i><i class='core'>弹匣 <b data-vals='8.8,8.8,8.8,8.8,8.8,8.8' data-fmt='num'>8.8</b></i><i class='core'>射程 <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>耐久 <b data-vals='500,540,580,620,660,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>散布（水平） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>后坐力（垂直·小） <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='num'>0.2</b></i></div></details>
+<p class='desc'>这把重型手枪使用.44 口径的弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
+</article>
+<article class='wpn' data-id='gunHandgunT3SMG5' data-cat='handgun' data-text='smg-5 smg-5 这把冲锋枪使用9毫米弹药。
+
+可使用维修工具修理。
+可分解为手枪零件。 手枪与冲锋枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T3</span><h3>SMG-5<em>SMG-5</em></h3></div>
+<div class='ammo'><b>弹药</b> 9毫米弹药 · 9毫米空心弹 · 9毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='SMG-5 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='50,52.5,55,57.5,60,62.5' data-fmt='num'>62.5</b></i><i class='core'>射速（发/分） <b data-vals='480,480,480,480,480,480' data-fmt='num'>480</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='65,65,65,65,65,65' data-fmt='num'>65</b></i><i class='core'>耐久 <b data-vals='500,540,580,620,660,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.35,1.35,1.35,1.35,1.35,1.35' data-fmt='num'>1.4</b></i><i class=''>散布（水平） <b data-vals='1.35,1.35,1.35,1.35,1.35,1.35' data-fmt='num'>1.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='num'>0.3</b></i></div></details>
+<p class='desc'>这把冲锋枪使用9毫米弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
+</article>
+</div></section>
+<section class='cat' id='shotgun'>
+<div class='cat-head'><span class='bar' style='background:#e08a3c'></span><h2>霰弹枪</h2><span class='en'>Shotguns</span><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>近距离高爆发，一次打出多颗弹丸，远距离衰减明显。</p>
+<div class='grid'>
+<article class='wpn' data-id='gunShotgunT0PipeShotgun' data-cat='shotgun' data-text='铁管霰弹枪 pipe shotgun 发射霰弹弹药的自制枪。
+在极近距离内相当有效。
+
+可使用短铁管修理。
+可分解为铁。 霰弹枪 伤害/弹丸 射速（发/分） 弹匣 耐久 模组槽 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 散布（垂直） 散布（水平）'>
+<div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T0</span><h3>铁管霰弹枪<em>Pipe Shotgun</em></h3></div>
+<div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁管霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害/弹丸 <b data-vals='8.1,8.51,8.91,9.31,9.72,10.12' data-fmt='num'>10.1</b></i><i class='core'>射速（发/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i><i class=''>散布（垂直） <b data-vals='0.07,0.07,0.07,0.07,0.07,0.07' data-fmt='pct'>+7%</b></i><i class=''>散布（水平） <b data-vals='0.07,0.07,0.07,0.07,0.07,0.07' data-fmt='pct'>+7%</b></i></div></details>
+<p class='desc'>发射霰弹弹药的自制枪。<br>在极近距离内相当有效。<br><br>可使用短铁管修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='gunShotgunT1DoubleBarrel' data-cat='shotgun' data-text='双管霰弹枪 double barrel shotgun 锈迹斑斑的旧式双管霰弹枪，非常适合短距离屠杀。
+
+可使用维修工具修理。
+可分解为霰弹枪零件。 霰弹枪 伤害/弹丸 射速（发/分） 弹匣 耐久 模组槽 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T1</span><h3>双管霰弹枪<em>Double Barrel Shotgun</em></h3></div>
+<div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='双管霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害/弹丸 <b data-vals='11.1,11.65,12.21,12.76,13.32,13.88' data-fmt='num'>13.9</b></i><i class='core'>射速（发/分） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>弹匣 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
+<p class='desc'>锈迹斑斑的旧式双管霰弹枪，非常适合短距离屠杀。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
+</article>
+<article class='wpn' data-id='gunShotgunT2PumpShotgun' data-cat='shotgun' data-text='泵动式霰弹枪 pump shotgun 长管霰弹枪，使用泵装填子弹。
+
+可使用维修工具修理。
+可分解为霰弹枪零件。 霰弹枪 伤害/弹丸 射速（发/分） 弹匣 耐久 模组槽 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T2</span><h3>泵动式霰弹枪<em>Pump Shotgun</em></h3></div>
+<div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='泵动式霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害/弹丸 <b data-vals='15.1,15.86,16.61,17.36,18.12,18.88' data-fmt='num'>18.9</b></i><i class='core'>射速（发/分） <b data-vals='60,60,60,60,60,60' data-fmt='num'>60</b></i><i class='core'>弹匣 <b data-vals='8,8,8,8,8,8' data-fmt='num'>8</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
+<p class='desc'>长管霰弹枪，使用泵装填子弹。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
+</article>
+<article class='wpn' data-id='gunShotgunT3AutoShotgun' data-cat='shotgun' data-text='自动霰弹枪 auto shotgun 这种半自动霰弹枪是一种罕见而致命的近距离武器，它能把射程内的任何东西打成肉酱。
+
+可使用维修工具修理。
+可分解为霰弹枪零件。 霰弹枪 伤害/弹丸 射速（发/分） 弹匣 耐久 模组槽 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T3</span><h3>自动霰弹枪<em>Auto Shotgun</em></h3></div>
+<div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='自动霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害/弹丸 <b data-vals='20.1,21.11,22.11,23.11,24.12,25.12' data-fmt='num'>25.1</b></i><i class='core'>射速（发/分） <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>弹匣 <b data-vals='16,16,16,16,16,16' data-fmt='num'>16</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
+<p class='desc'>这种半自动霰弹枪是一种罕见而致命的近距离武器，它能把射程内的任何东西打成肉酱。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
+</article>
+</div></section>
+<section class='cat' id='rifle'>
+<div class='cat-head'><span class='bar' style='background:#e2b03c'></span><h2>步枪</h2><span class='en'>Rifles</span><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>7.62 系列：单发伤害高、射程远，适合中远距离点射。</p>
+<div class='grid'>
+<article class='wpn' data-id='gunRifleT0PipeRifle' data-cat='rifle' data-text='铁管步枪 pipe rifle 发射7.62毫米弹药的自制步枪。
+
+可使用短铁管修理。
+可分解为铁。 步枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 爆头伤害'>
+<div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T0</span><h3>铁管步枪<em>Pipe Rifle</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁管步枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='44,46.2,48.4,50.6,52.8,55' data-fmt='num'>55</b></i><i class='core'>射速（发/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class=''>散布（垂直） <b data-vals='5.7,5.7,5.7,5.7,5.7,5.7' data-fmt='num'>5.7</b></i><i class=''>散布（水平） <b data-vals='5.7,5.7,5.7,5.7,5.7,5.7' data-fmt='num'>5.7</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.35,-0.35,-0.35,-0.35,-0.35,-0.35' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.35,0.35,0.35,0.35,0.35,0.35' data-fmt='num'>0.4</b></i><i class=''>爆头伤害 <b data-vals='25,25,25,25,25,25' data-fmt='pctabs'>= 25%</b></i></div></details>
+<p class='desc'>发射7.62毫米弹药的自制步枪。<br><br>可使用短铁管修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='gunRifleT1HuntingRifle' data-cat='rifle' data-text='猎枪 hunting rifle 普通农民使用的猎枪，使用7.62毫米弹药。
+
+可使用维修工具修理。
+可分解为步枪零件。 步枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 爆头伤害'>
+<div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T1</span><h3>猎枪<em>Hunting Rifle</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='猎枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='58,60.9,63.8,66.7,69.6,72.5' data-fmt='num'>72.5</b></i><i class='core'>射速（发/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='59,59,59,59,59,59' data-fmt='num'>59</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>散布（水平） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.35,-0.35,-0.35,-0.35,-0.35,-0.35' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.35,0.35,0.35,0.35,0.35,0.35' data-fmt='num'>0.4</b></i><i class=''>爆头伤害 <b data-vals='50,50,50,50,50,50' data-fmt='pctabs'>= 50%</b></i></div></details>
+<p class='desc'>普通农民使用的猎枪，使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
+</article>
+<article class='wpn' data-id='gunRifleT2LeverActionRifle' data-cat='rifle' data-text='杠杆式步枪 lever action rifle 这把杠杆式步枪使用7.62毫米弹药。如果你想百发百中，它是你的不二选择。
+
+可使用维修工具修理。
+可分解为步枪零件。 步枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 爆头伤害'>
+<div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T2</span><h3>杠杆式步枪<em>Lever Action Rifle</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='杠杆式步枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='76,79.8,83.6,87.4,91.2,95' data-fmt='num'>95</b></i><i class='core'>射速（发/分） <b data-vals='82,82,82,82,82,82' data-fmt='num'>82</b></i><i class='core'>弹匣 <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='69,69,69,69,69,69' data-fmt='num'>69</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>散布（水平） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>后坐力（垂直·小） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i><i class=''>爆头伤害 <b data-vals='100,100,100,100,100,100' data-fmt='pctabs'>= 100%</b></i></div></details>
+<p class='desc'>这把杠杆式步枪使用7.62毫米弹药。如果你想百发百中，它是你的不二选择。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
+</article>
+<article class='wpn' data-id='gunRifleT3SniperRifle' data-cat='rifle' data-text='狙击步枪 sniper rifle 这种高精度的远程步枪非常适合远距离狙击敌人。
+
+可使用维修工具修理。
+可分解为步枪零件。 步枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 爆头伤害'>
+<div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T3</span><h3>狙击步枪<em>Sniper Rifle</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='狙击步枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='100,105,110,115,120,125' data-fmt='num'>125</b></i><i class='core'>射速（发/分） <b data-vals='140,140,140,140,140,140' data-fmt='num'>140</b></i><i class='core'>弹匣 <b data-vals='12,12,12,12,12,12' data-fmt='num'>12</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='80,80,80,80,80,80' data-fmt='num'>80</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>散布（水平） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>后坐力（垂直·小） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i><i class=''>爆头伤害 <b data-vals='200,200,200,200,200,200' data-fmt='pctabs'>= 200%</b></i></div></details>
+<p class='desc'>这种高精度的远程步枪非常适合远距离狙击敌人。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
+</article>
+</div></section>
+<section class='cat' id='mg'>
+<div class='cat-head'><span class='bar' style='background:#c8762a'></span><h2>机枪</h2><span class='en'>Machine Guns</span><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>高射速、大弹匣，压制成群丧尸，弹药消耗也最大。</p>
+<div class='grid'>
+<article class='wpn' data-id='gunMGT0PipeMachineGun' data-cat='mg' data-text='铁管机枪 pipe machine gun 发射7.62毫米弹药的自制自动武器。
+
+可使用短铁管修理。
+可分解为铁。 机枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T0</span><h3>铁管机枪<em>Pipe Machine Gun</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁管机枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='30,31.5,33,34.5,36,37.5' data-fmt='num'>37.5</b></i><i class='core'>射速（发/分） <b data-vals='335,335,335,335,335,335' data-fmt='num'>335</b></i><i class='core'>弹匣 <b data-vals='15,15,15,15,15,15' data-fmt='num'>15</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>有效射程 <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class=''>散布（垂直） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>散布（水平） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<p class='desc'>发射7.62毫米弹药的自制自动武器。<br><br>可使用短铁管修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='gunMGT1AK47' data-cat='mg' data-text='kv-47机枪 kv-47 machine gun 这款炫酷的kv-47机枪使用7.62毫米弹药。
+
+可使用维修工具修理。
+可分解为机枪零件。 机枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T1</span><h3>KV-47机枪<em>KV-47 Machine Gun</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='KV-47机枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='40,42,44,46,48,50' data-fmt='num'>50</b></i><i class='core'>射速（发/分） <b data-vals='360,360,360,360,360,360' data-fmt='num'>360</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='41,41,41,41,41,41' data-fmt='num'>41</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<p class='desc'>这款炫酷的KV-47机枪使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
+</article>
+<article class='wpn' data-id='gunMGT2TacticalAR' data-cat='mg' data-text='战术突击步枪 tactical assault rifle 这款战术突击步枪使用7.62毫米弹药。
+
+可使用维修工具修理。
+可分解为机枪零件。 机枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 连发数 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T2</span><h3>战术突击步枪<em>Tactical Assault Rifle</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='战术突击步枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='53,55.65,58.3,60.95,63.6,66.25' data-fmt='num'>66.3</b></i><i class='core'>射速（发/分） <b data-vals='405,405,405,405,405,405' data-fmt='num'>405</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='49,49,49,49,49,49' data-fmt='num'>49</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>连发数 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<p class='desc'>这款战术突击步枪使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
+</article>
+<article class='wpn' data-id='gunMGT3M60' data-cat='mg' data-text='m60机枪 m60 machine gun 机枪使用起来可能有些笨重，但在自动射击方面表现优越。使用7.62毫米弹药。
+
+可使用维修工具修理。
+可分解为机枪零件。 机枪 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T3</span><h3>M60机枪<em>M60 Machine Gun</em></h3></div>
+<div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='M60机枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='70,73.5,77,80.5,84,87.5' data-fmt='num'>87.5</b></i><i class='core'>射速（发/分） <b data-vals='440,440,440,440,440,440' data-fmt='num'>440</b></i><i class='core'>弹匣 <b data-vals='60,60,60,60,60,60' data-fmt='num'>60</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='58,58,58,58,58,58' data-fmt='num'>58</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.4,-0.4,-0.4,-0.4,-0.4,-0.4' data-fmt='num'>-0.4</b></i><i class=''>后坐力（垂直·大） <b data-vals='1.1,1.1,1.1,1.1,1.1,1.1' data-fmt='num'>1.1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<p class='desc'>机枪使用起来可能有些笨重，但在自动射击方面表现优越。使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
+</article>
+</div></section>
+<section class='cat' id='bow'>
+<div class='cat-head'><span class='bar' style='background:#57b95f'></span><h2>弓弩</h2><span class='en'>Bows &amp; Crossbows</span><span class='cnt'>5 把</span></div>
+<p class='cat-intro'>消音远程武器，箭矢可回收；弩的上弦更慢但伤害更高。</p>
+<div class='grid'>
+<article class='wpn' data-id='gunBowT0PrimitiveBow' data-cat='bow' data-text='传统弓 primitive bow 非常适合打猎和射杀丧尸。使用箭矢作为弹药。
+长按重新装填以使用备用弹药。
+
+可使用木头修理。
+可分解为木头。 弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 初速 有效射程 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T0</span><h3>传统弓<em>Primitive Bow</em></h3></div>
+<div class='ammo'><b>弹药</b> 石箭（弹药） · 铁箭（弹药） · 钢箭（弹药） · 燃烧箭（弹药） · 爆炸箭（弹药）</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='传统弓 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='30,32.1,34.2,36.3,38.4,40.5' data-fmt='num'>40.5</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>初速 <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='pct'>-30%</b></i><i class=''>有效射程 <b data-vals='20,20,20,20,20,20' data-fmt='num'>20</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
+<p class='desc'>非常适合打猎和射杀丧尸。使用箭矢作为弹药。<br>长按重新装填以使用备用弹药。<br><br>可使用木头修理。<br>可分解为木头。</p>
+</article>
+<article class='wpn' data-id='gunBowT1WoodenBow' data-cat='bow' data-text='木弓 wooden bow 非常适合打猎和射杀丧尸。使用箭矢作为弹药。
+长按重新装填以使用备用弹药。
+
+可使用维修工具修理。
+可分解为弓/弩零件。 弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T1</span><h3>木弓<em>Wooden Bow</em></h3></div>
+<div class='ammo'><b>弹药</b> 石箭（弹药） · 铁箭（弹药） · 钢箭（弹药） · 燃烧箭（弹药） · 爆炸箭（弹药）</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='木弓 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='44,47.08,50.16,53.24,56.32,59.4' data-fmt='num'>59.4</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='200,230,260,290,320,350' data-fmt='num'>350</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='25,25,25,25,25,25' data-fmt='num'>25</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
+<p class='desc'>非常适合打猎和射杀丧尸。使用箭矢作为弹药。<br>长按重新装填以使用备用弹药。<br><br>可使用维修工具修理。<br>可分解为弓/弩零件。</p>
+</article>
+<article class='wpn' data-id='gunBowT1IronCrossbow' data-cat='bow' data-text='铁弩 iron crossbow 弩的重新装载速度较慢，不过造成的伤害比弓更大。
+此武器可在水下发射。
+长按重新装填以使用备用弹药。
+
+可使用维修工具修理。
+可分解为弓/弩零件。 弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 初速 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T1</span><h3>铁弩<em>Iron Crossbow</em></h3></div>
+<div class='ammo'><b>弹药</b> 石头弩箭（弹药） · 铁弩箭（弹药） · 钢弩箭（弹药） · 燃烧弩箭（弹药） · 爆炸弩箭</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁弩 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='50,54,58,62,66,70' data-fmt='num'>70</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='200,230,260,290,320,350' data-fmt='num'>350</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='28,28,28,28,28,28' data-fmt='num'>28</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>初速 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i class=''>散布（垂直） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>散布（水平） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<p class='desc'>弩的重新装载速度较慢，不过造成的伤害比弓更大。<br>此武器可在水下发射。<br>长按重新装填以使用备用弹药。<br><br>可使用维修工具修理。<br>可分解为弓/弩零件。</p>
+</article>
+<article class='wpn' data-id='gunBowT3CompoundBow' data-cat='bow' data-text='复合弓 compound bow 复合弓可造成更多伤害，箭矢在空中飞行路线更直，所以更加容易瞄准。
+
+可用维修工具修理。
+可分解为弓/弩零件。 弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 初速 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T3</span><h3>复合弓<em>Compound Bow</em></h3></div>
+<div class='ammo'><b>弹药</b> 石箭（弹药） · 铁箭（弹药） · 钢箭（弹药） · 燃烧箭（弹药） · 爆炸箭（弹药）</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='复合弓 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='64,68.48,72.96,77.44,81.92,86.4' data-fmt='num'>86.4</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='350,400,450,500,550,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>初速 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct'>+20%</b></i><i class=''>有效射程 <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>散布（水平） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
+<p class='desc'>复合弓可造成更多伤害，箭矢在空中飞行路线更直，所以更加容易瞄准。<br><br>可用维修工具修理。<br>可分解为弓/弩零件。</p>
+</article>
+<article class='wpn' data-id='gunBowT3CompoundCrossbow' data-cat='bow' data-text='复合弩 compound crossbow  弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T3</span><h3>复合弩<em>Compound Crossbow</em></h3></div>
+<div class='ammo'><b>弹药</b> 石头弩箭（弹药） · 铁弩箭（弹药） · 钢弩箭（弹药） · 燃烧弩箭（弹药） · 爆炸弩箭</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='复合弩 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='75,81,87,93,99,105' data-fmt='num'>105</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='350,400,450,500,550,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='40,40,40,40,40,40' data-fmt='num'>40</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>散布（水平） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+</article>
+</div></section>
+<section class='cat' id='explosive'>
+<div class='cat-head'><span class='bar' style='background:#a06fd0'></span><h2>爆炸物</h2><span class='en'>Explosives</span><span class='cnt'>7 把</span></div>
+<p class='cat-intro'>火箭筒与投掷物：范围伤害，注意别把自己炸了。</p>
+<div class='grid'>
+<article class='wpn' data-id='thrownAmmoMolotovCocktail' data-cat='explosive' data-text='燃烧瓶（弹药） molotov cocktail (ammo) 《无政府主义者食谱》的第一页。
+使用「右键」点燃
+使用「左键」投掷 爆炸物 寒冷抗性'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T0</span><h3>燃烧瓶（弹药）<em>Molotov Cocktail (Ammo)</em></h3></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<details class='more'><summary>更多数值（1）</summary><div class='chips'><i class=''>寒冷抗性 <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i></div></details>
+<p class='desc'>《无政府主义者食谱》的第一页。<br>使用「右键」点燃<br>使用「左键」投掷</p>
+</article>
+<article class='wpn' data-id='thrownGrenade' data-cat='explosive' data-text='手雷（弹药） grenade (ammo) 拔出插销。扔出去。
+使用「右键」装备
+使用「左键」投掷 爆炸物'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T1</span><h3>手雷（弹药）<em>Grenade (Ammo)</em></h3></div>
+<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>
+<p class='desc'>拔出插销。扔出去。<br>使用「右键」装备<br>使用「左键」投掷</p>
+</article>
+<article class='wpn' data-id='thrownAmmoPipeBomb' data-cat='explosive' data-text='管状炸弹（弹药） pipe bomb (ammo) 使用火药、管子和植物纤维制作管状炸弹。
+使用「右键」点燃
+使用「左键」投掷 爆炸物'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T1</span><h3>管状炸弹（弹药）<em>Pipe Bomb (Ammo)</em></h3></div>
+<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>
+<p class='desc'>使用火药、管子和植物纤维制作管状炸弹。<br>使用「右键」点燃<br>使用「左键」投掷</p>
+</article>
+<article class='wpn' data-id='thrownDynamite' data-cat='explosive' data-text='柱状炸药（弹药） stick of dynamite (ammo) 柱状炸药。
+使用「右键」点燃
+使用「左键」投掷
+投掷过程十分重要。 爆炸物'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T2</span><h3>柱状炸药（弹药）<em>Stick of Dynamite (Ammo)</em></h3></div>
+<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>
+<p class='desc'>柱状炸药。<br>使用「右键」点燃<br>使用「左键」投掷<br>投掷过程十分重要。</p>
+</article>
+<article class='wpn' data-id='thrownGrenadeContact' data-cat='explosive' data-text='触炸手雷（弹药） contact grenade (ammo) 接触式引信手榴弹是一种不稳定的装置，装备后一旦接触就会爆炸。
+使用「右键」装备
+使用「左键」投掷 爆炸物'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T2</span><h3>触炸手雷（弹药）<em>Contact Grenade (Ammo)</em></h3></div>
+<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>
+<p class='desc'>接触式引信手榴弹是一种不稳定的装置，装备后一旦接触就会爆炸。<br>使用「右键」装备<br>使用「左键」投掷</p>
+</article>
+<article class='wpn' data-id='thrownTimedCharge' data-cat='explosive' data-text='定时炸弹（弹药） timed charge (ammo) 一款用于进行炸开保险箱锁、门或者丧尸脑袋等精细工作的成型炸药，会在 5 秒后自动引爆。想把房子夷为平地？试试用炸药吧。
+用「右键」来安装
+用「左键」来投掷 爆炸物'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T3</span><h3>定时炸弹（弹药）<em>Timed Charge (Ammo)</em></h3></div>
+<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>
+<p class='desc'>一款用于进行炸开保险箱锁、门或者丧尸脑袋等精细工作的成型炸药，会在 5 秒后自动引爆。想把房子夷为平地？试试用炸药吧。<br>用「右键」来安装<br>用「左键」来投掷</p>
+</article>
+<article class='wpn' data-id='gunExplosivesT3RocketLauncher' data-cat='explosive' data-text='火箭发射器 rocket launcher 此款火箭发射器可发射火箭推进榴弹。
+
+可使用维修工具修理。
+可分解为火箭发射器零件。 爆炸物 伤害 耐久 模组槽 弹匣 射程 有效射程 射程衰减 explosionentitydamage explosionblockdamage 射速（发/分） 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T3</span><h3>火箭发射器<em>Rocket Launcher</em></h3></div>
+<div class='ammo'><b>弹药</b> 高爆火箭弹（弹药） · 火箭弹（弹药）</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='火箭发射器 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,23,26,29,32,35' data-fmt='num'>35</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（13）</summary><div class='chips'><i class=''>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class=''>有效射程 <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>ExplosionEntityDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct'>+75%</b></i><i class=''>ExplosionBlockDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct'>+75%</b></i><i class=''>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class=''>散布（垂直） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>散布（水平） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>后坐力（垂直·小） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（垂直·大） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（水平·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i></div></details>
+<p class='desc'>此款火箭发射器可发射火箭推进榴弹。<br><br>可使用维修工具修理。<br>可分解为火箭发射器零件。</p>
+</article>
+</div></section>
+<section class='cat' id='blade'>
+<div class='cat-head'><span class='bar' style='background:#49b6e8'></span><h2>刀剑</h2><span class='en'>Blades</span><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>小刀与砍刀：攻速快、出血效果，适合潜行收割。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnBladeT0BoneKnife' data-cat='blade' data-text='骨刀 bone knife 原始的临时武器，也可用来解剖动物。
+普通攻击造成 1 处流血创伤，强力攻击造成 2 处。
+
+可使用骨头修理。
+可分解为骨头。 刀剑 伤害 物块伤害 攻速（次/分） 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 伤害（organic）'>
+<div class='whead'><span class='badge blade'>刀剑</span><span class='tier'>T0</span><h3>骨刀<em>Bone Knife</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='骨刀 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='5,5.5,6,6.5,7,7.5' data-fmt='num'>7.5</b></i><i class='core'>物块伤害 <b data-vals='4,4.4,4.8,5.2,5.6,6' data-fmt='num'>6</b></i><i class='core'>攻速（次/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>攻速（次/分） <b data-vals='-60,-60,-60,-60,-60,-60' data-fmt='num'>-60</b></i><i class='core'>体力消耗 <b data-vals='7.3,7.3,7.3,7.3,7.3,7.3|10.9,10.9,10.9,10.9,10.9,10.9' data-fmt='num'>7.3 / 10.9</b></i><i class='core'>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i><i class=''>伤害（earth） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（金属） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（organic） <b data-vals='0.6,0.6,0.6,0.6,0.6,0.6' data-fmt='pct'>+60%</b></i></div></details>
+<p class='desc'>原始的临时武器，也可用来解剖动物。<br>普通攻击造成 1 处流血创伤，强力攻击造成 2 处。<br><br>可使用骨头修理。<br>可分解为骨头。</p>
+</article>
+<article class='wpn' data-id='meleeWpnBladeT1CandyKnife' data-cat='blade' data-text='拐杖糖刀 candy cane knife 来一些欢庆捅刀子的节日气息吧！
+普通攻击造成1处流血创伤，强力攻击造成2处。
+
+可使用维修工具修理。 刀剑 伤害 物块伤害 攻速（次/分） 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 伤害（organic）'>
+<div class='whead'><span class='badge blade'>刀剑</span><span class='tier'>T1</span><h3>拐杖糖刀<em>Candy Cane Knife</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='拐杖糖刀 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='6.5,7.15,7.8,8.45,9.1,9.75' data-fmt='num'>9.8</b></i><i class='core'>攻速（次/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>攻速（次/分） <b data-vals='-60,-60,-60,-60,-60,-60' data-fmt='num'>-60</b></i><i class='core'>体力消耗 <b data-vals='10.5,10.5,10.5,10.5,10.5,10.5|13.5,13.5,13.5,13.5,13.5,13.5' data-fmt='num'>10.5 / 13.5</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i><i class=''>伤害（earth） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（金属） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（organic） <b data-vals='0.6,0.6,0.6,0.6,0.6,0.6' data-fmt='pct'>+60%</b></i></div></details>
+<p class='desc'>来一些欢庆捅刀子的节日气息吧！<br>普通攻击造成1处流血创伤，强力攻击造成2处。<br><br>可使用维修工具修理。</p>
+</article>
+<article class='wpn' data-id='meleeWpnBladeT1HuntingKnife' data-cat='blade' data-text='猎刀 hunting knife 很适合砍杀丧尸，解剖动物获得肉。
+普通攻击造成 1 处流血创伤，强力攻击造成 2 处。
+
+可使用维修工具修理。
+可分解为铁。 刀剑 伤害 物块伤害 攻速（次/分） 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 伤害（organic）'>
+<div class='whead'><span class='badge blade'>刀剑</span><span class='tier'>T1</span><h3>猎刀<em>Hunting Knife</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='猎刀 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='6.5,7.15,7.8,8.45,9.1,9.75' data-fmt='num'>9.8</b></i><i class='core'>攻速（次/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>攻速（次/分） <b data-vals='-60,-60,-60,-60,-60,-60' data-fmt='num'>-60</b></i><i class='core'>体力消耗 <b data-vals='10.5,10.5,10.5,10.5,10.5,10.5|13.5,13.5,13.5,13.5,13.5,13.5' data-fmt='num'>10.5 / 13.5</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i><i class=''>伤害（earth） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（金属） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（organic） <b data-vals='0.6,0.6,0.6,0.6,0.6,0.6' data-fmt='pct'>+60%</b></i></div></details>
+<p class='desc'>很适合砍杀丧尸，解剖动物获得肉。<br>普通攻击造成 1 处流血创伤，强力攻击造成 2 处。<br><br>可使用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='meleeWpnBladeT3Machete' data-cat='blade' data-text='砍刀 machete 很适合砍杀丧尸、砍树，或解剖动物获得肉。
+普通攻击造成 1 处流血创伤，强力攻击造成 2 处。
+
+可使用维修工具修理。
+可分解为砍刀零件。 刀剑 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 肢解几率'>
+<div class='whead'><span class='badge blade'>刀剑</span><span class='tier'>T3</span><h3>砍刀<em>Machete</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='砍刀 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='25,27.5,30,32.5,35,37.5' data-fmt='num'>37.5</b></i><i class='core'>物块伤害 <b data-vals='21,23.1,25.2,27.3,29.4,31.5' data-fmt='num'>31.5</b></i><i class='core'>攻速（次/分） <b data-vals='65,65,65,65,65,65' data-fmt='num'>65</b></i><i class='core'>体力消耗 <b data-vals='16,16,16,16,16,16|32.7,32.7,32.7,32.7,32.7,32.7' data-fmt='num'>16 / 32.7</b></i><i class='core'>耐久 <b data-vals='1000,1200,1400,1600,1800,2000' data-fmt='num'>2000</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.3,2.3,2.3,2.3,2.3,2.3' data-fmt='num'>2.3</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>伤害（earth） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（金属） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>肢解几率 <b data-vals='1,1,1,1,1,1' data-fmt='pct'>+100%</b></i></div></details>
+<p class='desc'>很适合砍杀丧尸、砍树，或解剖动物获得肉。<br>普通攻击造成 1 处流血创伤，强力攻击造成 2 处。<br><br>可使用维修工具修理。<br>可分解为砍刀零件。</p>
+</article>
+</div></section>
+<section class='cat' id='club'>
+<div class='cat-head'><span class='bar' style='background:#8fa3ad'></span><h2>棍棒</h2><span class='en'>Clubs</span><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>棒球棍与钢棍：击倒与眩晕，综合手感最稳的近战。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnClubT0WoodenClub' data-cat='club' data-text='木棒 wooden club 一根木棒。可用来打断膝盖和头骨。
+
+可用木头修理。
+可分解为木头。 棍棒 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge club'>棍棒</span><span class='tier'>T0</span><h3>木棒<em>Wooden Club</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='木棒 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='11,12.1,13.2,14.3,15.4,16.5' data-fmt='num'>16.5</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='17.4,17.4,17.4,17.4,17.4,17.4|26.1,26.1,26.1,26.1,26.1,26.1' data-fmt='num'>17.4 / 26.1</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>一根木棒。可用来打断膝盖和头骨。<br><br>可用木头修理。<br>可分解为木头。</p>
+</article>
+<article class='wpn' data-id='meleeWpnClubT1CandyClub' data-cat='club' data-text='拐杖糖棍棒 candy cane club 海扁节快乐！
+
+
+可使用维修工具修理。 棍棒 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge club'>棍棒</span><span class='tier'>T1</span><h3>拐杖糖棍棒<em>Candy Cane Club</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='拐杖糖棍棒 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,22,24,26,28,30' data-fmt='num'>30</b></i><i class='core'>物块伤害 <b data-vals='18,19.8,21.6,23.4,25.2,27' data-fmt='num'>27</b></i><i class='core'>攻速（次/分） <b data-vals='52,52,52,52,52,52' data-fmt='num'>52</b></i><i class='core'>体力消耗 <b data-vals='20.9,20.9,20.9,20.9,20.9,20.9|35.6,35.6,35.6,35.6,35.6,35.6' data-fmt='num'>20.9 / 35.6</b></i><i class='core'>耐久 <b data-vals='200,260,320,380,440,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>海扁节快乐！<br><br><br>可使用维修工具修理。</p>
+</article>
+<article class='wpn' data-id='meleeWpnClubT1BaseballBat' data-cat='club' data-text='球棒 baseball bat 这种棍棒曾在大型竞技场上的格斗比赛中使用。
+
+可用维修工具修理。
+可分解为木头。 棍棒 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge club'>棍棒</span><span class='tier'>T1</span><h3>球棒<em>Baseball Bat</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='球棒 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,22,24,26,28,30' data-fmt='num'>30</b></i><i class='core'>物块伤害 <b data-vals='18,19.8,21.6,23.4,25.2,27' data-fmt='num'>27</b></i><i class='core'>攻速（次/分） <b data-vals='52,52,52,52,52,52' data-fmt='num'>52</b></i><i class='core'>体力消耗 <b data-vals='20.9,20.9,20.9,20.9,20.9,20.9|35.6,35.6,35.6,35.6,35.6,35.6' data-fmt='num'>20.9 / 35.6</b></i><i class='core'>耐久 <b data-vals='200,260,320,380,440,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>这种棍棒曾在大型竞技场上的格斗比赛中使用。<br><br>可用维修工具修理。<br>可分解为木头。</p>
+</article>
+<article class='wpn' data-id='meleeWpnClubT3SteelClub' data-cat='club' data-text='钢棍 steel club 钢棍非常耐用，打击力强。
+
+可用维修工具修理。
+可分解为钢棍零件。 棍棒 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge club'>棍棒</span><span class='tier'>T3</span><h3>钢棍<em>Steel Club</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢棍 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='32.5,35.75,39,42.25,45.5,48.75' data-fmt='num'>48.8</b></i><i class='core'>物块伤害 <b data-vals='30,33,36,39,42,45' data-fmt='num'>45</b></i><i class='core'>攻速（次/分） <b data-vals='52,52,52,52,52,52' data-fmt='num'>52</b></i><i class='core'>体力消耗 <b data-vals='23.7,23.7,23.7,23.7,23.7,23.7|40.3,40.3,40.3,40.3,40.3,40.3' data-fmt='num'>23.7 / 40.3</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>钢棍非常耐用，打击力强。<br><br>可用维修工具修理。<br>可分解为钢棍零件。</p>
+</article>
+</div></section>
+<section class='cat' id='sledge'>
+<div class='cat-head'><span class='bar' style='background:#ef8377'></span><h2>大锤</h2><span class='en'>Sledgehammers</span><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>单发伤害最高，挥动慢、耗体力，适合正面硬刚。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnSledgeT0StoneSledgehammer' data-cat='sledge' data-text='石质大锤 stone sledgehammer 此大锤是敲碎头颅最好的武器之一。
+
+可使用小石子修理。
+可分解为小石子。 大锤 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 肢解几率 采集量 擦伤倍率'>
+<div class='whead'><span class='badge sledge'>大锤</span><span class='tier'>T0</span><h3>石质大锤<em>Stone Sledgehammer</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='石质大锤 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='18,19.8,21.6,23.4,25.2,27' data-fmt='num'>27</b></i><i class='core'>物块伤害 <b data-vals='28,30.8,33.6,36.4,39.2,42' data-fmt='num'>42</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='22.3,22.3,22.3,22.3,22.3,22.3|44.7,44.7,44.7,44.7,44.7,44.7' data-fmt='num'>22.3 / 44.7</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>肢解几率 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1|0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+10% / +30%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i><i class=''>擦伤倍率 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='num'>0.1</b></i></div></details>
+<p class='desc'>此大锤是敲碎头颅最好的武器之一。<br><br>可使用小石子修理。<br>可分解为小石子。</p>
+</article>
+<article class='wpn' data-id='meleeWpnSledgeT1IronSledgehammer' data-cat='sledge' data-text='铁质大锤 iron sledgehammer 此大锤是敲碎头颅最好的武器之一。
+
+可使用维修工具修理。
+可分解为铁。 大锤 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 肢解几率 采集量'>
+<div class='whead'><span class='badge sledge'>大锤</span><span class='tier'>T1</span><h3>铁质大锤<em>Iron Sledgehammer</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁质大锤 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='32,35.2,38.4,41.6,44.8,48' data-fmt='num'>48</b></i><i class='core'>物块伤害 <b data-vals='52,57.2,62.4,67.6,72.8,78' data-fmt='num'>78</b></i><i class='core'>攻速（次/分） <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class='core'>体力消耗 <b data-vals='36.7,36.7,36.7,36.7,36.7,36.7|73.4,73.4,73.4,73.4,73.4,73.4' data-fmt='num'>36.7 / 73.4</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>肢解几率 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1|0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+10% / +30%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>此大锤是敲碎头颅最好的武器之一。<br><br>可使用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='meleeWpnSledgeT3SteelSledgehammer' data-cat='sledge' data-text='钢质大锤 steel sledgehammer 此大锤是敲碎头颅最好的武器之一。
+
+可使用维修工具修理。
+可分解为钢质大锤零件。 大锤 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 肢解几率 采集量'>
+<div class='whead'><span class='badge sledge'>大锤</span><span class='tier'>T3</span><h3>钢质大锤<em>Steel Sledgehammer</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢质大锤 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='55,60.5,66,71.5,77,82.5' data-fmt='num'>82.5</b></i><i class='core'>物块伤害 <b data-vals='85,93.5,102,110.5,119,127.5' data-fmt='num'>127.5</b></i><i class='core'>攻速（次/分） <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class='core'>体力消耗 <b data-vals='40.5,40.5,40.5,40.5,40.5,40.5|81,81,81,81,81,81' data-fmt='num'>40.5 / 81</b></i><i class='core'>耐久 <b data-vals='400,480,560,640,720,800' data-fmt='num'>800</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>肢解几率 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1|0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+10% / +30%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>此大锤是敲碎头颅最好的武器之一。<br><br>可使用维修工具修理。<br>可分解为钢质大锤零件。</p>
+</article>
+</div></section>
+<section class='cat' id='spear'>
+<div class='cat-head'><span class='bar' style='background:#6ec6ef'></span><h2>长矛</h2><span class='en'>Spears</span><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>攻击距离最远的近战武器，可投掷，穿透力强。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnSpearT0StoneSpear' data-cat='spear' data-text='石矛 stone spear 长矛比其他近战武器的攻击范围更大。
+
+可使用小石子修理。
+可分解为小石子。 长矛 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 目标护甲穿透 物块攻击距离 伤害（木头） 伤害（石头） 伤害（金属） 采集量 穿透数量 物块穿透'>
+<div class='whead'><span class='badge spear'>长矛</span><span class='tier'>T0</span><h3>石矛<em>Stone Spear</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='石矛 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='5,5.5,6,6.5,7,7.5' data-fmt='num'>7.5</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='18.5,18.5,18.5,18.5,18.5,18.5|26.1,26.1,26.1,26.1,26.1,26.1' data-fmt='num'>18.5 / 26.1</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>目标护甲穿透 <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='pct'>-30%</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>伤害（木头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>伤害（金属） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i><i class=''>穿透数量 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>物块穿透 <b data-vals='10000,10000,10000,10000,10000,10000' data-fmt='num'>10000</b></i></div></details>
+<p class='desc'>长矛比其他近战武器的攻击范围更大。<br><br>可使用小石子修理。<br>可分解为小石子。</p>
+</article>
+<article class='wpn' data-id='meleeWpnSpearT1IronSpear' data-cat='spear' data-text='铁矛 iron spear 长矛比其他近战武器的攻击范围更大。
+
+可使用维修工具修理。
+可分解为铁。 长矛 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 目标护甲穿透 物块攻击距离 伤害（木头） 伤害（石头） 伤害（金属） 采集量 穿透数量 物块穿透'>
+<div class='whead'><span class='badge spear'>长矛</span><span class='tier'>T1</span><h3>铁矛<em>Iron Spear</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁矛 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,22,24,26,28,30' data-fmt='num'>30</b></i><i class='core'>物块伤害 <b data-vals='8,8.8,9.6,10.4,11.2,12' data-fmt='num'>12</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='20.3,20.3,20.3,20.3,20.3,20.3|35.6,35.6,35.6,35.6,35.6,35.6' data-fmt='num'>20.3 / 35.6</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>目标护甲穿透 <b data-vals='-0.4,-0.4,-0.4,-0.4,-0.4,-0.4' data-fmt='pct'>-40%</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>伤害（木头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>伤害（金属） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i><i class=''>穿透数量 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>物块穿透 <b data-vals='10000,10000,10000,10000,10000,10000' data-fmt='num'>10000</b></i></div></details>
+<p class='desc'>长矛比其他近战武器的攻击范围更大。<br><br>可使用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='meleeWpnSpearT3SteelSpear' data-cat='spear' data-text='钢矛 steel spear 长矛比其他近战武器的攻击范围更大。
+
+可使用维修工具修理。
+可分解为钢矛零件。 长矛 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 目标护甲穿透 物块攻击距离 伤害（木头） 伤害（石头） 伤害（金属） 采集量 穿透数量 物块穿透'>
+<div class='whead'><span class='badge spear'>长矛</span><span class='tier'>T3</span><h3>钢矛<em>Steel Spear</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢矛 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='33,36.3,39.6,42.9,46.2,49.5' data-fmt='num'>49.5</b></i><i class='core'>物块伤害 <b data-vals='15,16.5,18,19.5,21,22.5' data-fmt='num'>22.5</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='22.4,22.4,22.4,22.4,22.4,22.4|40.3,40.3,40.3,40.3,40.3,40.3' data-fmt='num'>22.4 / 40.3</b></i><i class='core'>耐久 <b data-vals='400,480,560,640,720,800' data-fmt='num'>800</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>目标护甲穿透 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>伤害（木头） <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='pct'>-80%</b></i><i class=''>伤害（石头） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>伤害（金属） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i><i class=''>穿透数量 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>物块穿透 <b data-vals='10000,10000,10000,10000,10000,10000' data-fmt='num'>10000</b></i></div></details>
+<p class='desc'>长矛比其他近战武器的攻击范围更大。<br><br>可使用维修工具修理。<br>可分解为钢矛零件。</p>
+</article>
+</div></section>
+<section class='cat' id='knuckles'>
+<div class='cat-head'><span class='bar' style='background:#c58ae0'></span><h2>拳套</h2><span class='en'>Knuckles</span><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>徒手格斗的强化版：极快攻速，连击叠伤害。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnKnucklesT0LeatherKnuckles' data-cat='knuckles' data-text='拳手绑带 knuckle wraps 这款护指绑带可保护你的手部，并增加你的挥拳力量。
+
+可用皮革修理。
+可分解为皮革。 拳套 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属）'>
+<div class='whead'><span class='badge knuckles'>拳套</span><span class='tier'>T0</span><h3>拳手绑带<em>Knuckle Wraps</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='拳手绑带 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='7,7.7,8.4,9.1,9.8,10.5' data-fmt='num'>10.5</b></i><i class='core'>物块伤害 <b data-vals='2.2,2.42,2.64,2.86,3.08,3.3' data-fmt='num'>3.3</b></i><i class='core'>攻速（次/分） <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>体力消耗 <b data-vals='9.1,9.1,9.1,9.1,9.1,9.1|15.5,15.5,15.5,15.5,15.5,15.5' data-fmt='num'>9.1 / 15.5</b></i><i class='core'>耐久 <b data-vals='100,140,180,220,260,300' data-fmt='num'>300</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i></div></details>
+<p class='desc'>这款护指绑带可保护你的手部，并增加你的挥拳力量。<br><br>可用皮革修理。<br>可分解为皮革。</p>
+</article>
+<article class='wpn' data-id='meleeWpnKnucklesT1IronKnuckles' data-cat='knuckles' data-text='铁质拳套 iron knuckles 可保护你的手部，并给你的挥拳增加重量。
+
+可用维修工具修理。
+可分解为铁。 拳套 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属）'>
+<div class='whead'><span class='badge knuckles'>拳套</span><span class='tier'>T1</span><h3>铁质拳套<em>Iron Knuckles</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁质拳套 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='11.5,12.65,13.8,14.95,16.1,17.25' data-fmt='num'>17.3</b></i><i class='core'>物块伤害 <b data-vals='3.5,3.85,4.2,4.55,4.9,5.25' data-fmt='num'>5.3</b></i><i class='core'>攻速（次/分） <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>体力消耗 <b data-vals='9.6,9.6,9.6,9.6,9.6,9.6|16.3,16.3,16.3,16.3,16.3,16.3' data-fmt='num'>9.6 / 16.3</b></i><i class='core'>耐久 <b data-vals='300,380,460,540,620,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i></div></details>
+<p class='desc'>可保护你的手部，并给你的挥拳增加重量。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='meleeWpnKnucklesT3SteelKnuckles' data-cat='knuckles' data-text='钢质指虎 steel knuckles 可保护你的手部，并给你的挥拳增加重量。这些刀片也可用于解剖动物。
+
+可使用维修工具修理。
+可分解为钢质拳套零件。 拳套 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 伤害（organic）'>
+<div class='whead'><span class='badge knuckles'>拳套</span><span class='tier'>T3</span><h3>钢质指虎<em>Steel Knuckles</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢质指虎 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='19,20.9,22.8,24.7,26.6,28.5' data-fmt='num'>28.5</b></i><i class='core'>物块伤害 <b data-vals='6,6.6,7.2,7.8,8.4,9' data-fmt='num'>9</b></i><i class='core'>攻速（次/分） <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>体力消耗 <b data-vals='10.2,10.2,10.2,10.2,10.2,10.2|17.3,17.3,17.3,17.3,17.3,17.3' data-fmt='num'>10.2 / 17.3</b></i><i class='core'>耐久 <b data-vals='700,840,980,1120,1260,1400' data-fmt='num'>1400</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（organic） <b data-vals='1.7,1.7,1.7,1.7,1.7,1.7' data-fmt='pct'>+170%</b></i></div></details>
+<p class='desc'>可保护你的手部，并给你的挥拳增加重量。这些刀片也可用于解剖动物。<br><br>可使用维修工具修理。<br>可分解为钢质拳套零件。</p>
+</article>
+</div></section>
+<section class='cat' id='baton'>
+<div class='cat-head'><span class='bar' style='background:#7fd487'></span><h2>电击棍</h2><span class='en'>Batons</span><span class='cnt'>2 把</span></div>
+<p class='cat-intro'>智慧系武器：电击控制丧尸，配合机器人流派。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeWpnBatonT0PipeBaton' data-cat='baton' data-text='铁管棒 pipe baton 这根由垃圾制作而成的棒子重量很轻，但攻击效果可观。
+
+可使用短铁管修理。
+可分解为铁。 电击棍 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge baton'>电击棍</span><span class='tier'>T0</span><h3>铁管棒<em>Pipe Baton</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁管棒 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>攻速（次/分） <b data-vals='60,60,60,60,60,60' data-fmt='num'>60</b></i><i class='core'>体力消耗 <b data-vals='14.8,14.8,14.8,14.8,14.8,14.8|23,23,23,23,23,23' data-fmt='num'>14.8 / 23</b></i><i class='core'>耐久 <b data-vals='100,140,180,220,260,300' data-fmt='num'>300</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>这根由垃圾制作而成的棒子重量很轻，但攻击效果可观。<br><br>可使用短铁管修理。<br>可分解为铁。</p>
+</article>
+<article class='wpn' data-id='meleeWpnBatonT2StunBaton' data-cat='baton' data-text='电击棒 stun baton 滋滋！
+
+可使用维修工具修理。
+可分解为电击棒零件。 电击棍 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量'>
+<div class='whead'><span class='badge baton'>电击棍</span><span class='tier'>T2</span><h3>电击棒<em>Stun Baton</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='电击棒 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,22,24,26,28,30' data-fmt='num'>30</b></i><i class='core'>物块伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>攻速（次/分） <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>体力消耗 <b data-vals='15.5,15.5,15.5,15.5,15.5,15.5|26.4,26.4,26.4,26.4,26.4,26.4' data-fmt='num'>15.5 / 26.4</b></i><i class='core'>耐久 <b data-vals='300,380,460,540,620,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>伤害（石头） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>伤害（金属） <b data-vals='-0.9,-0.9,-0.9,-0.9,-0.9,-0.9' data-fmt='pct'>-90%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>滋滋！<br><br>可使用维修工具修理。<br>可分解为电击棒零件。</p>
+</article>
+</div></section>
+<section class='cat' id='misc'>
+<div class='cat-head'><span class='bar' style='background:#9a8f80'></span><h2>炮塔与杂项</h2><span class='en'>Turrets &amp; Misc</span><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>垃圾炮塔、机械锤和火把等特殊武器。</p>
+<div class='grid'>
+<article class='wpn' data-id='meleeToolTorch' data-cat='misc' data-text='火把 torch 这个火炬可用作光源和热源，也可当武器使用，有一定几率使敌人着火。
+
+使用辅助动作来放置。
+可能会吸引丧尸。 炮塔与杂项 伤害 物块伤害 攻速（次/分） 体力消耗 模组槽 射程 物块攻击距离 伤害（earth） 伤害（石头） 伤害（金属） 采集量 寒冷抗性'>
+<div class='whead'><span class='badge misc'>炮塔与杂项</span><h3>火把<em>Torch</em></h3></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i class='core'>伤害 <b data-vals='10.2,10.2,10.2,10.2,10.2,10.2' data-fmt='num'>10.2</b></i><i class='core'>物块伤害 <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='21.8,21.8,21.8,21.8,21.8,21.8' data-fmt='num'>21.8</b></i><i class='core'>模组槽 <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>伤害（earth） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（石头） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>伤害（金属） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i><i class=''>寒冷抗性 <b data-vals='20,20,20,20,20,20' data-fmt='num'>20</b></i></div></details>
+<p class='desc'>这个火炬可用作光源和热源，也可当武器使用，有一定几率使敌人着火。<br><br>使用辅助动作来放置。<br>可能会吸引丧尸。</p>
+</article>
+<article class='wpn' data-id='gunBotT1JunkSledge' data-cat='misc' data-text='机器人大锤 robotic sledge 你可能不擅长打拳，但你有技术。
+你也可使用辅助动作将它安装在地面上。
+
+可使用维修工具修理。
+可分解为机器人零件。 炮塔与杂项 伤害 耐久 模组槽 弹匣 射程衰减 射程 物块攻击距离 散布（垂直） 散布（水平） 射速（发/分） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 采集量'>
+<div class='whead'><span class='badge misc'>炮塔与杂项</span><span class='tier'>T1</span><h3>机器人大锤<em>Robotic Sledge</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='机器人大锤 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='11.5,13.22,14.95,16.68,18.4,20.12' data-fmt='num'>20.1</b></i><i class='core'>耐久 <b data-vals='300,360,420,480,540,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（12）</summary><div class='chips'><i class=''>弹匣 <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>散布（垂直） <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i><i class=''>散布（水平） <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i><i class=''>射速（发/分） <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>后坐力（垂直·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（垂直·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（水平·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（水平·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
+<p class='desc'>你可能不擅长打拳，但你有技术。<br>你也可使用辅助动作将它安装在地面上。<br><br>可使用维修工具修理。<br>可分解为机器人零件。</p>
+</article>
+<article class='wpn' data-id='gunBotT2JunkTurret' data-cat='misc' data-text='机器人炮塔 robotic turret 这种装置可以像枪一样发射和装填。使用机器人炮塔弹药作为其弹药。
+你也可使用辅助动作将其安装在地面上。
+
+可使用维修工具修理。
+可分解为机器人炮塔零件。 炮塔与杂项 伤害 耐久 模组槽 弹匣 射程衰减 瞄准精确度 蹲伏精确度 移动精确度 奔跑精确度 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='whead'><span class='badge misc'>炮塔与杂项</span><span class='tier'>T2</span><h3>机器人炮塔<em>Robotic Turret</em></h3></div>
+<div class='ammo'><b>弹药</b> 机器人炮塔弹药 · 机器人炮塔霰弹（弹药） · 机器人炮塔穿甲弹</div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='机器人炮塔 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='11.8,13.57,15.34,17.11,18.88,20.65' data-fmt='num'>20.7</b></i><i class='core'>耐久 <b data-vals='300,360,420,480,540,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（10）</summary><div class='chips'><i class=''>弹匣 <b data-vals='62,68,74,80,86,92' data-fmt='num'>92</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>瞄准精确度 <b data-vals='-0.13,-0.13,-0.13,-0.13,-0.13,-0.13' data-fmt='pct'>-13%</b></i><i class=''>蹲伏精确度 <b data-vals='-0.05,-0.05,-0.05,-0.05,-0.05,-0.05' data-fmt='pct'>-5%</b></i><i class=''>移动精确度 <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='pct'>+15%</b></i><i class=''>奔跑精确度 <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+30%</b></i><i class=''>后坐力（垂直·小） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（水平·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i></div></details>
+<p class='desc'>这种装置可以像枪一样发射和装填。使用机器人炮塔弹药作为其弹药。<br>你也可使用辅助动作将其安装在地面上。<br><br>可使用维修工具修理。<br>可分解为机器人炮塔零件。</p>
+</article>
+</div></section>
+<footer>数据来源：本机 <code>7 Days to Die</code> 安装目录下 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>。<br>伤害按文件里的 <code>base_set/base_add</code> 叠加、再乘 <code>perc_add</code> 品质加成计算，与游戏内默认弹种口径一致；投掷物（手雷、炸药等）的伤害在爆炸逻辑里，不在面板上。游戏更新后重新运行 <code>parse_weapons.py</code> 与 <code>render_weapons_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  function trim(x){
+    var r = Math.round(x * 10) / 10;
+    if (Math.abs(r - Math.round(r)) < 0.0001) return String(Math.round(r));
+    return String(r);
+  }
+  var FMT = {
+    num:    function(v){ return trim(v); },
+    pct:    function(v){ var x = Math.round(v * 1000) / 10; return (x > 0 ? '+' : '') + trim(x) + '%'; },
+    raw:    function(v){ return (v > 0 ? '+' : '') + trim(v); },
+    mult:   function(v){ return '×' + trim(1 + v); },
+    pctset: function(v){ return '= ' + trim(Math.round(v * 1000) / 10) + '%'; },
+    rawset: function(v){ return '= ' + trim(v); },
+    mulset: function(v){ return '×' + trim(v); },
+    pctabs: function(v){ return '= ' + trim(v) + '%'; }
+  };
+  function renderChip(el, q){
+    var groups = el.getAttribute('data-vals').split('|');
+    var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+    var parts = [];
+    for (var i = 0; i < groups.length; i++){
+      var arr = groups[i].split(',');
+      parts.push(f(parseFloat(arr[q - 1])));
+    }
+    el.textContent = parts.join(' / ');
+  }
+  function applyTo(root, q){
+    q = Math.max(1, Math.min(6, q));
+    var nodes = root.querySelectorAll('[data-vals]');
+    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q);
+  }
+  var cards = [].slice.call(document.querySelectorAll('.wpn'));
+  cards.forEach(function(card){
+    var slider = card.querySelector('.qslider');
+    if (!slider) return;
+    var qnow = card.querySelector('.setq .qnow');
+    function sync(){
+      var q = parseInt(slider.value, 10);
+      if (qnow) qnow.textContent = q;
+      applyTo(card, q);
+    }
+    slider.addEventListener('input', sync);
+    slider.addEventListener('change', sync);
+    sync();
+  });
+
+  var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
+  var secs = [].slice.call(document.querySelectorAll('section.cat'));
+  var q = document.getElementById('q');
+  var cat = 'all';
+  function filter(){
+    var v = (q.value || '').trim().toLowerCase();
+    cards.forEach(function(c){
+      var okCat = (cat === 'all' || c.dataset.cat === cat);
+      var okTxt = !v || c.dataset.text.indexOf(v) !== -1;
+      c.classList.toggle('hide', !(okCat && okTxt));
+    });
+    secs.forEach(function(s){
+      s.classList.toggle('hide', s.querySelectorAll('.wpn:not(.hide)').length === 0);
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      cat = b.dataset.cat;
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      filter();
+    });
+  });
+  q.addEventListener('input', filter);
+  document.addEventListener('keydown', function(ev){
+    var tag = (document.activeElement && document.activeElement.type) || '';
+    if (ev.key === '/' && document.activeElement !== q && tag !== 'range'){
+      ev.preventDefault(); q.focus();
+    }
+    if (ev.key === 'Escape' && document.activeElement === q){ q.value=''; filter(); q.blur(); }
+  });
+})();
+</script></body></html>

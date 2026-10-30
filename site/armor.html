@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七日杀 V3.4 装甲速查表</title>
+<style>
+:root{
+  --bg:#100e0c; --panel:#1a1714; --panel2:#221d19; --line:#332b24;
+  --text:#e8e1d8; --dim:#a2988c; --accent:#e8a33d; --accent2:#c8762a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px;letter-spacing:.5px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:22px 0 4px}
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:6px;padding:12px 14px}
+.rule b{display:block;color:var(--accent);font-size:13px;letter-spacing:.5px;margin-bottom:4px}
+.rule span{color:var(--dim);font-size:13px}
+.rule span em{color:var(--text);font-style:normal}
+
+.cmp{width:100%;border-collapse:collapse;margin:24px 0 6px;font-size:13.5px;
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.cmp th,.cmp td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left}
+.cmp th{color:#cdbfa9;font-size:12.5px;font-weight:600;background:#211c18}
+.cmp td:first-child{color:var(--dim);white-space:nowrap}
+.cmp tr:last-child td{border-bottom:0}
+.cmp .c-light{color:#7fd487}.cmp .c-medium{color:#6ec6ef}.cmp .c-heavy{color:#ef8377}
+.cmp .tot{font-size:12.5px;color:#c8bcaa}
+.note{color:#8b8175;font-size:12px;margin:8px 0 0;line-height:1.7}
+.note strong{color:#c4b8a9}
+
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0 8px;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+.search input::placeholder{color:#6f665c}
+
+section.cls{margin:0 0 46px;scroll-margin-top:76px}
+.cls-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:0 0 10px;border-bottom:2px solid var(--line);margin-bottom:8px}
+.cls-head .bar{width:6px;height:26px;border-radius:3px;display:inline-block}
+.cls-head h2{margin:0;font-size:21px}
+.cls-head .en{color:var(--dim);font-size:13px;letter-spacing:1px}
+.cls-head .cnt{margin-left:auto;color:var(--dim);font-size:12px}
+.cls-intro{color:#c4b8a9;font-size:13.5px;margin:0 0 18px;max-width:900px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(370px,1fr));gap:14px}
+.set{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden;
+  display:flex;flex-direction:column}
+.shead{display:flex;align-items:center;gap:9px;padding:12px 15px 10px;flex-wrap:wrap}
+.shead h3{margin:0;font-size:17px;color:#f3eadc}
+.shead h3 em{font-style:normal;font-weight:400;font-size:11.5px;color:#7d7367;
+  letter-spacing:.4px;margin-left:7px}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:11px;color:#141210}
+.badge.light{background:#57b95f}.badge.medium{background:#49b6e8}.badge.heavy{background:#e0574c}
+.pieces-n{margin-left:auto;font-size:11.5px;color:var(--dim)}
+.setq{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.setq .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.setq input[type=range]{-webkit-appearance:none;appearance:none;width:160px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a3c2b,#c8762a,#e8a33d);outline:0}
+.setq input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:#f3eadc;border:3px solid var(--accent);cursor:pointer;
+  box-shadow:0 0 5px rgba(232,163,61,.55)}
+.setq input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
+.setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
+.strip{display:flex;flex-wrap:wrap;gap:6px 14px;padding:0 15px 10px;font-size:12px;color:var(--dim)}
+.strip b{color:#e2d5c3;font-weight:600}
+.penline{padding:0 15px 10px;font-size:11.5px;color:#c08a5a}
+.penline.ok{color:#6f9a72}
+.plist{list-style:none;margin:0;padding:0 15px;border-top:1px solid var(--line)}
+.prow{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:10px 0;
+  border-bottom:1px dashed #2c2520}
+.prow:last-child{border-bottom:0}
+.slot{font-size:11.5px;color:#9a8f80;background:#241e19;border:1px solid #332b24;
+  border-radius:4px;text-align:center;padding:2px 0;height:20px;line-height:16px}
+.pname{font-size:13.5px;color:#e8dccb;font-weight:600}
+.pname em{font-style:normal;font-weight:400;font-size:10.5px;color:#6f665c;margin-left:6px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0}
+.chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
+  border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
+.chips i b{font-weight:700;color:#f0c98a}
+.chips i.dev{color:#e08a72;border-color:#4a2f24;background:#291b16}
+.chips i.dev b{color:#ef9d83}
+.pdesc{margin:4px 0 0;font-size:11.5px;color:#8f857a;line-height:1.55}
+.sbonus{margin:auto 0 0;padding:11px 15px 13px;background:#1e1a16;border-top:1px solid var(--line)}
+.btitle{font-size:11.5px;color:var(--accent);font-weight:700;letter-spacing:.5px;margin-bottom:3px}
+.sbonus .flavor{margin:0 0 4px;font-size:11.5px;color:#7f766b;font-style:italic}
+.sbonus .eff{margin:0;font-size:12.5px;color:#d8c9b4}
+.sbonus .none{margin:0;font-size:12px;color:#6f665c}
+.qv{display:none}
+.qv.on{display:inline}
+
+.appendix{margin-top:52px;padding-top:22px;border-top:2px solid var(--line)}
+.appendix h2{font-size:19px;margin:0 0 10px}
+.appendix p{color:var(--dim);font-size:13px;margin:0 0 12px}
+.perkrow{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:9px 0;
+  border-top:1px dashed #2c2520;font-size:12.5px;color:#c2b6a6}
+.perkrow b{color:#e8dccb;font-size:13px}
+.perkrow small{display:block;color:#7d7367;font-size:11px}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none !important}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .search input{width:100px}
+  h1{font-size:22px}
+  .cmp{font-size:12px}
+  .cmp th,.cmp td{padding:7px 8px}
+  .setq input[type=range]{width:120px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  nav.jump,.setq{display:none}
+  .set{background:#fff;border-color:#ccc;break-inside:avoid}
+  .sbonus{background:#f6f4f1}
+  .shead h3,.pname,.pdesc,.sbonus .eff,.cmp td{color:#000}
+}
+</style>
+
+<meta name="description" content="轻甲 / 中甲 / 重甲共 16 套 64 件，逐件词条、4 件套奖励，每套独立品质滑杆。">
+<link rel="icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 装甲速查表">
+<meta property="og:description" content="轻甲 / 中甲 / 重甲共 16 套 64 件，逐件词条、4 件套奖励，每套独立品质滑杆。">
+<meta property="og:image" content="https://example.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body><div class='wrap'>
+<header class='top'>
+<h1>七日杀 · 装甲速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code>、<code>buffs.xml</code>、<code>Localization.csv</code>（简体中文）<br>生成时间 2026-10-30 16:51 ｜ 16 套护甲 · 65 件装备 · 轻甲 6 套 / 中甲 6 套 / 重甲 4 套</div>
+<div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每套卡片标题下面有自己的 1–6 滑杆，拖动即可切换该套的护甲值、耐久、模组槽、逐件词条和 4 件套奖励，方便两套并排比较。<br><span style='color:#e8a33d'>筛选：</span>按轻/中/重筛选，搜索框可搜套装名、部位名和效果（按 <code>/</code> 聚焦）。<br><span style='color:#e8a33d'>配套页面：</span><a href='weapons.html'>武器速查表</a> · <a href='mods.html'>模组速查表</a>（护甲模组在这里）· <a href='perks.html'>天赋速查表</a></div>
+</header>
+<div class='rules'>
+<div class='rule'><b>同一件装备，6 个品质</b><span>品质 1 是刚捡到的样子，6 是满品质。数值随品质线性成长，用上面的滑杆逐级对比。</span></div>
+<div class='rule'><b>护甲值 = 物理减伤</b><span>面板上的<em>护甲等级</em>走的是物理伤害减免；元素抗性只对 <em>热、电</em> 生效，数值和护甲值相同。</span></div>
+<div class='rule'><b>4 件套奖励</b><span>同套装穿满 <em>4 件</em>才触发，数值看 4 件里<em>最低品质</em>那一件。</span></div>
+</div>
+<table class='cmp'>
+<tr><th>对比项</th><th class='c-light'>轻甲 Light</th><th class='c-medium'>中甲 Medium</th><th class='c-heavy'>重甲 Heavy</th></tr>
+<tr><td>单件护甲值</td><td class='c-light'>8 → 12.3</td><td class='c-medium'>13 → 17.3</td><td class='c-heavy'>18 → 21</td></tr>
+<tr><td>全套护甲值</td><td class='c-light'>32 → 49.2</td><td class='c-medium'>52 → 69.2</td><td class='c-heavy'>72 → 84</td></tr>
+<tr><td>元素抗性（热/电）</td><td class='c-light'>8 → 12.3</td><td class='c-medium'>13 → 17.3</td><td class='c-heavy'>18 → 21</td></tr>
+<tr><td>单件耐久</td><td class='c-light'>250 → 500</td><td class='c-medium'>250 → 500</td><td class='c-heavy'>250 → 500</td></tr>
+<tr><td>模组槽</td><td class='c-light'>2 / 2 / 3 / 3 / 4 / 5</td><td class='c-medium'>2 / 2 / 3 / 3 / 4 / 5</td><td class='c-heavy'>2 / 2 / 3 / 3 / 4 / 5</td></tr>
+<tr><td>移动速度 / 件</td><td>无</td><td>-5%</td><td>-7.5%</td></tr>
+<tr><td>跑动体力 / 件</td><td>无</td><td>-5.6%</td><td>-9%</td></tr>
+<tr><td>噪音 / 件</td><td>无</td><td>+10%</td><td>+20%</td></tr>
+<tr><td>4 件套合计</td><td class='tot'>无惩罚</td><td class='tot'>移动 -20% · 跑动体力 -22.5% · 噪音 +40%</td><td class='tot'>移动 -30% · 跑动体力 -36% · 噪音 +80%</td></tr>
+<tr><td>套装数量</td><td>6 套</td><td>6 套</td><td>4 套</td></tr>
+<tr><td>对应天赋</td><td><a href='perks.html#attGeneralPerks'>轻甲</a></td><td><a href='perks.html#attGeneralPerks'>中型护甲</a></td><td><a href='perks.html#attGeneralPerks'>重甲护身</a></td></tr>
+
+</table>
+<p class='note'>表格给的是<strong>品质 1 → 6 的区间</strong>；具体某一级看每套卡片上的滑杆。</p>
+<p class='note'>粗糙套装（新手装）例外：模组槽只有 1→2，其余套装是 2→5。</p>
+<p class='note'>体力相关数值正数代表更省体力，负数是惩罚；噪音正数是更吵。所有数值都是<strong>单件</strong>效果，穿 4 件就叠加 4 次。</p>
+<nav class='jump'>
+<div class='navrow'>
+<button class='chipbtn on' data-cls='all'>全部</button>
+<button class='chipbtn' data-cls='light'>轻甲</button>
+<button class='chipbtn' data-cls='medium'>中甲</button>
+<button class='chipbtn' data-cls='heavy'>重甲</button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索套装 / 部位 / 效果'></label>
+</div>
+</nav>
+<section class='cls' id='light'>
+<div class='cls-head'><span class='bar' style='background:#57b95f'></span><h2>🥾 轻甲</h2><span class='en'>Light Armor</span><span class='cnt'>6 套 · 每套 4 件</span></div>
+<p class='cls-intro'>没有移动和噪音惩罚，护甲值最低（满品质每件 12.3，全套 49.2）。适合跑图、潜行和长距离搜刮，靠模组和套装效果吃饭。</p>
+<div class='grid'>
+<article class='set' data-cls='light' data-text='伐木工 lumberjack 伐木工帽子 lumberjack hat 成为木材场的老板。增加木材采伐量。 采集量 伐木工装束 lumberjack outfit 有了这件满是口袋的背心，就什么都能装下了。减少负重。 负重 伐木工手套 lumberjack gloves 谁说斧头是糟糕的武器？增加斧头的近战伤害。 伤害 伐木工靴子 lumberjack boots 贴合脚踝的支撑可在树林中减缓疲劳。降低冲刺时的体力消耗。 跑动体力'>
+<div class='shead'><span class='badge light'>轻甲</span><h3>伐木工<em>Lumberjack</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='伐木工 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>伐木工帽子<em>Lumberjack Hat</em></div>
+<div class='chips'><i class=''>采集量 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.5' data-fmt='pct'>+50%</b></i></div>
+<p class='pdesc'>成为木材场的老板。增加木材采伐量。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>伐木工装束<em>Lumberjack Outfit</em></div>
+<div class='chips'><i class=''>负重 <b data-vals='1,2,3,4,5,10' data-fmt='raw'>+10</b></i></div>
+<p class='pdesc'>有了这件满是口袋的背心，就什么都能装下了。减少负重。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>伐木工手套<em>Lumberjack Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='2,4,6,8,10,15' data-fmt='raw'>+15</b></i></div>
+<p class='pdesc'>谁说斧头是糟糕的武器？增加斧头的近战伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>伐木工靴子<em>Lumberjack Boots</em></div>
+<div class='chips'><i class='dev'>跑动体力 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>贴合脚踝的支撑可在树林中减缓疲劳。降低冲刺时的体力消耗。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>有了合适的装备，伐木工可以砍一整天树。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少5%。</span>
+<span class='qv' data-q='2'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少10%。</span>
+<span class='qv' data-q='3'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少15%。</span>
+<span class='qv' data-q='4'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少20%。</span>
+<span class='qv' data-q='5'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少25%。</span>
+<span class='qv on' data-q='6'>使用斧头和电锯时，木材采伐量加倍。<br><br>使用斧头进行主要和辅助动作时，体力值消耗减少30%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='light' data-text='传道者 preacher 传道者帽子 preacher hat 传道者的仁慈、公平和英雄事迹为其赢得了良好的声誉，获得了贸易界的一致尊重。购买物品可享受折扣。 买入价格 传道者装束 preacher outfit 受到上帝的祝福，这些纤维将保护你远离邪恶。减少受到的伤害。  传道者手套 preacher gloves 粉碎你的敌人。增加对丧尸造成的伤害。 伤害 传道者靴子 preacher boots 死了就不能代表上帝踢别人的屁股了！减少经处理的擦伤和骨折的愈合时间。 '>
+<div class='shead'><span class='badge light'>轻甲</span><h3>传道者<em>Preacher</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='传道者 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>传道者帽子<em>Preacher Hat</em></div>
+<div class='chips'><i class=''>买入价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>传道者的仁慈、公平和英雄事迹为其赢得了良好的声誉，获得了贸易界的一致尊重。购买物品可享受折扣。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>传道者装束<em>Preacher Outfit</em></div>
+<p class='pdesc'>受到上帝的祝福，这些纤维将保护你远离邪恶。减少受到的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>传道者手套<em>Preacher Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>粉碎你的敌人。增加对丧尸造成的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>传道者靴子<em>Preacher Boots</em></div>
+<p class='pdesc'>死了就不能代表上帝踢别人的屁股了！减少经处理的擦伤和骨折的愈合时间。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>圣人级别的舒适与安全。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>重伤几率降低5%，感染几率降低5%。</span>
+<span class='qv' data-q='2'>重伤几率降低10%，感染几率降低10%。</span>
+<span class='qv' data-q='3'>重伤几率降低15%，感染几率降低15%。</span>
+<span class='qv' data-q='4'>重伤几率降低20%，感染几率降低20%。</span>
+<span class='qv' data-q='5'>重伤几率降低25%，感染几率降低25%。</span>
+<span class='qv on' data-q='6'>重伤几率降低40%，感染几率降低100%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='light' data-text='盗贼 rogue 盗贼兜帽 rogue hood 狡猾的小偷总是知道该去哪里找。提高战利品等级。 搜刮时间 搜刮阶段 盗贼装束 rogue outfit 盗贼知道该如何悄悄潜入，悄悄离开。提高潜行效率。 噪音 光照强度 潜行速度 敌人搜索时间 盗贼手套 rogue gloves 撬锁时，时间就是一切。提高开锁速度和成功率。 撬锁时间 撬锁损坏率 盗贼靴子 rogue boots 这款靴子专为抵御剧烈冲击而设计，可保护你免受跌落伤害。增加安全跌落高度。 '>
+<div class='shead'><span class='badge light'>轻甲</span><h3>盗贼<em>Rogue</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='盗贼 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>盗贼兜帽<em>Rogue Hood</em></div>
+<div class='chips'><i class=''>搜刮时间 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.19' data-fmt='pct'>-19%</b></i><i class=''>搜刮阶段 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>狡猾的小偷总是知道该去哪里找。提高战利品等级。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>盗贼装束<em>Rogue Outfit</em></div>
+<div class='chips'><i class='dev'>噪音 <b data-vals='-0.03,-0.05,-0.07,-0.1,-0.13,-0.2' data-fmt='pct'>-20%</b></i><i class=''>光照强度 <b data-vals='-0.05,-0.1,-0.14,-0.18,-0.22,-0.3' data-fmt='pct'>-30%</b></i><i class=''>潜行速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i><i class=''>敌人搜索时间 <b data-vals='0.05,0.1,0.14,0.18,0.22,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='pdesc'>盗贼知道该如何悄悄潜入，悄悄离开。提高潜行效率。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>盗贼手套<em>Rogue Gloves</em></div>
+<div class='chips'><i class=''>撬锁时间 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.2' data-fmt='pct'>-20%</b></i><i class=''>撬锁损坏率 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.2' data-fmt='pct'>-20%</b></i></div>
+<p class='pdesc'>撬锁时，时间就是一切。提高开锁速度和成功率。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>盗贼靴子<em>Rogue Boots</em></div>
+<p class='pdesc'>这款靴子专为抵御剧烈冲击而设计，可保护你免受跌落伤害。增加安全跌落高度。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>盗贼天赋异禀，能找到其他人可能忽略的战利品。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>在战利品中找到的现金和公爵币增加5%。</span>
+<span class='qv' data-q='2'>在战利品中找到的现金和公爵币增加10%。</span>
+<span class='qv' data-q='3'>在战利品中找到的现金和公爵币增加15%。</span>
+<span class='qv' data-q='4'>在战利品中找到的现金和公爵币增加20%。</span>
+<span class='qv' data-q='5'>在战利品中找到的现金和公爵币增加25%。</span>
+<span class='qv on' data-q='6'>在战利品中找到的现金和公爵币增加30%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='light' data-text='粗糙 primitive 粗糙兜帽 primitive hood 薄而轻巧，却能保护你免受轻微剐蹭。  粗糙装束 primitive outfit 虽然穿着很痒，但至少没有赤身裸体。  粗糙手套 primitive gloves 这款手套旨在增强基本的抓握能力，同时还能避免指关节流血。  粗糙鞋子 primitive shoes 每走一步都要保护好自己的双脚，这样才能活得久。 '>
+<div class='shead'><span class='badge light'>轻甲</span><h3>粗糙<em>Primitive</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='粗糙 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='1,1,1,1,1,2' data-fmt='num'>2</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>粗糙兜帽<em>Primitive Hood</em></div>
+<p class='pdesc'>薄而轻巧，却能保护你免受轻微剐蹭。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>粗糙装束<em>Primitive Outfit</em></div>
+<p class='pdesc'>虽然穿着很痒，但至少没有赤身裸体。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>粗糙手套<em>Primitive Gloves</em></div>
+<p class='pdesc'>这款手套旨在增强基本的抓握能力，同时还能避免指关节流血。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>粗糙鞋子<em>Primitive Shoes</em></div>
+<p class='pdesc'>每走一步都要保护好自己的双脚，这样才能活得久。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='none'>新手装，没有套装奖励。</p>
+</div></article>
+<article class='set' data-cls='light' data-text='警官 enforcer 警官墨镜 enforcer sunglasses 戴上它你看着就像个老大。提升砍价技能。 买入价格 卖出价格 警官装束 enforcer outfit 时尚、轻便、透气的材料，防护性能很好。增强重伤抗性。 通用减伤 警官手套 enforcer gloves 真正的车手都带手套。载具消耗更少燃料。 载具油耗 警官鞋子 enforcer shoes 像硬汉刑警一样追捕那些小混混。提高奔跑速度。 奔跑速度'>
+<div class='shead'><span class='badge light'>轻甲</span><h3>警官<em>Enforcer</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='警官 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>警官墨镜<em>Enforcer Sunglasses</em></div>
+<div class='chips'><i class=''>买入价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i><i class=''>卖出价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>戴上它你看着就像个老大。提升砍价技能。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>警官装束<em>Enforcer Outfit</em></div>
+<div class='chips'><i class=''>通用减伤 <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i></div>
+<p class='pdesc'>时尚、轻便、透气的材料，防护性能很好。增强重伤抗性。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>警官手套<em>Enforcer Gloves</em></div>
+<div class='chips'><i class=''>载具油耗 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.2' data-fmt='pct'>-20%</b></i></div>
+<p class='pdesc'>真正的车手都带手套。载具消耗更少燃料。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>警官鞋子<em>Enforcer Shoes</em></div>
+<div class='chips'><i class=''>奔跑速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>像硬汉刑警一样追捕那些小混混。提高奔跑速度。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>穿上一身剪裁得体的西装，警官信心倍增，在枪战中略占上风。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>.44 弹药造成的伤害提高5%，.44 马格南和沙漠秃鹫的装填速度提高5%。</span>
+<span class='qv' data-q='2'>.44 弹药造成的伤害提高10%，.44 马格南和沙漠秃鹫的装填速度提高10%。</span>
+<span class='qv' data-q='3'>.44 弹药造成的伤害提高15%，.44 马格南和沙漠秃鹫的装填速度提高15%。</span>
+<span class='qv' data-q='4'>.44 弹药造成的伤害提高20%，.44 马格南和沙漠秃鹫的装填速度提高20%。</span>
+<span class='qv' data-q='5'>.44 弹药造成的伤害提高25%，.44 马格南和沙漠秃鹫的装填速度提高25%。</span>
+<span class='qv on' data-q='6'>.44 弹药造成的伤害提高50%，.44 马格南和沙漠秃鹫的装填速度提高50%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='light' data-text='运动员 athletic 运动员帽子 athletic hat 看起来像回事，人家就愿意给你打折。食品、饮料和药品的花费更低。 买入价格 运动员装束 athletic outfit 运动能力在战斗中能增强活力。增加最大生命值。 生命上限 运动员手套 athletic gloves 握力更强，且不会让你感到疲惫。增强最大体力值。 体力上限 运动员鞋子 athletic shoes 你不用当跑得最快的人，只要不是跑得最慢的就行。增加奔跑速度。 奔跑速度'>
+<div class='shead'><span class='badge light'>轻甲</span><h3>运动员<em>Athletic</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='运动员 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b></span><span>元素抗 <b data-vals='8,8.86,9.72,10.58,11.44,12.3' data-fmt='num'>12.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline ok'>无移动 / 体力 / 噪音惩罚</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>运动员帽子<em>Athletic Hat</em></div>
+<div class='chips'><i class=''>买入价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>看起来像回事，人家就愿意给你打折。食品、饮料和药品的花费更低。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>运动员装束<em>Athletic Outfit</em></div>
+<div class='chips'><i class=''>生命上限 <b data-vals='2,4,6,8,10,20' data-fmt='raw'>+20</b></i></div>
+<p class='pdesc'>运动能力在战斗中能增强活力。增加最大生命值。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>运动员手套<em>Athletic Gloves</em></div>
+<div class='chips'><i class=''>体力上限 <b data-vals='5,10,15,20,25,50' data-fmt='raw'>+50</b></i></div>
+<p class='pdesc'>握力更强，且不会让你感到疲惫。增强最大体力值。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>运动员鞋子<em>Athletic Shoes</em></div>
+<div class='chips'><i class=''>奔跑速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>你不用当跑得最快的人，只要不是跑得最慢的就行。增加奔跑速度。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>运动员的装备符合人体工学，有助于在不消耗额外能量的情况下保持巅峰状态。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>食物和水的消耗减少10%。</span>
+<span class='qv' data-q='2'>食物和水的消耗减少20%。</span>
+<span class='qv' data-q='3'>食物和水的消耗减少30%。</span>
+<span class='qv' data-q='4'>食物和水的消耗减少40%。</span>
+<span class='qv' data-q='5'>食物和水的消耗减少50%。</span>
+<span class='qv on' data-q='6'>食物和水的消耗减少60%。</span>
+</p>
+</div></article>
+</div></section>
+<section class='cls' id='medium'>
+<div class='cls-head'><span class='bar' style='background:#49b6e8'></span><h2>🧥 中甲</h2><span class='en'>Medium Armor</span><span class='cnt'>6 套 · 每套 4 件</span></div>
+<p class='cls-intro'>每件 -5% 移动速度、-2.8% 走动体力、-5.6% 跑动体力、+10% 噪音，护甲值中等（满品质 17.3/件）。四件套合计移动 -20%、噪音 +40%。</p>
+<div class='grid'>
+<article class='set' data-cls='medium' data-text='农夫 farmer 农夫帽子 farmer hat 让阳光不再晃眼，而是会照亮你想要的宝物。增加在战利品中找到种子的几率。 种子掉落 农夫装束 farmer outfit 这些工装裤除了参加广场舞会还有别的用途。增加额外收集一份作物的几率。 采集量 农夫手套 farmer gloves 握紧枪柄，射击一切移动物体。增加步枪伤害。 伤害 农夫靴子 farmer boots 没有什么比一双舒适的靴子更适合在田间劳作了。增加收集时获得一粒种子的几率。 采集量'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>农夫<em>Farmer</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='农夫 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -5% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 +10%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>农夫帽子<em>Farmer Hat</em></div>
+<div class='chips'><i class=''>种子掉落 <b data-vals='2,4,6,8,10,20' data-fmt='mult'>×21</b></i></div>
+<p class='pdesc'>让阳光不再晃眼，而是会照亮你想要的宝物。增加在战利品中找到种子的几率。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>农夫装束<em>Farmer Outfit</em></div>
+<div class='chips'><i class=''>采集量 <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='pdesc'>这些工装裤除了参加广场舞会还有别的用途。增加额外收集一份作物的几率。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>农夫手套<em>Farmer Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>握紧枪柄，射击一切移动物体。增加步枪伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>农夫靴子<em>Farmer Boots</em></div>
+<div class='chips'><i class=''>采集量 <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='pdesc'>没有什么比一双舒适的靴子更适合在田间劳作了。增加收集时获得一粒种子的几率。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>农民了解食物的来源，也能通过食物更快地恢复。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>消耗食物获得的生命值和体力值增加10%。</span>
+<span class='qv' data-q='2'>消耗食物获得的生命值和体力值增加15%。</span>
+<span class='qv' data-q='3'>消耗食物获得的生命值和体力值增加20%。</span>
+<span class='qv' data-q='4'>消耗食物获得的生命值和体力值增加25%。</span>
+<span class='qv' data-q='5'>消耗食物获得的生命值和体力值增加30%。</span>
+<span class='qv on' data-q='6'>消耗食物获得的生命值和体力值增加40%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='medium' data-text='刺客 assassin 刺客兜帽 assassin hood 当你出手时，没人能发现。潜行时造成更多伤害。 伤害加成 伤害 刺客装束 assassin outfit 行动时保持隐藏、安静且安全。提高潜行效率。 噪音 光照强度 潜行速度 敌人搜索时间 刺客手套 assassin gloves 敏捷是释放怒火的关键。提高所有使用敏捷属性的武器的攻击速度。 攻击速度 射速 刺客靴子 assassin boots 悄无声息，却能致命。潜行时冲刺不会发出额外的声音。 噪音 脚步噪音'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>刺客<em>Assassin</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='刺客 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -4.9% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 无</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>刺客兜帽<em>Assassin Hood</em></div>
+<div class='chips'><i class=''>伤害加成 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i><i class=''>伤害 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>当你出手时，没人能发现。潜行时造成更多伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>刺客装束<em>Assassin Outfit</em></div>
+<div class='chips'><i class='dev'>噪音 <b data-vals='-0.03,-0.05,-0.07,-0.1,-0.13,-0.2' data-fmt='pct'>-20%</b></i><i class=''>光照强度 <b data-vals='-0.05,-0.1,-0.14,-0.18,-0.22,-0.3' data-fmt='pct'>-30%</b></i><i class=''>潜行速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i><i class=''>敌人搜索时间 <b data-vals='0.05,0.1,0.14,0.18,0.22,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='pdesc'>行动时保持隐藏、安静且安全。提高潜行效率。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>刺客手套<em>Assassin Gloves</em></div>
+<div class='chips'><i class=''>攻击速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i><i class=''>射速 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>敏捷是释放怒火的关键。提高所有使用敏捷属性的武器的攻击速度。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>刺客靴子<em>Assassin Boots</em></div>
+<div class='chips'><i class='dev'>噪音 <b data-vals='-0.999,-0.999,-0.999,-0.999,-0.999,-0.999' data-fmt='pct'>-99.9%</b></i><i class=''>脚步噪音 <b data-vals='1,1,1,1,1,1' data-fmt='const'>消除</b></i></div>
+<p class='pdesc'>悄无声息，却能致命。潜行时冲刺不会发出额外的声音。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>凭借无与伦比的敏捷性，刺客悄然隐入暗处。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>隐藏速度提高15%。</span>
+<span class='qv' data-q='2'>隐藏速度提高30%。</span>
+<span class='qv' data-q='3'>隐藏速度提高45%。</span>
+<span class='qv' data-q='4'>隐藏速度提高60%。</span>
+<span class='qv' data-q='5'>隐藏速度提高75%。</span>
+<span class='qv on' data-q='6'>隐藏速度提高100%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='medium' data-text='护林员 ranger 护林员帽子 ranger hat 护林员是无情的谈判者，尤其是戴着一顶精美的帽子时。提升砍价技能。 买入价格 卖出价格 护林员装束 ranger outfit 坚固耐用的皮革罩衫，能让你在战斗中坚持更长时间。增加最大生命值。 生命上限 护林员手套 ranger gloves 以更强的握力和更高的精度杀死有害动物。提高步枪和左轮手枪的伤害。 伤害 护林员靴子 ranger boots 能走更远的路且在战斗中坚持更长时间。增加最大体力。 体力上限'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>护林员<em>Ranger</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='护林员 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -4.9% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 +10%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>护林员帽子<em>Ranger Hat</em></div>
+<div class='chips'><i class=''>买入价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i><i class=''>卖出价格 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>护林员是无情的谈判者，尤其是戴着一顶精美的帽子时。提升砍价技能。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>护林员装束<em>Ranger Outfit</em></div>
+<div class='chips'><i class=''>生命上限 <b data-vals='2,4,6,8,10,20' data-fmt='raw'>+20</b></i></div>
+<p class='pdesc'>坚固耐用的皮革罩衫，能让你在战斗中坚持更长时间。增加最大生命值。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>护林员手套<em>Ranger Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.5' data-fmt='pct'>+50%</b></i></div>
+<p class='pdesc'>以更强的握力和更高的精度杀死有害动物。提高步枪和左轮手枪的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>护林员靴子<em>Ranger Boots</em></div>
+<div class='chips'><i class=''>体力上限 <b data-vals='10,20,30,40,50,60' data-fmt='raw'>+60</b></i></div>
+<p class='pdesc'>能走更远的路且在战斗中坚持更长时间。增加最大体力。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>护林员的快速装弹技巧是强化训练、肌肉记忆和战术技巧的结晶。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>使用左轮手枪和杠杆式步枪时，装填速度提高5%。</span>
+<span class='qv' data-q='2'>使用左轮手枪和杠杆式步枪时，装填速度提高10%。</span>
+<span class='qv' data-q='3'>使用左轮手枪和杠杆式步枪时，装填速度提高15%。</span>
+<span class='qv' data-q='4'>使用左轮手枪和杠杆式步枪时，装填速度提高20%。</span>
+<span class='qv' data-q='5'>使用左轮手枪和杠杆式步枪时，装填速度提高25%。</span>
+<span class='qv on' data-q='6'>使用左轮手枪和杠杆式步枪时，装填速度提高50%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='medium' data-text='拾荒者 scavenger 拾荒者帽子 scavenger hat 你一定能从拆卸这些东西中学到一些东西。回收时获得更多经验值。 经验获取 拾荒者装束 scavenger outfit 深口袋方便你把货物带回家。减少负重。 负重 拾荒者手套 scavenger gloves 保护好你的指关节，集中精力进行回收工作。增加回收时获得的资源。 采集量 拾荒者靴子 scavenger boots 穿上这双定制的靴子，就能进行更长时间的回收工作。回收时降低体力消耗。 体力消耗'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>拾荒者<em>Scavenger</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='拾荒者 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -4.9% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 +10%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>拾荒者帽子<em>Scavenger Hat</em></div>
+<div class='chips'><i class=''>经验获取 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>你一定能从拆卸这些东西中学到一些东西。回收时获得更多经验值。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>拾荒者装束<em>Scavenger Outfit</em></div>
+<div class='chips'><i class=''>负重 <b data-vals='1,2,3,4,5,10' data-fmt='raw'>+10</b></i></div>
+<p class='pdesc'>深口袋方便你把货物带回家。减少负重。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>拾荒者手套<em>Scavenger Gloves</em></div>
+<div class='chips'><i class=''>采集量 <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='pdesc'>保护好你的指关节，集中精力进行回收工作。增加回收时获得的资源。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>拾荒者靴子<em>Scavenger Boots</em></div>
+<div class='chips'><i class=''>体力消耗 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.4' data-fmt='pct'>-40%</b></i></div>
+<p class='pdesc'>穿上这双定制的靴子，就能进行更长时间的回收工作。回收时降低体力消耗。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>拾荒者拥有火眼金睛，能发现其他人注意不到的珍宝。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>找到的战利品品质提高2%。</span>
+<span class='qv' data-q='2'>找到的战利品品质提高4%。</span>
+<span class='qv' data-q='3'>找到的战利品品质提高6%。</span>
+<span class='qv' data-q='4'>找到的战利品品质提高8%。</span>
+<span class='qv' data-q='5'>找到的战利品品质提高10%。</span>
+<span class='qv on' data-q='6'>找到的战利品品质提高20%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='medium' data-text='摩托车手 biker 摩托车手头盔 biker helmet 挨上一击的同时还能显得威风凛凛。提高眩晕抗性。  摩托车手装束 biker outfit 让自己看上去狂霸酷拽。增加最大生命值。 生命上限 摩托车手手套 biker gloves 让你打得更狠、打得更帅。增加近战武器伤害。 伤害 摩托车手靴子 biker boots 没有什么能比一双机车皮靴更加“屌炸天”了。使用近战武器时消耗更少体力。 体力消耗'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>摩托车手<em>Biker</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='摩托车手 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -4.9% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 +10%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>摩托车手头盔<em>Biker Helmet</em></div>
+<p class='pdesc'>挨上一击的同时还能显得威风凛凛。提高眩晕抗性。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>摩托车手装束<em>Biker Outfit</em></div>
+<div class='chips'><i class=''>生命上限 <b data-vals='2,4,6,8,10,20' data-fmt='raw'>+20</b></i></div>
+<p class='pdesc'>让自己看上去狂霸酷拽。增加最大生命值。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>摩托车手手套<em>Biker Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>让你打得更狠、打得更帅。增加近战武器伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>摩托车手靴子<em>Biker Boots</em></div>
+<div class='chips'><i class=''>体力消耗 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.2' data-fmt='pct'>-20%</b></i></div>
+<p class='pdesc'>没有什么能比一双机车皮靴更加“屌炸天”了。使用近战武器时消耗更少体力。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>摩托车手的全套公路装备不仅威风凛凛，还能提供额外保护。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>护甲等级提高1。<br>小型机车和摩托车的燃料消耗量减少2%。</span>
+<span class='qv' data-q='2'>护甲等级提高2。<br>小型机车和摩托车的燃料消耗量减少4%。</span>
+<span class='qv' data-q='3'>护甲等级提高3。<br>小型机车和摩托车的燃料消耗量减少6%。</span>
+<span class='qv' data-q='4'>护甲等级提高4。<br>小型机车和摩托车的燃料消耗量减少8%。</span>
+<span class='qv' data-q='5'>护甲等级提高5。<br>小型机车和摩托车的燃料消耗量减少10%。</span>
+<span class='qv on' data-q='6'>护甲等级提高6。<br>小型机车和摩托车的燃料消耗量减少20%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='medium' data-text='突击队员 commando 指挥官头盔 commando helmet 保护头骨免受攻击。增加眩晕抗性。  指挥官装束 commando outfit 真正的突击队员毫不退缩。重伤恢复更快  指挥官手套 commando gloves 保护好你的食指，痛击敌人。提高所有远程武器的伤害。 伤害 指挥官靴子 commando boots 这双碳纤维鞋尖的炫酷好物让你看起来极其硬派，并能帮助你跑得更快。提高跑步速度。 奔跑速度'>
+<div class='shead'><span class='badge medium'>中甲</span><h3>突击队员<em>Commando</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='突击队员 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b></span><span>元素抗 <b data-vals='13,13.86,14.72,15.58,16.44,17.3' data-fmt='num'>17.3</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -4.9% · 走动体力 -2.8% · 跑动体力 -5.6% · 噪音 +10%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>指挥官头盔<em>Commando Helmet</em></div>
+<p class='pdesc'>保护头骨免受攻击。增加眩晕抗性。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>指挥官装束<em>Commando Outfit</em></div>
+<p class='pdesc'>真正的突击队员毫不退缩。重伤恢复更快</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>指挥官手套<em>Commando Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.5' data-fmt='pct'>+50%</b></i></div>
+<p class='pdesc'>保护好你的食指，痛击敌人。提高所有远程武器的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>指挥官靴子<em>Commando Boots</em></div>
+<div class='chips'><i class=''>奔跑速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>这双碳纤维鞋尖的炫酷好物让你看起来极其硬派，并能帮助你跑得更快。提高跑步速度。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>突击队员接受过专门训练，身体强壮且恢复速度快，不会长时间倒地不起。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>回复物品的生效速度提高25%。</span>
+<span class='qv' data-q='2'>回复物品的生效速度提高30%。</span>
+<span class='qv' data-q='3'>回复物品的生效速度提高35%。</span>
+<span class='qv' data-q='4'>回复物品的生效速度提高40%。</span>
+<span class='qv' data-q='5'>回复物品的生效速度提高45%。</span>
+<span class='qv on' data-q='6'>回复物品的生效速度提高50%。</span>
+</p>
+</div></article>
+</div></section>
+<section class='cls' id='heavy'>
+<div class='cls-head'><span class='bar' style='background:#e0574c'></span><h2>🛡 重甲</h2><span class='en'>Heavy Armor</span><span class='cnt'>4 套 · 每套 4 件</span></div>
+<p class='cls-intro'>每件 -7.5% 移动速度、-4.5% 走动体力、-9% 跑动体力、+20% 噪音，护甲值最高（满品质 21/件）。四件套合计移动 -30%、跑动体力 -36%、噪音 +80%。</p>
+<div class='grid'>
+<article class='set' data-cls='heavy' data-text='学霸 nerd 学霸护目镜 nerd goggles 你可能没机会出去约会，但你能在提升技能等级方面大获全胜。增加获得的经验值。 经验获取 学霸装束 nerd outfit 你缺乏时尚感，这让你有能力专注于发明创造。阅读杂志时有几率获得两点制作技能点数。  学霸手套 nerd gloves 保护你冰冷柔软的双手免受风雨侵袭，成为智力超群的坏蛋。使用智力型武器造成更多伤害。 伤害 学霸靴子 nerd boots 步履轻盈，兼顾保护。减少跌落伤害。 '>
+<div class='shead'><span class='badge heavy'>重甲</span><h3>学霸<em>Nerd</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='学霸 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b></span><span>元素抗 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -7.5% · 走动体力 -4.5% · 跑动体力 -9% · 噪音 +20%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>学霸护目镜<em>Nerd Goggles</em></div>
+<div class='chips'><i class=''>经验获取 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>你可能没机会出去约会，但你能在提升技能等级方面大获全胜。增加获得的经验值。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>学霸装束<em>Nerd Outfit</em></div>
+<p class='pdesc'>你缺乏时尚感，这让你有能力专注于发明创造。阅读杂志时有几率获得两点制作技能点数。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>学霸手套<em>Nerd Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>保护你冰冷柔软的双手免受风雨侵袭，成为智力超群的坏蛋。使用智力型武器造成更多伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>学霸靴子<em>Nerd Boots</em></div>
+<p class='pdesc'>步履轻盈，兼顾保护。减少跌落伤害。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>学霸了解工具和武器的机械原理，可以正确地操作它们，从而延长使用寿命。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>工具和武器的损坏速度会降减慢10% 。</span>
+<span class='qv' data-q='2'>工具和武器的损坏速度会降减慢15% 。</span>
+<span class='qv' data-q='3'>工具和武器的损坏速度会降减慢20% 。</span>
+<span class='qv' data-q='4'>工具和武器的损坏速度会降减慢25% 。</span>
+<span class='qv' data-q='5'>工具和武器的损坏速度会降减慢30% 。</span>
+<span class='qv on' data-q='6'>工具和武器的损坏速度会降减慢35% 。</span>
+</p>
+</div></article>
+<article class='set' data-cls='heavy' data-text='游牧民 nomad 游牧民头饰 nomad headgear 这个头盔能抵御荒野的恶劣环境，让游牧民走得更远。减少食物和水的消耗。 体力消耗（食物） 体力消耗（水分） 游牧民装束 nomad outfit 游牧生活意味着随身携带一切。减少负重。 负重 游牧民手套 nomad gloves 这款手套融合了能吸收辐射的材料，可对辐射型敌人造成更高近战伤害。对辐射、带电与炼狱敌人造成更高近战伤害。 伤害 游牧民靴子 nomad boots 经验丰富的旅行者都知道合脚鞋子的重要性。提高奔跑速度。 奔跑速度'>
+<div class='shead'><span class='badge heavy'>重甲</span><h3>游牧民<em>Nomad</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='游牧民 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b></span><span>元素抗 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -7.5% · 走动体力 -4.5% · 跑动体力 -9% · 噪音 +20%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>游牧民头饰<em>Nomad Headgear</em></div>
+<div class='chips'><i class=''>体力消耗（食物） <b data-vals='-0.1,-0.2,-0.3,-0.4,-0.5,-0.6' data-fmt='pct'>-60%</b></i><i class=''>体力消耗（水分） <b data-vals='-0.1,-0.2,-0.3,-0.4,-0.5,-0.6' data-fmt='pct'>-60%</b></i></div>
+<p class='pdesc'>这个头盔能抵御荒野的恶劣环境，让游牧民走得更远。减少食物和水的消耗。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>游牧民装束<em>Nomad Outfit</em></div>
+<div class='chips'><i class=''>负重 <b data-vals='1,2,3,4,5,10' data-fmt='raw'>+10</b></i></div>
+<p class='pdesc'>游牧生活意味着随身携带一切。减少负重。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>游牧民手套<em>Nomad Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.5' data-fmt='pct'>+50%</b></i></div>
+<p class='pdesc'>这款手套融合了能吸收辐射的材料，可对辐射型敌人造成更高近战伤害。对辐射、带电与炼狱敌人造成更高近战伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>游牧民靴子<em>Nomad Boots</em></div>
+<div class='chips'><i class=''>奔跑速度 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='pdesc'>经验丰富的旅行者都知道合脚鞋子的重要性。提高奔跑速度。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>在荒野上跋涉时，游牧民的护甲就是他们的绿洲。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>恢复体力值时可减少5%食物和水的用量。</span>
+<span class='qv' data-q='2'>恢复体力值时可减少10%食物和水的用量。</span>
+<span class='qv' data-q='3'>恢复体力值时可减少15%食物和水的用量。</span>
+<span class='qv' data-q='4'>恢复体力值时可减少20%食物和水的用量。</span>
+<span class='qv' data-q='5'>恢复体力值时可减少25%食物和水的用量。</span>
+<span class='qv on' data-q='6'>恢复体力值时可减少30%食物和水的用量。</span>
+</p>
+</div></article>
+<article class='set' data-cls='heavy' data-text='矿工 miner 矿工头盔 miner helmet 照亮提高产量之路。提高采矿工具的收成。 采集量 矿工装束 miner outfit 符合人体工程学的设计让你在整夜采矿时都不会感到疲倦。降低采矿工具的体力消耗。 体力消耗 矿工手套 miner gloves 戴上这副手套，像专家一样开凿岩石。增加采矿工具的伤害。 方块伤害 矿工靴子 miner boots 这双钢头靴能保护你的双脚。减少跌落伤害。 '>
+<div class='shead'><span class='badge heavy'>重甲</span><h3>矿工<em>Miner</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='矿工 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b></span><span>元素抗 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -7.5% · 走动体力 -4.5% · 跑动体力 -9% · 噪音 +20%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>矿工头盔<em>Miner Helmet</em></div>
+<div class='chips'><i class=''>采集量 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='pdesc'>照亮提高产量之路。提高采矿工具的收成。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>矿工装束<em>Miner Outfit</em></div>
+<div class='chips'><i class=''>体力消耗 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.3' data-fmt='pct'>-30%</b></i></div>
+<p class='pdesc'>符合人体工程学的设计让你在整夜采矿时都不会感到疲倦。降低采矿工具的体力消耗。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>矿工手套<em>Miner Gloves</em></div>
+<div class='chips'><i class=''>方块伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.5' data-fmt='pct'>+50%</b></i></div>
+<p class='pdesc'>戴上这副手套，像专家一样开凿岩石。增加采矿工具的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>矿工靴子<em>Miner Boots</em></div>
+<p class='pdesc'>这双钢头靴能保护你的双脚。减少跌落伤害。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>矿工拥有高效开采资源的专业知识，能够保护工具免受过度磨损。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>采矿工具损坏降低10%。</span>
+<span class='qv' data-q='2'>采矿工具损坏降低15%。</span>
+<span class='qv' data-q='3'>采矿工具损坏降低20%。</span>
+<span class='qv' data-q='4'>采矿工具损坏降低25%。</span>
+<span class='qv' data-q='5'>采矿工具损坏降低30%。</span>
+<span class='qv on' data-q='6'>采矿工具损坏降低35%。</span>
+</p>
+</div></article>
+<article class='set' data-cls='heavy' data-text='袭击者 raider 袭击者头盔 raider helmet 混乱的战斗可能会让人心惊肉跳，但这顶头盔能让你毫发无损。增强眩晕抗性。  袭击者装束 raider outfit 虽然很沉重，但也能提供近乎坚不可摧的防御。将受到的重伤降低为更轻微的伤害。  袭击者手套 raider gloves 金属板增加挥击时的冲力。增加近战武器伤害。 伤害 袭击者靴子 raider boots 减震鞋底可减缓跌落时的冲击力。减少跌落伤害。 '>
+<div class='shead'><span class='badge heavy'>重甲</span><h3>袭击者<em>Raider</em></h3><span class='pieces-n'>4 件</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='袭击者 品质'><b class='qnow'>6</b></div>
+<div class='strip'><span>护甲 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b></span><span>元素抗 <b data-vals='18,18.6,19.2,19.8,20.4,21' data-fmt='num'>21</b> <span style='font-size:10.5px'>(热/电)</span></span><span>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></span><span>槽位 <b data-vals='2,2,3,3,4,5' data-fmt='num'>5</b></span></div>
+<div class='penline'>每件：移动 -7.5% · 走动体力 -4.5% · 跑动体力 -9% · 噪音 +20%</div>
+<ul class='plist'>
+<li class='prow'><span class='slot'>头部</span><div>
+<div class='pname'>袭击者头盔<em>Raider Helmet</em></div>
+<p class='pdesc'>混乱的战斗可能会让人心惊肉跳，但这顶头盔能让你毫发无损。增强眩晕抗性。</p>
+</div></li>
+<li class='prow'><span class='slot'>胸甲</span><div>
+<div class='pname'>袭击者装束<em>Raider Outfit</em></div>
+<p class='pdesc'>虽然很沉重，但也能提供近乎坚不可摧的防御。将受到的重伤降低为更轻微的伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>手部</span><div>
+<div class='pname'>袭击者手套<em>Raider Gloves</em></div>
+<div class='chips'><i class=''>伤害 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='pdesc'>金属板增加挥击时的冲力。增加近战武器伤害。</p>
+</div></li>
+<li class='prow'><span class='slot'>足部</span><div>
+<div class='pname'>袭击者靴子<em>Raider Boots</em></div>
+<p class='pdesc'>减震鞋底可减缓跌落时的冲击力。减少跌落伤害。</p>
+</div></li>
+</ul>
+<div class='sbonus'><div class='btitle'>4 件套奖励<span style='color:#7d7367;font-weight:400'> · 随最低品质变化</span></div>
+<p class='flavor'>袭击者穿戴的护甲使他们对伤害具有天然的抵抗力，能降低针对自身的攻击效果。</p>
+<p class='eff'>
+<span class='qv' data-q='1'>重伤几率降低20%。</span>
+<span class='qv' data-q='2'>重伤几率降低25%。</span>
+<span class='qv' data-q='3'>重伤几率降低30%。</span>
+<span class='qv' data-q='4'>重伤几率降低35%。</span>
+<span class='qv' data-q='5'>重伤几率降低40%。</span>
+<span class='qv on' data-q='6'>重伤几率降低45%。</span>
+</p>
+</div></article>
+</div></section>
+<div class='appendix'>
+<h2>单件护甲</h2><p>不组成套装、也没有 4 件套奖励的护甲。</p>
+<div class='perkrow'><b>圣诞帽<br><small>Santa Hat</small></b><div><div class='chips'><i>搜刮时间 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.2' data-fmt='pct'>-20%</b></i><i>搜刮阶段 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.2' data-fmt='pct'>+20%</b></i></div>增添一点圣诞气氛。
+可将此物品分解，然后应用到任意头盔上当饰品。</div></div>
+<h2 style='margin-top:30px'>护甲天赋怎么减轻惩罚</h2>
+<p>三个通用天赋分别对应一类护甲；点满 4 级后的效果：</p>
+<div class='perkrow'><b>轻甲<small>Light Armor</small></b><div>耐久消耗 -15% / -30% / -45% / -60%；每装备一件轻甲额外 +1 / +2 / +3 / +4 护甲值。</div></div>
+<div class='perkrow'><b>中型护甲<small>Medium Armor</small></b><div>中甲移动惩罚 -15% / -30% / -50% / -75%，体力惩罚 -10% / -20% / -35% / -50%，耐久消耗 -15% / -30% / -45% / -60%。</div></div>
+<div class='perkrow'><b>重甲护身<small>Heavy Armor</small></b><div>重甲移动与体力惩罚 -5% / -10% / -17% / -25%，耐久消耗 -15% / -30% / -45% / -60%。</div></div>
+<p style='margin-top:12px'>完整每级数值见 <a href='perks.html#attGeneralPerks'>天赋速查表 · 通用天赋</a>。</p>
+</div>
+<footer>数据来源：本机 <code>7 Days to Die</code> 安装目录下 <code>Data/Config/items.xml</code>（护甲与逐件效果）、<code>buffs.xml</code>（4 件套奖励）、<code>Localization.csv</code>（中文文本）。<br>品质数值按游戏文件里的 <code>tier</code> 区间线性展开成 1–6 级；被排除的开发/试玩物品：pimpMiningHelmetAdmin、armorLumberjackHelmetDemo。游戏更新后重新运行 <code>parse_armor.py</code> 与 <code>render_armor_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  function trim(x){
+    var r = Math.round(x * 10) / 10;
+    if (Math.abs(r - Math.round(r)) < 0.0001) return String(Math.round(r));
+    return String(r);
+  }
+  var FMT = {
+    num:   function(v){ return trim(v); },
+    pct:   function(v){ var x = Math.round(v * 1000) / 10; return (x > 0 ? '+' : '') + trim(x) + '%'; },
+    raw:   function(v){ return (v > 0 ? '+' : '') + trim(v); },
+    mult:  function(v){ return '×' + trim(1 + v); },
+    const: function(){ return '消除'; }
+  };
+
+  function applyTo(root, q){
+    q = Math.max(1, Math.min(6, q));
+    var nodes = root.querySelectorAll('[data-vals]');
+    for (var i = 0; i < nodes.length; i++){
+      var el = nodes[i];
+      var vals = el.getAttribute('data-vals').split(',');
+      var v = parseFloat(vals[q - 1]);
+      var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+      el.textContent = f(v);
+    }
+    var spans = root.querySelectorAll('.qv');
+    for (var j = 0; j < spans.length; j++){
+      spans[j].classList.toggle('on', spans[j].getAttribute('data-q') === String(q));
+    }
+  }
+
+  // one independent quality slider per armor set card
+  var cards = [].slice.call(document.querySelectorAll('.set'));
+  cards.forEach(function(card){
+    var slider = card.querySelector('.qslider');
+    var qnow = card.querySelector('.setq .qnow');
+    if (!slider) return;
+    function sync(){
+      var q = parseInt(slider.value, 10);
+      if (qnow) qnow.textContent = q;
+      applyTo(card, q);
+    }
+    slider.addEventListener('input', sync);
+    slider.addEventListener('change', sync);
+    card.querySelector('.setq').addEventListener('mousedown', function(ev){ ev.stopPropagation(); });
+    sync();
+  });
+
+  // class filter + search
+  var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cls]'));
+  var secs = [].slice.call(document.querySelectorAll('section.cls'));
+  var q = document.getElementById('q');
+  var cls = 'all';
+
+  function filter(){
+    var v = (q.value || '').trim().toLowerCase();
+    cards.forEach(function(c){
+      var okCls = (cls === 'all' || c.dataset.cls === cls);
+      var okTxt = !v || c.dataset.text.indexOf(v) !== -1;
+      c.classList.toggle('hide', !(okCls && okTxt));
+    });
+    secs.forEach(function(s){
+      s.classList.toggle('hide', s.querySelectorAll('.set:not(.hide)').length === 0);
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      cls = b.dataset.cls;
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      filter();
+    });
+  });
+  q.addEventListener('input', filter);
+  document.addEventListener('keydown', function(ev){
+    var tag = (document.activeElement && document.activeElement.type) || '';
+    if (ev.key === '/' && document.activeElement !== q && tag !== 'range'){
+      ev.preventDefault(); q.focus();
+    }
+    if (ev.key === 'Escape' && document.activeElement === q){ q.value=''; filter(); q.blur(); }
+  });
+})();
+</script></body></html>

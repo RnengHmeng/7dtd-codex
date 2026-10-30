@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七日杀 V3.4 模组速查表</title>
+<style>
+:root{
+  --bg:#100e0c; --panel:#1a1714; --panel2:#221d19; --line:#332b24;
+  --text:#e8e1d8; --dim:#a2988c; --accent:#e8a33d; --accent2:#c8762a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif;}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px;letter-spacing:.5px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:22px 0 4px}
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:6px;padding:12px 14px}
+.rule b{display:block;color:var(--accent);font-size:13px;letter-spacing:.5px;margin-bottom:4px}
+.rule span{color:var(--dim);font-size:13px}
+.rule span em{color:var(--text);font-style:normal}
+
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.chipbtn small{opacity:.65;margin-left:4px;font-size:11px}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+.search input::placeholder{color:#6f665c}
+
+section.cat{margin:0 0 42px;scroll-margin-top:84px}
+.cat-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:0 0 10px;border-bottom:2px solid var(--line);margin-bottom:8px}
+.cat-head .bar{width:6px;height:26px;border-radius:3px;display:inline-block}
+.cat-head h2{margin:0;font-size:21px}
+.cat-head .en{color:var(--dim);font-size:13px;letter-spacing:1px}
+.cat-head .cnt{margin-left:auto;color:var(--dim);font-size:12px}
+.cat-intro{color:#c4b8a9;font-size:13.5px;margin:0 0 18px;max-width:920px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(335px,1fr));gap:14px}
+.mod{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden;
+  display:flex;flex-direction:column;padding-bottom:12px}
+.mhead{display:flex;align-items:center;gap:9px;padding:12px 15px 6px;flex-wrap:wrap}
+.mhead h3{margin:0;font-size:16px;color:#f3eadc}
+.mhead h3 em{font-style:normal;font-weight:400;font-size:11px;color:#7d7367;
+  letter-spacing:.3px;margin-left:7px}
+.badge{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:10px;color:#141210}
+.badge.gun{background:#e0574c}.badge.melee{background:#e2b03c}.badge.bow{background:#57b95f}
+.badge.armor{background:#49b6e8}.badge.vehicle{background:#a06fd0}.badge.drone{background:#8fa3ad}
+.badge.dye{background:#c8762a}
+.inst{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 9px;font-size:11px;color:#7d7367;align-items:center}
+.inst span{background:#241e19;border:1px solid #3a3027;border-radius:4px;padding:0 6px;color:#c2b6a6}
+.setq{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.setq .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.setq input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a3c2b,#c8762a,#e8a33d);outline:0}
+.setq input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:#f3eadc;border:3px solid var(--accent);cursor:pointer;
+  box-shadow:0 0 5px rgba(232,163,61,.55)}
+.setq input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
+.setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
+.fixed{padding:0 15px 9px;font-size:11px;color:#6f665c}
+.chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 8px}
+.chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
+  border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
+.chips i b{font-weight:700;color:#f0c98a}
+.desc{margin:0;padding:6px 15px 0;font-size:11.5px;color:#8f857a;line-height:1.55;
+  border-top:1px dashed #2c2520;margin-top:auto;padding-top:9px}
+.appendix{margin-top:46px;padding-top:22px;border-top:2px solid var(--line)}
+.appendix h2{font-size:18px;margin:0 0 8px}
+.appendix p{color:var(--dim);font-size:13px;margin:0 0 8px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none !important}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .search input{width:100px}
+  h1{font-size:22px}
+  .setq input[type=range]{width:110px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  nav.jump,.setq{display:none}
+  .mod{background:#fff;border-color:#ccc;break-inside:avoid}
+  .mhead h3,.desc{color:#000}
+}
+</style>
+
+<meta name="description" content="97 个模组按安装接口分 7 类，含枪械、近战、护甲、载具、无人机与染料，品质 1–6 数值。">
+<link rel="icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 模组速查表">
+<meta property="og:description" content="97 个模组按安装接口分 7 类，含枪械、近战、护甲、载具、无人机与染料，品质 1–6 数值。">
+<meta property="og:image" content="https://example.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body><div class='wrap'>
+<header class='top'>
+<h1>七日杀 · 模组速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>Data/Config/item_modifiers.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-10-30 16:51 ｜ 97 个模组 · 7 个分类（已排除开发/测试/任务物品）</div>
+<div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每个模组卡片都有自己的 1–6 品质滑杆，拖动即可切换该卡显示的数值；没有品质差异的模组会直接标“数值固定”。<br><span style='color:#e8a33d'>怎么用：</span>按分类筛选，或搜索模组名、效果、可装部位（按 <code>/</code> 聚焦）。<br><span style='color:#e8a33d'>配套页面：</span><a href='perks.html'>天赋速查表</a> · <a href='armor.html'>装甲速查表</a> · <a href='weapons.html'>武器速查表</a></div>
+</header>
+<div class='rules'>
+<div class='rule'><b>模组也有品质</b><span>同一模组 1–6 级数值不同，装到装备上后按<em>模组自身品质</em>生效；滑杆展示的正是这 6 档。</span></div>
+<div class='rule'><b>槽位有限</b><span>每件装备能装的模组数量看它自己的槽位：护甲 2–5 个（粗糙套只有 1–2），武器/载具/无人机各有固定上限。</span></div>
+<div class='rule'><b>“可装于”的含义</b><span>卡片上列出的是<em>接口类型</em>（如“中瞄具位”“头盔”），只有带对应接口的装备才装得上。</span></div>
+</div>
+<nav class='jump'><div class='navrow'>
+<button class='chipbtn on' data-cat='all'>全部<small>97</small></button>
+<button class='chipbtn' data-cat='gun'>枪械配件<small>22</small></button>
+<button class='chipbtn' data-cat='melee'>近战与工具<small>21</small></button>
+<button class='chipbtn' data-cat='bow'>弓弩配件<small>2</small></button>
+<button class='chipbtn' data-cat='armor'>护甲配件<small>27</small></button>
+<button class='chipbtn' data-cat='vehicle'>载具配件<small>8</small></button>
+<button class='chipbtn' data-cat='drone'>无人机配件<small>7</small></button>
+<button class='chipbtn' data-cat='dye'>染料<small>10</small></button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索模组 / 效果 / 部位'></label>
+</div></nav>
+<section class='cat' id='gun'>
+<div class='cat-head'><span class='bar' style='background:#e0574c'></span><h2>枪械配件</h2><span class='en'>Gun Mods</span><span class='cnt'>22 个模组</span></div>
+<p class='cat-intro'>装在手枪、冲锋枪、步枪、霰弹枪和机枪上：瞄具、枪管、枪口、弹匣、握把、枪托、扳机组。</p>
+<div class='grid'>
+<article class='mod' data-id='modGunScopeSmall' data-cat='gun' data-text='2倍镜模组 scope 2x mod 瞄准时增加放大倍率。
+可安装在短火器和弓弩上。 小瞄具位 瞄准精确度 实体伤害'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>2倍镜模组<em>Scope 2x Mod</em></h3></div>
+<div class='inst'>可装于 <span>小瞄具位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>瞄准精确度 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i>实体伤害 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i></div>
+<p class='desc'>瞄准时增加放大倍率。<br>可安装在短火器和弓弩上。</p>
+</article>
+<article class='mod' data-id='modGunScopeMedium' data-cat='gun' data-text='4倍镜模组 scope 4x mod 瞄准时增加放大倍率。
+可安装在中等长度的火器和弓弩上。 中瞄具位 瞄准精确度 实体伤害'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>4倍镜模组<em>Scope 4x Mod</em></h3></div>
+<div class='inst'>可装于 <span>中瞄具位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>瞄准精确度 <b data-vals='-0.18,-0.18,-0.18,-0.18,-0.18,-0.18' data-fmt='pct'>-18%</b></i><i>实体伤害 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i></div>
+<p class='desc'>瞄准时增加放大倍率。<br>可安装在中等长度的火器和弓弩上。</p>
+</article>
+<article class='mod' data-id='modGunScopeLarge' data-cat='gun' data-text='8倍镜模组 scope 8x mod 瞄准时增加放大倍率。
+可安装在长步枪上。 大瞄具位 瞄准精确度 实体伤害'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>8倍镜模组<em>Scope 8x Mod</em></h3></div>
+<div class='inst'>可装于 <span>大瞄具位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>瞄准精确度 <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='pct'>-25%</b></i><i>实体伤害 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i></div>
+<p class='desc'>瞄准时增加放大倍率。<br>可安装在长步枪上。</p>
+</article>
+<article class='mod' data-id='modShotgunSawedOffBarrel' data-cat='gun' data-text='削短型霰弹枪模组 sawed-off shotgun mod 增加弹丸扩散。 霰弹枪 最大射程 有效射程 散布（垂直） 散布（水平）'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>削短型霰弹枪模组<em>Sawed-Off Shotgun Mod</em></h3></div>
+<div class='inst'>可装于 <span>霰弹枪</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>最大射程 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>有效射程 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>散布（垂直） <b data-vals='1.2,1.2,1.2,1.2,1.2,1.2' data-fmt='rawset'>= 1.2</b></i><i>散布（水平） <b data-vals='1.2,1.2,1.2,1.2,1.2,1.2' data-fmt='rawset'>= 1.2</b></i></div>
+<p class='desc'>增加弹丸扩散。</p>
+</article>
+<article class='mod' data-id='modGunForegrip' data-cat='gun' data-text='前握把模组 fore grip mod 提升腰射或移动时射击的操作性和精度。 下挂位 远程炮塔 蹲伏精确度 腰射精确度 移动精确度 武器操控性 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>前握把模组<em>Fore Grip Mod</em></h3></div>
+<div class='inst'>可装于 <span>下挂位</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>蹲伏精确度 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>腰射精确度 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>移动精确度 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>武器操控性 <b data-vals='0.13,0.13,0.13,0.13,0.13,0.13|-0.08,-0.08,-0.08,-0.08,-0.08,-0.08' data-fmt='pct'>+13% / -8%</b></i><i>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i>后坐力（垂直·大） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i>后坐力（水平·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i><i>后坐力（水平·大） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='pct'>-50%</b></i></div>
+<p class='desc'>提升腰射或移动时射击的操作性和精度。</p>
+</article>
+<article class='mod' data-id='modGunBipod' data-cat='gun' data-text='双脚支架模组 bipod mod 武器瞄准时，提高精度和操控性。 下挂位 瞄准精确度 移动精确度 腰射精确度 武器操控性'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>双脚支架模组<em>Bipod Mod</em></h3></div>
+<div class='inst'>可装于 <span>下挂位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>瞄准精确度 <b data-vals='-0.08,-0.08,-0.08,-0.08,-0.08,-0.08|-0.09,-0.09,-0.09,-0.09,-0.09,-0.09' data-fmt='pct'>-8% / -9%</b></i><i>移动精确度 <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i><i>腰射精确度 <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i><i>武器操控性 <b data-vals='-0.05,-0.05,-0.05,-0.05,-0.05,-0.05|0.35,0.35,0.35,0.35,0.35,0.35' data-fmt='pct'>-5% / +35%</b></i></div>
+<p class='desc'>武器瞄准时，提高精度和操控性。</p>
+</article>
+<article class='mod' data-id='modGunReflexSight' data-cat='gun' data-text='反射式瞄准镜模组 reflex sight mod 可快速捕获目标并提升武器的操控性。 小瞄具位 武器操控性'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>反射式瞄准镜模组<em>Reflex Sight Mod</em></h3></div>
+<div class='inst'>可装于 <span>小瞄具位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>武器操控性 <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>可快速捕获目标并提升武器的操控性。</p>
+</article>
+<article class='mod' data-id='modGunMagazineExtender' data-cat='gun' data-text='弹匣扩充模组 magazine extender mod 提高弹匣容量。 弹匣位 远程炮塔 最大耐久度 弹匣尺寸'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>弹匣扩充模组<em>Magazine Extender Mod</em></h3></div>
+<div class='inst'>可装于 <span>弹匣位</span><span>远程炮塔</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='弹匣扩充模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i><i>弹匣尺寸 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='desc'>提高弹匣容量。</p>
+</article>
+<article class='mod' data-id='modGunDrumMagazineExtender' data-cat='gun' data-text='弹鼓模组 drum magazine mod 这种大型弹鼓会增加机枪的装弹量，但装填速度较慢。 弹鼓位 弹匣尺寸 装填速度'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>弹鼓模组<em>Drum Magazine Mod</em></h3></div>
+<div class='inst'>可装于 <span>弹鼓位</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='弹鼓模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>弹匣尺寸 <b data-vals='0.5,0.6,0.7,0.8,0.9,1' data-fmt='pct'>+100%</b></i><i>装填速度 <b data-vals='-0.25,-0.2,-0.15,-0.1,-0.05,0' data-fmt='pct'>0%</b></i></div>
+<p class='desc'>这种大型弹鼓会增加机枪的装弹量，但装填速度较慢。</p>
+</article>
+<article class='mod' data-id='modGunRetractingStock' data-cat='gun' data-text='收缩枪托模组 retracting stock mod 提升移动或腰射时武器的操控性，因为近距离时武器变得更易掌控。 枪托位 腰射精确度'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>收缩枪托模组<em>Retracting Stock Mod</em></h3></div>
+<div class='inst'>可装于 <span>枪托位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>腰射精确度 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i></div>
+<p class='desc'>提升移动或腰射时武器的操控性，因为近距离时武器变得更易掌控。</p>
+</article>
+<article class='mod' data-id='modGunMuzzleBrake' data-cat='gun' data-text='枪口制动模组 muzzle brake mod 转移推进剂气体以减少后座力。 枪管位 远程炮塔 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 武器操控性'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>枪口制动模组<em>Muzzle Brake Mod</em></h3></div>
+<div class='inst'>可装于 <span>枪管位</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>后坐力（垂直·小） <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='pct'>-25%</b></i><i>后坐力（垂直·大） <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='pct'>-25%</b></i><i>后坐力（水平·小） <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>后坐力（水平·大） <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>武器操控性 <b data-vals='0.08,0.08,0.08,0.08,0.08,0.08' data-fmt='pct'>+8%</b></i></div>
+<p class='desc'>转移推进剂气体以减少后座力。</p>
+</article>
+<article class='mod' data-id='modGunBarrelExtender' data-cat='gun' data-text='枪管延伸模组 barrel extender mod 提升伤害、射程和瞄准精度，但腰射时武器会更难操作。 枪管位 远程炮塔 有效射程 最大射程 腰射精确度 瞄准精确度 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 武器操控性'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>枪管延伸模组<em>Barrel Extender Mod</em></h3></div>
+<div class='inst'>可装于 <span>枪管位</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>有效射程 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct'>+20%</b></i><i>最大射程 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct'>+20%</b></i><i>腰射精确度 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>瞄准精确度 <b data-vals='-0.05,-0.05,-0.05,-0.05,-0.05,-0.05' data-fmt='pct'>-5%</b></i><i>后坐力（垂直·小） <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>后坐力（垂直·大） <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>后坐力（水平·小） <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i><i>后坐力（水平·大） <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i><i>武器操控性 <b data-vals='-0.08,-0.08,-0.08,-0.08,-0.08,-0.08' data-fmt='pct'>-8%</b></i></div>
+<p class='desc'>提升伤害、射程和瞄准精度，但腰射时武器会更难操作。</p>
+</article>
+<article class='mod' data-id='modGunFlashlight' data-cat='gun' data-text='武器照明模组 weapon flashlight mod 可安装到任意枪支或弓弩上。
+
+使用灯源动作（[action:permanent:toggleflashlight][action:local:toggleflashlight]）激活。长按灯源动作激活多个物品。 侧挂位'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>武器照明模组<em>Weapon Flashlight Mod</em></h3></div>
+<div class='inst'>可装于 <span>侧挂位</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>可安装到任意枪支或弓弩上。<br><br>使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。长按灯源动作激活多个物品。</p>
+</article>
+<article class='mod' data-id='modGunSoundSuppressorSilencer' data-cat='gun' data-text='消声器模组 silencer mod 消声器可大大降低发射时的声音，但也会降低最大射程和伤害。
+适用于小口径和低射速的枪支。 枪械 实体伤害 有效射程 最大射程'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>消声器模组<em>Silencer Mod</em></h3></div>
+<div class='inst'>可装于 <span>枪械</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>实体伤害 <b data-vals='-0.15,-0.15,-0.15,-0.15,-0.15,-0.15' data-fmt='pct'>-15%</b></i><i>有效射程 <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='pct'>-20%</b></i><i>最大射程 <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='pct'>-25%</b></i></div>
+<p class='desc'>消声器可大大降低发射时的声音，但也会降低最大射程和伤害。<br>适用于小口径和低射速的枪支。</p>
+</article>
+<article class='mod' data-id='modGunLaserSight' data-cat='gun' data-text='激光瞄准器模组 laser sight mod 有助于更快瞄准，并提高腰射时的精度。
+可安装到任意枪支或弓弩上。
+
+使用灯源动作（[action:permanent:toggleflashlight][action:local:toggleflashlight]）激活。长按灯源动作激活多个物品。 侧挂位 腰射精确度 武器操控性'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>激光瞄准器模组<em>Laser Sight Mod</em></h3></div>
+<div class='inst'>可装于 <span>侧挂位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>腰射精确度 <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='pct'>-20%</b></i><i>武器操控性 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct'>+20%</b></i></div>
+<p class='desc'>有助于更快瞄准，并提高腰射时的精度。<br>可安装到任意枪支或弓弩上。<br><br>使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。长按灯源动作激活多个物品。</p>
+</article>
+<article class='mod' data-id='modGunCrippleEm' data-cat='gun' data-text='致残模组 cripple &#x27;em mod 每次射击有一定几率致残双足目标。 远程武器 最大耐久度'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>致残模组<em>Cripple &#x27;Em Mod</em></h3></div>
+<div class='inst'>可装于 <span>远程武器</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='致残模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i></div>
+<p class='desc'>每次射击有一定几率致残双足目标。</p>
+</article>
+<article class='mod' data-id='modGunTriggerGroupBurst3' data-cat='gun' data-text='触发器组：三发点放模组 trigger group: burst mod 将触发器组改装为 3 连发。
+提高射击速度并略微增加后坐力。 射击模式位 远程炮塔 连发数 发/每分钟 连射散布'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>触发器组：三发点放模组<em>Trigger Group: Burst Mod</em></h3></div>
+<div class='inst'>可装于 <span>射击模式位</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>连发数 <b data-vals='3,3,3,3,3,3' data-fmt='rawset'>= 3</b></i><i>发/每分钟 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>连射散布 <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i></div>
+<p class='desc'>将触发器组改装为 3 连发。<br>提高射击速度并略微增加后坐力。</p>
+</article>
+<article class='mod' data-id='modGunTriggerGroupAutomatic' data-cat='gun' data-text='触发器组：全自动模组 trigger group: full auto mod 将触发器组装为仅全自动。
+提高射击速度并略微增加后坐力。 射击模式位 远程炮塔 连发数 发/每分钟 连射散布'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>触发器组：全自动模组<em>Trigger Group: Full Auto Mod</em></h3></div>
+<div class='inst'>可装于 <span>射击模式位</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>连发数 <b data-vals='0,0,0,0,0,0' data-fmt='rawset'>= 0</b></i><i>发/每分钟 <b data-vals='0.12,0.12,0.12,0.12,0.12,0.12' data-fmt='pct'>+12%</b></i><i>连射散布 <b data-vals='0.06,0.06,0.06,0.06,0.06,0.06' data-fmt='pct'>+6%</b></i></div>
+<p class='desc'>将触发器组装为仅全自动。<br>提高射击速度并略微增加后坐力。</p>
+</article>
+<article class='mod' data-id='modGunTriggerGroupSemi' data-cat='gun' data-text='触发器组：半自动模组 trigger group: semi mod 将触发器组改装为仅半自动。
+提高射击速度并略微增加后坐力。 射击模式位 连发数 发/每分钟 连射散布'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>触发器组：半自动模组<em>Trigger Group: Semi Mod</em></h3></div>
+<div class='inst'>可装于 <span>射击模式位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>连发数 <b data-vals='1,1,1,1,1,1' data-fmt='rawset'>= 1</b></i><i>发/每分钟 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>连射散布 <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='pct'>+5%</b></i></div>
+<p class='desc'>将触发器组改装为仅半自动。<br>提高射击速度并略微增加后坐力。</p>
+</article>
+<article class='mod' data-id='modGunChoke' data-cat='gun' data-text='霰弹枪喉缩模组 shotgun choke mod 使霰弹枪的弹丸散布更小。 霰弹枪 远程炮塔 散布（垂直） 散布（水平）'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>霰弹枪喉缩模组<em>Shotgun Choke Mod</em></h3></div>
+<div class='inst'>可装于 <span>霰弹枪</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>散布（垂直） <b data-vals='-0.4,-0.4,-0.4,-0.4,-0.4,-0.4' data-fmt='raw'>-0.4</b></i><i>散布（水平） <b data-vals='-0.4,-0.4,-0.4,-0.4,-0.4,-0.4' data-fmt='raw'>-0.4</b></i></div>
+<p class='desc'>使霰弹枪的弹丸散布更小。</p>
+</article>
+<article class='mod' data-id='modGunShotgunTubeExtenderMagazine' data-cat='gun' data-text='霰弹枪管扩充模组 shotgun tube extender mod 增加泵动式霰弹枪的弹匣容量。 霰弹枪弹仓 最大耐久度 弹匣尺寸'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>霰弹枪管扩充模组<em>Shotgun Tube Extender Mod</em></h3></div>
+<div class='inst'>可装于 <span>霰弹枪弹仓</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='霰弹枪管扩充模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i><i>弹匣尺寸 <b data-vals='2,4,6,8,10,12' data-fmt='raw'>+12</b></i></div>
+<p class='desc'>增加泵动式霰弹枪的弹匣容量。</p>
+</article>
+<article class='mod' data-id='modGunDuckbill' data-cat='gun' data-text='霰弹枪鸭嘴枪口模组 shotgun duckbill mod 将弹丸散布模式修改为水平发射，而不是平常的圆状。 霰弹枪 远程炮塔 散布（垂直） 散布（水平）'>
+<div class='mhead'><span class='badge gun'>枪械配件</span><h3>霰弹枪鸭嘴枪口模组<em>Shotgun Duckbill Mod</em></h3></div>
+<div class='inst'>可装于 <span>霰弹枪</span><span>远程炮塔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>散布（垂直） <b data-vals='-0.45,-0.45,-0.45,-0.45,-0.45,-0.45' data-fmt='raw'>-0.5</b></i><i>散布（水平） <b data-vals='0.75,0.75,0.75,0.75,0.75,0.75' data-fmt='raw'>+0.8</b></i></div>
+<p class='desc'>将弹丸散布模式修改为水平发射，而不是平常的圆状。</p>
+</article>
+</div></section>
+<section class='cat' id='melee'>
+<div class='cat-head'><span class='bar' style='background:#e2b03c'></span><h2>近战与工具</h2><span class='en'>Melee &amp; Tool</span><span class='cnt'>21 个模组</span></div>
+<p class='cat-intro'>装在近战武器和工具上：刀刃、锤头、握把、钉刺、特效伤害。</p>
+<div class='grid'>
+<article class='mod' data-id='modMeleeErgonomicGrip' data-cat='melee' data-text='人体工学握把模组 ergonomic grip mod 降低近战的体力消耗量，并提高弓箭的操控性。 近战武器 弓 体力值消耗 武器操控性'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>人体工学握把模组<em>Ergonomic Grip Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span><span>弓</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='人体工学握把模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>体力值消耗 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.3' data-fmt='pct'>-30%</b></i><i>武器操控性 <b data-vals='0.02,0.04,0.06,0.08,0.1,0.15' data-fmt='pct'>+15%</b></i></div>
+<p class='desc'>降低近战的体力消耗量，并提高弓箭的操控性。</p>
+</article>
+<article class='mod' data-id='modMeleeWoodSplitter' data-cat='melee' data-text='劈木模组 wood splitter mod 对木头造成更多伤害。 近战武器 伤害（按材质）（木头）'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>劈木模组<em>Wood Splitter Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='劈木模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>伤害（按材质）（木头） <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>对木头造成更多伤害。</p>
+</article>
+<article class='mod' data-id='modMeleeFortifyingGrip' data-cat='melee' data-text='强化握把模组 fortifying grip mod 当生命值低于 50% 时，持续回复生命值。 近战武器'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>强化握把模组<em>Fortifying Grip Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>当生命值低于 50% 时，持续回复生命值。</p>
+</article>
+<article class='mod' data-id='modMeleeGraveDigger' data-cat='melee' data-text='掘墓者模组 grave digger mod 对泥土造成更多伤害。 近战武器 伤害（按材质）'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>掘墓者模组<em>Grave Digger Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='掘墓者模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>伤害（按材质） <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>对泥土造成更多伤害。</p>
+</article>
+<article class='mod' data-id='modMeleeBunkerBuster' data-cat='melee' data-text='掩体炸弹模组 bunker buster mod 对石头造成更多伤害。 近战武器 伤害（按材质）（石头）'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>掩体炸弹模组<em>Bunker Buster Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='掩体炸弹模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>伤害（按材质）（石头） <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>对石头造成更多伤害。</p>
+</article>
+<article class='mod' data-id='modMeleeFiremansAxeMod' data-cat='melee' data-text='消防斧模组 fireman&#x27;s axe mod 对物块的伤害提高，但对敌人的伤害降低。 斧头 物块伤害 实体伤害'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>消防斧模组<em>Fireman&#x27;s Axe Mod</em></h3></div>
+<div class='inst'>可装于 <span>斧头</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='消防斧模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>物块伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i><i>实体伤害 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.3' data-fmt='pct'>-30%</b></i></div>
+<p class='desc'>对物块的伤害提高，但对敌人的伤害降低。</p>
+</article>
+<article class='mod' data-id='modMeleeClubBurningShaft' data-cat='melee' data-text='燃烧杆模组 burning shaft mod 近战物品，同时兼具三种用途，既可当光源也可使敌人着火，还能用作热源。
+
+可安装在带有长杆或刀刃的近战工具和武器上。 长柄武器 亮度 寒冷抗性'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>燃烧杆模组<em>Burning Shaft Mod</em></h3></div>
+<div class='inst'>可装于 <span>长柄武器</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>亮度 <b data-vals='0.28,0.28,0.28,0.28,0.28,0.28' data-fmt='pct'>+28%</b></i><i>寒冷抗性 <b data-vals='20,20,20,20,20,20' data-fmt='raw'>+20</b></i></div>
+<p class='desc'>近战物品，同时兼具三种用途，既可当光源也可使敌人着火，还能用作热源。<br><br>可安装在带有长杆或刀刃的近战工具和武器上。</p>
+</article>
+<article class='mod' data-id='modGunMeleeTheHunter' data-cat='melee' data-text='猎人模组 the hunter mod 对所有动物造成更多伤害。 武器 工具 实体伤害 最大耐久度'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>猎人模组<em>The Hunter Mod</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='猎人模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>实体伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i></div>
+<p class='desc'>对所有动物造成更多伤害。</p>
+</article>
+<article class='mod' data-id='modMeleeStunBatonRepulsor' data-cat='melee' data-text='电击棒冲击波模组 stun baton repulsor mod 将该模组安装到电击棒中，让僵尸在电击时飞起来。 电击棍'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>电击棒冲击波模组<em>Stun Baton Repulsor Mod</em></h3></div>
+<div class='inst'>可装于 <span>电击棍</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>将该模组安装到电击棒中，让僵尸在电击时飞起来。</p>
+</article>
+<article class='mod' data-id='modFuelTankLarge' data-cat='melee' data-text='电动工具大油箱模组 motor tool large tank mod 大幅增加电锯和螺旋钻的油箱尺寸。 电动工具 弹匣尺寸'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>电动工具大油箱模组<em>Motor Tool Large Tank Mod</em></h3></div>
+<div class='inst'>可装于 <span>电动工具</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='电动工具大油箱模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>弹匣尺寸 <b data-vals='0.6,0.7,0.8,0.9,1,2' data-fmt='pct'>+200%</b></i></div>
+<p class='desc'>大幅增加电锯和螺旋钻的油箱尺寸。</p>
+</article>
+<article class='mod' data-id='modFuelTankSmall' data-cat='melee' data-text='电动工具小油箱模组 motor tool small tank mod 适度增加电锯和螺旋钻的油箱尺寸。 电动工具 弹匣尺寸'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>电动工具小油箱模组<em>Motor Tool Small Tank Mod</em></h3></div>
+<div class='inst'>可装于 <span>电动工具</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='电动工具小油箱模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>弹匣尺寸 <b data-vals='0.1,0.2,0.3,0.4,0.5,0.6' data-fmt='pct'>+60%</b></i></div>
+<p class='desc'>适度增加电锯和螺旋钻的油箱尺寸。</p>
+</article>
+<article class='mod' data-id='modMeleeStructuralBrace' data-cat='melee' data-text='结构支撑模组 structural brace mod 此项改装可降低近战武器、工具和弓箭的损坏速度。 近战武器 弓弩 损坏'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>结构支撑模组<em>Structural Brace Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span><span>弓弩</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='结构支撑模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>损坏 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.3' data-fmt='pct'>-30%</b></i></div>
+<p class='desc'>此项改装可降低近战武器、工具和弓箭的损坏速度。</p>
+</article>
+<article class='mod' data-id='modGunMeleeRadRemover' data-cat='melee' data-text='辐射去除模组 rad remover mod 暂时禁用辐射、带电与炼狱僵尸的再生能力。 武器 工具 最大耐久度'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>辐射去除模组<em>Rad Remover Mod</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='辐射去除模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i></div>
+<p class='desc'>暂时禁用辐射、带电与炼狱僵尸的再生能力。</p>
+</article>
+<article class='mod' data-id='modMeleeWeightedHead' data-cat='melee' data-text='重头模组 weighted head mod 可用于所有近战武器和工具的模组。
+有几率眩晕并减速目标。
+
+匕首和砍刀没有可平衡重量的刀头。 轻型棍棒 中型棍棒 重型棍棒 近战炮塔'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>重头模组<em>Weighted Head Mod</em></h3></div>
+<div class='inst'>可装于 <span>轻型棍棒</span><span>中型棍棒</span><span>重型棍棒</span><span>近战炮塔</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>可用于所有近战武器和工具的模组。<br>有几率眩晕并减速目标。<br><br>匕首和砍刀没有可平衡重量的刀头。</p>
+</article>
+<article class='mod' data-id='modMeleeDiamondTip' data-cat='melee' data-text='金刚石刀刃模组 diamond blade tip mod 此项改装可降低任何手持工具或有刃武器的损坏速度。 工具 铁拳 长矛 利刃 损坏'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>金刚石刀刃模组<em>Diamond Blade Tip Mod</em></h3></div>
+<div class='inst'>可装于 <span>工具</span><span>铁拳</span><span>长矛</span><span>利刃</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='金刚石刀刃模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>损坏 <b data-vals='-0.05,-0.1,-0.15,-0.2,-0.25,-0.3' data-fmt='pct'>-30%</b></i></div>
+<p class='desc'>此项改装可降低任何手持工具或有刃武器的损坏速度。</p>
+</article>
+<article class='mod' data-id='modMeleeClubMetalChain' data-cat='melee' data-text='金属链模组 metal chain mod 有一定几率击倒敌人。
+可安装在棍棒上。 棍棒'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>金属链模组<em>Metal Chain Mod</em></h3></div>
+<div class='inst'>可装于 <span>棍棒</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>有一定几率击倒敌人。<br>可安装在棍棒上。</p>
+</article>
+<article class='mod' data-id='modMeleeClubMetalSpikes' data-cat='melee' data-text='金属长钉模组 metal spikes mod 每次连续攻击可降低敌人的护甲等级。
+可安装在棍棒上。 棍棒'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>金属长钉模组<em>Metal Spikes Mod</em></h3></div>
+<div class='inst'>可装于 <span>棍棒</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>每次连续攻击可降低敌人的护甲等级。<br>可安装在棍棒上。</p>
+</article>
+<article class='mod' data-id='modMeleeTemperedBlade' data-cat='melee' data-text='钢化刀片模组 tempered blade mod 此项刀刃改装可增加物块伤害，降低损坏速度。 工具 铁拳 长矛 利刃 物块伤害 损坏'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>钢化刀片模组<em>Tempered Blade Mod</em></h3></div>
+<div class='inst'>可装于 <span>工具</span><span>铁拳</span><span>长矛</span><span>利刃</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢化刀片模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>物块伤害 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i><i>损坏 <b data-vals='-0.04,-0.06,-0.08,-0.1,-0.12,-0.15' data-fmt='pct'>-15%</b></i></div>
+<p class='desc'>此项刀刃改装可增加物块伤害，降低损坏速度。</p>
+</article>
+<article class='mod' data-id='modMeleeClubBarbedWire' data-cat='melee' data-text='铁丝网模组 barbed wire mod 使用主要攻击有一定几率造成流血伤害。
+使用强力攻击有更高的几率。
+可安装在棍棒上。 棍棒'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>铁丝网模组<em>Barbed Wire Mod</em></h3></div>
+<div class='inst'>可装于 <span>棍棒</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>使用主要攻击有一定几率造成流血伤害。<br>使用强力攻击有更高的几率。<br>可安装在棍棒上。</p>
+</article>
+<article class='mod' data-id='modMeleeIronBreaker' data-cat='melee' data-text='铁见愁模组 iron breaker mod 对铁造成更多伤害。 近战武器 伤害（按材质）'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>铁见愁模组<em>Iron Breaker Mod</em></h3></div>
+<div class='inst'>可装于 <span>近战武器</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁见愁模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>伤害（按材质） <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>对铁造成更多伤害。</p>
+</article>
+<article class='mod' data-id='modMeleeSerratedBlade' data-cat='melee' data-text='锯齿刀片模组 serrated blade mod 普通攻击有一定几率造成流血创伤。 小刀 砍刀 斧头 铲子 铁拳 长矛'>
+<div class='mhead'><span class='badge melee'>近战与工具</span><h3>锯齿刀片模组<em>Serrated Blade Mod</em></h3></div>
+<div class='inst'>可装于 <span>小刀</span><span>砍刀</span><span>斧头</span><span>铲子</span><span>铁拳</span><span>长矛</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>普通攻击有一定几率造成流血创伤。</p>
+</article>
+</div></section>
+<section class='cat' id='bow'>
+<div class='cat-head'><span class='bar' style='background:#57b95f'></span><h2>弓弩配件</h2><span class='en'>Bow Mods</span><span class='cnt'>2 个模组</span></div>
+<p class='cat-intro'>弓箭与弩专用：弓弦、箭台、箭矢效果。</p>
+<div class='grid'>
+<article class='mod' data-id='modGunBowArrowRest' data-cat='bow' data-text='箭托模组 arrow rest mod 箭托可提高弓箭的精度。 弓 瞄准精确度 腰射精确度'>
+<div class='mhead'><span class='badge bow'>弓弩配件</span><h3>箭托模组<em>Arrow Rest Mod</em></h3></div>
+<div class='inst'>可装于 <span>弓</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='箭托模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>瞄准精确度 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.15' data-fmt='pct'>-15%</b></i><i>腰射精确度 <b data-vals='-0.02,-0.04,-0.06,-0.08,-0.1,-0.15' data-fmt='pct'>-15%</b></i></div>
+<p class='desc'>箭托可提高弓箭的精度。</p>
+</article>
+<article class='mod' data-id='modGunBowPolymerString' data-cat='bow' data-text='聚合物弓弦模组 polymer string mod 此模组可使弓弩箭矢射速更快，射程更远。 弓弩 最大耐久度 发射速度'>
+<div class='mhead'><span class='badge bow'>弓弩配件</span><h3>聚合物弓弦模组<em>Polymer String Mod</em></h3></div>
+<div class='inst'>可装于 <span>弓弩</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='聚合物弓弦模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i><i>发射速度 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i></div>
+<p class='desc'>此模组可使弓弩箭矢射速更快，射程更远。</p>
+</article>
+</div></section>
+<section class='cat' id='armor'>
+<div class='cat-head'><span class='bar' style='background:#49b6e8'></span><h2>护甲配件</h2><span class='en'>Armor Mods</span><span class='cnt'>27 个模组</span></div>
+<p class='cat-intro'>装在头盔、胸甲、手套、靴子上：内衬、装甲板、口袋、降噪、属性 +1、夜视。</p>
+<div class='grid'>
+<article class='mod' data-id='modArmorImpactBracing' data-cat='armor' data-text='冲击支撑模组 impact bracing mod 降低摔落伤害。 靴子'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>冲击支撑模组<em>Impact Bracing Mod</em></h3></div>
+<div class='inst'>可装于 <span>靴子</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>降低摔落伤害。</p>
+</article>
+<article class='mod' data-id='modArmorWaterPurifier' data-cat='armor' data-text='净水器模组 water purifier mod 可安全饮用浑浊的水。 头盔 护甲暴击抵抗'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>净水器模组<em>Water Purifier Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>护甲暴击抵抗 <b data-vals='1,1,1,1,1,1' data-fmt='pct'>+100%</b></i></div>
+<p class='desc'>可安全饮用浑浊的水。</p>
+</article>
+<article class='mod' data-id='modArmorStrength' data-cat='armor' data-text='力量模组 strength mod 这款人工智能神经芯片，其设计是安装到头部护甲上，绕过肌肉生长抑制素来增强力量。
+
++1 力量 头盔 属性等级（力量）'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>力量模组<em>Strength Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>属性等级（力量） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>这款人工智能神经芯片，其设计是安装到头部护甲上，绕过肌肉生长抑制素来增强力量。<br><br>+1 力量</p>
+</article>
+<article class='mod' data-id='modArmorNightVision' data-cat='armor' data-text='夜视模组 night vision mod 使用这款高科技夜视头部护甲模组，在黑暗中也能看清东西。
+
+使用灯源动作（[action:permanent:toggleflashlight][action:local:toggleflashlight]）激活。 头盔'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>夜视模组<em>Night Vision Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>使用这款高科技夜视头部护甲模组，在黑暗中也能看清东西。<br><br>使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。</p>
+</article>
+<article class='mod' data-id='modArmorHelmetLight' data-cat='armor' data-text='头盔灯模组 helmet light mod 一个可安装到任何头盔上的光源。
+
+使用灯源（[action:permanent:toggleflashlight][action:local:toggleflashlight]）动作激活。 头部'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>头盔灯模组<em>Helmet Light Mod</em></h3></div>
+<div class='inst'>可装于 <span>头部</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>一个可安装到任何头盔上的光源。<br><br>使用灯源（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）动作激活。</p>
+</article>
+<article class='mod' data-id='modArmorTreasureHunter' data-cat='armor' data-text='寻宝者模组 treasure hunter&#x27;s mod 这款人工智能增强头部装备模组会提升学习速度，提高使用者发现有价值的战利品和埋藏宝藏的能力。 头盔 战利品奖励 获得的经验值 宝藏方块减少'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>寻宝者模组<em>Treasure Hunter&#x27;s Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='寻宝者模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>战利品奖励 <b data-vals='1,2,3,4,5,6' data-fmt='raw'>+6</b></i><i>获得的经验值 <b data-vals='0.05,0.1,0.15,0.2,0.25,0.3' data-fmt='pct'>+30%</b></i><i>宝藏方块减少 <b data-vals='-1,-1,-1,-1,-1,-2' data-fmt='raw'>-2</b></i></div>
+<p class='desc'>这款人工智能增强头部装备模组会提升学习速度，提高使用者发现有价值的战利品和埋藏宝藏的能力。</p>
+</article>
+<article class='mod' data-id='modArmorBandolier' data-cat='armor' data-text='弹药带模组 bandolier mod 装填速度加快。 胸甲'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>弹药带模组<em>Bandolier Mod</em></h3></div>
+<div class='inst'>可装于 <span>胸甲</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>装填速度加快。</p>
+</article>
+<article class='mod' data-id='modArmorFortitude' data-cat='armor' data-text='强健模组 fortitude mod 这款由人工智能驱动的神经接口接入头部装备后，会增强免疫系统。
+
++1 强健 头盔 属性等级（强健）'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>强健模组<em>Fortitude Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>属性等级（强健） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>这款由人工智能驱动的神经接口接入头部装备后，会增强免疫系统。<br><br>+1 强健</p>
+</article>
+<article class='mod' data-id='modArmorPerception' data-cat='armor' data-text='感知模组 perception mod 安装到头部装备上后，这种配备人工智能功能的隐形眼镜会提升视力和瞄准能力。
+
++1 感知 头盔 属性等级（感知）'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>感知模组<em>Perception Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>属性等级（感知） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>安装到头部装备上后，这种配备人工智能功能的隐形眼镜会提升视力和瞄准能力。<br><br>+1 感知</p>
+</article>
+<article class='mod' data-id='modArmorTripleStoragePocket' data-cat='armor' data-text='护甲三收纳口袋模组 armor triple pocket mod 将该模组安装到你的护甲上，可减少3点超重惩罚。 护甲 载货量'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>护甲三收纳口袋模组<em>Armor Triple Pocket Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载货量 <b data-vals='3,3,3,3,3,3' data-fmt='raw'>+3</b></i></div>
+<p class='desc'>将该模组安装到你的护甲上，可减少3点超重惩罚。</p>
+</article>
+<article class='mod' data-id='modArmorDoubleStoragePocket' data-cat='armor' data-text='护甲双收纳口袋模组 armor double pocket mod 将该模组安装到你的护甲上，可减少2点超重惩罚。 护甲 载货量'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>护甲双收纳口袋模组<em>Armor Double Pocket Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载货量 <b data-vals='2,2,2,2,2,2' data-fmt='raw'>+2</b></i></div>
+<p class='desc'>将该模组安装到你的护甲上，可减少2点超重惩罚。</p>
+</article>
+<article class='mod' data-id='modArmorQuadStoragePocket' data-cat='armor' data-text='护甲四收纳口袋模组 armor quad pocket mod 将该模组安装到你的护甲上，可减少 4 点超重惩罚。 护甲 载货量'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>护甲四收纳口袋模组<em>Armor Quad Pocket Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载货量 <b data-vals='4,4,4,4,4,4' data-fmt='raw'>+4</b></i></div>
+<p class='desc'>将该模组安装到你的护甲上，可减少 4 点超重惩罚。</p>
+</article>
+<article class='mod' data-id='modArmorStoragePocket' data-cat='armor' data-text='护甲收纳口袋模组 armor pocket mod 将该模组安装到你的护甲上，可减少1点超重惩罚。 护甲 载货量'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>护甲收纳口袋模组<em>Armor Pocket Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载货量 <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>将该模组安装到你的护甲上，可减少1点超重惩罚。</p>
+</article>
+<article class='mod' data-id='modArmorImprovedFittings' data-cat='armor' data-text='护甲配件模组 armor fittings mod 降低护甲带来的移动与体力惩罚。
+
+无法安装于轻型护甲。 护甲 移动能力 走动体力 跑动体力'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>护甲配件模组<em>Armor Fittings Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>移动能力 <b data-vals='0.02,0.02,0.02,0.02,0.02,0.02' data-fmt='pct'>+2%</b></i><i>走动体力 <b data-vals='0.014,0.014,0.014,0.014,0.014,0.014' data-fmt='pct'>+1.4%</b></i><i>跑动体力 <b data-vals='0.028,0.028,0.028,0.028,0.028,0.028' data-fmt='pct'>+2.8%</b></i></div>
+<p class='desc'>降低护甲带来的移动与体力惩罚。<br><br>无法安装于轻型护甲。</p>
+</article>
+<article class='mod' data-id='modArmorInsulatedLinerT2' data-cat='armor' data-text='拼布绝缘装甲模组 patchwork insulated armor mod 提升炎热和寒冷抗性 头盔 胸甲 手套 靴子 寒冷抗性 炎热抗性'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>拼布绝缘装甲模组<em>Patchwork Insulated Armor Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span><span>胸甲</span><span>手套</span><span>靴子</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='拼布绝缘装甲模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>寒冷抗性 <b data-vals='2.8,3.1,3.4,3.7,4,4.3' data-fmt='raw'>+4.3</b></i><i>炎热抗性 <b data-vals='2.8,3.1,3.4,3.7,4,4.3' data-fmt='raw'>+4.3</b></i></div>
+<p class='desc'>提升炎热和寒冷抗性</p>
+</article>
+<article class='mod' data-id='modArmorAgility' data-cat='armor' data-text='敏捷模组 agility mod 这款由人工智能驱动的神经接口接入头部装备后，会大大加快神经信号的传输。
+
++1 敏捷 头盔 属性等级（敏捷）'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>敏捷模组<em>Agility Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>属性等级（敏捷） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>这款由人工智能驱动的神经接口接入头部装备后，会大大加快神经信号的传输。<br><br>+1 敏捷</p>
+</article>
+<article class='mod' data-id='modArmorIntellect' data-cat='armor' data-text='智慧模组 intellect mod 这款方便的人工智能头部装备伴侣会为你提供灾变发生之前的存档信息，以刺激你的智力。
+
++1 智慧 头盔 属性等级（智慧）'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>智慧模组<em>Intellect Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>属性等级（智慧） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>这款方便的人工智能头部装备伴侣会为你提供灾变发生之前的存档信息，以刺激你的智力。<br><br>+1 智慧</p>
+</article>
+<article class='mod' data-id='modArmorMuffledConnectors' data-cat='armor' data-text='消音连接器模组 muffled connectors mod 降低护甲产生的噪音。
+
+无法安装于轻型和刺客护甲。 护甲 噪音'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>消音连接器模组<em>Muffled Connectors Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>噪音 <b data-vals='-0.05,-0.05,-0.05,-0.05,-0.05,-0.05' data-fmt='pct'>-5%</b></i></div>
+<p class='desc'>降低护甲产生的噪音。<br><br>无法安装于轻型和刺客护甲。</p>
+</article>
+<article class='mod' data-id='modArmorStealthBoots' data-cat='armor' data-text='潜行靴模组 stealth boots mod 降低中型和重型靴子的噪音和体力惩罚。 靴子 走动体力 跑动体力 噪音'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>潜行靴模组<em>Stealth Boots Mod</em></h3></div>
+<div class='inst'>可装于 <span>靴子</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>走动体力 <b data-vals='0.03,0.03,0.03,0.03,0.03,0.03' data-fmt='pct'>+3%</b></i><i>跑动体力 <b data-vals='0.1,0.1,0.1,0.1,0.1,0.1' data-fmt='pct'>+10%</b></i><i>噪音 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i></div>
+<p class='desc'>降低中型和重型靴子的噪音和体力惩罚。</p>
+</article>
+<article class='mod' data-id='modArmorInsulatedLinerT3' data-cat='armor' data-text='热核绝缘装甲模组 thermacore insulated armor mod 提升炎热和寒冷抗性 头盔 胸甲 手套 靴子 寒冷抗性 炎热抗性'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>热核绝缘装甲模组<em>ThermaCore Insulated Armor Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span><span>胸甲</span><span>手套</span><span>靴子</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='热核绝缘装甲模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>寒冷抗性 <b data-vals='4.6,4.9,5.2,5.5,5.8,6' data-fmt='raw'>+6</b></i><i>炎热抗性 <b data-vals='4.6,4.9,5.2,5.5,5.8,6' data-fmt='raw'>+6</b></i></div>
+<p class='desc'>提升炎热和寒冷抗性</p>
+</article>
+<article class='mod' data-id='modArmorInsulatedLinerT1' data-cat='armor' data-text='破旧绝缘装甲模组 tattered insulated armor mod 提升炎热和寒冷抗性 头盔 胸甲 手套 靴子 寒冷抗性 炎热抗性'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>破旧绝缘装甲模组<em>Tattered Insulated Armor Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span><span>胸甲</span><span>手套</span><span>靴子</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='破旧绝缘装甲模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>寒冷抗性 <b data-vals='1,1.3,1.6,1.9,2.2,2.5' data-fmt='raw'>+2.5</b></i><i>炎热抗性 <b data-vals='1,1.3,1.6,1.9,2.2,2.5' data-fmt='raw'>+2.5</b></i></div>
+<p class='desc'>提升炎热和寒冷抗性</p>
+</article>
+<article class='mod' data-id='modArmorPlatingBasic' data-cat='armor' data-text='装甲板模组 armor plating mod 使用额外的装甲板提升你的护甲等级。
+
+无法在重甲上安装。 护甲 护甲等级'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>装甲板模组<em>Armor Plating Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>护甲等级 <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i></div>
+<p class='desc'>使用额外的装甲板提升你的护甲等级。<br><br>无法在重甲上安装。</p>
+</article>
+<article class='mod' data-id='modRadiationReady' data-cat='armor' data-text='辐射就绪模组 radiation ready mod 增加辐射防护。 护甲 元素抗性'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>辐射就绪模组<em>Radiation Ready Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>元素抗性 <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='raw'>+0.5</b></i></div>
+<p class='desc'>增加辐射防护。</p>
+</article>
+<article class='mod' data-id='modArmorCigar' data-cat='armor' data-text='雪茄模组 cigar mod 看起来很唬人，可以从商人处获得更多优惠。同时可以增强力量！ 头盔 属性等级（力量） 买入价格 卖出价格'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>雪茄模组<em>Cigar Mod</em></h3></div>
+<div class='inst'>可装于 <span>头盔</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='雪茄模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>属性等级（力量） <b data-vals='1,1,1,1,1,1' data-fmt='raw'>+1</b></i><i>买入价格 <b data-vals='0.05,0.06,0.07,0.08,0.09,0.1' data-fmt='pct'>+10%</b></i><i>卖出价格 <b data-vals='0.05,0.06,0.07,0.08,0.09,0.1' data-fmt='pct'>+10%</b></i></div>
+<p class='desc'>看起来很唬人，可以从商人处获得更多优惠。同时可以增强力量！</p>
+</article>
+<article class='mod' data-id='modArmorCustomizedFittings' data-cat='armor' data-text='高级护甲配件模组 advanced armor fittings mod 大幅降低护甲带来的移动与体力惩罚。
+
+无法安装于轻型护甲。 护甲 移动能力 走动体力 跑动体力'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>高级护甲配件模组<em>Advanced Armor Fittings Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>移动能力 <b data-vals='0.03,0.03,0.03,0.03,0.03,0.03' data-fmt='pct'>+3%</b></i><i>走动体力 <b data-vals='0.021,0.021,0.021,0.021,0.021,0.021' data-fmt='pct'>+2.1%</b></i><i>跑动体力 <b data-vals='0.056,0.056,0.056,0.056,0.056,0.056' data-fmt='pct'>+5.6%</b></i></div>
+<p class='desc'>大幅降低护甲带来的移动与体力惩罚。<br><br>无法安装于轻型护甲。</p>
+</article>
+<article class='mod' data-id='modArmorPlatingReinforced' data-cat='armor' data-text='高级护甲镀层模组 advanced armor plating mod 使用额外的装甲板提升你的护甲等级。
+
+无法在重甲上安装。 护甲 护甲等级'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>高级护甲镀层模组<em>Advanced Armor Plating Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>护甲等级 <b data-vals='2,2,2,2,2,2' data-fmt='raw'>+2</b></i></div>
+<p class='desc'>使用额外的装甲板提升你的护甲等级。<br><br>无法在重甲上安装。</p>
+</article>
+<article class='mod' data-id='modArmorAdvancedMuffledConnectors' data-cat='armor' data-text='高级消音连接器模组 advanced muffled connectors mod 大幅降低护甲产生的噪音。
+
+无法安装于轻型和刺客护甲。 护甲 噪音'>
+<div class='mhead'><span class='badge armor'>护甲配件</span><h3>高级消音连接器模组<em>Advanced Muffled Connectors Mod</em></h3></div>
+<div class='inst'>可装于 <span>护甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>噪音 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i></div>
+<p class='desc'>大幅降低护甲产生的噪音。<br><br>无法安装于轻型和刺客护甲。</p>
+</article>
+</div></section>
+<section class='cat' id='vehicle'>
+<div class='cat-head'><span class='bar' style='background:#a06fd0'></span><h2>载具配件</h2><span class='en'>Vehicle Mods</span><span class='cnt'>8 个模组</span></div>
+<p class='cat-intro'>装在载具上：引擎、车灯、座位、油箱、车铲、车体装甲、储物。</p>
+<div class='grid'>
+<article class='mod' data-id='modVehicleStorage' data-cat='vehicle' data-text='载具储物模组 vehicle storage mod 用此模组提高你载具的储物容量。
+每辆载具最多可增加两个模组。 载具储物'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具储物模组<em>Vehicle Storage Mod</em></h3></div>
+<div class='inst'>可装于 <span>载具储物</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>用此模组提高你载具的储物容量。<br>每辆载具最多可增加两个模组。</p>
+</article>
+<article class='mod' data-id='modVehicleSuperCharger' data-cat='vehicle' data-text='载具增压器模组 vehicle super charger mod 此增压器模组可以提高载具的加速度和最高速度。 引擎 引擎扭矩 载具极速'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具增压器模组<em>Vehicle Super Charger Mod</em></h3></div>
+<div class='inst'>可装于 <span>引擎</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>引擎扭矩 <b data-vals='0.12,0.12,0.12,0.12,0.12,0.12' data-fmt='pct'>+12%</b></i><i>载具极速 <b data-vals='0.18,0.18,0.18,0.18,0.18,0.18' data-fmt='pct'>+18%</b></i></div>
+<p class='desc'>此增压器模组可以提高载具的加速度和最高速度。</p>
+</article>
+<article class='mod' data-id='modVehicleReserveFuelTank' data-cat='vehicle' data-text='载具备用油箱模组 vehicle reserve fuel tank mod 使用此模组可增加你载具的燃料储量。 油箱 油箱容量'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具备用油箱模组<em>Vehicle Reserve Fuel Tank Mod</em></h3></div>
+<div class='inst'>可装于 <span>油箱</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='载具备用油箱模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>油箱容量 <b data-vals='1.5,1.6,1.7,1.8,1.9,2' data-fmt='mulset'>×2</b></i></div>
+<p class='desc'>使用此模组可增加你载具的燃料储量。</p>
+</article>
+<article class='mod' data-id='modVehicleExpandedSeat' data-cat='vehicle' data-text='载具扩展座椅模组 vehicle expanded seating mod 使用此模组扩展你的座位承载量。 座位 座位数'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具扩展座椅模组<em>Vehicle Expanded Seating Mod</em></h3></div>
+<div class='inst'>可装于 <span>座位</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>座位数 <b data-vals='2,2,2,2,2,2' data-fmt='raw'>+2</b></i></div>
+<p class='desc'>使用此模组扩展你的座位承载量。</p>
+</article>
+<article class='mod' data-id='modVehicleArmor' data-cat='vehicle' data-text='载具护甲模组 vehicle armor mod 摩托车和旋翼机用的强化装甲。
+
+减少物体撞击载具前部时载具受到的伤害。增加对物块和实体的伤害。 车体装甲 载具实体伤害 载具物块伤害 载具自伤'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具护甲模组<em>Vehicle Armor Mod</em></h3></div>
+<div class='inst'>可装于 <span>车体装甲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载具实体伤害 <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='pct'>+50%</b></i><i>载具物块伤害 <b data-vals='0.38,0.38,0.38,0.38,0.38,0.38' data-fmt='pct'>+38%</b></i><i>载具自伤 <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pctset'>= 30%</b></i></div>
+<p class='desc'>摩托车和旋翼机用的强化装甲。<br><br>减少物体撞击载具前部时载具受到的伤害。增加对物块和实体的伤害。</p>
+</article>
+<article class='mod' data-id='modVehiclePlow' data-cat='vehicle' data-text='载具犁模组 vehicle plow mod 一款坚固耐用的 4x4 卡车犁，非常适合用来在成群的丧尸中开辟道路。
+
+会减少物体撞击 4x4 卡车前部时卡车受到的伤害。会增加对物块和实体的伤害。 车铲 载具实体伤害 载具物块伤害 载具自伤'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具犁模组<em>Vehicle Plow Mod</em></h3></div>
+<div class='inst'>可装于 <span>车铲</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>载具实体伤害 <b data-vals='0.6,0.6,0.6,0.6,0.6,0.6' data-fmt='pct'>+60%</b></i><i>载具物块伤害 <b data-vals='0.56,0.56,0.56,0.56,0.56,0.56' data-fmt='pct'>+56%</b></i><i>载具自伤 <b data-vals='0.25,0.25,0.25,0.25,0.25,0.25' data-fmt='pctset'>= 25%</b></i></div>
+<p class='desc'>一款坚固耐用的 4x4 卡车犁，非常适合用来在成群的丧尸中开辟道路。<br><br>会减少物体撞击 4x4 卡车前部时卡车受到的伤害。会增加对物块和实体的伤害。</p>
+</article>
+<article class='mod' data-id='modVehicleFuelSaver' data-cat='vehicle' data-text='载具节油器模组 vehicle fuel saver mod 载具耗油降低。 引擎 载具油耗'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具节油器模组<em>Vehicle Fuel Saver Mod</em></h3></div>
+<div class='inst'>可装于 <span>引擎</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='载具节油器模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>载具油耗 <b data-vals='0.9,0.8,0.7,0.6,0.5,0.4' data-fmt='mulset'>×0.4</b></i></div>
+<p class='desc'>载具耗油降低。</p>
+</article>
+<article class='mod' data-id='modVehicleOffRoadHeadlights' data-cat='vehicle' data-text='载具越野头灯模组 vehicle off road headlights mod 这些越野头灯可以在最黑暗的夜色里照亮路途。
+
+使用灯源动作（[action:permanent:toggleflashlight][action:local:toggleflashlight]）激活。 车灯 灯光强度'>
+<div class='mhead'><span class='badge vehicle'>载具配件</span><h3>载具越野头灯模组<em>Vehicle Off Road Headlights Mod</em></h3></div>
+<div class='inst'>可装于 <span>车灯</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>灯光强度 <b data-vals='2.2,2.2,2.2,2.2,2.2,2.2' data-fmt='rawset'>= 2.2</b></i></div>
+<p class='desc'>这些越野头灯可以在最黑暗的夜色里照亮路途。<br><br>使用灯源动作（[action:permanent:ToggleFlashlight][action:local:ToggleFlashlight]）激活。</p>
+</article>
+</div></section>
+<section class='cat' id='drone'>
+<div class='cat-head'><span class='bar' style='background:#8fa3ad'></span><h2>无人机配件</h2><span class='en'>Drone Mods</span><span class='cnt'>7 个模组</span></div>
+<p class='cat-intro'>装在垃圾无人机上：装甲、货舱、士气、头灯、医疗、武器。</p>
+<div class='grid'>
+<article class='mod' data-id='modRoboticDroneCargoMod' data-cat='drone' data-text='机器人无人机储物模组 robotic drone cargo mod 用此模组提高无人机的储物容量。安装更多模组以获得额外容量。 无人机'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机储物模组<em>Robotic Drone Cargo Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>用此模组提高无人机的储物容量。安装更多模组以获得额外容量。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneMedicMod' data-cat='drone' data-text='机器人无人机医疗模组 robotic drone medic mod 将你的无人机改造为机器人野战军医，会在其物品栏内有医疗绷带或急救包时自动治疗你。 无人机 最大射程 无人机冷却'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机医疗模组<em>Robotic Drone Medic Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>数值固定，无品质差异</div>
+<div class='chips'><i>最大射程 <b data-vals='4,4,4,4,4,4' data-fmt='rawset'>= 4</b></i><i>无人机冷却 <b data-vals='15,15,15,15,15,15' data-fmt='rawset'>= 15</b></i></div>
+<p class='desc'>将你的无人机改造为机器人野战军医，会在其物品栏内有医疗绷带或急救包时自动治疗你。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneHeadlampMod' data-cat='drone' data-text='机器人无人机头灯模组 robotic headlamp mod 此机器人无人机模组会为你的无人机加装一盏头灯，以改善黑暗空间的能见度。 无人机'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机头灯模组<em>Robotic Headlamp Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>此机器人无人机模组会为你的无人机加装一盏头灯，以改善黑暗空间的能见度。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneWeaponMod' data-cat='drone' data-text='机器人无人机武器模组 robotic drone weapon mod 此机器人无人机模组能将你的无人机升级为移动的杀戮机器，向敌人发射机器人弹药。 无人机'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机武器模组<em>Robotic Drone Weapon Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>此机器人无人机模组能将你的无人机升级为移动的杀戮机器，向敌人发射机器人弹药。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneStunWeaponMod' data-cat='drone' data-text='机器人无人机眩晕模组 robotic drone stun mod 为你的无人机装备一把电击枪，攻击能使丧尸停在原地。 无人机 最大耐久度 最大射程 无人机冷却'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机眩晕模组<em>Robotic Drone Stun Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='机器人无人机眩晕模组 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i>最大耐久度 <b data-vals='10,20,30,40,50,60' data-fmt='rawset'>= 60</b></i><i>最大射程 <b data-vals='2,2,2,2,2,2' data-fmt='rawset'>= 2</b></i><i>无人机冷却 <b data-vals='10,9,8,7,6,5' data-fmt='rawset'>= 5</b></i></div>
+<p class='desc'>为你的无人机装备一把电击枪，攻击能使丧尸停在原地。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneArmorPlatingMod' data-cat='drone' data-text='机器人无人机装甲板模组 robotic drone armor plating mod 使用此模组升级机器人无人机的防御能力。伤害和损坏降低 50%。 无人机'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机装甲板模组<em>Robotic Drone Armor Plating Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>使用此模组升级机器人无人机的防御能力。伤害和损坏降低 50%。</p>
+</article>
+<article class='mod' data-id='modRoboticDroneMoraleBoosterMod' data-cat='drone' data-text='机器人无人机鼓舞士气模组 robotic drone morale booster mod 当附近有安装此模组的无人机时，体力值再生提高10%。 无人机'>
+<div class='mhead'><span class='badge drone'>无人机配件</span><h3>机器人无人机鼓舞士气模组<em>Robotic Drone Morale Booster Mod</em></h3></div>
+<div class='inst'>可装于 <span>无人机</span></div>
+<div class='fixed'>无数值词条，效果见描述</div>
+<p class='desc'>当附近有安装此模组的无人机时，体力值再生提高10%。</p>
+</article>
+</div></section>
+<section class='cat' id='dye'>
+<div class='cat-head'><span class='bar' style='background:#c8762a'></span><h2>染料</h2><span class='en'>Dyes</span><span class='cnt'>10 个模组</span></div>
+<p class='cat-intro'>纯外观，不占属性：给武器、工具、载具、无人机换色。</p>
+<div class='grid'>
+<article class='mod' data-id='modDyeBrown' data-cat='dye' data-text='染色剂:棕色 dye: brown 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:棕色<em>Dye: Brown</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeOrange' data-cat='dye' data-text='染色剂:橙色 dye: orange 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:橙色<em>Dye: Orange</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeWhite' data-cat='dye' data-text='染色剂:溶剂 dye: solvent 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:溶剂<em>Dye: Solvent</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyePink' data-cat='dye' data-text='染色剂:粉色 dye: pink 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:粉色<em>Dye: Pink</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyePurple' data-cat='dye' data-text='染色剂:紫色 dye: purple 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:紫色<em>Dye: Purple</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeRed' data-cat='dye' data-text='染色剂:红色 dye: red 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:红色<em>Dye: Red</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeGreen' data-cat='dye' data-text='染色剂:绿色 dye: green 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:绿色<em>Dye: Green</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeBlue' data-cat='dye' data-text='染色剂:蓝色 dye: blue 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:蓝色<em>Dye: Blue</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeYellow' data-cat='dye' data-text='染色剂:黄色 dye: yellow 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:黄色<em>Dye: Yellow</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+<article class='mod' data-id='modDyeBlack' data-cat='dye' data-text='染色剂:黑色 dye: black 添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。 武器 工具 载具 无人机'>
+<div class='mhead'><span class='badge dye'>染料</span><h3>染色剂:黑色<em>Dye: Black</em></h3></div>
+<div class='inst'>可装于 <span>武器</span><span>工具</span><span>载具</span><span>无人机</span></div>
+<div class='fixed'>纯外观，无属性变化</div>
+<p class='desc'>添加染色剂模组可以给物品增添色彩。它们需要安装在物品改造窗口的饰品槽中。</p>
+</article>
+</div></section>
+<div class='appendix'>
+<h2>说明</h2>
+<p>· 数值都来自游戏文件里的 <code>tier</code> 区间，按品质 1–6 展开；<code>base_set</code> / <code>perc_set</code> 这类“直接设定”的效果显示为 <code>= 数值</code>。</p>
+<p>· 同一个模组出现两三个数值（如“-8% / -9%”）表示它有两个不同条件下的效果，游戏里会分别生效。</p>
+<p>· 护甲套装与 4 件套奖励见 <a href='armor.html'>装甲速查表</a>；属性与天赋见 <a href='perks.html'>天赋速查表</a>。</p>
+</div>
+<footer>数据来源：本机 <code>7 Days to Die</code> 安装目录下 <code>Data/Config/item_modifiers.xml</code> 与 <code>Localization.csv</code>。<br>已排除：modGeneralMaster、modVehicleMega、questWhiteRiverSupplies、questCassadoreSupplies、modGunButtkick3000、modGunButtkick4000、modMeleeGunToolDecapitizer、modArmorJumpJets、modGunBowAdminArcheryReloadRecovery、modArmorAdminToughGuyShirt（开发/测试/任务物品，共 10 个）。游戏更新后重新运行 <code>parse_mods.py</code> 与 <code>render_mods_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  function trim(x){
+    var r = Math.round(x * 10) / 10;
+    if (Math.abs(r - Math.round(r)) < 0.0001) return String(Math.round(r));
+    return String(r);
+  }
+  var FMT = {
+    num:    function(v){ return trim(v); },
+    pct:    function(v){ var x = Math.round(v * 1000) / 10; return (x > 0 ? '+' : '') + trim(x) + '%'; },
+    raw:    function(v){ return (v > 0 ? '+' : '') + trim(v); },
+    mult:   function(v){ return '×' + trim(1 + v); },
+    pctset: function(v){ return '= ' + trim(Math.round(v * 1000) / 10) + '%'; },
+    rawset: function(v){ return '= ' + trim(v); },
+    mulset: function(v){ return '×' + trim(v); }
+  };
+
+  function renderChip(el, q){
+    var groups = el.getAttribute('data-vals').split('|');
+    var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+    var parts = [];
+    for (var i = 0; i < groups.length; i++){
+      var arr = groups[i].split(',');
+      parts.push(f(parseFloat(arr[q - 1])));
+    }
+    el.textContent = parts.join(' / ');
+  }
+
+  function applyTo(root, q){
+    q = Math.max(1, Math.min(6, q));
+    var nodes = root.querySelectorAll('[data-vals]');
+    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q);
+  }
+
+  var mods = [].slice.call(document.querySelectorAll('.mod'));
+  mods.forEach(function(card){
+    var slider = card.querySelector('.qslider');
+    if (!slider) return;
+    var qnow = card.querySelector('.setq .qnow');
+    function sync(){
+      var q = parseInt(slider.value, 10);
+      if (qnow) qnow.textContent = q;
+      applyTo(card, q);
+    }
+    slider.addEventListener('input', sync);
+    slider.addEventListener('change', sync);
+    sync();
+  });
+
+  var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
+  var secs = [].slice.call(document.querySelectorAll('section.cat'));
+  var q = document.getElementById('q');
+  var cat = 'all';
+
+  function filter(){
+    var v = (q.value || '').trim().toLowerCase();
+    mods.forEach(function(c){
+      var okCat = (cat === 'all' || c.dataset.cat === cat);
+      var okTxt = !v || c.dataset.text.indexOf(v) !== -1;
+      c.classList.toggle('hide', !(okCat && okTxt));
+    });
+    secs.forEach(function(s){
+      s.classList.toggle('hide', s.querySelectorAll('.mod:not(.hide)').length === 0);
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      cat = b.dataset.cat;
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      filter();
+    });
+  });
+  q.addEventListener('input', filter);
+  document.addEventListener('keydown', function(ev){
+    var tag = (document.activeElement && document.activeElement.type) || '';
+    if (ev.key === '/' && document.activeElement !== q && tag !== 'range'){
+      ev.preventDefault(); q.focus();
+    }
+    if (ev.key === 'Escape' && document.activeElement === q){ q.value=''; filter(); q.blur(); }
+  });
+})();
+</script></body></html>
