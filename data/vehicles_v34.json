@@ -1,0 +1,88 @@
+{
+ "vehicles": [
+  {
+   "id": "vehicleBicyclePlaceable",
+   "name": "自行车",
+   "name_en": "Bicycle",
+   "tier": "T0",
+   "durability": 1500.0,
+   "modslots": 2,
+   "slots": [
+    "车灯",
+    "储物"
+   ],
+   "speed": 8.5,
+   "desc": ""
+  },
+  {
+   "id": "vehicleMinibikePlaceable",
+   "name": "小型机车",
+   "name_en": "Minibike",
+   "tier": "T1",
+   "durability": 2000.0,
+   "modslots": 3,
+   "slots": [
+    "引擎",
+    "油箱",
+    "车灯",
+    "座位",
+    "储物"
+   ],
+   "speed": 9.2,
+   "desc": ""
+  },
+  {
+   "id": "vehicleMotorcyclePlaceable",
+   "name": "摩托车",
+   "name_en": "Motorcycle",
+   "tier": "T2",
+   "durability": 4000.0,
+   "modslots": 4,
+   "slots": [
+    "车体装甲",
+    "引擎",
+    "油箱",
+    "车灯",
+    "座位",
+    "储物"
+   ],
+   "speed": 14.0,
+   "desc": ""
+  },
+  {
+   "id": "vehicleTruck4x4Placeable",
+   "name": "4x4 卡车",
+   "name_en": "4x4 Truck",
+   "tier": "T3",
+   "durability": 8000.0,
+   "modslots": 5,
+   "slots": [
+    "引擎",
+    "油箱",
+    "车灯",
+    "车铲",
+    "座位",
+    "储物"
+   ],
+   "speed": 14.0,
+   "desc": ""
+  },
+  {
+   "id": "vehicleGyrocopterPlaceable",
+   "name": "旋翼机",
+   "name_en": "Gyrocopter",
+   "tier": "T4",
+   "durability": 3500.0,
+   "modslots": 5,
+   "slots": [
+    "车体装甲",
+    "引擎",
+    "油箱",
+    "车灯",
+    "储物"
+   ],
+   "speed": 15.0,
+   "desc": ""
+  }
+ ]
+}

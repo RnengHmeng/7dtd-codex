@@ -1,0 +1,25 @@
+
+.sitebar{position:relative;z-index:30;background:#14110e;border-bottom:1px solid #2a231d;
+  font-size:12.5px}
+.sitebar .in{max-width:1180px;margin:0 auto;padding:7px 20px;display:flex;gap:14px;
+  align-items:center;flex-wrap:wrap}
+.sitebar a{color:#a2988c;text-decoration:none;padding:2px 0}
+.sitebar a:hover{color:#e8a33d}
+.sitebar a.cur{color:#e8a33d;border-bottom:1px solid #e8a33d}
+.sitebar .ss{margin-left:auto;color:#6f665c;font-size:11px}
+#sbtn{position:fixed;right:18px;bottom:18px;z-index:60;width:44px;height:44px;border-radius:50%;
+  border:1px solid #4a3c2b;background:#1e1a16;color:#e8a33d;font-size:18px;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.45)}
+#sbox{position:fixed;inset:0;z-index:70;background:rgba(8,7,6,.72);display:flex;
+  align-items:flex-start;justify-content:center;padding-top:12vh}
+#sbox[hidden]{display:none}
+.sbox-in{width:min(640px,92vw);background:#191512;border:1px solid #3a3027;border-radius:12px;
+  overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.6)}
+#sinput{width:100%;box-sizing:border-box;background:#0f0d0b;border:0;border-bottom:1px solid #2c2520;
+  color:#e8e1d8;font:15px/1.6 "Microsoft YaHei",system-ui,sans-serif;padding:14px 16px;outline:0}
+#sres{max-height:52vh;overflow:auto;padding:6px}
+#sres a{display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-radius:7px;
+  color:#ded3c4;text-decoration:none;font-size:13.5px}
+#sres a:hover{background:#241f1a}
+#sres small{color:#7d7367;font-size:11px}
+#sres .empty{color:#6f665c;font-size:13px;padding:14px}

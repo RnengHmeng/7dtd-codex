@@ -408,7 +408,7 @@ def build():
             blob = " ".join([s["name"], s["name_en"]] +
                             [p["name"] + " " + p["name_en"] + " " + p["desc"] +
                              " " + " ".join(x["k"] for x in p["chips"]) for p in s["pieces"]])
-            w("<article class='set' data-cls='%s' data-text='%s'>" % (cls, e(blob.lower())))
+            w("<article class='set' id='%s' data-cls='%s' data-text='%s'>" % (e(s["id"]), cls, e(blob.lower())))
             w("<div class='shead'><span class='badge %s'>%s</span>"
               "<h3>%s<em>%s</em></h3><span class='pieces-n'>%d 件</span></div>"
               % (cls, e(c["name"]), e(s["name"]), e(s["name_en"]), len(s["pieces"])))

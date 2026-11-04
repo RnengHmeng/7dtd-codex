@@ -167,15 +167,17 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 
 <meta name="description" content="5 项属性、50 个属性天赋、7 个通用天赋、19 套书籍 133 卷；每级门槛、花费与完整中文效果，附加点模拟器。">
 <link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="search.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="七日杀 V3.4 天赋速查表">
 <meta property="og:description" content="5 项属性、50 个属性天赋、7 个通用天赋、19 套书籍 133 卷；每级门槛、花费与完整中文效果，附加点模拟器。">
 <meta property="og:image" content="https://7dtd-codex.pages.dev/og.png">
 <meta name="twitter:card" content="summary_large_image">
-</head><body><div class='wrap'>
+</head><body>
+<div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html' class='cur'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'>
 <h1>七日杀 · 天赋速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据直接取自本机游戏文件 <code>Data/Config/progression.xml</code>、<code>items.xml</code>、<code>Localization.csv</code>（简体中文）<br>生成时间 2026-10-30 17:29 ｜ 5 项属性 · 50 个属性天赋 · 7 个通用天赋 · 19 套书籍（133 卷）· 24 本制作杂志</div>
+<div class='sub'>数据直接取自本机游戏文件 <code>Data/Config/progression.xml</code>、<code>items.xml</code>、<code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 16:02 ｜ 5 项属性 · 50 个属性天赋 · 7 个通用天赋 · 19 套书籍（133 卷）· 24 本制作杂志</div>
 <div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>筛选：</span>顶部按钮按属性过滤，点「力量」就只显示力量系天赋，「书籍/杂志」只看书；搜索框支持中英文名和效果关键词（按 <code>/</code> 聚焦）。<br><span style='color:#e8a33d'>看数值：</span>点卡片展开每一级的具体效果。<br><span style='color:#e8a33d'>试加点：</span>点右上角「开始模拟加点」，输入等级后加减属性和天赋，实时结算剩余点数，属性掉级会自动退还受影响的加点。<br><span style='color:#e8a33d'>配套页面：</span><a href='armor.html'>装甲速查表</a> · <a href='weapons.html'>武器速查表</a> · <a href='mods.html'>模组速查表</a></div>
 </header>
 <div class='rules'>
@@ -214,7 +216,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <tr><td>Lv.10</td><td class='cost'>3 点</td><td>你无比擅长让脑袋开花。造成 300% 爆头伤害，使用步枪、爆炸物、长矛和拾荒行动工具时也有 50% 的几率肢解僵尸。</td></tr>
 </table></details>
 <div class='grid'>
-<div class='perk' data-id='perkDeadEye' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='死神之眼 dead eye 专精于步枪瞄准，用一发精准射入的子弹结束掉你目标的生命。百发百中。
+<div class='perk' id='perkDeadEye' data-id='perkDeadEye' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='死神之眼 dead eye 专精于步枪瞄准，用一发精准射入的子弹结束掉你目标的生命。百发百中。
 提高搜刮到《步枪世界》杂志的概率。 随手一枪。你连谷仓的宽面都能打中，使用步枪造成的伤害提高10%。瞄准和装填速度提高10%。
 在战利品中找到更多步枪、零件和7.62毫米弹药。 你是一名步枪手，可以在30码外击中一块大石头。步枪伤害提高20%，瞄准速度提高20%，装填速度提高15%。
 在战利品中找到更多步枪、零件和7.62毫米弹药。 神枪手，你已经能独当一面。步枪伤害提高30%，瞄准速度提高32%，装填速度提高20%，开镜瞄准时消耗的体力减少10%。
@@ -241,7 +243,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 7<br>1 点</span><p>你现在是一名神射手。步枪伤害提高40%，瞄准速度提高45%，装填速度提高25%，开镜瞄准时消耗的体力减少20%。<br>在战利品中找到更多步枪、零件和7.62毫米弹药。<br>连杀：连续击杀可使伤害加成依次达到20%、30%，最高可达40%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>你现在是一名百发百中的狙击手。步枪伤害提高50%，瞄准速度提高60%，装填速度提高30%，开镜瞄准时消耗的体力减少30%。<br>在战利品中找到更多步枪、零件和7.62毫米弹药。<br>连杀：连续击杀可使伤害加成依次达到30%、40%，最高可达50%。</p></div>
 </div></div>
-<div class='perk' data-id='perkDemolitionsExpert' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='爆破专家 demolitions expert 专精于使用爆炸物致残与肢解你的敌人。
+<div class='perk' id='perkDemolitionsExpert' data-id='perkDemolitionsExpert' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='爆破专家 demolitions expert 专精于使用爆炸物致残与肢解你的敌人。
 提高搜刮到《炸药库》杂志的概率。 你现在是一名新晋掷弹兵，小心那些爆炸物。伤害提高10%，装填速度提高15%，瞄准速度提高10%，肢解几率提高5%。在战利品中找到更多爆炸物和零件。 伤害提高20%，装填速度提高20%，瞄准速度提高20%，肢解几率提高10%。在战利品中找到更多爆炸物和零件。 你现在是一名爆炸物操作员。伤害提高30%，装填速度提高25%，瞄准速度提高30%，有33%的几率使敌人致残，肢解几率提高20%。在战利品中找到更多爆炸物和零件。 你现在是个火箭人。伤害提高40%，装填速度提高30%，瞄准速度提高40%，有66%的几率使敌人致残，肢解几率提高30%。在战利品中找到更多爆炸物和零件。 爆破专家。你能让东西轰然炸开。伤害提高50%，装填速度提高35%，瞄准速度提高50%，肢解几率提高45%。在战利品中找到更多爆炸物和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>爆破专家<em>Demolitions Expert</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -260,7 +262,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 7<br>1 点</span><p>你现在是个火箭人。伤害提高40%，装填速度提高30%，瞄准速度提高40%，有66%的几率使敌人致残，肢解几率提高30%。在战利品中找到更多爆炸物和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>爆破专家。你能让东西轰然炸开。伤害提高50%，装填速度提高35%，瞄准速度提高50%，肢解几率提高45%。在战利品中找到更多爆炸物和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkFlurryOfPerception' data-attr='attPerception' data-max='5' data-reqs='2,4,6,8,10' data-text='出招如电 quick and perceptive 你出招如电。使用长矛时攻击速度提高。 你已习得眼疾手快。
+<div class='perk' id='perkFlurryOfPerception' data-id='perkFlurryOfPerception' data-attr='attPerception' data-max='5' data-reqs='2,4,6,8,10' data-text='出招如电 quick and perceptive 你出招如电。使用长矛时攻击速度提高。 你已习得眼疾手快。
 使用长矛时攻击速度提高 5%。 努力训练终得回报，你已习得突然袭击。
 使用长矛时攻击速度提高 10%。 用一系列无情的连击压制敌人。
 使用长矛时攻击速度提高 15%。 毫无多余动作，招招致命。
@@ -283,7 +285,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 8<br>1 点</span><p>毫无多余动作，招招致命。<br>长矛攻击速度提升 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>你拥有闪电般的反应力，大多数对手根本来不及反应。<br>长矛攻击速度提升 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkJavelinMaster' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='长矛大师 spear master 学习通过强力攻击造成更多伤害，并让你的敌人减速。
+<div class='perk' id='perkJavelinMaster' data-id='perkJavelinMaster' data-attr='attPerception' data-max='5' data-reqs='1,3,5,7,10' data-text='长矛大师 spear master 学习通过强力攻击造成更多伤害，并让你的敌人减速。
 提高搜刮到《尖锐之棍》杂志的概率。 棍棒和石头无法打断我的骨头，但如果两者结合在一起，就能成为一支好矛。长矛造成的伤害增加10%，强力攻击有20%几率减速敌人。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多长矛和零件。 长矛造成的伤害增加20%，强力攻击有40%几率减速敌人。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多长矛和零件。 长矛造成的伤害增加30%，强力攻击有60%几率减速敌人。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。搜刮时找到更多长矛和零件。 长矛造成的伤害增加40%，强力攻击有80%几率减速敌人。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多长矛和零件。 你已成为长矛大师，要不是如今正值末世，也许你还能参加奥林匹克。长矛造成的伤害增加50%，强力攻击有100%几率减速敌人。杀死敌人的那一击会给予30体力。搜刮时找到更多长矛和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>长矛大师<em>Spear Master</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -302,7 +304,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 7<br>1 点</span><p>长矛造成的伤害增加40%，强力攻击有80%几率减速敌人。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多长矛和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>你已成为长矛大师，要不是如今正值末世，也许你还能参加奥林匹克。长矛造成的伤害增加50%，强力攻击有100%几率减速敌人。杀死敌人的那一击会给予30体力。搜刮时找到更多长矛和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkAnimalTracker' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='动物追踪器 animal tracker 学习如何探测并追踪100米内的动物，这下再也不会饿肚子了。 蹲下来用你的火眼金睛找寻兔子、蛇或鸡这类小型动物的踪迹吧。
+<div class='perk' id='perkAnimalTracker' data-id='perkAnimalTracker' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='动物追踪器 animal tracker 学习如何探测并追踪100米内的动物，这下再也不会饿肚子了。 蹲下来用你的火眼金睛找寻兔子、蛇或鸡这类小型动物的踪迹吧。
 追踪到的动物会标记在你的指南针与地图上。 你犹如鹰一样的感官能检测鹿和野猪。 你成为了终极的追猎者。可检测到丛林狼、灰狼、丧尸狗一类的食肉动物。 足迹越大，危险越大。可追踪美洲狮、熊等大型猎物。 恐狼与丧尸熊统治荒野，但你能轻松追踪它们。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>动物追踪器<em>Animal Tracker</em></span><span class='tag'>一般感知技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -321,7 +323,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 5<br>1 点</span><p>足迹越大，危险越大。可追踪美洲狮、熊等大型猎物。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 7<br>1 点</span><p>恐狼与丧尸熊统治荒野，但你能轻松追踪它们。</p></div>
 </div></div>
-<div class='perk' data-id='perkInfiltrator' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='渗透者 the infiltrator 使用高度敏感的感官减少来自陷阱的伤害。 你成了一只钻地鼹鼠，可以更容易穿过危险的陷阱。
+<div class='perk' id='perkInfiltrator' data-id='perkInfiltrator' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='渗透者 the infiltrator 使用高度敏感的感官减少来自陷阱的伤害。 你成了一只钻地鼹鼠，可以更容易穿过危险的陷阱。
 松动木板陷阱和地雷触发会慢半秒。
 地雷造成的伤害减少 20%。
 可以拾起铁皮地雷了。 入侵者可以自信满满地穿过危险环境。
@@ -353,7 +355,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 5<br>1 点</span><p>步履轻盈的人不会触发陷阱。<br>松动木板陷阱与地雷触发延迟 3 秒。<br>地雷伤害减免 60%。<br>可以拾取空气过滤地雷了。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 7<br>1 点</span><p>地雷专家无所畏惧。<br>松动木板陷阱与地雷触发延迟 5 秒。<br>地雷伤害减免 75%。</p></div>
 </div></div>
-<div class='perk' data-id='perkPenetrator' data-attr='attPerception' data-max='5' data-reqs='1,4,6,8,10' data-text='穿透护甲 the penetrator 使用长矛、弓箭和其他特殊弹药时，你在目标的护甲之中找到了一处弱点。
+<div class='perk' id='perkPenetrator' data-id='perkPenetrator' data-attr='attPerception' data-max='5' data-reqs='1,4,6,8,10' data-text='穿透护甲 the penetrator 使用长矛、弓箭和其他特殊弹药时，你在目标的护甲之中找到了一处弱点。
 利用步枪的穿甲弹可击穿多名生物目标。 使用火器和弓弩时无视目标10%的护甲防护，使任何目标的护甲防护降低20%。 使用火器和弓弩时无视目标15%的护甲防护，使任何目标的护甲防护降低30%。
 使用猎枪、杠杆式步枪或狙击枪时，穿甲弹可以额外穿透一个目标或一块生命值最高为500的物块。 使用火器和弓弩时无视目标20%的护甲防护，使任何目标的护甲防护降低40%。
 使用猎枪、杠杆式步枪或狙击枪时，穿甲弹可以额外穿透两个目标或一块生命值最高为750的物块。 使用火器和弓弩时无视目标20%的护甲防护，使任何目标的护甲防护降低50%。
@@ -376,7 +378,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 8<br>1 点</span><p>使用火器和弓弩时无视目标20%的护甲防护，使任何目标的护甲防护降低50%。<br>使用猎枪、杠杆式步枪或狙击枪时，穿甲弹可以额外穿透三个目标或一块生命值最高为1000的物块。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>使用火器和弓弩时无视目标 20% 的护甲防护，使任何目标的护甲防护降低 50%。<br>使用猎枪、杠杆式步枪或狙击枪时，穿甲弹可以额外穿透四个目标或一块生命值最高为 1000 的物块。</p></div>
 </div></div>
-<div class='perk' data-id='perkPerceptionMastery' data-attr='attPerception' data-max='5' data-reqs='6,7,8,9,10' data-text='感知专精 perception mastery 感知技能大师 从软垫座椅、床铺、购物篮、购物车、汽车座椅、行李箱和衣物堆中搜刮公爵币和现金。 从汽车、枪柜和购物车中采集钢材。 长矛和步枪的主要攻击造成流血伤害。 长矛冲刺强力攻击伤害提升 25%。 步枪射击伤害提升 50%。'>
+<div class='perk' id='perkPerceptionMastery' data-id='perkPerceptionMastery' data-attr='attPerception' data-max='5' data-reqs='6,7,8,9,10' data-text='感知专精 perception mastery 感知技能大师 从软垫座椅、床铺、购物篮、购物车、汽车座椅、行李箱和衣物堆中搜刮公爵币和现金。 从汽车、枪柜和购物车中采集钢材。 长矛和步枪的主要攻击造成流血伤害。 长矛冲刺强力攻击伤害提升 25%。 步枪射击伤害提升 50%。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>感知专精<em>Perception Mastery</em></span><span class='tag'>一般感知技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>感知技能大师</p>
@@ -394,7 +396,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 9<br>1 点</span><p>长矛冲刺强力攻击伤害提升 25%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 10<br>1 点</span><p>步枪射击伤害提升 50%。</p></div>
 </div></div>
-<div class='perk' data-id='perkSalvageOperations' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='拾荒行动 salvage operations 杜绝浪费！用扳手、棘齿或冲击起子回收更多资源。
+<div class='perk' id='perkSalvageOperations' data-id='perkSalvageOperations' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='拾荒行动 salvage operations 杜绝浪费！用扳手、棘齿或冲击起子回收更多资源。
 提高搜刮到《趣味分解》杂志的概率。 谁知道把东西拆开之后能找到什么有用的零件呢？回收工具造成的伤害增加 10%，使用扳手、棘齿或冲击起子时获得的资源最多增加 20%。强力攻击的体力值消耗分别减少 8% 和 15%。搜刮时找到更多回收工具和零件。 人们都管你叫捡破烂的，但至少你还付出了劳动。回收工具造成的伤害增加 20%，使用扳手、棘齿或冲击起子时获得的资源最多增加 40%。强力攻击的体力值消耗分别减少 15% 和 30%。搜刮时找到更多回收工具和零件。 似乎你比其他捡垃圾的更懂得如何能回收更有用的零件。回收工具造成的伤害增加 30%，使用扳手、棘齿或冲击起子时获得的资源最多增加 60%。强力攻击的体力值消耗分别减少 20% 和 40%。搜刮时找到更多回收工具和零件。 你收集废旧零件的能力非同一般。回收工具造成的伤害增加 40%，使用扳手、棘齿或冲击起子时获得的资源最多增加 80%。强力攻击的体力值消耗分别减少 25% 和 50%。搜刮时找到更多回收工具和零件。 你是垃圾回收圈的王，灾变后生存下来的这帮机械师都嫉妒死你了。回收工具造成的伤害增加 50%，使用扳手、棘齿或冲击起子时获得的资源最多增加 100%。搜刮时找到更多回收工具和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>拾荒行动<em>Salvage Operations</em></span><span class='tag'>搜刮技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -413,7 +415,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>感知 5<br>1 点</span><p>你收集废旧零件的能力非同一般。回收工具造成的伤害增加 40%，使用扳手、棘齿或冲击起子时获得的资源最多增加 80%。强力攻击的体力值消耗分别减少 25% 和 50%。搜刮时找到更多回收工具和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>感知 7<br>1 点</span><p>你是垃圾回收圈的王，灾变后生存下来的这帮机械师都嫉妒死你了。回收工具造成的伤害增加 50%，使用扳手、棘齿或冲击起子时获得的资源最多增加 100%。搜刮时找到更多回收工具和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkTreasureHunter' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='寻宝者 treasure hunter 成为有史以来最伟大的寻宝者之一，学习甚至会让黑胡子嫉妒的技巧。 每挖掘 7 个物块，寻宝半径减少 1 米。如果没有技能，你必须每个藏宝处挖掘 10 个物块。
+<div class='perk' id='perkTreasureHunter' data-id='perkTreasureHunter' data-attr='attPerception' data-max='5' data-reqs='1,2,3,5,7' data-text='寻宝者 treasure hunter 成为有史以来最伟大的寻宝者之一，学习甚至会让黑胡子嫉妒的技巧。 每挖掘 7 个物块，寻宝半径减少 1 米。如果没有技能，你必须每个藏宝处挖掘 10 个物块。
 对泥土伤害提升 50%。
 在埋藏的宝藏中多找到10%的物品。 每挖掘 5 个物块，寻宝半径减少 1 米。
 对泥土伤害提升 100%。
@@ -456,7 +458,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <tr><td>Lv.10</td><td class='cost'>3 点</td><td>如果世界末日没有摧毁你的梦想，你可能成为奥运冠军。现在你可以粉碎丧尸了。造成 300% 爆头伤害，使用霰弹枪、棍棒、大锤和矿业 69 族工具时也有 50% 的几率肢解僵尸。</td></tr>
 </table></details>
 <div class='grid'>
-<div class='perk' data-id='perkBoomstick' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='喷子 boomstick 专精于霰弹枪，增加伤害、射速和装填速度。
+<div class='perk' id='perkBoomstick' data-id='perkBoomstick' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='喷子 boomstick 专精于霰弹枪，增加伤害、射速和装填速度。
 提高搜刮到《霰弹枪周刊》杂志的概率。 可能你不太擅长瞄准，也可能你就是喜欢近距离把敌人轰成渣。不管怎么说，手里拿着霰弹枪的流浪汉可不是好惹的。霰弹枪造成的伤害增加 10%，射速加快 10%，装弹速度加快 10%。能将敌人击晕 6 秒。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。 在荒野上作为一名游牧民游荡磨砺了你的霰弹枪技巧。霰弹枪造成的伤害增加 20%，射速加快 20%，装弹速度加快 15%。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。 要是还有打陶土鸭大赛的话，你肯定能百发百中，大家都会把你当成霰弹枪专家的。霰弹枪造成的伤害增加30%，射速加快30%，装弹速度加快20%。能将敌人击晕8秒。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。 霰弹枪在你手里已经是一种非常致命的武器，你现在是霰弹枪大师，也是大师级霰弹枪手了。霰弹枪造成的伤害增加40%，射速加快40%，装弹速度加快25%。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。 你已经飞升成为霰弹枪之神，遇到你，你的敌人就可以去见鬼了。霰弹枪造成的伤害增加 50%，射速加快 50%，装弹速度加快 30%。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。
 击中腿部可以使敌人致残。'>
 <div class='pbody'>
@@ -476,7 +478,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 7<br>1 点</span><p>霰弹枪在你手里已经是一种非常致命的武器，你现在是霰弹枪大师，也是大师级霰弹枪手了。霰弹枪造成的伤害增加40%，射速加快40%，装弹速度加快25%。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>你已经飞升成为霰弹枪之神，遇到你，你的敌人就可以去见鬼了。霰弹枪造成的伤害增加 50%，射速加快 50%，装弹速度加快 30%。搜刮时找到更多霰弹枪、零件和霰弹枪弹药。<br>击中腿部可以使敌人致残。</p></div>
 </div></div>
-<div class='perk' data-id='perkFlurryOfStrength' data-attr='attStrength' data-max='5' data-reqs='2,4,6,8,10' data-text='外壮内活 big and fast 你不仅强壮，也同样灵巧。棍棒和大锤的速度提高。 你高大强壮，快动起来吧！
+<div class='perk' id='perkFlurryOfStrength' data-id='perkFlurryOfStrength' data-attr='attStrength' data-max='5' data-reqs='2,4,6,8,10' data-text='外壮内活 big and fast 你不仅强壮，也同样灵巧。棍棒和大锤的速度提高。 你高大强壮，快动起来吧！
 棍棒和大锤的速度提高 5%。 更快挥动重型武器！
 棍棒和大锤的速度提高 10%。 挥舞速度越快，打击就越沉重！
 棍棒和大锤的速度提高 15%。 肌肉更强，速度更快，骨头更脆。
@@ -499,7 +501,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 8<br>1 点</span><p>肌肉更强，速度更快，骨头更脆。<br>棍棒和大锤攻击速度提升 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>让你的敌人尝尝重金属碾压的滋味。<br>棍棒和大锤的速度提高 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkGrandSlam' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='满垒本垒打 grand slam 专精于使用棍棒、棒球棒和大锤将敌人致残。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 10% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 20% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 30% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 40% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 50% 几率致残敌人。'>
+<div class='perk' id='perkGrandSlam' data-id='perkGrandSlam' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='满垒本垒打 grand slam 专精于使用棍棒、棒球棒和大锤将敌人致残。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 10% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 20% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 30% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 40% 几率致残敌人。 使用棍棒、棒球棒或大锤的冲刺强力攻击有 50% 几率致残敌人。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>满垒本垒打<em>Grand Slam</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>专精于使用棍棒、棒球棒和大锤将敌人致残。</p>
@@ -517,7 +519,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 7<br>1 点</span><p>使用棍棒、棒球棒或大锤的冲刺强力攻击有 40% 几率致残敌人。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>使用棍棒、棒球棒或大锤的冲刺强力攻击有 50% 几率致残敌人。</p></div>
 </div></div>
-<div class='perk' data-id='perkPummelPete' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='击球手佩特 pummel pete 专精于使用棍棒把你的敌人打得不省人事。
+<div class='perk' id='perkPummelPete' data-id='perkPummelPete' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='击球手佩特 pummel pete 专精于使用棍棒把你的敌人打得不省人事。
 提高搜刮到《打击高手》杂志的概率。 也许你不太喜欢徒手打架，不过作为一个无赖，你可以用棒子啊！棍棒造成的伤害增加10%，攻击对被击晕的敌人多造成40%的伤害。强力攻击有60%的几率将对手击倒。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多棍棒和零件。 作为危险的暴徒，你已经慢慢出名了。棍棒造成的伤害增加20%，攻击对被击晕的敌人多造成80%的伤害。强力攻击有70%的几率将对手击倒。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多棍棒和零件。 你棒球打得好到能加入棒球联合会了。棍棒造成的伤害增加30%，攻击对被击晕的敌人多造成120%的伤害，强力攻击有80%几率将对手击倒。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。短时间内连续击中5次，则能使最后一击伤害额外增加100%。搜刮时找到更多棍棒和零件。 你说“趴下”时可不是开玩笑。棍棒造成的伤害增加40%，攻击对被击晕的敌人多造成160%的伤害，强力攻击有90%几率将对手击倒。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。短时间内连续击中4次，则能使最后一击伤害额外增加100%。搜刮时找到更多棍棒和零件。 击球手佩特曾经仅用一根棍棒就打倒了50只丧尸，连他也会为你感到自豪的。棍棒造成的伤害增加50%，攻击对被击晕的敌人多造成200%的伤害，强力攻击有100%几率将对手击倒。杀死敌人的那一击会给予30体力。短时间内连续击中3次，则能使最后一击伤害额外增加100%。搜刮时找到更多棍棒和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>击球手佩特<em>Pummel Pete</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -536,7 +538,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 7<br>1 点</span><p>你说“趴下”时可不是开玩笑。棍棒造成的伤害增加40%，攻击对被击晕的敌人多造成160%的伤害，强力攻击有90%几率将对手击倒。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。短时间内连续击中4次，则能使最后一击伤害额外增加100%。搜刮时找到更多棍棒和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>击球手佩特曾经仅用一根棍棒就打倒了50只丧尸，连他也会为你感到自豪的。棍棒造成的伤害增加50%，攻击对被击晕的敌人多造成200%的伤害，强力攻击有100%几率将对手击倒。杀死敌人的那一击会给予30体力。短时间内连续击中3次，则能使最后一击伤害额外增加100%。搜刮时找到更多棍棒和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkSkullCrusher' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='头骨粉碎者 skull crusher 专精于使用大锤一类的重武器摧毁敌人和建筑。
+<div class='perk' id='perkSkullCrusher' data-id='perkSkullCrusher' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='头骨粉碎者 skull crusher 专精于使用大锤一类的重武器摧毁敌人和建筑。
 提高搜刮到《锤行天下》杂志的概率。 你十分好斗！运气好的话能击倒老年丧尸。大锤造成的伤害增加10%，强力攻击有15%几率将敌人击倒。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多大锤和零件。 你现在是一名拳击家了，不过不要太骄傲。大锤造成的伤害增加20%，强力攻击有30%几率将敌人击倒。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多大锤和零件。 你能一下击碎遇到的大部分东西。大锤造成的伤害增加30%，强力攻击有45%几率将敌人击倒，还有20%几率击倒周围敌人。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。搜刮时找到更多大锤和零件。 你是一名骨折制造者！大锤造成的伤害增加40%，强力攻击有60%几率将敌人击倒，还有35%几率击倒周围敌人。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多大锤和零件。 头骨粉碎者。要是有人敢惹到你，你有一百种办法粉碎掉他们的头骨。大锤造成的伤害增加50%，强力攻击有75%几率将敌人击倒，还有50%几率击倒周围敌人。杀死敌人的那一击会给予30体力。搜刮时找到更多大锤和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>头骨粉碎者<em>Skull Crusher</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -555,7 +557,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 7<br>1 点</span><p>你是一名骨折制造者！大锤造成的伤害增加40%，强力攻击有60%几率将敌人击倒，还有35%几率击倒周围敌人。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多大锤和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>头骨粉碎者。要是有人敢惹到你，你有一百种办法粉碎掉他们的头骨。大锤造成的伤害增加50%，强力攻击有75%几率将敌人击倒，还有50%几率击倒周围敌人。杀死敌人的那一击会给予30体力。搜刮时找到更多大锤和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkJunkMiner' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='垃圾矿工 junk miner 这工具可能不太适合，但你将学会用采矿工具采集更多垃圾资源。 从布料、塑料等垃圾中获取的资源增加 20%。 从布料、塑料等垃圾中获取的资源增加 40%。 从布料、塑料等垃圾中获取的资源增加 60%。 从布料、塑料等垃圾中获取的资源增加 80%。 从布料、塑料等垃圾中获取的资源增加 100%。'>
+<div class='perk' id='perkJunkMiner' data-id='perkJunkMiner' data-attr='attStrength' data-max='5' data-reqs='1,3,5,7,10' data-text='垃圾矿工 junk miner 这工具可能不太适合，但你将学会用采矿工具采集更多垃圾资源。 从布料、塑料等垃圾中获取的资源增加 20%。 从布料、塑料等垃圾中获取的资源增加 40%。 从布料、塑料等垃圾中获取的资源增加 60%。 从布料、塑料等垃圾中获取的资源增加 80%。 从布料、塑料等垃圾中获取的资源增加 100%。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>垃圾矿工<em>Junk Miner</em></span><span class='tag'>建筑技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>这工具可能不太适合，但你将学会用采矿工具采集更多垃圾资源。</p>
@@ -573,7 +575,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 7<br>1 点</span><p>从布料、塑料等垃圾中获取的资源增加 80%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 10<br>1 点</span><p>从布料、塑料等垃圾中获取的资源增加 100%。</p></div>
 </div></div>
-<div class='perk' data-id='perkMiner69r' data-attr='attStrength' data-max='5' data-reqs='1,2,3,5,7' data-text='矿业69族 miner 69&#x27;er 增强工具伤害，更迅速地处理岩石和树木，最大程度提高采矿效率。
+<div class='perk' id='perkMiner69r' data-id='perkMiner69r' data-attr='attStrength' data-max='5' data-reqs='1,2,3,5,7' data-text='矿业69族 miner 69&#x27;er 增强工具伤害，更迅速地处理岩石和树木，最大程度提高采矿效率。
 提高搜刮到《工具文摘》杂志的概率。 人人都得从头开始。使用任何斧头、镐、铲子、电锯或螺旋钻时增加10%的工具伤害和30%的物块伤害。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多工具和零件。 你还是个新手，但也不必去请老师傅手把手教了。使用任何斧头、镐、铲子、电锯或螺旋钻时增加20%的工具伤害和60%的物块伤害。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多工具和零件。 你现在是一位专业矿工，而且是他们过去称之为“手艺人”的熟手。使用任何斧头、镐、铲子、电锯或螺旋钻时增加30%的工具伤害和90%的物块伤害。强力攻击的体力值消耗分别减少20%和40%。搜刮时找到更多工具和零件。 你可以用最好的工具来敲碎岩石了。使用任何斧头、镐、铲子、电锯或螺旋钻时增加40%的工具伤害和120%的物块伤害。强力攻击的体力值消耗分别减少25%和50%。搜刮时找到更多工具和零件。 你是传奇的矿业69族，找起岩石那诱人的中心来比带角牛蛙还快。使用任何斧头、镐、铲子、电锯或螺旋钻时增加50%的工具伤害和150%的物块伤害。搜刮时找到更多工具和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>矿业69族<em>Miner 69&#x27;er</em></span><span class='tag'>建筑技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -592,7 +594,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 5<br>1 点</span><p>你可以用最好的工具来敲碎岩石了。使用任何斧头、镐、铲子、电锯或螺旋钻时增加40%的工具伤害和120%的物块伤害。强力攻击的体力值消耗分别减少25%和50%。搜刮时找到更多工具和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 7<br>1 点</span><p>你是传奇的矿业69族，找起岩石那诱人的中心来比带角牛蛙还快。使用任何斧头、镐、铲子、电锯或螺旋钻时增加50%的工具伤害和150%的物块伤害。搜刮时找到更多工具和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkMotherLode' data-attr='attStrength' data-max='5' data-reqs='1,2,3,5,7' data-text='母矿 mother lode 收集更多资源，可以把母矿带回家。 你找到了自己的第一支小矿脉，并成为所有新手的羡慕对象。
+<div class='perk' id='perkMotherLode' data-id='perkMotherLode' data-attr='attStrength' data-max='5' data-reqs='1,2,3,5,7' data-text='母矿 mother lode 收集更多资源，可以把母矿带回家。 你找到了自己的第一支小矿脉，并成为所有新手的羡慕对象。
 使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 20% 的额外收获。 找到更多矿石逐渐成为了你的第二天性。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 40% 的额外收获。 你已经做得很好了，能以此谋生了。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 60% 的额外收获。 你需要一辆爱尔兰婴儿车来装这些矿石。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 80% 的额外收获。 采矿是你的第二天性，无论你走到哪里，你都能找到母矿脉。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 100% 的额外收获。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>母矿<em>Mother Lode</em></span><span class='tag'>建筑技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -611,7 +613,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 5<br>1 点</span><p>你需要一辆爱尔兰婴儿车来装这些矿石。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 80% 的额外收获。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 7<br>1 点</span><p>采矿是你的第二天性，无论你走到哪里，你都能找到母矿脉。使用任何斧头、镐、铲子、电锯或螺旋钻时可从矿石、石头、地形块和树木中得到 100% 的额外收获。</p></div>
 </div></div>
-<div class='perk' data-id='perkPackMule' data-attr='attStrength' data-max='5' data-reqs='1,2,3,4,5' data-text='驮骡 pack mule 你现在是一头驮骡，可以携带更多的物品，而不会受到移动惩罚。 谁有时间把自己的东西整理得井井有条？
+<div class='perk' id='perkPackMule' data-id='perkPackMule' data-attr='attStrength' data-max='5' data-reqs='1,2,3,4,5' data-text='驮骡 pack mule 你现在是一头驮骡，可以携带更多的物品，而不会受到移动惩罚。 谁有时间把自己的东西整理得井井有条？
 可携带{cvar(.packmulecapacityl1:0)}件额外物品而不受负重影响。
 从物品栏制作物品的速度提高10%。
 受到攻击时，你的背包有5%的几率抵消物理伤害。 你知道它就在里面某处。
@@ -644,7 +646,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>力量 4<br>1 点</span><p>列兵，你刚刚通过了检查。<br>可携带{cvar(.packmuleCapacityL4:0)}件额外物品而不受负重影响。<br>从物品栏制作物品的速度提高40%。<br>受到攻击时，你的背包有20%的几率抵消物理伤害。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>力量 5<br>1 点</span><p>这就有点炫耀了！ 你不是半头骡子，就是个大力士。<br>可携带{cvar(.packmuleCapacityL5:0)}件额外物品而不受负重影响。<br>从物品栏制作物品的速度提高50%。<br>受到攻击时，你的背包有25%的几率抵消物理伤害。</p></div>
 </div></div>
-<div class='perk' data-id='perkStrengthMastery' data-attr='attStrength' data-max='5' data-reqs='6,7,8,9,10' data-text='力量专精 strength mastery 力量技能大师 手持采矿工具时，所有重伤恢复速度提升 100%。 采集矿石时有 5% 几率获得废黄铜。 鹤嘴锄和铲子等采矿工具在战斗中对丧尸造成更多伤害。 使用棍棒或大锤爆头时有额外 50% 几率肢解敌人。 使用力量型武器击杀敌人后，获得 25% 伤害抗性，持续 5 秒。'>
+<div class='perk' id='perkStrengthMastery' data-id='perkStrengthMastery' data-attr='attStrength' data-max='5' data-reqs='6,7,8,9,10' data-text='力量专精 strength mastery 力量技能大师 手持采矿工具时，所有重伤恢复速度提升 100%。 采集矿石时有 5% 几率获得废黄铜。 鹤嘴锄和铲子等采矿工具在战斗中对丧尸造成更多伤害。 使用棍棒或大锤爆头时有额外 50% 几率肢解敌人。 使用力量型武器击杀敌人后，获得 25% 伤害抗性，持续 5 秒。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>力量专精<em>Strength Mastery</em></span><span class='tag'>一般力量技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>力量技能大师</p>
@@ -681,7 +683,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <tr><td>Lv.10</td><td class='cost'>3 点</td><td>你有着超人一样的体魄，可以一拳打散一眼台风。造成300%爆头伤害，使用拳头与机枪时也有50%几率肢解僵尸。</td></tr>
 </table></details>
 <div class='grid'>
-<div class='perk' data-id='perkBrawler' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='搏斗家 the brawler 学习武术，用你的双拳来把你的敌人击晕、击倒、缴械或者打残吧。
+<div class='perk' id='perkBrawler' data-id='perkBrawler' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='搏斗家 the brawler 学习武术，用你的双拳来把你的敌人击晕、击倒、缴械或者打残吧。
 提高搜刮到《愤怒之拳》杂志的概率。 厌倦经常被丧尸施暴了吗？只要把它们的牙齿打掉，丧尸就不能咬你了！拳头武器造成的伤害增加10%。打中头部可以解除感染能力。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多拳头武器和零件。 你已经有一些打架的经验了，可以稳住阵脚了。拳头武器造成的伤害增加20%。强力攻击有30%几率使对手失衡。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多拳头武器和零件。 之前打架的经历累积了起来，你现在是一名真正的强击手了。拳头武器造成的伤害增加30%。强力攻击有20%几率击倒对手。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。搜刮时找到更多拳头武器和零件。 你现在已经优秀到能打专业拳击了，暴打丧尸的丑脸更使不在话下。拳头武器造成的伤害增加40%。强力攻击有30%几率击倒对手。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多拳头武器和零件。 你现在是一名多派武术大师，是一个登记过的致命武器了。拳头武器造成的伤害增加50%，有更高几率可用拳击爆头。杀死敌人的那一击会给予30体力。搜刮时找到更多拳头武器和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>搏斗家<em>The Brawler</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -700,7 +702,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>你现在已经优秀到能打专业拳击了，暴打丧尸的丑脸更使不在话下。拳头武器造成的伤害增加40%。强力攻击有30%几率击倒对手。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多拳头武器和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你现在是一名多派武术大师，是一个登记过的致命武器了。拳头武器造成的伤害增加50%，有更高几率可用拳击爆头。杀死敌人的那一击会给予30体力。搜刮时找到更多拳头武器和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkFlurryOfFortitude' data-attr='attFortitude' data-max='5' data-reqs='2,4,6,8,10' data-text='无影手 lightning hands 通过更快速的斗殴打击粉碎你的敌人。 你已习得快速刺拳的精髓。
+<div class='perk' id='perkFlurryOfFortitude' data-id='perkFlurryOfFortitude' data-attr='attFortitude' data-max='5' data-reqs='2,4,6,8,10' data-text='无影手 lightning hands 通过更快速的斗殴打击粉碎你的敌人。 你已习得快速刺拳的精髓。
 挥拳速度提高 5%。 每一拳都是经验的积累。
 挥拳速度提高 10%。 瞄准下巴，让敌人再次倒地不起。
 挥拳速度提高 15%。 用炸弹和重拳让敌人昏迷。
@@ -723,7 +725,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 8<br>1 点</span><p>用炸弹和重拳让敌人昏迷。<br>挥拳速度提升 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你的拳速太快了，敌人很快就会被你无穷无尽的拳击淹没。<br>挥拳速度提高 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkMachineGunner' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='机枪射手 machine gunner 成为使用突击步枪消灭敌人的突击队员。
+<div class='perk' id='perkMachineGunner' data-id='perkMachineGunner' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='机枪射手 machine gunner 成为使用突击步枪消灭敌人的突击队员。
 提高搜刮到《战备竞赛》杂志的概率。 你喜欢疯狂扫射。机枪造成的伤害增加10%，射速加快5%，装弹速度加快10%。
 搜刮时找到更多机枪、零件和7.62毫米弹药。 你不是突击队员，但你会去做突击队员的任务，把事情完成。机枪造成的伤害增加20%，射速加快10%，装弹速度加快15%。
 搜刮时找到更多机枪、零件和7.62毫米弹药。 所有那些战斗都磨练了你的技巧，现在你是一位士兵了。机枪造成的伤害增加30%，射速加快15%，装弹速度加快20%。突击队肾上腺素：每次用自动武器击中敌人都会获得2体力。
@@ -747,7 +749,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>你的技巧现在可以和特种部队匹敌了。机枪造成的伤害增加40%，射速加快20%，装弹速度加快25%。突击队肾上腺素：每次用自动武器击中敌人都会获得4点体力。<br>搜刮时找到更多机枪、零件和7.62毫米弹药。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你现在是终极机枪手了。机枪造成的伤害增加50%，射速加快25%，装弹速度加快30%。突击队肾上腺素：每次用自动武器击中敌人都会获得6体力。<br>搜刮时找到更多机枪、零件和7.62毫米弹药。</p></div>
 </div></div>
-<div class='perk' data-id='perkHealingFactor' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='治疗因子 healing factor 擅长在不挨饿的情况下提升你的自然愈合率。
+<div class='perk' id='perkHealingFactor' data-id='perkHealingFactor' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='治疗因子 healing factor 擅长在不挨饿的情况下提升你的自然愈合率。
 
 当你没有食物或水时将无法自愈。 你的代谢率肯定很高。自然愈合每35秒就会恢复1点生命值。暴击伤害造成的伤口愈合速度加快20%。 你似乎可以快速愈合。自然愈合每25秒就会恢复1点生命值。暴击伤害造成的伤口愈合速度加快40%。 你内心潜藏着什么动物？自然愈合每15秒就会恢复1点生命值。暴击伤害造成的伤口愈合速度加快60%。 你似乎可以以超快的速度自我再生。自然愈合每 10 秒就会恢复 1 点生命值。暴击伤害造成的伤口愈合速度加快 80%。 你一定有受辐射影响过的突变基因。自然愈合每5秒就会恢复1点生命值。暴击伤害造成的伤口愈合速度加快两倍。'>
 <div class='pbody'>
@@ -767,7 +769,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>你似乎可以以超快的速度自我再生。自然愈合每 10 秒就会恢复 1 点生命值。暴击伤害造成的伤口愈合速度加快 80%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你一定有受辐射影响过的突变基因。自然愈合每5秒就会恢复1点生命值。暴击伤害造成的伤口愈合速度加快两倍。</p></div>
 </div></div>
-<div class='perk' data-id='perkRuleOneCardio' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='规则1：有氧运动 rule 1: cardio 让你的身体学会对抗丧尸的最好战术：逃跑。 只要把一只脚移到另一只脚前面就好了。
+<div class='perk' id='perkRuleOneCardio' data-id='perkRuleOneCardio' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='规则1：有氧运动 rule 1: cardio 让你的身体学会对抗丧尸的最好战术：逃跑。 只要把一只脚移到另一只脚前面就好了。
 冲刺时体力再生速度加快 10%。 所有的敌人都只能吃你的尾气。
 冲刺时体力再生速度加快 20%。 轻轻松松应对每一公里。
 冲刺时体力再生速度加快 30%。 体力更强，跑得更远，活得更久。
@@ -790,7 +792,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>体力更强，跑得更远，活得更久。<br>永久增加 25 点最大体力。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>终极耐力测试对你来说就像散步一样轻松。<br>永久额外增加 25 点最大体力。</p></div>
 </div></div>
-<div class='perk' data-id='perkSiphoningStrikes' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='虹吸打击 siphoning strikes 每一击都能从敌人身上汲取力量。 你对战斗的初次体验为你提供动力。
+<div class='perk' id='perkSiphoningStrikes' data-id='perkSiphoningStrikes' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='虹吸打击 siphoning strikes 每一击都能从敌人身上汲取力量。 你对战斗的初次体验为你提供动力。
 近战击杀恢复 2 点生命值。 尽情攻击时，无暇顾及痛苦。
 近战击杀恢复 4 点生命值。 每一个倒下的敌人都会让你变得更强。
 近战击杀恢复 6 点生命值。 当鲜血开始流淌，你就不会停止。
@@ -813,7 +815,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>当鲜血开始流淌，你就不会停止。<br>近战击杀恢复 8 点生命值。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>战场是你的盛宴，倒下的敌人是你的食物。<br>近战击杀恢复 10 点生命值。</p></div>
 </div></div>
-<div class='perk' data-id='perkSlowMetabolism' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='铁胃 iron gut 专注于胃肠道健康，减少卡路里摄入，从食物中获得更多营养。潜水时减少氧气消耗。 你的肠胃健康并不能说完美，不过也比一般的幸存者要好。强体力活动时食物与水分流失减少 5%。
+<div class='perk' id='perkSlowMetabolism' data-id='perkSlowMetabolism' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='铁胃 iron gut 专注于胃肠道健康，减少卡路里摄入，从食物中获得更多营养。潜水时减少氧气消耗。 你的肠胃健康并不能说完美，不过也比一般的幸存者要好。强体力活动时食物与水分流失减少 5%。
 能憋气 84 秒。患痢疾的几率降低 1%。消耗品的增益效果延长 10%。 大多数会要别人命的东西都对你没有效果。强体力活动时食物与水分流失减少 10%。
 能憋气 108 秒。患痢疾的几率降低 2%。消耗品的增益效果延长 20%。 就算身体有些不舒服，你也能很快恢复健康。强体力活动时食物与水分流失减少 15%。
 能憋气 132 秒。患痢疾的几率降低 3%。消耗品的增益效果延长 30%。 你似乎吃什么都不会有事。强体力活动时食物与水分流失减少 20%。
@@ -836,7 +838,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>你似乎吃什么都不会有事。强体力活动时食物与水分流失减少 20%。<br>能憋气 156 秒。患痢疾的几率降低 4%。消耗品的增益效果延长 40%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你有一个铁打的胃，可能吃玻璃都没法把你怎么样。强体力活动时食物与水分流失减少 25%。<br>能憋气 180 秒。患痢疾的几率降低 5%。消耗品的增益效果延长 50%。</p></div>
 </div></div>
-<div class='perk' data-id='perkFortitudeMastery' data-attr='attFortitude' data-max='5' data-reqs='6,7,8,9,10' data-text='强健专精 fortitude mastery 强健技能大师 击杀敌人可立即停止流血伤害，无需使用绷带。 使用可治愈感染的物品或在感染痊愈后，你将获得 2 个小时（现实世界时间）的感染免疫。 事实证明，丧尸不光有口臭，还有值钱的牙口！
+<div class='perk' id='perkFortitudeMastery' data-id='perkFortitudeMastery' data-attr='attFortitude' data-max='5' data-reqs='6,7,8,9,10' data-text='强健专精 fortitude mastery 强健技能大师 击杀敌人可立即停止流血伤害，无需使用绷带。 使用可治愈感染的物品或在感染痊愈后，你将获得 2 个小时（现实世界时间）的感染免疫。 事实证明，丧尸不光有口臭，还有值钱的牙口！
 使用拳头武器击杀僵尸时有 10% 几率获得银牙或金牙填充物。 没有什么能动摇你生存的意志。
 永久增加 50 点最大生命值。 你的坚韧让你更难被击败。
 永久额外增加 50 点最大生命值。'>
@@ -857,7 +859,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 9<br>1 点</span><p>没有什么能动摇你生存的意志。<br>永久增加 50 点最大生命值。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你的坚韧让你更难被击败。<br>永久额外增加 50 点最大生命值。</p></div>
 </div></div>
-<div class='perk' data-id='perkPainTolerance' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='忍痛 pain tolerance 专精于忍受打击，在痛苦中战斗，在其他人纷纷倒下之后继续战斗。 你喜欢自己变得吃苦耐劳，因为你的下巴没那么脆弱了。受到的伤害减少5%。
+<div class='perk' id='perkPainTolerance' data-id='perkPainTolerance' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='忍痛 pain tolerance 专精于忍受打击，在痛苦中战斗，在其他人纷纷倒下之后继续战斗。 你喜欢自己变得吃苦耐劳，因为你的下巴没那么脆弱了。受到的伤害减少5%。
 被击晕的概率降低20%。 只要身体结实，骨折和伤口都是小事。受到的伤害减少10%。
 被击晕的概率降低40%。 经历了那么多次毒打之后，你现在已经非常耐打了。受到的伤害减少15%，被击晕的概率降低60%。 一般的手段可没法打倒你了。受到的伤害减少20%，被击晕的概率降低80%。 你似乎很渴望痛感，现在你有了一副钢铁般的下巴。受到的伤害减少25%，你不会被击晕。'>
 <div class='pbody'>
@@ -877,7 +879,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>强健 7<br>1 点</span><p>一般的手段可没法打倒你了。受到的伤害减少20%，被击晕的概率降低80%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>强健 10<br>1 点</span><p>你似乎很渴望痛感，现在你有了一副钢铁般的下巴。受到的伤害减少25%，你不会被击晕。</p></div>
 </div></div>
-<div class='perk' data-id='perkTheHuntsman' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='狩猎者 the huntsman 专精于狩猎并收获更多肉类、骨头与皮革。 你现在走上了狩猎者的道路。使用刀刃工具或武器解刨动物时，能多获得20%资源。 你现在剥皮和割肉越来越熟练了。使用刀刃工具或武器解刨动物时，能多获得40%资源。 生存在野外已经变成你的一部分了。使用刀刃工具或武器解刨动物时，能多获得60%资源。 你非常了解该怎么解刨动物。使用刀刃工具或武器解刨动物时，能多获得80%资源。 你是一名真正的山林之人，你在解剖时不会有一点浪费。使用刀刃工具或武器解刨动物时，能多获得100%资源。'>
+<div class='perk' id='perkTheHuntsman' data-id='perkTheHuntsman' data-attr='attFortitude' data-max='5' data-reqs='1,3,5,7,10' data-text='狩猎者 the huntsman 专精于狩猎并收获更多肉类、骨头与皮革。 你现在走上了狩猎者的道路。使用刀刃工具或武器解刨动物时，能多获得20%资源。 你现在剥皮和割肉越来越熟练了。使用刀刃工具或武器解刨动物时，能多获得40%资源。 生存在野外已经变成你的一部分了。使用刀刃工具或武器解刨动物时，能多获得60%资源。 你非常了解该怎么解刨动物。使用刀刃工具或武器解刨动物时，能多获得80%资源。 你是一名真正的山林之人，你在解剖时不会有一点浪费。使用刀刃工具或武器解刨动物时，能多获得100%资源。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>狩猎者<em>The Huntsman</em></span><span class='tag'>生存技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>专精于狩猎并收获更多肉类、骨头与皮革。</p>
@@ -914,7 +916,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <tr><td>Lv.10</td><td class='cost'>3 点</td><td>你的敏捷度无人能比。造成300%爆头伤害， 使用弓箭、手枪与匕首时也有50%几率肢解僵尸。</td></tr>
 </table></details>
 <div class='grid'>
-<div class='perk' data-id='perkAgilityMastery' data-attr='attAgility' data-max='5' data-reqs='6,7,8,9,10' data-text='敏捷专精 agility mastery 敏捷技能大师 腿部命中有 40% 的几率立即使敌人致残。 手枪装填速度提升 20%。 弓箭、弩和手枪可以造成流血。 可利用优雅的反应轻松格挡第一次丧尸或野兽攻击。
+<div class='perk' id='perkAgilityMastery' data-id='perkAgilityMastery' data-attr='attAgility' data-max='5' data-reqs='6,7,8,9,10' data-text='敏捷专精 agility mastery 敏捷技能大师 腿部命中有 40% 的几率立即使敌人致残。 手枪装填速度提升 20%。 弓箭、弩和手枪可以造成流血。 可利用优雅的反应轻松格挡第一次丧尸或野兽攻击。
 每 60 秒充能一次。 完全拉满的弓箭射击无视敌人护甲，造成全额伤害外加 25% 的额外伤害。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>敏捷专精<em>Agility Mastery</em></span><span class='tag'>体质技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -933,7 +935,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 9<br>1 点</span><p>可利用优雅的反应轻松格挡第一次丧尸或野兽攻击。<br>每 60 秒充能一次。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>完全拉满的弓箭射击无视敌人护甲，造成全额伤害外加 25% 的额外伤害。</p></div>
 </div></div>
-<div class='perk' data-id='perkHardTarget' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='难以命中 hard target 翻滚、迂回、躲避——你敏捷的反应力让你成为难以击中的目标。 移动时受到的伤害减少 5%。 移动时受到的伤害减少 10%。 移动时受到的伤害减少 15%。 移动时受到的伤害减少 20%。 移动时受到的伤害减少 25%。'>
+<div class='perk' id='perkHardTarget' data-id='perkHardTarget' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='难以命中 hard target 翻滚、迂回、躲避——你敏捷的反应力让你成为难以击中的目标。 移动时受到的伤害减少 5%。 移动时受到的伤害减少 10%。 移动时受到的伤害减少 15%。 移动时受到的伤害减少 20%。 移动时受到的伤害减少 25%。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>难以命中<em>Hard Target</em></span><span class='tag'>体质技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>翻滚、迂回、躲避——你敏捷的反应力让你成为难以击中的目标。</p>
@@ -951,7 +953,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>移动时受到的伤害减少 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>移动时受到的伤害减少 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkParkour' data-attr='attAgility' data-max='5' data-reqs='2,4,6,8,10' data-text='跑酷 parkour 专精于运用杂技前往各种你想去的地方，无论是在高天还是在地底。 你可以做一些杂技了，不过大多数时候都是脸先着地。
+<div class='perk' id='perkParkour' data-id='perkParkour' data-attr='attAgility' data-max='5' data-reqs='2,4,6,8,10' data-text='跑酷 parkour 专精于运用杂技前往各种你想去的地方，无论是在高天还是在地底。 你可以做一些杂技了，不过大多数时候都是脸先着地。
 跳跃消耗的体力降低 10%。
 安全跌落距离增加 1 米。 特技很容易学会，不过有时你的住院费比工资还高。
 跳跃消耗的体力降低 20%。
@@ -983,7 +985,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 8<br>1 点</span><p>垂直的地形不过是另一条路罢了。<br>跳跃消耗的体力减少 40%。<br>安全跌落距离增加 4 米。<br>跳跃高度增加 2 米。<br>跌落后腿部永远不会扭伤或骨折。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>作为跑酷大师，你可以轻松应对棘手情况。<br>跳跃体力消耗降低 50%。<br>永远不受坠落伤害。</p></div>
 </div></div>
-<div class='perk' data-id='perkRunAndGun' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='奔袭战术 run and gun 为远距武器装弹时提高腰射精度。 瞄准没什么用，开枪就是了，有什么问题一会儿再说。
+<div class='perk' id='perkRunAndGun' data-id='perkRunAndGun' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='奔袭战术 run and gun 为远距武器装弹时提高腰射精度。 瞄准没什么用，开枪就是了，有什么问题一会儿再说。
 腰射精确度增加 5%。
 装弹时的移动惩罚降低至 40%。 抽搐的手指可能会给你带来一些不便，不过也很多次救过你的命。
 腰射精确度增加 10%，
@@ -1011,7 +1013,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>像疯子一样边跑边装弹。<br>腰射精度提升 20%。<br>装弹时的移动惩罚降低至 10%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>你是一名致命的奔袭枪手，已经掌握了奔袭战术的艺术。<br>腰射精确度增加 25%。<br>装弹时不受到移动惩罚。</p></div>
 </div></div>
-<div class='perk' data-id='perkArchery' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='弓术 archery 使用弓弩的大师。
+<div class='perk' id='perkArchery' data-id='perkArchery' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='弓术 archery 使用弓弩的大师。
 提高搜刮到《猎人之弓》杂志的概率。 许多人都选择了护林员这条路，但很少有人能走到底。弓造成的伤害增加10%，弓的瞄准、抽箭与重装速度加快10%。
 搜刮时找到更多弓和零件。 菜鸟，你要学的还有很多呢。弓造成的伤害增加20%，弓的瞄准、抽箭与重装速度加快20%。
 搜刮时找到更多弓和零件。 严格的训练已经把你变成了一个使用弓箭的神射手。弓造成的伤害增加30%，弓的瞄准、抽箭与重装速度加快30%。
@@ -1035,7 +1037,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>你在弓术中的造诣已经到了能射中发丝的地步了。弓造成的伤害增加40%，弓的瞄准、抽箭与重装速度加快40%。<br>搜刮时找到更多弓和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>你已经精通了弓术，现在是一名护林员了。弓造成的伤害增加50%，弓的瞄准、抽箭与重装速度加快50%。<br>搜刮时找到更多弓和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkDeepCuts' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='深度刀伤 deep cuts 专精于使用匕首或是砍刀这类带刃武器，让你的敌人血流不止而死吧。
+<div class='perk' id='perkDeepCuts' data-id='perkDeepCuts' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='深度刀伤 deep cuts 专精于使用匕首或是砍刀这类带刃武器，让你的敌人血流不止而死吧。
 提高搜刮到《匕首男孩》杂志的概率。 就算你的刀已经很钝了，但至少还能用。带刃武器造成的伤害增加10%。对一名敌人造成最多3处流血创伤，一次强力攻击能造成2处伤口。每次攻击都会刷新流血时间。敌人流血时奔跑速度减慢10%。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多带刃武器和零件。 你的朋友都说你真是个刀客。带刃武器造成的伤害增加20%。对一名敌人造成最多4处流血创伤，一次强力攻击能造成3处伤口。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多带刃武器和零件。 你的剑术超乎常人。带刃武器造成的伤害增加30%。对一名敌人造成最多5处流血创伤，一次强力攻击能造成4处伤口。侧击有40%的几率导致1处流血创伤。敌人流血时奔跑速度减慢15%。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。搜刮时找到更多带刃武器和零件。 拿着刀剑的你十分致命。带刃武器造成的伤害增加40%。对一名敌人造成最多6处流血创伤，一次强力攻击能造成4处伤口。侧击有70%的几率导致1处流血创伤。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多带刃武器和零件。 你现在是一名武士了，可以将你的敌人做成寿司。带刃武器造成的伤害增加50%。对一名敌人造成最多7处流血创伤，一次强力攻击能造成5处伤口。所有侧击均导致1处流血创伤。敌人流血时奔跑速度减慢20%。杀死敌人的那一击会给予30体力。搜刮时找到更多带刃武器和零件。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>深度刀伤<em>Deep Cuts</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -1054,7 +1056,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>拿着刀剑的你十分致命。带刃武器造成的伤害增加40%。对一名敌人造成最多6处流血创伤，一次强力攻击能造成4处伤口。侧击有70%的几率导致1处流血创伤。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多带刃武器和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>你现在是一名武士了，可以将你的敌人做成寿司。带刃武器造成的伤害增加50%。对一名敌人造成最多7处流血创伤，一次强力攻击能造成5处伤口。所有侧击均导致1处流血创伤。敌人流血时奔跑速度减慢20%。杀死敌人的那一击会给予30体力。搜刮时找到更多带刃武器和零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkFlurryOfAgility' data-attr='attAgility' data-max='5' data-reqs='2,4,6,8,10' data-text='旋风斩 whirlwind 学会更快速地挥动你的刀剑，化身毁灭与屠杀的旋风。 攻其不备，置其死地。
+<div class='perk' id='perkFlurryOfAgility' data-id='perkFlurryOfAgility' data-attr='attAgility' data-max='5' data-reqs='2,4,6,8,10' data-text='旋风斩 whirlwind 学会更快速地挥动你的刀剑，化身毁灭与屠杀的旋风。 攻其不备，置其死地。
 匕首攻击速度提高 5%。 用你炽热匕首将敌人肢解切成细条。
 匕首攻击速度提高 10%。 毫不犹豫地将对方四分五裂！
 匕首攻击速度提高 15%。 先割后奏。
@@ -1077,7 +1079,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 8<br>1 点</span><p>先割后奏。<br>匕首攻击速度提升 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>旋风般的斩击只留下破碎的残骸。<br>匕首攻击速度提升 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkGunslinger' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='枪手 gunslinger 以老牌做法解决你们的争端，在后启示录时代成为一个枪手。使用手枪和冲锋枪的大师。
+<div class='perk' id='perkGunslinger' data-id='perkGunslinger' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='枪手 gunslinger 以老牌做法解决你们的争端，在后启示录时代成为一个枪手。使用手枪和冲锋枪的大师。
 提高搜刮到《手枪弹匣》的概率。 你不是怀亚特·厄普，但却比一般的流浪者技艺精湛。手枪造成的伤害提高 10%，射速提高 5%，手枪装填速度提高 10%。
 搜刮时找到更多手枪、零件、9 毫米弹药和.44 马格南弹药。 你渐渐声名鹊起了，不法之徒。手枪造成的伤害增加20%，射速加快10%，手枪装弹速度加快15%。
 搜刮时找到更多手枪、零件、9毫米弹药和.44马格南弹药。 警长，大多数情况你都能应对自如。手枪造成的伤害增加30%，射速加快15%，装弹速度加快20%。暴击伤害：短时间内5次连续击中会造成暴击伤害。
@@ -1101,7 +1103,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>你现在已成为一名枪手，转眼间就能收拾掉满酒馆闹事的混蛋。手枪伤害提高 40%，射速提高 20%，装填速度提高 25%。暴击伤害：短时间内连续命中 4 次，最后一枪造成 100% 额外伤害。<br>搜刮时找到更多手枪、零件、9毫米弹药和.44马格南弹药。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>你是纳维戈恩最快的枪手了。手枪造成的伤害增加50%，射速加快25%，手枪装弹速度加快30%。暴击伤害：短时间内连续命中 3 次，最后一枪造成 100% 额外伤害。<br>搜刮时找到更多手枪、零件、9毫米弹药和.44马格南弹药。</p></div>
 </div></div>
-<div class='perk' data-id='perkFromTheShadows' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='来自暗影 from the shadows 擅长在黑暗中潜行，发出的声音更小。 躲在阴影里的效率提高 13%，行动噪音降低了 10%，潜行移动速度提高 10%。
+<div class='perk' id='perkFromTheShadows' data-id='perkFromTheShadows' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='来自暗影 from the shadows 擅长在黑暗中潜行，发出的声音更小。 躲在阴影里的效率提高 13%，行动噪音降低了 10%，潜行移动速度提高 10%。
 敌人搜索你的时间最长可达 50 秒。 躲在阴影里的效率提高 26%，行动噪音降低了 20%，潜行移动速度提高 20%。
 敌人搜索你的时间最长可达 40 秒。 躲在阴影里的效率提高 39%，行动噪音降低了 30%，潜行移动速度提高 30%。
 敌人搜索你的时间最长可达 30 秒。 躲在阴影里的效率提高 52%，行动噪音降低了 40%，潜行移动速度提高 40%。
@@ -1124,7 +1126,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>敏捷 7<br>1 点</span><p>躲在阴影里的效率提高 52%，行动噪音降低了 40%，潜行移动速度提高 40%。<br>敌人搜索你的时间最长可达 25 秒。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>敏捷 10<br>1 点</span><p>躲在阴影里的效率提高 65%，行动噪音降低了 50%，潜行移动速度提高 50%。<br>敌人搜索你的时间最长可达 20 秒。</p></div>
 </div></div>
-<div class='perk' data-id='perkHiddenStrike' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='隐蔽之击 hidden strike 擅长在潜行的时候抓住正在休息或者漫无目地游荡的敌人。 你是一个割喉利手，喜欢在暗处行动，使用潜行和偷袭。潜行攻击造成50%额外伤害。 现在你是个屠夫了，已经积累了一些技巧，正在领悟暗杀的艺术。潜行攻击造成100%额外伤害。 你现在是一个行刑者了，并开始熟谙你的技艺。潜行攻击造成150%额外伤害。 你是一位冷血杀手，对自己的恶行毫无悔意。潜行攻击造成200%额外伤害。 现在你是个终极刺客了，可以对你的目标造成最大的潜行伤害。潜行攻击造成250%额外伤害。'>
+<div class='perk' id='perkHiddenStrike' data-id='perkHiddenStrike' data-attr='attAgility' data-max='5' data-reqs='1,3,5,7,10' data-text='隐蔽之击 hidden strike 擅长在潜行的时候抓住正在休息或者漫无目地游荡的敌人。 你是一个割喉利手，喜欢在暗处行动，使用潜行和偷袭。潜行攻击造成50%额外伤害。 现在你是个屠夫了，已经积累了一些技巧，正在领悟暗杀的艺术。潜行攻击造成100%额外伤害。 你现在是一个行刑者了，并开始熟谙你的技艺。潜行攻击造成150%额外伤害。 你是一位冷血杀手，对自己的恶行毫无悔意。潜行攻击造成200%额外伤害。 现在你是个终极刺客了，可以对你的目标造成最大的潜行伤害。潜行攻击造成250%额外伤害。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>隐蔽之击<em>Hidden Strike</em></span><span class='tag'>潜行技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>擅长在潜行的时候抓住正在休息或者漫无目地游荡的敌人。</p>
@@ -1161,7 +1163,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <tr><td>Lv.10</td><td class='cost'>3 点</td><td>你天才般的大脑中充满了智慧。造成 300% 的爆头伤害，使用眩晕棒与机器人炮塔时有 50% 的几率肢解丧尸。</td></tr>
 </table></details>
 <div class='grid'>
-<div class='perk' data-id='perkElectrocutioner' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='电击处刑官 electrocutioner 学习如何高效使用短棒。能更轻易地俘获你的敌人，也能造成更多伤害。
+<div class='perk' id='perkElectrocutioner' data-id='perkElectrocutioner' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='电击处刑官 electrocutioner 学习如何高效使用短棒。能更轻易地俘获你的敌人，也能造成更多伤害。
 提高搜刮到《科技星球》杂志的概率。 说明书在哪儿？你很聪明，只要记住别指着自己，然后扣动扳机就成。所有短棒造成的伤害增加10%。电击棒电击敌人持续时间增加20%。强力攻击的体力值消耗分别减少8%和15%。搜刮时找到更多短棒和零件。 你正在掌握使用短棒使你的敌人失去行动能力的窍门。所有短棒造成的伤害增加20%。电击棒电击敌人持续时间增加40%。强力攻击的体力值消耗分别减少15%和30%。搜刮时找到更多短棒和零件。 有了短棒，你变得越来越危险了。要不是丧尸把牛都吃了，也许你还能驱赶几头牛。所有短棒造成的伤害增加30%。电击棒电击敌人持续时间增加60%。强力攻击的体力值消耗分别减少20%和40%。杀死敌人的那一击会给予10体力。搜刮时找到更多短棒和零件。 手持短棒的你简直就是人间大杀器。所有短棒造成的伤害增加40%。电击棒电击敌人持续时间增加80%。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多短棒和零件。 你是他们最后见到的存在，如今还成为了手拿电击棒的刽子手。所有短棒造成的伤害增加50%。电击棒电击敌人持续时间增加100%杀死敌人的那一击会给予30体力。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>电击处刑官<em>Electrocutioner</em></span><span class='tag'>战斗技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -1180,7 +1182,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 7<br>1 点</span><p>手持短棒的你简直就是人间大杀器。所有短棒造成的伤害增加40%。电击棒电击敌人持续时间增加80%。强力攻击的体力值消耗分别减少25%和50%。杀死敌人的那一击会给予20体力。搜刮时找到更多短棒和零件。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你是他们最后见到的存在，如今还成为了手拿电击棒的刽子手。所有短棒造成的伤害增加50%。电击棒电击敌人持续时间增加100%杀死敌人的那一击会给予30体力。</p></div>
 </div></div>
-<div class='perk' data-id='perkFlurryOfIntellect' data-attr='attIntellect' data-max='5' data-reqs='2,4,6,8,10' data-text='精准攻击 calculated attack 运用你的智慧来计算到达目标的最短轨迹，并有效地提高使用短棒的攻击速度！ 这就像基础数学一样简单。
+<div class='perk' id='perkFlurryOfIntellect' data-id='perkFlurryOfIntellect' data-attr='attIntellect' data-max='5' data-reqs='2,4,6,8,10' data-text='精准攻击 calculated attack 运用你的智慧来计算到达目标的最短轨迹，并有效地提高使用短棒的攻击速度！ 这就像基础数学一样简单。
 使用短棒的攻击速度提高 5%。 你能发现更快速的成功途径。
 使用短棒的攻击速度提高 10%。 每一次打击都完美计算了速度与冲击力。
 使用短棒的攻击速度提高 15%。 预测并利用敌人的动作反击。
@@ -1203,7 +1205,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 8<br>1 点</span><p>预测并利用敌人的动作反击。<br>短棒攻击速度提升 20%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>攻击速度极快，连物理法则都跟不上。<br>短棒攻击速度提升 25%。</p></div>
 </div></div>
-<div class='perk' data-id='perkTurrets' data-attr='attIntellect' data-max='5' data-reqs='3,5,6,8,10' data-text='机器人发明者 robotics inventor 你对机器人非常着迷。学习使用和部署机器人武器。
+<div class='perk' id='perkTurrets' data-id='perkTurrets' data-attr='attIntellect' data-max='5' data-reqs='3,5,6,8,10' data-text='机器人发明者 robotics inventor 你对机器人非常着迷。学习使用和部署机器人武器。
 提高搜刮到《科技星球》杂志的概率。 你有一些疯狂又具有革新意义的点子，不过要花一些功夫才能将其实现。机器人武器造成的伤害提高10%，射速加快30%，装弹时多装10发弹药。机器人激活范围从10米增加到14米。
 你可以部署多个机器人，不过只有最近的那一个会被激活。 你的项目发展到了下一个阶段。机器人武器造成的伤害提高 20%，射速加快 70%，装弹时多装 20 发弹药。机器人激活范围变为 15 米。 你已经掌握了自动武器的基础。机器人武器造成的伤害提高30%，射速加快110%，装弹时多装30发弹药。机器人激活范围变为16米。 你一定是从 2077 年穿越来的吧，你这些科技充满了未来感。机器人武器造成的伤害提高 40%，射速加快 150%，装弹时多装 40 发弹药。机器人武器装弹速度加快 10%。机器人激活范围变为 17 米。 你现在是机器人方面的专家了。机器人武器装填速度加快20%，装弹时多装50发弹药。机器人激活范围变为18米。
 可同时激活两个已部署的机器人。'>
@@ -1224,7 +1226,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 8<br>1 点</span><p>你一定是从 2077 年穿越来的吧，你这些科技充满了未来感。机器人武器造成的伤害提高 40%，射速加快 150%，装弹时多装 40 发弹药。机器人武器装弹速度加快 10%。机器人激活范围变为 17 米。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你现在是机器人方面的专家了。机器人武器装填速度加快20%，装弹时多装50发弹药。机器人激活范围变为18米。<br>可同时激活两个已部署的机器人。</p></div>
 </div></div>
-<div class='perk' data-id='perkAdvancedEngineering' data-attr='attIntellect' data-max='5' data-reqs='1,4,6,8,10' data-text='高级工程师 advanced engineering 在工作站以更低的成本加速制造高级物品。提高搜刮到《电力陷阱》、《锻造指南》《巧手之家》《布线 101》杂志的概率。 你已脱离石器时代，成为了一名工程师学徒！
+<div class='perk' id='perkAdvancedEngineering' data-id='perkAdvancedEngineering' data-attr='attIntellect' data-max='5' data-reqs='1,4,6,8,10' data-text='高级工程师 advanced engineering 在工作站以更低的成本加速制造高级物品。提高搜刮到《电力陷阱》、《锻造指南》《巧手之家》《布线 101》杂志的概率。 你已脱离石器时代，成为了一名工程师学徒！
 电力陷阱击杀给予15%经验值。
 在锻造炉制作物品的速度提高20%。
 制作胶水更便宜。 长时间的物品修补终于开始带来回报！
@@ -1253,7 +1255,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 8<br>1 点</span><p>各种神奇的发明使你成为了末日时代的达芬奇！<br>电力陷阱击杀给予60%经验值。<br>所有锻造炉配方的成本减少15%，制作锻钢与电力装置的成本减少25%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你已成为高级工程师，足以让麦克戴弗嫉妒得眼睛发绿。<br>电力陷阱击杀给予75%经验值。<br>所有锻造炉配方的成本减少20%，制作锻钢与电力装置的成本减少35%。</p></div>
 </div></div>
-<div class='perk' data-id='perkGreaseMonkey' data-attr='attIntellect' data-max='5' data-reqs='1,4,6,8,10' data-text='修理油猴 grease monkey 学习更便宜地利用荒野的垃圾建造载具！无此技能也可以组装载具。
+<div class='perk' id='perkGreaseMonkey' data-id='perkGreaseMonkey' data-attr='attIntellect' data-max='5' data-reqs='1,4,6,8,10' data-text='修理油猴 grease monkey 学习更便宜地利用荒野的垃圾建造载具！无此技能也可以组装载具。
 提高搜刮到《载具大冒险》杂志的概率。 你对机械修理的热情，以及坐得住冷板凳的耐心，让你走上了单车技师的道路。
 制作轮子和自行车零件便宜33%。
 维修工具对载具的效果提高10%。 既然都处都是垃圾，足以造一辆小型机车，为什么还要去踩自行车踏板呢？
@@ -1282,7 +1284,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 8<br>1 点</span><p>没什么比一辆漂亮的4x4卡车更安全温暖了。<br>制作4x4卡车零件便宜33%。<br>维修工具对载具的效果提高40%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你敲敲打打的愿望永不满足，只有真正的天才才能想出如何把破铜烂铁送上天空。<br>制作旋翼机零件便宜33%。<br>维修工具对载具的效果提高50%。</p></div>
 </div></div>
-<div class='perk' data-id='perkIntellectMastery' data-attr='attIntellect' data-max='5' data-reqs='6,7,8,9,10' data-text='智慧专精 intellect mastery 智慧技能大师 载具受到的伤害减少 20%，消耗的燃料减少 20%。 搜刮时有 25% 几率找到书籍、杂志或设计图。 阅读杂志时有 50% 几率获得 2 点技能点。 电击棒只需 2 击即可充电。 电击伤害提高到300%。'>
+<div class='perk' id='perkIntellectMastery' data-id='perkIntellectMastery' data-attr='attIntellect' data-max='5' data-reqs='6,7,8,9,10' data-text='智慧专精 intellect mastery 智慧技能大师 载具受到的伤害减少 20%，消耗的燃料减少 20%。 搜刮时有 25% 几率找到书籍、杂志或设计图。 阅读杂志时有 50% 几率获得 2 点技能点。 电击棒只需 2 击即可充电。 电击伤害提高到300%。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>智慧专精<em>Intellect Mastery</em></span><span class='tag'>一般智慧技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>智慧技能大师</p>
@@ -1300,7 +1302,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 9<br>1 点</span><p>电击棒只需 2 击即可充电。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>电击伤害提高到300%。</p></div>
 </div></div>
-<div class='perk' data-id='perkPhysician' data-attr='attIntellect' data-max='5' data-reqs='3,6,8,9,10' data-text='医师 physician 能更有效地使用药物与治疗物品。
+<div class='perk' id='perkPhysician' data-id='perkPhysician' data-attr='attIntellect' data-max='5' data-reqs='3,6,8,9,10' data-text='医师 physician 能更有效地使用药物与治疗物品。
 提高搜刮到《医学期刊》杂志的概率。 经处理的重伤恢复速度提高15%。
 医疗物品治疗的生命值增加25%。
 使用绷带、急救绷带、急救包及夹板时，获得的经验值增加100%。
@@ -1329,7 +1331,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 9<br>1 点</span><p>丰富的医学知识使你能够轻而易举的进行截肢！<br>额外获得 20% 的几率使用短棍肢解敌人。在化学工作站制作物品的速度加快 40%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>运用你的医学知识来拯救生命，或者结束生命。<br>每次使用电击棒命中都有10%的几率使目标瞬间死亡。</p></div>
 </div></div>
-<div class='perk' data-id='perkBetterBarter' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='贸易砍价 better barter 精通与区域商人交流的话术，这样能让你在交易中拿到更合适的价格。 你很擅长跟商家砍价，买东西从来没按原价买过。在商人处购买或售出商品时获得5%优惠。 你在灾变之前肯定当过一名推销员，拿下了很多不错的订单。在商人处购买或售出商品时获得10%优惠。 你的表现就像一名销售经理一样，你有能力拿下最合适的订单。在商人处购买或售出商品时获得15%优惠。 要是还有股票市场的话，你肯定能大赚一笔。在商贩处购买或售出商品时获得20%优惠。 你就像一名公司经理一样，能在最低的价格买入商品，随后卖出获得巨大的利润。在商贩处购买或售出商品时获得25%优惠。'>
+<div class='perk' id='perkBetterBarter' data-id='perkBetterBarter' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='贸易砍价 better barter 精通与区域商人交流的话术，这样能让你在交易中拿到更合适的价格。 你很擅长跟商家砍价，买东西从来没按原价买过。在商人处购买或售出商品时获得5%优惠。 你在灾变之前肯定当过一名推销员，拿下了很多不错的订单。在商人处购买或售出商品时获得10%优惠。 你的表现就像一名销售经理一样，你有能力拿下最合适的订单。在商人处购买或售出商品时获得15%优惠。 要是还有股票市场的话，你肯定能大赚一笔。在商贩处购买或售出商品时获得20%优惠。 你就像一名公司经理一样，能在最低的价格买入商品，随后卖出获得巨大的利润。在商贩处购买或售出商品时获得25%优惠。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>贸易砍价<em>Better Barter</em></span><span class='tag'>影响力技能</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>精通与区域商人交流的话术，这样能让你在交易中拿到更合适的价格。</p>
@@ -1347,7 +1349,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 7<br>1 点</span><p>要是还有股票市场的话，你肯定能大赚一笔。在商贩处购买或售出商品时获得20%优惠。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你就像一名公司经理一样，能在最低的价格买入商品，随后卖出获得巨大的利润。在商贩处购买或售出商品时获得25%优惠。</p></div>
 </div></div>
-<div class='perk' data-id='perkCharismaticNature' data-attr='attIntellect' data-max='5' data-reqs='5,7,8,9,10' data-text='魅力十足 charismatic nature 你的存在能鼓舞你的队友，增强他们的战斗能力。 大家觉得你的求生故事鼓舞人心。
+<div class='perk' id='perkCharismaticNature' data-id='perkCharismaticNature' data-attr='attIntellect' data-max='5' data-reqs='5,7,8,9,10' data-text='魅力十足 charismatic nature 你的存在能鼓舞你的队友，增强他们的战斗能力。 大家觉得你的求生故事鼓舞人心。
 盟友和队员的生命值恢复速度提高50%。 你是一个能给予他人力量的团队领袖。 
 盟友和队员的物块和近战伤害提高20%。 你很善于激发他人的热情。
 盟友和队员从所有来源受到的伤害减少10%，流血时伤害减半，止血速度加倍。 你拥有顶级的领导力。
@@ -1370,7 +1372,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>智慧 9<br>1 点</span><p>你拥有顶级的领导力。<br>盟友和队员发现的战利品质量提高10%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>智慧 10<br>1 点</span><p>你是一名真正的英雄。<br>盟友和队员发现的战利品质量提高20%，并且所有属性+1。</p></div>
 </div></div>
-<div class='perk' data-id='perkDaringAdventurer' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='大胆的冒险家 the daring adventurer 做一名大胆的冒险家！
+<div class='perk' id='perkDaringAdventurer' data-id='perkDaringAdventurer' data-attr='attIntellect' data-max='5' data-reqs='1,3,5,7,10' data-text='大胆的冒险家 the daring adventurer 做一名大胆的冒险家！
 去领取任务，获得奖励吧。 每天冒着生命的危险去搜刮是能带来回报的。
 解锁更好的商人物品，并且获得的公爵币增加5%。 商人们知道你一定能完成任务的，抢劫者。
 解锁更好的商人物品，并且获得的公爵币增加 10%。 你已经是一个小有名气的雇佣兵了，大家都想雇你。
@@ -1400,7 +1402,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <section class='attr' id='attGeneralPerks' data-attr='attGeneralPerks' data-costs='0,0,0,0,0,0,0,0,0,0,0'>
 <div class='attr-head'><span class='bar' style='background:#8fa3ad'></span><h2>⭐ 通用天赋</h2><span class='en'></span><span class='attr-right'><span class='cnt'>7 个天赋</span><span class='actrl'><button data-act='attr-' title='降一级'>−</button><b class='alv'>1</b><button data-act='attr+' title='升一级'>+</button><span class='aspent'>已投 0 点</span></span></span></div>
 <div class='grid'>
-<div class='perk' data-id='perkHeavyArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='重甲护身 heavy armor 擅长用钢铁保护自己，成为战场上不可阻挡的巨兽。
+<div class='perk' id='perkHeavyArmor' data-id='perkHeavyArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='重甲护身 heavy armor 擅长用钢铁保护自己，成为战场上不可阻挡的巨兽。
 提高搜刮到《全副武装》杂志的概率。 你穿着重甲时虽然行动有点笨拙，但起码你还有命来说这事。减少 5% 重甲移动速度和体力惩罚。耐久度使用量减少 15%。
 搜刮时会找到更多护甲、护甲部件和传奇零件。 你可以承受猛击！减少 10% 重甲移动速度和体力惩罚。耐久度使用量减少 30%。
 搜刮时会找到更多护甲、护甲部件和传奇零件。 这种程度的保护才有点像样嘛。减少 17% 重甲移动速度和体力惩罚。耐久度使用量减少 45%。
@@ -1421,7 +1423,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>3</span><span class='rq'>通用<br>1 点</span><p>这种程度的保护才有点像样嘛。减少 17% 重甲移动速度和体力惩罚。耐久度使用量减少 45%。<br>搜刮时会找到更多护甲、护甲部件和传奇零件。</p></div>
 <div class='rank'><span class='rn'>4</span><span class='rq'>通用<br>1 点</span><p>你现在堪比少林十八铜人了。减少 25% 重甲移动速度和体力惩罚。耐久度使用量减少 60%。<br>搜刮时会找到更多护甲、护甲部件和传奇零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkLightArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='轻甲 light armor 专精轻甲，降低损坏。
+<div class='perk' id='perkLightArmor' data-id='perkLightArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='轻甲 light armor 专精轻甲，降低损坏。
 提高搜刮到《全副武装》杂志的几率。 可承受一定压力，但需小心使用。
 降低 15% 耐久度消耗。
 每装备一件轻型护甲，获得 +1 护甲值。
@@ -1450,7 +1452,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>3</span><span class='rq'>通用<br>1 点</span><p>加强结构以抵御伤害。<br>降低 45% 耐久度消耗。<br>每件轻型护甲提供 +3 护甲等级。<br>搜刮时会找到更多护甲、护甲部件和传奇零件。</p></div>
 <div class='rank'><span class='rn'>4</span><span class='rq'>通用<br>1 点</span><p>经验证可承受极端环境。<br>降低 60% 耐久度消耗。<br>每件轻型护甲提供 +4 护甲等级。<br>搜刮时会找到更多护甲、护甲部件和传奇零件。</p></div>
 </div></div>
-<div class='perk' data-id='perkLivingOffTheLand' data-attr='attGeneralPerks' data-max='5' data-reqs='0,0,0,0,0' data-text='就地取材 living off the land 专精于用手或工具收割更多庄稼。
+<div class='perk' id='perkLivingOffTheLand' data-id='perkLivingOffTheLand' data-attr='attGeneralPerks' data-max='5' data-reqs='0,0,0,0,0' data-text='就地取材 living off the land 专精于用手或工具收割更多庄稼。
 提高搜刮到《南方种植》杂志的概率。 野生或种植作物的收获加倍。
 小块农田制作花费减少30%。 50%的几率收获1份额外作物。
 小块农田制作花费减少50%。 野生或种植作物的收获增加两倍。  '>
@@ -1471,7 +1473,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>通用<br>1 点</span><p></p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>通用<br>1 点</span><p></p></div>
 </div></div>
-<div class='perk' data-id='perkLockPicking' data-attr='attGeneralPerks' data-max='3' data-reqs='0,0,0' data-text='撬锁 lock picking 学会更快开锁，损坏的撬锁工具更少。 窃贼。你已经开始小有名气了。你的开锁速度提升20%，损坏撬锁工具的几率降低10%。 你现在是一位锁匠了，很少有锁能挡住你。你的开锁速度提升 40%，损坏开锁器的几率降低 20%。在战利品中可找到额外的 1 个开锁器。 你现在是世界级的小偷了。开锁速度提升 60%，损坏开锁器的几率降低 30%。在战利品中可找到额外的 2 个开锁器。'>
+<div class='perk' id='perkLockPicking' data-id='perkLockPicking' data-attr='attGeneralPerks' data-max='3' data-reqs='0,0,0' data-text='撬锁 lock picking 学会更快开锁，损坏的撬锁工具更少。 窃贼。你已经开始小有名气了。你的开锁速度提升20%，损坏撬锁工具的几率降低10%。 你现在是一位锁匠了，很少有锁能挡住你。你的开锁速度提升 40%，损坏开锁器的几率降低 20%。在战利品中可找到额外的 1 个开锁器。 你现在是世界级的小偷了。开锁速度提升 60%，损坏开锁器的几率降低 30%。在战利品中可找到额外的 2 个开锁器。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>撬锁<em>Lock Picking</em></span><span class='tag'>通用天赋</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/3</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
 <p class='pdesc'>学会更快开锁，损坏的撬锁工具更少。</p>
@@ -1485,7 +1487,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>2</span><span class='rq'>通用<br>1 点</span><p>你现在是一位锁匠了，很少有锁能挡住你。你的开锁速度提升 40%，损坏开锁器的几率降低 20%。在战利品中可找到额外的 1 个开锁器。</p></div>
 <div class='rank'><span class='rn'>3</span><span class='rq'>通用<br>1 点</span><p>你现在是世界级的小偷了。开锁速度提升 60%，损坏开锁器的几率降低 30%。在战利品中可找到额外的 2 个开锁器。</p></div>
 </div></div>
-<div class='perk' data-id='perkLuckyLooter' data-attr='attGeneralPerks' data-max='5' data-reqs='0,0,0,0,0' data-text='幸运掠夺者 lucky looter 专精于追踪宝物，也许能给你点额外的奖励。
+<div class='perk' id='perkLuckyLooter' data-id='perkLuckyLooter' data-attr='attGeneralPerks' data-max='5' data-reqs='0,0,0,0,0' data-text='幸运掠夺者 lucky looter 专精于追踪宝物，也许能给你点额外的奖励。
 每一技能等级都会指引你找到更好的战利品。 你找到更好战利品的几率很低。自己打开的容器可增加 5% 点战利品奖励。搜刮速度提升 10%。 运气提升，无论你看向哪里，似乎都能找到一些好东西。增加 10% 点战利品奖励。搜刮速度提升 20%。 增加 15% 点战利品奖励。搜刮速度提升 40%。 你似乎有财神爷加持，走到哪儿赚到哪儿。增加 20% 点战利品奖励。搜刮速度提升 60%。 幸运福星你正鸿运当头，财运滚滚而来。增加 25% 点战利品奖励。搜刮速度提升 80%。'>
 <div class='pbody'>
 <div class='phead'><span class='pname'>幸运掠夺者<em>Lucky Looter</em></span><span class='tag'>通用天赋</span><span class='prank'><button data-act='perk-' title='退一级'>−</button><b>0</b><i>/5</i><button data-act='perk+' title='点一级'>+</button></span><span class='caret'>▶</span></div>
@@ -1504,7 +1506,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>4</span><span class='rq'>通用<br>1 点</span><p>你似乎有财神爷加持，走到哪儿赚到哪儿。增加 20% 点战利品奖励。搜刮速度提升 60%。</p></div>
 <div class='rank'><span class='rn'>5</span><span class='rq'>通用<br>1 点</span><p>幸运福星你正鸿运当头，财运滚滚而来。增加 25% 点战利品奖励。搜刮速度提升 80%。</p></div>
 </div></div>
-<div class='perk' data-id='perkMasterChef' data-attr='attGeneralPerks' data-max='3' data-reqs='0,0,0' data-text='厨艺大师 master chef 学习如何成为一名大厨！减少烹饪时间与你最爱食谱所需的食材。提高搜刮到《家庭烹饪周刊》杂志和食材的概率。 烹饪不是你的菜，但你知道一些基本知识。
+<div class='perk' id='perkMasterChef' data-id='perkMasterChef' data-attr='attGeneralPerks' data-max='3' data-reqs='0,0,0' data-text='厨艺大师 master chef 学习如何成为一名大厨！减少烹饪时间与你最爱食谱所需的食材。提高搜刮到《家庭烹饪周刊》杂志和食材的概率。 烹饪不是你的菜，但你知道一些基本知识。
 菜谱中主要食材的用量减少 20%。
 烹饪速度加快 40%。
 搜刮时找到更多烹饪杂志和食材。 别浪费优质食物！
@@ -1528,7 +1530,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='rank'><span class='rn'>2</span><span class='rq'>通用<br>1 点</span><p>别浪费优质食物！<br>提高在垃圾车中找到可回收食物的几率。<br>提高在垃圾车中找到更多种子的几率。<br>烹饪速度加快 60%。<br>搜刮时找到更多烹饪杂志和食材。</p></div>
 <div class='rank'><span class='rn'>3</span><span class='rq'>通用<br>1 点</span><p>为一整支军队开伙？<br>菜谱中主要食材的用量减少 40%。<br>烹饪速度加快 80%。<br>搜刮时找到更多烹饪杂志和食材。</p></div>
 </div></div>
-<div class='perk' data-id='perkMediumArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='中型护甲 medium armor 专精于中型护甲，降低损坏、体力和移动惩罚。
+<div class='perk' id='perkMediumArmor' data-id='perkMediumArmor' data-attr='attGeneralPerks' data-max='4' data-reqs='0,0,0,0' data-text='中型护甲 medium armor 专精于中型护甲，降低损坏、体力和移动惩罚。
 提高搜刮到《全副武装》杂志的概率。 你已经踏上了中型护甲战士的道路。使中型护甲的移动惩罚减少 15%，体力惩罚减少 10%。耐久度使用量减少 15%。
 搜刮时会找到更多护甲、护甲部件和传奇零件。 你赢下了不少战斗，并希望成为一名骑士。使中型护甲的移动惩罚减少 30%，体力惩罚减少 20%。耐久度使用量减少 30%。
 搜刮时会找到更多护甲、护甲部件和传奇零件。 所有的艰苦训练和战斗终于有了回报，现在你是一位骑士了。使中型护甲的移动惩罚减少 50%，体力惩罚减少 35%。耐久度使用量减少 45%。
@@ -1982,4 +1984,5 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   render();
 })();
 </script>
+<script src='search-index.js'></script><script src='search.js' defer></script>
 </body></html>

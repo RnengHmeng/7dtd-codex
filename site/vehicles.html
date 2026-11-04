@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>七日杀 V3.4 载具表</title>
+<style>
+:root{--bg:#100e0c;--panel:#1a1714;--line:#332b24;--text:#e8e1d8;--dim:#a2988c;
+  --accent:#e8a33d;--accent2:#c8762a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:26px}
+.vcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px}
+.vhead{display:flex;align-items:baseline;gap:9px;margin-bottom:10px}
+.vhead h3{margin:0;font-size:18px;color:#f3eadc}
+.vhead em{font-style:normal;font-size:11px;color:#7d7367}
+.tier{margin-left:auto;font-size:11px;font-weight:700;color:#d9b477;border:1px solid #4a3a24;
+  border-radius:4px;padding:1px 7px}
+.stats{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--dim);margin-bottom:10px}
+.stats b{color:#e2d5c3}
+.slots{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.slots span{font-size:11px;color:#d9b477;background:#2a2118;border:1px solid #4a3a24;
+  border-radius:4px;padding:1px 7px}
+.desc{margin:0;font-size:12px;color:#8f857a;border-top:1px dashed #2c2520;padding-top:9px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+@media (max-width:620px){.grid{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#000}
+  .vcard{background:#fff;border-color:#ccc;break-inside:avoid}
+  .vhead h3,.desc{color:#000}}
+</style>
+<meta name="description" content="5 台载具的耐久、模组槽、可装模组类型与相对极速。">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="search.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 载具表">
+<meta property="og:description" content="5 台载具的耐久、模组槽、可装模组类型与相对极速。">
+<meta property="og:image" content="https://7dtd-codex.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html' class='cur'>载具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
+<header class='top'><h1>七日杀 · 载具表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>items.xml</code>（载具物品）与 <code>vehicles.xml</code>（速度）<br>生成时间 2026-11-04 16:02 ｜ 5 台载具</div>
+<div class='sub' style='margin-top:8px'>耐久和模组槽来自载具物品；极速是 <code>velocityMax_turbo</code> 的相对值，只适合横向比较，不代表实际 km/h。</div></header>
+<div class='grid'>
+<article class='vcard' id='vehicleBicyclePlaceable'>
+<div class='vhead'><h3>自行车<em>Bicycle</em></h3><span class='tier'>T0</span></div>
+<div class='stats'>
+<span>耐久 <b>1500</b></span>
+<span>模组槽 <b>2</b></span>
+<span>极速 <b>8.5</b></span>
+</div>
+<div class='slots'><span>车灯</span><span>储物</span></div>
+</article>
+<article class='vcard' id='vehicleMinibikePlaceable'>
+<div class='vhead'><h3>小型机车<em>Minibike</em></h3><span class='tier'>T1</span></div>
+<div class='stats'>
+<span>耐久 <b>2000</b></span>
+<span>模组槽 <b>3</b></span>
+<span>极速 <b>9.2</b></span>
+</div>
+<div class='slots'><span>引擎</span><span>油箱</span><span>车灯</span><span>座位</span><span>储物</span></div>
+</article>
+<article class='vcard' id='vehicleMotorcyclePlaceable'>
+<div class='vhead'><h3>摩托车<em>Motorcycle</em></h3><span class='tier'>T2</span></div>
+<div class='stats'>
+<span>耐久 <b>4000</b></span>
+<span>模组槽 <b>4</b></span>
+<span>极速 <b>14</b></span>
+</div>
+<div class='slots'><span>车体装甲</span><span>引擎</span><span>油箱</span><span>车灯</span><span>座位</span><span>储物</span></div>
+</article>
+<article class='vcard' id='vehicleTruck4x4Placeable'>
+<div class='vhead'><h3>4x4 卡车<em>4x4 Truck</em></h3><span class='tier'>T3</span></div>
+<div class='stats'>
+<span>耐久 <b>8000</b></span>
+<span>模组槽 <b>5</b></span>
+<span>极速 <b>14</b></span>
+</div>
+<div class='slots'><span>引擎</span><span>油箱</span><span>车灯</span><span>车铲</span><span>座位</span><span>储物</span></div>
+</article>
+<article class='vcard' id='vehicleGyrocopterPlaceable'>
+<div class='vhead'><h3>旋翼机<em>Gyrocopter</em></h3><span class='tier'>T4</span></div>
+<div class='stats'>
+<span>耐久 <b>3500</b></span>
+<span>模组槽 <b>5</b></span>
+<span>极速 <b>15</b></span>
+</div>
+<div class='slots'><span>车体装甲</span><span>引擎</span><span>油箱</span><span>车灯</span><span>储物</span></div>
+</article>
+</div>
+<footer>数据来源：本机 <code>Data/Config/items.xml</code> 与 <code>vehicles.xml</code>，中文文本来自 <code>Localization.csv</code>。<br>游戏更新后重新运行 <code>parse_vehicles.py</code> 与 <code>render_vehicles_sheet.py</code> 即可刷新。</footer>
+</div><script src='search-index.js'></script><script src='search.js' defer></script>
+</body></html>

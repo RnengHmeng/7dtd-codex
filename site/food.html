@@ -1,0 +1,662 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>七日杀 V3.4 食物药品表</title>
+<style>
+:root{--bg:#100e0c;--panel:#1a1714;--line:#332b24;--text:#e8e1d8;--dim:#a2988c;
+  --accent:#e8a33d;--accent2:#c8762a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.chipbtn small{opacity:.65;margin-left:4px;font-size:11px}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+table.food{width:100%;border-collapse:collapse;font-size:13.5px;
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+table.food th{position:sticky;top:64px;background:#211c18;color:#cdbfa9;font-size:12px;
+  font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);z-index:5}
+table.food td{padding:8px 12px;border-bottom:1px solid #241f1b;color:#c9bdad}
+table.food tr:last-child td{border-bottom:0}
+table.food tr:hover td{background:#1f1a16}
+table.food td.n{color:#e8dccb;font-weight:600}
+table.food td.n em{font-style:normal;color:#6f665c;font-size:11px;font-weight:400;margin-left:6px}
+table.food td.num{text-align:right;font-variant-numeric:tabular-nums;color:#d9b477;width:74px}
+table.food td.num.zero{color:#5a5148}
+.catpill{font-size:11px;padding:1px 7px;border-radius:10px;background:#2a231d;color:#b9ab97}
+.catpill.food{color:#ef8377}.catpill.raw{color:#9aa8b0}
+.catpill.drink{color:#6ec6ef}.catpill.medical{color:#7fd487}
+.tags{color:#8b8175;font-size:11.5px}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none!important}
+@media (max-width:620px){
+  .search input{width:110px}
+  table.food{font-size:12px}
+  table.food th,table.food td{padding:6px 7px}
+  table.food th{top:56px}
+  table.food td.num{width:52px}
+}
+@media print{body{background:#fff;color:#000}nav.jump{display:none}
+  table.food,table.food td,table.food th{background:#fff;color:#000;border-color:#ccc}}
+</style>
+<meta name="description" content="66 种料理、生食、饮品与药品：食物、水、生命、治疗量对照表。">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="search.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 食物药品表">
+<meta property="og:description" content="66 种料理、生食、饮品与药品：食物、水、生命、治疗量对照表。">
+<meta property="og:image" content="https://7dtd-codex.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html' class='cur'>食物</a><a href='vehicles.html'>载具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
+<header class='top'><h1>七日杀 · 食物药品表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-04 16:02 ｜ 66 种消耗品（料理 23 · 生食 15 · 饮品 11 · 药品 17）</div>
+<div class='sub' style='margin-top:8px'>数值来自物品的食用/使用效果（食物、水、生命、治疗量）。生食大多需要烹饪，部分带疾病风险，表里只列数值。</div></header>
+<nav class='jump'><div class='navrow'>
+<button class='chipbtn on' data-cat='all'>全部<small>66</small></button>
+<button class='chipbtn' data-cat='food'>料理<small>23</small></button>
+<button class='chipbtn' data-cat='raw'>生食<small>15</small></button>
+<button class='chipbtn' data-cat='drink'>饮品<small>11</small></button>
+<button class='chipbtn' data-cat='medical'>药品<small>17</small></button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索食物 / 药品'></label>
+</div></nav>
+<table class='food'><thead><tr><th>名称</th><th>类别</th><th style='text-align:right'>食物</th><th style='text-align:right'>水</th><th style='text-align:right'>生命</th><th style='text-align:right'>治疗</th><th>标签</th></tr></thead><tbody>
+<tr id='foodHoneyBrisket' data-cat='food' data-text='蜜汁牛腩 honey brisket 它兼具甜味和烟熏味，抗生素跟它比起来简直就跟婴儿食品一样。
+
+有助于抵抗早期感染。 '>
+<td class='n'>蜜汁牛腩<em>Honey Brisket</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>141</td>
+<td class='num zero'>0</td>
+<td class='num '>70</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodSpaghetti' data-cat='food' data-text='意大利面 spaghetti 这不是上档次的意大利菜，但很填肚子，并且你吐了也不会退款给你。 '>
+<td class='n'>意大利面<em>Spaghetti</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>122</td>
+<td class='num zero'>0</td>
+<td class='num '>61</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodShepardsPie' data-cat='food' data-text='牧羊人派 shepherd&#x27;s pie 牧羊人派确实美味，而且超级饱腹。 '>
+<td class='n'>牧羊人派<em>Shepherd&#x27;s Pie</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>104</td>
+<td class='num zero'>0</td>
+<td class='num '>52</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodHoneyGlazedSham' data-cat='food' data-text='蜜汁山威 honey glazed sham 高级山威罐头，里面装着的是该公司最优质的仿肉产品，现在还刷上了一层甜黏的蜂蜜酱汁！
+
+依然是 100% 无酸配方！
+
+有助于抵抗早期感染。 '>
+<td class='n'>蜜汁山威<em>Honey Glazed Sham</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>98</td>
+<td class='num zero'>0</td>
+<td class='num '>49</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodChickenWings' data-cat='food' data-text='鸡翅 chicken wings 爷爷拍胸脯保证这些超猛的鸡翅能让你长出胸毛，变得硬气十足，狠狠地把丧尸干趴下。一口下去，热辣直冲五脏六腑，让你充满力量，干翻这个末日世界。
+提高近战伤害。
+暂时免疫感染。 '>
+<td class='n'>鸡翅<em>Chicken Wings</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>98</td>
+<td class='num zero'>0</td>
+<td class='num '>49</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodTunaFishGravyToast' data-cat='food' data-text='金枪鱼肉汁吐司 tuna fish gravy toast 有些人叫它“瓦上屎”，但实际上它很好吃，也很填肚子。 '>
+<td class='n'>金枪鱼肉汁吐司<em>Tuna Fish Gravy Toast</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>90</td>
+<td class='num zero'>0</td>
+<td class='num '>45</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodShamChowder' data-cat='food' data-text='山威杂烩 sham chowder 山威杂烩能提升你的强健度，还会让你长胸毛！ '>
+<td class='n'>山威杂烩<em>Sham Chowder</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>53</td>
+<td class='num '>10</td>
+<td class='num '>80</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodChiliDog' data-cat='food' data-text='辣狗 chili dog 好吃！ '>
+<td class='n'>辣狗<em>Chili Dog</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>53</td>
+<td class='num zero'>0</td>
+<td class='num '>30</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodPumpkinPie' data-cat='food' data-text='南瓜派 pumpkin pie 如果在世界末日要感激一样东西，那就是南瓜派。 '>
+<td class='n'>南瓜派<em>Pumpkin Pie</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>50</td>
+<td class='num zero'>0</td>
+<td class='num '>25</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodSteakAndPotato' data-cat='food' data-text='牛排配土豆 steak and potato meal 简直是国王享用的饱腹一餐！ '>
+<td class='n'>牛排配土豆<em>Steak and Potato Meal</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>50</td>
+<td class='num zero'>0</td>
+<td class='num '>25</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodFishTacos' data-cat='food' data-text='鱼肉塔可 fish tacos 塔可星期二啦，谁还愿意吃别的？还是说今天不是星期二？ '>
+<td class='n'>鱼肉塔可<em>Fish Tacos</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>46</td>
+<td class='num zero'>0</td>
+<td class='num '>40</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodBlueberryPie' data-cat='food' data-text='蓝莓派 blueberry pie 这个家庭自制蓝莓派跟奶奶以前做的味道一样。 '>
+<td class='n'>蓝莓派<em>Blueberry Pie</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>45</td>
+<td class='num zero'>0</td>
+<td class='num '>22</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodPumpkinCheesecake' data-cat='food' data-text='南瓜芝士蛋糕 pumpkin cheesecake 南瓜芝士蛋糕味道很棒，以物易物时可优惠5%。 '>
+<td class='n'>南瓜芝士蛋糕<em>Pumpkin Cheesecake</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>42</td>
+<td class='num zero'>0</td>
+<td class='num '>21</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodBaconAndEggs' data-cat='food' data-text='培根鸡蛋 bacon and eggs 培根和鸡蛋可以迅速让你饱腹，并提升最大耐力值。现在可不是担心胆固醇的时候。 '>
+<td class='n'>培根鸡蛋<em>Bacon and Eggs</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>36</td>
+<td class='num zero'>0</td>
+<td class='num '>18</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodFrostbiteSmoothie' data-cat='food' data-text='灼热炖肉 scorcher stew 在雪地中暂时降低环境危害影响并提升移动速度。 '>
+<td class='n'>灼热炖肉<em>Scorcher Stew</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>30</td>
+<td class='num '>20</td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodRoadrunnerChickenJerky' data-cat='food' data-text='走鹃鸡肉干 roadrunner chicken jerky 带点土腥味的鸡肉风味，混合丝兰和啤酒花的味道，尾调还有一丝化学的刺激感。警告：会让人突然产生逃离一切拔腿狂奔的冲动。
+
+提高奔跑速度。 '>
+<td class='n'>走鹃鸡肉干<em>Roadrunner Chicken Jerky</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>30</td>
+<td class='num zero'>0</td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodChickenNuggets' data-cat='food' data-text='鸡块 chicken nuggets 重量很轻，又不肥腻，非常适合在路上食用。这种简单的鸡肉餐食不会增加你的负担，还能让你像真正的废土流浪者一样一直前行。
+
+暂时消除负重状态。 '>
+<td class='n'>鸡块<em>Chicken Nuggets</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>25</td>
+<td class='num zero'>0</td>
+<td class='num '>12</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodPumpkinBread' data-cat='food' data-text='南瓜面包 pumpkin bread 南瓜面包比玉米面包报复感强，而且味道超棒。 '>
+<td class='n'>南瓜面包<em>Pumpkin Bread</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>12</td>
+<td class='num zero'>0</td>
+<td class='num '>6</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodOasisSmoothie' data-cat='food' data-text='中暑补剂 sunstroke tonic 在沙漠中暂时降低环境危害影响并提升移动速度。 '>
+<td class='n'>中暑补剂<em>Sunstroke Tonic</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>10</td>
+<td class='num '>30</td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodEggBoiled' data-cat='food' data-text='水煮蛋 boiled egg 水煮蛋是个美味可口的小食。 '>
+<td class='n'>水煮蛋<em>Boiled Egg</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodGrilledMeat' data-cat='food' data-text='烤肉 grilled meat 肉！在火上烤的肉！太棒了！刚烤好的肉既营养又美味，还很饱腹。 '>
+<td class='n'>烤肉<em>Grilled Meat</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCornBread' data-cat='food' data-text='玉米面包 corn bread 一块美味的玉米面包，家庭制作的风味足以让你打起精神。 '>
+<td class='n'>玉米面包<em>Corn Bread</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodHoney' data-cat='food' data-text='一罐蜂蜜 jar of honey 蜂蜜是大自然的奇迹之一。可以提供能量，味道甜美，还可以帮助抵抗早期感染。
+（无法立即治愈） 医疗'>
+<td class='n'>一罐蜂蜜<em>Jar of Honey</em></td>
+<td><span class='catpill food'>料理</span></td>
+<td class='num '>8</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'>医疗</td></tr>
+<tr id='foodCanBeef' data-cat='raw' data-text='大份牛肉罐头 large beef ration 可能不是你最喜欢的牛排馆做的，但这罐牛肉能让你填饱肚子。祝你好胃口！ '>
+<td class='n'>大份牛肉罐头<em>Large Beef Ration</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='num '>7</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodShamSandwich' data-cat='raw' data-text='过期的山威三明治 old sham sandwich 山威生产的三明治，过期很久了。食用后可以减少饥饿感，不过也会让你生病。 '>
+<td class='n'>过期的山威三明治<em>Old Sham Sandwich</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='resourceAnimalFat' data-cat='raw' data-text='动物脂肪 animal fat 动物脂肪可生吃，也可用于烹饪或其他制作配方中。 '>
+<td class='n'>动物脂肪<em>Animal Fat</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodEgg' data-cat='raw' data-text='鸡蛋 egg 鸡蛋可生吃，不过还是应该煮熟。可在篝火处作为几种配方的食材。 '>
+<td class='n'>鸡蛋<em>Egg</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropPumpkin' data-cat='raw' data-text='南瓜 pumpkin 很多人在厨房里不知道如何处理南瓜，但这对装饰万圣节来说是必不可少的材料。 '>
+<td class='n'>南瓜<em>Pumpkin</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropGraceCorn' data-cat='raw' data-text='超级玉米穗 ear of super corn 玉米穗突变体，看上去应该可以放心食用吧。
+还可以用来制作胶水、祖父的美味酱、祖父的私酒和爷爷的学习灵药。 '>
+<td class='n'>超级玉米穗<em>Ear of Super Corn</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropYuccaFruit' data-cat='raw' data-text='丝兰果实 yucca fruit 丝兰果实可食用，也可以榨成汁以获取一点水分。可通过收获仙人掌和丝兰植株获得。 '>
+<td class='n'>丝兰果实<em>Yucca Fruit</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropPotato' data-cat='raw' data-text='土豆 potato 土豆可食用、可制作成种子，也可在篝火处作为几种配方的食材。 '>
+<td class='n'>土豆<em>Potato</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropCorn' data-cat='raw' data-text='玉米穗 ear of corn 玉米穗可食用，也可用于制作玉米种子、粗玉米粉、烤玉米、炖玉米等。 '>
+<td class='n'>玉米穗<em>Ear of Corn</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodRawMeat' data-cat='raw' data-text='生肉 raw meat 肉可以生吃，但最好在火上烧、烤、煮或炖熟。 '>
+<td class='n'>生肉<em>Raw Meat</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropBlueberries' data-cat='raw' data-text='蓝莓 blueberries 蓝莓可食用，也可用来制作派或转化为蓝莓种子。 '>
+<td class='n'>蓝莓<em>Blueberries</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropMushrooms' data-cat='raw' data-text='蘑菇 mushrooms 蘑菇可生食，也可在篝火处作为几种配方的食材。 '>
+<td class='n'>蘑菇<em>Mushrooms</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCropMushroomsRadiated' data-cat='raw' data-text='辐射蘑菇 radiated mushrooms 生长在荒野中的蘑菇，用于制作辐射净化剂。
+
+可直接食用，但建议先找好地方坐下。 '>
+<td class='n'>辐射蘑菇<em>Radiated Mushrooms</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodRottingFlesh' data-cat='raw' data-text='腐肉 rotting flesh 你肯定是穷途末路了才会吃这个。 '>
+<td class='n'>腐肉<em>Rotting Flesh</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num '>1</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='resourceBrokenGlass' data-cat='raw' data-text='碎玻璃 broken glass 碎玻璃可在锻造炉熔炼为玻璃（沙子）。或者如果世界末日让你不堪重负，你也可以用其结束一切。 '>
+<td class='n'>碎玻璃<em>Broken Glass</em></td>
+<td><span class='catpill raw'>生食</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num '>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodGumboStew' data-cat='drink' data-text='秋葵浓汤 gumbo stew 呕吐是乡巴佬才干的事！要像世界末日的国王一样优雅地享受这超级饱腹且美味的秋葵浓汤。 '>
+<td class='n'>秋葵浓汤<em>Gumbo Stew</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>112</td>
+<td class='num '>20</td>
+<td class='num '>56</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodAshChickenStew' data-cat='drink' data-text='灰烬鸡肉炖 ash chicken stew 没错，这尝起来像有人把一堆篝火倒进了你的碗里，但丧尸不会知道你在吃它。
+
+食用时不会有气味。 '>
+<td class='n'>灰烬鸡肉炖<em>Ash Chicken Stew</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>75</td>
+<td class='num '>20</td>
+<td class='num '>37</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodHoboStew' data-cat='drink' data-text='蔬菜炖肉 hobo stew 既营养又美……反正能吃啦，不行吗？ '>
+<td class='n'>蔬菜炖肉<em>Hobo Stew</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>64</td>
+<td class='num '>20</td>
+<td class='num '>32</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodMeatStew' data-cat='drink' data-text='炖肉 meat stew 如果一个幸存者无能到没有盐巴，那他就不能炖一锅好肉。 '>
+<td class='n'>炖肉<em>Meat Stew</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>50</td>
+<td class='num '>20</td>
+<td class='num '>25</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodVegetableStew' data-cat='drink' data-text='炖杂蔬 vegetable stew 妈妈常说要多吃蔬菜。现在你有机会让她开心了，而且你知道吗？这对你十分有益。 '>
+<td class='n'>炖杂蔬<em>Vegetable Stew</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>31</td>
+<td class='num '>20</td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCanMiso' data-cat='drink' data-text='味增罐头 can of miso 加点味增做碗味增汤吧。嗯~美味。 '>
+<td class='n'>味增罐头<em>Can of Miso</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>10</td>
+<td class='num '>10</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodBoiledMeat' data-cat='drink' data-text='水煮肉 boiled meat 可能没有烤肉好吃，但是水煮十分高效。 '>
+<td class='n'>水煮肉<em>Boiled Meat</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>10</td>
+<td class='num '>10</td>
+<td class='num '>15</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodBakedPotato' data-cat='drink' data-text='烤土豆 baked potato 富含碳水化合物的营养烤土豆。也很适合“沙发土豆”哦。 '>
+<td class='n'>烤土豆<em>Baked Potato</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCornOnTheCob' data-cat='drink' data-text='烤玉米 grilled corn 烤玉米棒不一定是最饱腹或最有营养的食物，不过还是很让人满意的。 '>
+<td class='n'>烤玉米<em>Grilled Corn</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCharredMeat' data-cat='drink' data-text='烧焦的肉 charred meat 把肉烧焦不是最好的烹饪方法，但至少比吃生肉要好。 '>
+<td class='n'>烧焦的肉<em>Charred Meat</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodCornMeal' data-cat='drink' data-text='粗玉米粉 cornmeal 粗玉米粉可在篝火处作为几种配方的食材，不过你也可以这样食用。
+一次制作 2 份。 '>
+<td class='n'>粗玉米粉<em>Cornmeal</em></td>
+<td><span class='catpill drink'>饮品</span></td>
+<td class='num '>2</td>
+<td class='num zero'>0</td>
+<td class='num '>3</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugAtomJunkies' data-cat='medical' data-text='原子迷 atom junkies 原子大小的糖果和原子大小的能量！可以增加炸药的伤害。 医疗'>
+<td class='n'>原子迷<em>Atom Junkies</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'>医疗</td></tr>
+<tr id='drugSkullCrushers' data-cat='medical' data-text='头骨粉碎者 skull crushers 硬碰硬的较量。增加近战伤害。 '>
+<td class='n'>头骨粉碎者<em>Skull Crushers</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugNerdTats' data-cat='medical' data-text='学霸刺青 nerd tats 激发你内在的学霸潜能！
+眩晕棒在充能后击中附近敌人，可将其电晕。 '>
+<td class='n'>学霸刺青<em>Nerd Tats</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugEyeKandy' data-cat='medical' data-text='寻宝眼药水 eye candy 用一滴寻宝眼药水就能更轻松找到闪闪发光的宝藏。提高战利品质量。 '>
+<td class='n'>寻宝眼药水<em>Eye Candy</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugRockBusters' data-cat='medical' data-text='岩石克星 rock busters 大块硬糖都没有这个厉害！
+增加使用采矿工具收集的木头、矿石和石头的数量。 '>
+<td class='n'>岩石克星<em>Rock Busters</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugSugarButts' data-cat='medical' data-text='烟蒂糖 sugar butts 如果“如果”和“烟蒂”是糖果和坚果，那么每天都是圣诞节了！好了，现在就有美味的烟蒂糖吃了。贸易砍价提升一个等级。 '>
+<td class='n'>烟蒂糖<em>Sugar Butts</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugHealthBar' data-cat='medical' data-text='能量棒 health bar 全天然材料制成的美味低碳水能量棒！
+最大生命值增加，对暴击伤害的抵抗力增强，自然治愈速度加快。 '>
+<td class='n'>能量棒<em>Health Bar</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugOhShitzDrops' data-cat='medical' data-text='该死的坠落 oh shitz drops 准备好迎接该死的坠落打击时刻！对坠落伤害免疫。 '>
+<td class='n'>该死的坠落<em>Oh Shitz Drops</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugJailBreakers' data-cat='medical' data-text='越狱者 jail breakers 搞定那把顽固的锁。开锁次次成功。 '>
+<td class='n'>越狱者<em>Jail Breakers</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugCovertCats' data-cat='medical' data-text='隐蔽的猫 covert cats 做一只酷猫，在阴暗处和隐蔽的猫呆在一起就可以。增加潜行攻击伤害。 '>
+<td class='n'>隐蔽的猫<em>Covert Cats</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='drugHackers' data-cat='medical' data-text='黑客 hackers 这些美食可增加你使用回收工具收集的资源数量。 '>
+<td class='n'>黑客<em>Hackers</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num '>5</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='medicalFirstAidKit' data-cat='medical' data-text='急救包 first aid kit 急救包可止血，帮助愈合伤口，提高擦伤治疗速度，缝合裂伤。
+使用辅助动作治疗另一个玩家。 '>
+<td class='n'>急救包<em>First Aid Kit</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num '>180</td>
+<td class='tags'></td></tr>
+<tr id='drugAntibiotics' data-cat='medical' data-text='抗生素 antibiotics 抗生素可治愈感染。
+
+可在篝火处使用烧杯制作获得。 医疗'>
+<td class='n'>抗生素<em>Antibiotics</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'>医疗</td></tr>
+<tr id='medicalAloeCream' data-cat='medical' data-text='芦荟霜 aloe cream 芦荟霜可用于基础治疗，提高擦伤治疗速度，或制作急救绷带。
+使用辅助动作治疗另一个玩家。 医疗'>
+<td class='n'>芦荟霜<em>Aloe Cream</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num '>5</td>
+<td class='tags'>医疗</td></tr>
+<tr id='drugHerbalAntibiotics' data-cat='medical' data-text='草药抗生素 herbal antibiotics 草药抗生素可治愈感染。
+
+可在篝火处使用烹饪锅制作获得。 医疗'>
+<td class='n'>草药抗生素<em>Herbal Antibiotics</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='tags'>医疗</td></tr>
+<tr id='foodAtomicSmoothie' data-cat='medical' data-text='辐射净化剂 fallout flush 在荒野中暂时降低环境危害影响，并提升移动速度。 '>
+<td class='n'>辐射净化剂<em>Fallout Flush</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+<tr id='foodBurntSmoothie' data-cat='medical' data-text='黑肺血清 black lung serum 在焚毁的森林中暂时降低环境危害影响，并提升移动速度。 '>
+<td class='n'>黑肺血清<em>Black Lung Serum</em></td>
+<td><span class='catpill medical'>药品</span></td>
+<td class='num zero'>0</td>
+<td class='num zero'>0</td>
+<td class='num '>10</td>
+<td class='num zero'>0</td>
+<td class='tags'></td></tr>
+</tbody></table>
+<footer>数据来源：本机 <code>Data/Config/items.xml</code>（食用效果写在该物品及其 Extends 父物品的 CVar 里）与 <code>Localization.csv</code>。<br>游戏更新后重新运行 <code>parse_food.py</code> 与 <code>render_food_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('table.food tbody tr'));
+  var btns=[].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
+  var q=document.getElementById('q'); var cat='all';
+  function filter(){
+    var v=(q.value||'').trim().toLowerCase();
+    rows.forEach(function(r){
+      var okCat=(cat==='all'||r.dataset.cat===cat);
+      var okTxt=!v||r.dataset.text.indexOf(v)!==-1;
+      r.classList.toggle('hide',!(okCat&&okTxt));
+    });
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    cat=b.dataset.cat;btns.forEach(function(x){x.classList.toggle('on',x===b)});filter();});});
+  q.addEventListener('input',filter);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}
+    if(e.key==='Escape'&&document.activeElement===q){q.value='';filter();q.blur();}
+  });
+})();
+</script><script src='search-index.js'></script><script src='search.js' defer></script>
+</body></html>

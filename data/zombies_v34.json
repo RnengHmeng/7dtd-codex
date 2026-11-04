@@ -1,0 +1,2730 @@
+{
+ "families": [
+  {
+   "id": "animalZombieBear",
+   "name": "丧尸熊",
+   "name_en": "Zombie Bear",
+   "tags": [
+    "动物",
+    "熊"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalZombieBear",
+     "hp": 4000.0,
+     "xp": 2500.0,
+     "speed": null,
+     "loot_prob": 0.5
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 4000.0
+  },
+  {
+   "id": "zombieMutatedInfernal",
+   "name": "炼狱变异丧尸",
+   "name_en": "Infernal Mutated",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "荒地"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMutatedInfernal",
+     "hp": 3100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 3100.0
+  },
+  {
+   "id": "animalDireWolf",
+   "name": "恐狼",
+   "name_en": "Dire Wolf",
+   "tags": [
+    "动物",
+    "狼"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalDireWolf",
+     "hp": 3000.0,
+     "xp": 2000.0,
+     "speed": [
+      1.0,
+      1.1
+     ],
+     "loot_prob": 0.5
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 3000.0
+  },
+  {
+   "id": "animalBossGrace",
+   "name": "格雷斯",
+   "name_en": "Grace",
+   "tags": [
+    "动物",
+    "野猪",
+    "首领"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalBossGrace",
+     "hp": 3000.0,
+     "xp": 2000.0,
+     "speed": [
+      0.7,
+      0.75
+     ],
+     "loot_prob": 1.0
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 3000.0
+  },
+  {
+   "id": "zombieChuckInfernal",
+   "name": "炼狱恰克",
+   "name_en": "Infernal Chuck",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "雪地"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieChuckInfernal",
+     "hp": 3000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 3000.0
+  },
+  {
+   "id": "zombieWightInfernal",
+   "name": "炼狱恶灵",
+   "name_en": "Infernal Wight",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieWightInfernal",
+     "hp": 3000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 3000.0
+  },
+  {
+   "id": "zombieMutated",
+   "name": "变异丧尸",
+   "name_en": "Mutated",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "荒地"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMutated",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.4,
+      1.3
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieMutatedFeral",
+     "hp": 1200.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieMutatedRadiated",
+     "hp": 2100.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieMutatedCharged",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieLumberjackInfernal",
+   "name": "炼狱伐木工",
+   "name_en": "Infernal Lumberjack",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieLumberjackInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieBowlerInfernal",
+   "name": "炼狱保龄球丧尸",
+   "name_en": "Infernal Bowler",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBowlerInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieRancherInfernal",
+   "name": "炼狱兰凯尔",
+   "name_en": "Infernal Rancher",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "沙漠"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieRancherInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    ""
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieFemaleFatInfernal",
+   "name": "炼狱大妈妈",
+   "name_en": "Infernal Big Mama",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFemaleFatInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieFatHawaiianInfernal",
+   "name": "炼狱游客",
+   "name_en": "Infernal Tourist",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFatHawaiianInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieFatCopInfernal",
+   "name": "炼狱警察",
+   "name_en": "Infernal Cop",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFatCopInfernal",
+     "hp": 2500.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2500.0
+  },
+  {
+   "id": "animalBear",
+   "name": "熊",
+   "name_en": "Bear",
+   "tags": [
+    "动物",
+    "熊"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalBear",
+     "hp": 2500.0,
+     "xp": 2000.0,
+     "speed": [
+      1.9,
+      2.0
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 2500.0
+  },
+  {
+   "id": "zombieChuck",
+   "name": "恰克",
+   "name_en": "Chuck",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "雪地"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieChuck",
+     "hp": 900.0,
+     "xp": null,
+     "speed": [
+      0.55,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieChuckFeral",
+     "hp": 1200.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.4
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieChuckRadiated",
+     "hp": 2000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieChuckCharged",
+     "hp": 2400.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2400.0
+  },
+  {
+   "id": "zombieWight",
+   "name": "恶灵",
+   "name_en": "Wight",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "凶残",
+     "id": "zombieWightFeral",
+     "hp": 1200.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieWightRadiated",
+     "hp": 2200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieWightCharged",
+     "hp": 2400.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2400.0
+  },
+  {
+   "id": "zombieBikerInfernal",
+   "name": "炼狱摩托车手",
+   "name_en": "Infernal Biker",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBikerInfernal",
+     "hp": 2400.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2400.0
+  },
+  {
+   "id": "zombieSoldierInfernal",
+   "name": "炼狱士兵",
+   "name_en": "Infernal Soldier",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSoldierInfernal",
+     "hp": 2200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2200.0
+  },
+  {
+   "id": "animalZombieBoar",
+   "name": "丧尸野猪",
+   "name_en": "Zombie Boar",
+   "tags": [
+    "动物",
+    "野猪",
+    "首领"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalZombieBoar",
+     "hp": 2000.0,
+     "xp": 2000.0,
+     "speed": [
+      1.0,
+      1.0
+     ],
+     "loot_prob": 0.5
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 2000.0
+  },
+  {
+   "id": "zombieRancher",
+   "name": "兰凯尔",
+   "name_en": "Rancher",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "沙漠"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieRancher",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.4,
+      1.35
+     ],
+     "loot_prob": 0.05
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieRancherFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.05
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieRancherRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieRancherCharged",
+     "hp": 1900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    ""
+   ],
+   "hp": 1900.0
+  },
+  {
+   "id": "zombieUtilityWorkerInfernal",
+   "name": "炼狱公共事业工人",
+   "name_en": "Infernal Utility Worker",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieUtilityWorkerInfernal",
+     "hp": 1900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1900.0
+  },
+  {
+   "id": "zombieLumberjack",
+   "name": "伐木工",
+   "name_en": "Lumberjack",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieLumberjack",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieLumberjackFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieLumberjackRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieBowler",
+   "name": "保龄球丧尸",
+   "name_en": "Bowler",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBowler",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieBowlerFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieBowlerRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieFemaleFat",
+   "name": "大妈妈",
+   "name_en": "Big Mama",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFemaleFat",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieFemaleFatFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieFemaleFatRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieFatHawaiian",
+   "name": "游客",
+   "name_en": "Tourist",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFatHawaiian",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieFatHawaiianFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieFatHawaiianRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieInmateInfernal",
+   "name": "炼狱囚犯",
+   "name_en": "Infernal Inmate",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieInmateInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieBoeInfernal",
+   "name": "炼狱布尔",
+   "name_en": "Infernal Boe",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBoeInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieYoInfernal",
+   "name": "炼狱幽",
+   "name_en": "Infernal Yo",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieYoInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieSkateboarderInfernal",
+   "name": "炼狱暴徒",
+   "name_en": "Infernal Thug",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSkateboarderInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieJanitorInfernal",
+   "name": "炼狱看门人",
+   "name_en": "Infernal Janitor",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieJanitorInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieMoeInfernal",
+   "name": "炼狱莫伊",
+   "name_en": "Infernal Moe",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMoeInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieDarleneInfernal",
+   "name": "炼狱达琳",
+   "name_en": "Infernal Darlene",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieDarleneInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieMaleHazmatInfernal",
+   "name": "炼狱防护服丧尸",
+   "name_en": "Infernal Hazmat",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMaleHazmatInfernal",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieFatCop",
+   "name": "警察",
+   "name_en": "Cop",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieFatCop",
+     "hp": 450.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieFatCopFeral",
+     "hp": 950.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieFatCopRadiated",
+     "hp": 1700.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1700.0
+  },
+  {
+   "id": "zombieBiker",
+   "name": "摩托车手",
+   "name_en": "Biker",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBiker",
+     "hp": 600.0,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieBikerFeral",
+     "hp": 900.0,
+     "xp": null,
+     "speed": [
+      0.45,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieBikerRadiated",
+     "hp": 1600.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1600.0
+  },
+  {
+   "id": "zombieBusinessManInfernal",
+   "name": "炼狱商人",
+   "name_en": "Infernal Businessman",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBusinessManInfernal",
+     "hp": 1600.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1600.0
+  },
+  {
+   "id": "zombieSpiderInfernal",
+   "name": "炼狱蜘蛛",
+   "name_en": "Infernal Spider",
+   "tags": [
+    "蜘蛛"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSpiderInfernal",
+     "hp": 1600.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1600.0
+  },
+  {
+   "id": "zombieBurntInfernal",
+   "name": "炼狱被灼烧者",
+   "name_en": "Infernal Burnt",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "焦土"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBurntInfernal",
+     "hp": 1600.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1600.0
+  },
+  {
+   "id": "zombieSoldier",
+   "name": "士兵",
+   "name_en": "Soldier",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSoldier",
+     "hp": 250.0,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieSoldierFeral",
+     "hp": 800.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieSoldierRadiated",
+     "hp": 1400.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1400.0
+  },
+  {
+   "id": "zombieUtilityWorker",
+   "name": "公用事业工人",
+   "name_en": "Utility Worker",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieUtilityWorker",
+     "hp": 225.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieUtilityWorkerFeral",
+     "hp": 700.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieUtilityWorkerRadiated",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieUtilityWorkerCharged",
+     "hp": 1300.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1300.0
+  },
+  {
+   "id": "zombieDemolition",
+   "name": "爆破丧尸",
+   "name_en": "Demolition",
+   "tags": [
+    "步行",
+    "首领"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieDemolition",
+     "hp": 1200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.3
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1200.0
+  },
+  {
+   "id": "zombieInmate",
+   "name": "囚犯",
+   "name_en": "Inmate",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieInmate",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieInmateFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieInmateRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "带电",
+     "id": "zombieInmateCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieLab",
+   "name": "实验室工作人员",
+   "name_en": "Lab Worker",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieLab",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieLabFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieLabRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieLabCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieBoe",
+   "name": "布尔",
+   "name_en": "Boe",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBoe",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieBoeFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieBoeRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieBoeCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieYo",
+   "name": "幽",
+   "name_en": "Yo",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieYo",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieYoFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieYoRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieYoCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieSkateboarder",
+   "name": "暴徒",
+   "name_en": "Thug",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSkateboarder",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieSkateboarderFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieSkateboarderRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieSkateboarderCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieJanitor",
+   "name": "看门人",
+   "name_en": "Janitor",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieJanitor",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieJanitorFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieJanitorRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "带电",
+     "id": "zombieJanitorCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieMaleHazmat",
+   "name": "穿着防化服的丧尸",
+   "name_en": "Hazmat",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMaleHazmat",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.2,
+      1.2
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieMaleHazmatFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.3
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieMaleHazmatRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.3
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieMaleHazmatCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieDarlene",
+   "name": "达琳",
+   "name_en": "Darlene",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieDarlene",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieDarleneFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieDarleneRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieDarleneCharged",
+     "hp": 1100.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1100.0
+  },
+  {
+   "id": "zombieJoe",
+   "name": "乔",
+   "name_en": "Joe",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieJoe",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieJoeFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieJoeRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieJoeCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieSteve",
+   "name": "史蒂夫",
+   "name_en": "Steve",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSteve",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieSteveFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieSteveRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieSteveCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieBusinessMan",
+   "name": "商人",
+   "name_en": "Businessman",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBusinessMan",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieBusinessManFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieBusinessManRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieBusinessManCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieScreamer",
+   "name": "尖叫丧尸",
+   "name_en": "Screamer",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieScreamer",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieScreamerFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieScreamerRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieScreamerCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieNurse",
+   "name": "护士",
+   "name_en": "Nurse",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieNurse",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieNurseFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieNurseRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieNurseCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieTomClark",
+   "name": "汤姆·克拉克",
+   "name_en": "Tom Clark",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieTomClark",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieTomClarkFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieTomClarkRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieTomClarkCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombiePartyGirl",
+   "name": "派对女孩",
+   "name_en": "Party Girl",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombiePartyGirl",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombiePartyGirlFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombiePartyGirlRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombiePartyGirlCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieSpider",
+   "name": "蜘蛛",
+   "name_en": "Spider",
+   "tags": [
+    "蜘蛛"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSpider",
+     "hp": 125.0,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieSpiderFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieSpiderRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieSpiderCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieBurnt",
+   "name": "被灼烧者",
+   "name_en": "Burnt",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "焦土"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieBurnt",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieBurntFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieBurntRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieBurntCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieArlene",
+   "name": "阿琳",
+   "name_en": "Arlene",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieArlene",
+     "hp": 125.0,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieArleneFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieArleneRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieArleneCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieMarlene",
+   "name": "马琳",
+   "name_en": "Marlene",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMarlene",
+     "hp": null,
+     "xp": null,
+     "speed": [
+      0.3,
+      1.35
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieMarleneFeral",
+     "hp": 500.0,
+     "xp": null,
+     "speed": [
+      0.6,
+      1.45
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieMarleneRadiated",
+     "hp": 800.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "带电",
+     "id": "zombieMarleneCharged",
+     "hp": 1000.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": 0.1
+    }
+   ],
+   "drops": [
+    "掉落的战利品"
+   ],
+   "hp": 1000.0
+  },
+  {
+   "id": "zombieMoe",
+   "name": "莫伊",
+   "name_en": "Moe",
+   "tags": [
+    "步行"
+   ],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieMoe",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieMoeFeral",
+     "hp": 550.0,
+     "xp": null,
+     "speed": [
+      0.5,
+      1.35
+     ],
+     "loot_prob": 0.04
+    },
+    {
+     "variant": "辐射",
+     "id": "zombieMoeRadiated",
+     "hp": 900.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 900.0
+  },
+  {
+   "id": "animalBearSmall",
+   "name": "小熊",
+   "name_en": "Little Bear",
+   "tags": [
+    "动物",
+    "熊"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalBearSmall",
+     "hp": 800.0,
+     "xp": 1000.0,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 800.0
+  },
+  {
+   "id": "animalMountainLion",
+   "name": "美洲狮",
+   "name_en": "Mountain Lion",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalMountainLion",
+     "hp": 750.0,
+     "xp": null,
+     "speed": [
+      2.1,
+      2.3
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 750.0
+  },
+  {
+   "id": "zombieSteveCrawler",
+   "name": "爬行者",
+   "name_en": "Crawler",
+   "tags": [],
+   "biomes": [
+    "全群系"
+   ],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "zombieSteveCrawler",
+     "hp": 200.0,
+     "xp": null,
+     "speed": [
+      0.7,
+      1.0
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "凶残",
+     "id": "zombieSteveCrawlerFeral",
+     "hp": 300.0,
+     "xp": null,
+     "speed": [
+      1.2,
+      1.4
+     ],
+     "loot_prob": 0.04
+    }
+   ],
+   "drops": [],
+   "hp": 300.0
+  },
+  {
+   "id": "animalBoar",
+   "name": "野猪",
+   "name_en": "Boar",
+   "tags": [
+    "动物",
+    "野猪"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalBoar",
+     "hp": 250.0,
+     "xp": null,
+     "speed": [
+      1.3,
+      1.3
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 250.0
+  },
+  {
+   "id": "animalZombieDog",
+   "name": "丧尸犬",
+   "name_en": "Zombie Dog",
+   "tags": [
+    "动物",
+    "狗"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalZombieDog",
+     "hp": 200.0,
+     "xp": null,
+     "speed": [
+      1.2,
+      1.3
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 200.0
+  },
+  {
+   "id": "animalWolf",
+   "name": "灰狼",
+   "name_en": "Wolf",
+   "tags": [
+    "动物",
+    "狼"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalWolf",
+     "hp": 200.0,
+     "xp": null,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 200.0
+  },
+  {
+   "id": "animalZombieVulture",
+   "name": "丧尸秃鹫",
+   "name_en": "Zombie Vulture",
+   "tags": [
+    "动物",
+    "秃鹫"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalZombieVulture",
+     "hp": 30.0,
+     "xp": null,
+     "speed": [
+      2.1,
+      2.1
+     ],
+     "loot_prob": null
+    },
+    {
+     "variant": "辐射",
+     "id": "animalZombieVultureRadiated",
+     "hp": 120.0,
+     "xp": 1200.0,
+     "speed": [
+      1.5,
+      1.5
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 120.0
+  },
+  {
+   "id": "animalCoyote",
+   "name": "丛林狼",
+   "name_en": "Coyote",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalCoyote",
+     "hp": 100.0,
+     "xp": 206.0,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 100.0
+  },
+  {
+   "id": "animalChickenHostile",
+   "name": "杀人鸡",
+   "name_en": "Murder Chicken",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalChickenHostile",
+     "hp": 100.0,
+     "xp": 130.0,
+     "speed": [
+      1.65,
+      1.82
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 100.0
+  },
+  {
+   "id": "animalStag",
+   "name": "雄鹿",
+   "name_en": "Stag",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalStag",
+     "hp": 100.0,
+     "xp": 245.0,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 100.0
+  },
+  {
+   "id": "animalRabbit",
+   "name": "兔子",
+   "name_en": "Rabbit",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalRabbit",
+     "hp": 10.0,
+     "xp": 130.0,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 10.0
+  },
+  {
+   "id": "animalSnake",
+   "name": "蛇",
+   "name_en": "Snake",
+   "tags": [
+    "动物",
+    "蛇"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalSnake",
+     "hp": 10.0,
+     "xp": 130.0,
+     "speed": [
+      0.2,
+      0.2
+     ],
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 10.0
+  },
+  {
+   "id": "animalChicken",
+   "name": "鸡",
+   "name_en": "Chicken",
+   "tags": [
+    "动物"
+   ],
+   "biomes": [],
+   "variants": [
+    {
+     "variant": "普通",
+     "id": "animalChicken",
+     "hp": 10.0,
+     "xp": 130.0,
+     "speed": null,
+     "loot_prob": null
+    }
+   ],
+   "drops": [],
+   "hp": 10.0
+  }
+ ]
+}

@@ -1,0 +1,646 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>七日杀 V3.4 丧尸图鉴</title>
+<style>
+:root{--bg:#100e0c;--panel:#1a1714;--line:#332b24;--text:#e8e1d8;--dim:#a2988c;
+  --accent:#e8a33d;--accent2:#c8762a;--red:#e0574c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.chipbtn small{opacity:.65;margin-left:4px;font-size:11px}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+section.cat{margin:0 0 40px}
+.cat-head{display:flex;align-items:baseline;gap:12px;padding-bottom:10px;
+  border-bottom:2px solid var(--line);margin-bottom:16px}
+.cat-head .bar{width:6px;height:24px;border-radius:3px;display:inline-block}
+.cat-head h2{margin:0;font-size:20px}
+.cat-head .cnt{margin-left:auto;color:var(--dim);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.zfam{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.zhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.zhead h3{margin:0;font-size:16px;color:#f3eadc}
+.zhead em{font-style:normal;font-size:11px;color:#7d7367;margin-left:6px}
+.ztags{margin-left:auto;font-size:11px;color:#8b8175}
+table.zvar{width:100%;border-collapse:collapse;font-size:12.5px}
+table.zvar th{text-align:left;color:#7d7367;font-weight:400;font-size:11px;
+  padding:2px 4px;border-bottom:1px solid #2c2520}
+table.zvar td{padding:4px;border-bottom:1px dashed #2c2520;color:#c9bdad}
+table.zvar tr:last-child td{border-bottom:0}
+table.zvar td.v{color:#e8dccb;font-weight:600}
+table.zvar td.v.feral{color:#e08a72}
+table.zvar td.v.rad{color:#7fd487}
+.hp{color:#ef8377;font-weight:700}
+.note{color:#7d7367;font-size:11px;margin-top:6px}
+footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none!important}
+@media (max-width:620px){.grid{grid-template-columns:1fr}.search input{width:110px}}
+@media print{body{background:#fff;color:#000}nav.jump{display:none}
+  .zfam{background:#fff;border-color:#ccc;break-inside:avoid}
+  .zhead h3,table.zvar td{color:#000}}
+</style>
+<meta name="description" content="74 个丧尸/动物系、163 个实体：血量、经验、速度与群系，普通/凶残/辐射变体对照。">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="search.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 丧尸图鉴">
+<meta property="og:description" content="74 个丧尸/动物系、163 个实体：血量、经验、速度与群系，普通/凶残/辐射变体对照。">
+<meta property="og:image" content="https://7dtd-codex.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html' class='cur'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
+<header class='top'><h1>七日杀 · 丧尸图鉴<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>entityclasses.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-04 16:02 ｜ 57 个丧尸系 · 17 个动物系 · 共 163 个实体</div>
+<div class='sub' style='margin-top:8px'>血量是<strong>基础血量</strong>；凶残/辐射变体单独列出，速度是 <code>MoveSpeedAggro</code> 的「走 / 跑」值（游戏内相对速度）。</div>
+</header>
+<nav class='jump'><div class='navrow'>
+<button class='chipbtn on' data-cat='all'>全部<small>74</small></button>
+<button class='chipbtn' data-cat='zombie'>丧尸<small>57</small></button>
+<button class='chipbtn' data-cat='animal'>动物<small>17</small></button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索丧尸 / 动物'></label>
+</div></nav>
+<section class='cat' id='zombie'>
+<div class='cat-head'><span class='bar' style='background:#e0574c'></span><h2>丧尸</h2><span class='cnt'>57 系</span></div>
+<div class='grid'>
+<article class='zfam' id='zombieMutatedInfernal' data-cat='zombie' data-text='炼狱变异丧尸 infernal mutated 步行 荒地'>
+<div class='zhead'><h3>炼狱变异丧尸<em>Infernal Mutated</em></h3>
+<span class='ztags'>步行 · 荒地</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>3100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieChuckInfernal' data-cat='zombie' data-text='炼狱恰克 infernal chuck 步行 雪地'>
+<div class='zhead'><h3>炼狱恰克<em>Infernal Chuck</em></h3>
+<span class='ztags'>步行 · 雪地</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>3000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieWightInfernal' data-cat='zombie' data-text='炼狱恶灵 infernal wight 步行 全群系'>
+<div class='zhead'><h3>炼狱恶灵<em>Infernal Wight</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>3000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMutated' data-cat='zombie' data-text='变异丧尸 mutated 步行 荒地'>
+<div class='zhead'><h3>变异丧尸<em>Mutated</em></h3>
+<span class='ztags'>步行 · 荒地</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>950</td><td>—</td><td>0.4 / 1.3</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>1200</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>2100</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieLumberjackInfernal' data-cat='zombie' data-text='炼狱伐木工 infernal lumberjack 步行 全群系'>
+<div class='zhead'><h3>炼狱伐木工<em>Infernal Lumberjack</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBowlerInfernal' data-cat='zombie' data-text='炼狱保龄球丧尸 infernal bowler 步行 全群系'>
+<div class='zhead'><h3>炼狱保龄球丧尸<em>Infernal Bowler</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieRancherInfernal' data-cat='zombie' data-text='炼狱兰凯尔 infernal rancher 步行 沙漠'>
+<div class='zhead'><h3>炼狱兰凯尔<em>Infernal Rancher</em></h3>
+<span class='ztags'>步行 · 沙漠</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFemaleFatInfernal' data-cat='zombie' data-text='炼狱大妈妈 infernal big mama 步行 全群系'>
+<div class='zhead'><h3>炼狱大妈妈<em>Infernal Big Mama</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFatHawaiianInfernal' data-cat='zombie' data-text='炼狱游客 infernal tourist 步行 全群系'>
+<div class='zhead'><h3>炼狱游客<em>Infernal Tourist</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFatCopInfernal' data-cat='zombie' data-text='炼狱警察 infernal cop 步行 全群系'>
+<div class='zhead'><h3>炼狱警察<em>Infernal Cop</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieChuck' data-cat='zombie' data-text='恰克 chuck 步行 雪地'>
+<div class='zhead'><h3>恰克<em>Chuck</em></h3>
+<span class='ztags'>步行 · 雪地</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>900</td><td>—</td><td>0.55 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>1200</td><td>—</td><td>0.6 / 1.4</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>2000</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>2400</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieWight' data-cat='zombie' data-text='恶灵 wight 步行 全群系'>
+<div class='zhead'><h3>恶灵<em>Wight</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>1200</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>2200</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>2400</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBikerInfernal' data-cat='zombie' data-text='炼狱摩托车手 infernal biker 步行 全群系'>
+<div class='zhead'><h3>炼狱摩托车手<em>Infernal Biker</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2400</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSoldierInfernal' data-cat='zombie' data-text='炼狱士兵 infernal soldier 步行 全群系'>
+<div class='zhead'><h3>炼狱士兵<em>Infernal Soldier</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2200</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieRancher' data-cat='zombie' data-text='兰凯尔 rancher 步行 沙漠'>
+<div class='zhead'><h3>兰凯尔<em>Rancher</em></h3>
+<span class='ztags'>步行 · 沙漠</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.4 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1900</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieUtilityWorkerInfernal' data-cat='zombie' data-text='炼狱公共事业工人 infernal utility worker 步行 全群系'>
+<div class='zhead'><h3>炼狱公共事业工人<em>Infernal Utility Worker</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1900</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieLumberjack' data-cat='zombie' data-text='伐木工 lumberjack 步行 全群系'>
+<div class='zhead'><h3>伐木工<em>Lumberjack</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBowler' data-cat='zombie' data-text='保龄球丧尸 bowler 步行 全群系'>
+<div class='zhead'><h3>保龄球丧尸<em>Bowler</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFemaleFat' data-cat='zombie' data-text='大妈妈 big mama 步行 全群系'>
+<div class='zhead'><h3>大妈妈<em>Big Mama</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFatHawaiian' data-cat='zombie' data-text='游客 tourist 步行 全群系'>
+<div class='zhead'><h3>游客<em>Tourist</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieInmateInfernal' data-cat='zombie' data-text='炼狱囚犯 infernal inmate 步行 全群系'>
+<div class='zhead'><h3>炼狱囚犯<em>Infernal Inmate</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBoeInfernal' data-cat='zombie' data-text='炼狱布尔 infernal boe 步行 全群系'>
+<div class='zhead'><h3>炼狱布尔<em>Infernal Boe</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieYoInfernal' data-cat='zombie' data-text='炼狱幽 infernal yo 步行 全群系'>
+<div class='zhead'><h3>炼狱幽<em>Infernal Yo</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSkateboarderInfernal' data-cat='zombie' data-text='炼狱暴徒 infernal thug 步行 全群系'>
+<div class='zhead'><h3>炼狱暴徒<em>Infernal Thug</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieJanitorInfernal' data-cat='zombie' data-text='炼狱看门人 infernal janitor 步行 全群系'>
+<div class='zhead'><h3>炼狱看门人<em>Infernal Janitor</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMoeInfernal' data-cat='zombie' data-text='炼狱莫伊 infernal moe 步行 全群系'>
+<div class='zhead'><h3>炼狱莫伊<em>Infernal Moe</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieDarleneInfernal' data-cat='zombie' data-text='炼狱达琳 infernal darlene 步行 全群系'>
+<div class='zhead'><h3>炼狱达琳<em>Infernal Darlene</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMaleHazmatInfernal' data-cat='zombie' data-text='炼狱防护服丧尸 infernal hazmat 步行 全群系'>
+<div class='zhead'><h3>炼狱防护服丧尸<em>Infernal Hazmat</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieFatCop' data-cat='zombie' data-text='警察 cop 步行 全群系'>
+<div class='zhead'><h3>警察<em>Cop</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>450</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>950</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1700</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBiker' data-cat='zombie' data-text='摩托车手 biker 步行 全群系'>
+<div class='zhead'><h3>摩托车手<em>Biker</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>600</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>900</td><td>—</td><td>0.45 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1600</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBusinessManInfernal' data-cat='zombie' data-text='炼狱商人 infernal businessman 步行 全群系'>
+<div class='zhead'><h3>炼狱商人<em>Infernal Businessman</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1600</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSpiderInfernal' data-cat='zombie' data-text='炼狱蜘蛛 infernal spider 蜘蛛 全群系'>
+<div class='zhead'><h3>炼狱蜘蛛<em>Infernal Spider</em></h3>
+<span class='ztags'>蜘蛛 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1600</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBurntInfernal' data-cat='zombie' data-text='炼狱被灼烧者 infernal burnt 步行 焦土'>
+<div class='zhead'><h3>炼狱被灼烧者<em>Infernal Burnt</em></h3>
+<span class='ztags'>步行 · 焦土</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1600</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSoldier' data-cat='zombie' data-text='士兵 soldier 步行 全群系'>
+<div class='zhead'><h3>士兵<em>Soldier</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>250</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>800</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1400</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieUtilityWorker' data-cat='zombie' data-text='公用事业工人 utility worker 步行 全群系'>
+<div class='zhead'><h3>公用事业工人<em>Utility Worker</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>225</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>700</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1300</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieDemolition' data-cat='zombie' data-text='爆破丧尸 demolition 步行 首领 全群系'>
+<div class='zhead'><h3>爆破丧尸<em>Demolition</em></h3>
+<span class='ztags'>步行 · 首领 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>1200</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieInmate' data-cat='zombie' data-text='囚犯 inmate 步行 全群系'>
+<div class='zhead'><h3>囚犯<em>Inmate</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieLab' data-cat='zombie' data-text='实验室工作人员 lab worker 步行 全群系'>
+<div class='zhead'><h3>实验室工作人员<em>Lab Worker</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBoe' data-cat='zombie' data-text='布尔 boe 步行 全群系'>
+<div class='zhead'><h3>布尔<em>Boe</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieYo' data-cat='zombie' data-text='幽 yo 步行 全群系'>
+<div class='zhead'><h3>幽<em>Yo</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSkateboarder' data-cat='zombie' data-text='暴徒 thug 步行 全群系'>
+<div class='zhead'><h3>暴徒<em>Thug</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieJanitor' data-cat='zombie' data-text='看门人 janitor 步行 全群系'>
+<div class='zhead'><h3>看门人<em>Janitor</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMaleHazmat' data-cat='zombie' data-text='穿着防化服的丧尸 hazmat 步行 全群系'>
+<div class='zhead'><h3>穿着防化服的丧尸<em>Hazmat</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.2 / 1.2</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.3</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>0.5 / 1.3</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieDarlene' data-cat='zombie' data-text='达琳 darlene 步行 全群系'>
+<div class='zhead'><h3>达琳<em>Darlene</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1100</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieJoe' data-cat='zombie' data-text='乔 joe 步行 全群系'>
+<div class='zhead'><h3>乔<em>Joe</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSteve' data-cat='zombie' data-text='史蒂夫 steve 步行 全群系'>
+<div class='zhead'><h3>史蒂夫<em>Steve</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBusinessMan' data-cat='zombie' data-text='商人 businessman 步行 全群系'>
+<div class='zhead'><h3>商人<em>Businessman</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieScreamer' data-cat='zombie' data-text='尖叫丧尸 screamer 步行 全群系'>
+<div class='zhead'><h3>尖叫丧尸<em>Screamer</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieNurse' data-cat='zombie' data-text='护士 nurse 步行 全群系'>
+<div class='zhead'><h3>护士<em>Nurse</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieTomClark' data-cat='zombie' data-text='汤姆·克拉克 tom clark 步行 全群系'>
+<div class='zhead'><h3>汤姆·克拉克<em>Tom Clark</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombiePartyGirl' data-cat='zombie' data-text='派对女孩 party girl 步行 全群系'>
+<div class='zhead'><h3>派对女孩<em>Party Girl</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSpider' data-cat='zombie' data-text='蜘蛛 spider 蜘蛛 全群系'>
+<div class='zhead'><h3>蜘蛛<em>Spider</em></h3>
+<span class='ztags'>蜘蛛 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>125</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieBurnt' data-cat='zombie' data-text='被灼烧者 burnt 步行 焦土'>
+<div class='zhead'><h3>被灼烧者<em>Burnt</em></h3>
+<span class='ztags'>步行 · 焦土</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieArlene' data-cat='zombie' data-text='阿琳 arlene 步行 全群系'>
+<div class='zhead'><h3>阿琳<em>Arlene</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>125</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMarlene' data-cat='zombie' data-text='马琳 marlene 步行 全群系'>
+<div class='zhead'><h3>马琳<em>Marlene</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>—</td><td>—</td><td>0.3 / 1.35</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>500</td><td>—</td><td>0.6 / 1.45</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>800</td><td>—</td><td>—</td></tr>
+<tr><td class='v rad'>带电</td><td class='hp'>1000</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieMoe' data-cat='zombie' data-text='莫伊 moe 步行 全群系'>
+<div class='zhead'><h3>莫伊<em>Moe</em></h3>
+<span class='ztags'>步行 · 全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>550</td><td>—</td><td>0.5 / 1.35</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>900</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='zombieSteveCrawler' data-cat='zombie' data-text='爬行者 crawler 全群系'>
+<div class='zhead'><h3>爬行者<em>Crawler</em></h3>
+<span class='ztags'>全群系</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>0.7 / 1</td></tr>
+<tr><td class='v feral'>凶残</td><td class='hp'>300</td><td>—</td><td>1.2 / 1.4</td></tr>
+</table></article>
+</div></section>
+<section class='cat' id='animal'>
+<div class='cat-head'><span class='bar' style='background:#57b95f'></span><h2>动物</h2><span class='cnt'>17 系</span></div>
+<div class='grid'>
+<article class='zfam' id='animalZombieBear' data-cat='animal' data-text='丧尸熊 zombie bear 动物 熊'>
+<div class='zhead'><h3>丧尸熊<em>Zombie Bear</em></h3>
+<span class='ztags'>动物 · 熊</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>4000</td><td>2500</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalDireWolf' data-cat='animal' data-text='恐狼 dire wolf 动物 狼'>
+<div class='zhead'><h3>恐狼<em>Dire Wolf</em></h3>
+<span class='ztags'>动物 · 狼</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>3000</td><td>2000</td><td>1 / 1.1</td></tr>
+</table></article>
+<article class='zfam' id='animalBossGrace' data-cat='animal' data-text='格雷斯 grace 动物 野猪 首领'>
+<div class='zhead'><h3>格雷斯<em>Grace</em></h3>
+<span class='ztags'>动物 · 野猪 · 首领</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>3000</td><td>2000</td><td>0.7 / 0.75</td></tr>
+</table></article>
+<article class='zfam' id='animalBear' data-cat='animal' data-text='熊 bear 动物 熊'>
+<div class='zhead'><h3>熊<em>Bear</em></h3>
+<span class='ztags'>动物 · 熊</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2500</td><td>2000</td><td>1.9 / 2</td></tr>
+</table></article>
+<article class='zfam' id='animalZombieBoar' data-cat='animal' data-text='丧尸野猪 zombie boar 动物 野猪 首领'>
+<div class='zhead'><h3>丧尸野猪<em>Zombie Boar</em></h3>
+<span class='ztags'>动物 · 野猪 · 首领</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>2000</td><td>2000</td><td>1 / 1</td></tr>
+</table></article>
+<article class='zfam' id='animalBearSmall' data-cat='animal' data-text='小熊 little bear 动物 熊'>
+<div class='zhead'><h3>小熊<em>Little Bear</em></h3>
+<span class='ztags'>动物 · 熊</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>800</td><td>1000</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalMountainLion' data-cat='animal' data-text='美洲狮 mountain lion 动物'>
+<div class='zhead'><h3>美洲狮<em>Mountain Lion</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>750</td><td>—</td><td>2.1 / 2.3</td></tr>
+</table></article>
+<article class='zfam' id='animalBoar' data-cat='animal' data-text='野猪 boar 动物 野猪'>
+<div class='zhead'><h3>野猪<em>Boar</em></h3>
+<span class='ztags'>动物 · 野猪</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>250</td><td>—</td><td>1.3 / 1.3</td></tr>
+</table></article>
+<article class='zfam' id='animalZombieDog' data-cat='animal' data-text='丧尸犬 zombie dog 动物 狗'>
+<div class='zhead'><h3>丧尸犬<em>Zombie Dog</em></h3>
+<span class='ztags'>动物 · 狗</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>1.2 / 1.3</td></tr>
+</table></article>
+<article class='zfam' id='animalWolf' data-cat='animal' data-text='灰狼 wolf 动物 狼'>
+<div class='zhead'><h3>灰狼<em>Wolf</em></h3>
+<span class='ztags'>动物 · 狼</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>200</td><td>—</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalZombieVulture' data-cat='animal' data-text='丧尸秃鹫 zombie vulture 动物 秃鹫'>
+<div class='zhead'><h3>丧尸秃鹫<em>Zombie Vulture</em></h3>
+<span class='ztags'>动物 · 秃鹫</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>30</td><td>—</td><td>2.1 / 2.1</td></tr>
+<tr><td class='v rad'>辐射</td><td class='hp'>120</td><td>1200</td><td>1.5 / 1.5</td></tr>
+</table></article>
+<article class='zfam' id='animalCoyote' data-cat='animal' data-text='丛林狼 coyote 动物'>
+<div class='zhead'><h3>丛林狼<em>Coyote</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>100</td><td>206</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalChickenHostile' data-cat='animal' data-text='杀人鸡 murder chicken 动物'>
+<div class='zhead'><h3>杀人鸡<em>Murder Chicken</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>100</td><td>130</td><td>1.65 / 1.82</td></tr>
+</table></article>
+<article class='zfam' id='animalStag' data-cat='animal' data-text='雄鹿 stag 动物'>
+<div class='zhead'><h3>雄鹿<em>Stag</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>100</td><td>245</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalRabbit' data-cat='animal' data-text='兔子 rabbit 动物'>
+<div class='zhead'><h3>兔子<em>Rabbit</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>10</td><td>130</td><td>—</td></tr>
+</table></article>
+<article class='zfam' id='animalSnake' data-cat='animal' data-text='蛇 snake 动物 蛇'>
+<div class='zhead'><h3>蛇<em>Snake</em></h3>
+<span class='ztags'>动物 · 蛇</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>10</td><td>130</td><td>0.2 / 0.2</td></tr>
+</table></article>
+<article class='zfam' id='animalChicken' data-cat='animal' data-text='鸡 chicken 动物'>
+<div class='zhead'><h3>鸡<em>Chicken</em></h3>
+<span class='ztags'>动物</span></div>
+<table class='zvar'><tr><th>变体</th><th>血量</th><th>经验</th><th>速度</th></tr>
+<tr><td class='v '>普通</td><td class='hp'>10</td><td>130</td><td>—</td></tr>
+</table></article>
+</div></section>
+<footer>数据来源：本机 <code>Data/Config/entityclasses.xml</code>（血量/经验/速度/标签）与 <code>Localization.csv</code>。掉落物在游戏里由战利品表随机生成，因此没有逐项列出。<br>游戏更新后重新运行 <code>parse_zombies.py</code> 与 <code>render_zombies_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
+  var secs=[].slice.call(document.querySelectorAll('section.cat'));
+  var cards=[].slice.call(document.querySelectorAll('.zfam'));
+  var q=document.getElementById('q'); var cat='all';
+  function filter(){
+    var v=(q.value||'').trim().toLowerCase();
+    cards.forEach(function(c){
+      c.classList.toggle('hide',(cat!=='all'&&c.dataset.cat!==cat)||(!!v&&c.dataset.text.indexOf(v)===-1));
+    });
+    secs.forEach(function(s){s.classList.toggle('hide',s.querySelectorAll('.zfam:not(.hide)').length===0);});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    cat=b.dataset.cat;btns.forEach(function(x){x.classList.toggle('on',x===b)});filter();});});
+  q.addEventListener('input',filter);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}
+    if(e.key==='Escape'&&document.activeElement===q){q.value='';filter();q.blur();}
+  });
+})();
+</script><script src='search-index.js'></script><script src='search.js' defer></script>
+</body></html>
