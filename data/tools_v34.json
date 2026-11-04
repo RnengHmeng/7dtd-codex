@@ -1,0 +1,3372 @@
+{
+ "categories": [
+  {
+   "id": "axe",
+   "name": "斧头",
+   "en": "Axes",
+   "color": "#e0574c",
+   "intro": "砍树、拆木结构的主力，伐木速度最快。",
+   "count": 4
+  },
+  {
+   "id": "pick",
+   "name": "镐",
+   "en": "Pickaxes",
+   "color": "#e2b03c",
+   "intro": "挖矿、拆石头，对矿物和石头有加成。",
+   "count": 2
+  },
+  {
+   "id": "shovel",
+   "name": "铲子",
+   "en": "Shovels",
+   "color": "#8fa3ad",
+   "intro": "挖土、挖沙，对泥土和沙砾效率最高。",
+   "count": 3
+  },
+  {
+   "id": "electric",
+   "name": "电动工具",
+   "en": "Power Tools",
+   "color": "#49b6e8",
+   "intro": "电锯、螺旋钻、钉枪：耗油/耗电，但效率碾压手动工具。",
+   "count": 3
+  },
+  {
+   "id": "salvage",
+   "name": "拆解工具",
+   "en": "Salvage Tools",
+   "color": "#57b95f",
+   "intro": "扳手、棘轮、冲击起子：拆电器和载具能多回收零件。",
+   "count": 3
+  },
+  {
+   "id": "repair",
+   "name": "修理工具",
+   "en": "Repair Tools",
+   "color": "#c58ae0",
+   "intro": "石斧、羊角锤：修理建筑方块，也能当武器用。",
+   "count": 1
+  }
+ ],
+ "tools": [
+  {
+   "id": "meleeToolRepairT0TazasStoneAxe",
+   "name": "塔萨的石斧",
+   "name_en": "Taza's Stone Axe",
+   "cat": "axe",
+   "tier": "T0",
+   "desc": "塔萨的石斧是一把罕见而强大的古代印度手工制品。阿帕奇人相信那些使用它的人能够战无不胜。\n可用小石子修理。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       8.0,
+       8.8,
+       9.6,
+       10.4,
+       11.2,
+       12.0
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       22.0,
+       25.3,
+       28.6,
+       31.9,
+       35.2,
+       38.5
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       105.0,
+       105.0,
+       105.0,
+       105.0,
+       105.0,
+       105.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       9.0,
+       9.0,
+       9.0,
+       9.0,
+       9.0,
+       9.0
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       375.0,
+       450.0,
+       525.0,
+       600.0,
+       675.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       2.0,
+       2.0,
+       3.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolRepairT0StoneAxe",
+   "name": "石斧",
+   "name_en": "Stone Axe",
+   "cat": "axe",
+   "tier": "T0",
+   "desc": "一种原始的工具，可用于砍柴、挖矿、修理和升级墙壁以及门窗。并非最好的武器。\n\n可用小石子修理。\n可分解为小石子。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       6.0,
+       6.6,
+       7.2,
+       7.8,
+       8.4,
+       9.0
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       22.0,
+       25.3,
+       28.6,
+       31.9,
+       35.2,
+       38.5
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       105.0,
+       105.0,
+       105.0,
+       105.0,
+       105.0,
+       105.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0,
+       8.0
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       250.0,
+       300.0,
+       350.0,
+       400.0,
+       450.0,
+       500.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       2.0,
+       2.0,
+       3.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "DismemberChance",
+     "fmt": "num",
+     "variants": [
+      [
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05,
+       0.05
+      ]
+     ],
+     "stat": "DismemberChance",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33,
+       -0.33
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolAxeT1IronFireaxe",
+   "name": "铁斧",
+   "name_en": "Iron Fireaxe",
+   "cat": "axe",
+   "tier": "T1",
+   "desc": "铁斧用来收集木材很不错。\n\n可用维修工具修理。\n可分解为铁。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       15.0,
+       16.5,
+       18.0,
+       19.5,
+       21.0,
+       22.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       47.0,
+       54.05,
+       61.1,
+       68.15,
+       75.2,
+       82.25
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       65.0,
+       65.0,
+       65.0,
+       65.0,
+       65.0,
+       65.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       18.4,
+       18.4,
+       18.4,
+       18.4,
+       18.4,
+       18.4
+      ],
+      [
+       31.3,
+       31.3,
+       31.3,
+       31.3,
+       31.3,
+       31.3
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       500.0,
+       600.0,
+       700.0,
+       800.0,
+       900.0,
+       1000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       3.0,
+       3.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolAxeT2SteelAxe",
+   "name": "钢斧",
+   "name_en": "Steel Axe",
+   "cat": "axe",
+   "tier": "T2",
+   "desc": "钢斧斧刃经久耐用，非常适合伐木。\n\n可用维修工具修理。\n可分解为钢制工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       29.0,
+       31.9,
+       34.8,
+       37.7,
+       40.6,
+       43.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       89.0,
+       102.35,
+       115.7,
+       129.05,
+       142.4,
+       155.75
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       55.0,
+       55.0,
+       55.0,
+       55.0,
+       55.0,
+       55.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       26.4,
+       26.4,
+       26.4,
+       26.4,
+       26.4,
+       26.4
+      ],
+      [
+       52.7,
+       52.7,
+       52.7,
+       52.7,
+       52.7,
+       52.7
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       1000.0,
+       1200.0,
+       1400.0,
+       1600.0,
+       1800.0,
+       2000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "经验获取",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ],
+     "stat": "PlayerExpGain",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolPickT1IronPickaxe",
+   "name": "铁制鹤嘴锄",
+   "name_en": "Iron Pickaxe",
+   "cat": "pick",
+   "tier": "T1",
+   "desc": "铁制鹤嘴锄用于破开石头、收集矿物很不错。\n\n可用维修工具修理。\n可分解为铁。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       11.2,
+       12.32,
+       13.44,
+       14.56,
+       15.68,
+       16.8
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       42.0,
+       48.3,
+       54.6,
+       60.9,
+       67.2,
+       73.5
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       65.0,
+       65.0,
+       65.0,
+       65.0,
+       65.0,
+       65.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       18.4,
+       18.4,
+       18.4,
+       18.4,
+       18.4,
+       18.4
+      ],
+      [
+       31.3,
+       31.3,
+       31.3,
+       31.3,
+       31.3,
+       31.3
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       500.0,
+       600.0,
+       700.0,
+       800.0,
+       900.0,
+       1000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       3.0,
+       3.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对砂砾",
+     "fmt": "mult",
+     "variants": [
+      [
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolPickT2SteelPickaxe",
+   "name": "钢制鹤嘴锄",
+   "name_en": "Steel Pickaxe",
+   "cat": "pick",
+   "tier": "T2",
+   "desc": "铁制鹤嘴锄用于破开石头、收集矿物简直绝佳。\n\n可用维修工具修理。\n可分解为钢制工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       23.2,
+       25.52,
+       27.84,
+       30.16,
+       32.48,
+       34.8
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       85.0,
+       97.75,
+       110.5,
+       123.25,
+       136.0,
+       148.75
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       55.0,
+       55.0,
+       55.0,
+       55.0,
+       55.0,
+       55.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       26.4,
+       26.4,
+       26.4,
+       26.4,
+       26.4,
+       26.4
+      ],
+      [
+       52.7,
+       52.7,
+       52.7,
+       52.7,
+       52.7,
+       52.7
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       1000.0,
+       1200.0,
+       1400.0,
+       1600.0,
+       1800.0,
+       2000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "经验获取",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ],
+     "stat": "PlayerExpGain",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.6,
+       -0.6,
+       -0.6,
+       -0.6,
+       -0.6,
+       -0.6
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对砂砾",
+     "fmt": "mult",
+     "variants": [
+      [
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8,
+       0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolShovelT0StoneShovel",
+   "name": "石铲",
+   "name_en": "Stone Shovel",
+   "cat": "shovel",
+   "tier": "T0",
+   "desc": "石铲是一种可以掘开泥土、沙地或雪地的原始工具。\n\n可用小石子修理。\n可分解为小石子。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       9.0,
+       9.9,
+       10.8,
+       11.7,
+       12.6,
+       13.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       38.0,
+       41.8,
+       45.6,
+       49.4,
+       53.2,
+       57.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       16.2,
+       16.2,
+       16.2,
+       16.2,
+       16.2,
+       16.2
+      ],
+      [
+       32.5,
+       32.5,
+       32.5,
+       32.5,
+       32.5,
+       32.5
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       250.0,
+       300.0,
+       350.0,
+       400.0,
+       450.0,
+       500.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       2.0,
+       2.0,
+       3.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolShovelT1IronShovel",
+   "name": "铁铲",
+   "name_en": "Iron Shovel",
+   "cat": "shovel",
+   "tier": "T1",
+   "desc": "铁铲适合挖掘泥土、沙地或雪地。\n\n可用维修工具修理。\n可分解为铁。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       15.0,
+       16.5,
+       18.0,
+       19.5,
+       21.0,
+       22.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       62.0,
+       68.2,
+       74.4,
+       80.6,
+       86.8,
+       93.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       20.3,
+       20.3,
+       20.3,
+       20.3,
+       20.3,
+       20.3
+      ],
+      [
+       40.6,
+       40.6,
+       40.6,
+       40.6,
+       40.6,
+       40.6
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       500.0,
+       600.0,
+       700.0,
+       800.0,
+       900.0,
+       1000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       3.0,
+       3.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolShovelT2SteelShovel",
+   "name": "钢铲",
+   "name_en": "Steel Shovel",
+   "cat": "shovel",
+   "tier": "T2",
+   "desc": "钢铲耐久性高，是掘开泥土、沙地或雪地的理想工具。\n\n可用维修工具修理。\n可分解为钢制工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       25.0,
+       27.5,
+       30.0,
+       32.5,
+       35.0,
+       37.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       100.0,
+       110.0,
+       120.0,
+       130.0,
+       140.0,
+       150.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       24.7,
+       24.7,
+       24.7,
+       24.7,
+       24.7,
+       24.7
+      ],
+      [
+       49.3,
+       49.3,
+       49.3,
+       49.3,
+       49.3,
+       49.3
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       1000.0,
+       1200.0,
+       1400.0,
+       1600.0,
+       1800.0,
+       2000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6,
+       2.6
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "经验获取",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1,
+       -0.1
+      ]
+     ],
+     "stat": "PlayerExpGain",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7,
+       -0.7
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolAxeT3Chainsaw",
+   "name": "电锯",
+   "name_en": "Chainsaw",
+   "cat": "electric",
+   "tier": "T3",
+   "desc": "用这把汽油做燃料的大电锯，锯起树和丧尸来比保罗·班扬更快。\n\n可用维修工具修理。\n可分解为电动工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       6.0,
+       6.6,
+       7.2,
+       7.8,
+       8.4,
+       9.0
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       25.0,
+       28.75,
+       32.5,
+       36.25,
+       40.0,
+       43.75
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       2000.0,
+       2600.0,
+       3200.0,
+       3800.0,
+       4400.0,
+       5000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "转速（发/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0
+      ]
+     ],
+     "stat": "RoundsPerMinute",
+     "primary": false
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.35,
+       2.35,
+       2.35,
+       2.35,
+       2.35,
+       2.35
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "经验获取",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3
+      ]
+     ],
+     "stat": "PlayerExpGain",
+     "primary": false
+    },
+    {
+     "k": "燃料容量",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0
+      ]
+     ],
+     "stat": "MagazineSize",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "DismemberChance",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ],
+     "stat": "DismemberChance",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对金属",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85,
+       -0.85
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "x",
+     "variants": [
+      [
+       5.0,
+       5.0,
+       5.0,
+       5.0,
+       5.0,
+       5.0
+      ]
+     ],
+     "stat": "WeaponHandling",
+     "roll": {
+      "op": "perc_add",
+      "lo": -0.08,
+      "hi": 0.08
+     },
+     "primary": false
+    }
+   ],
+   "has_roll": true,
+   "rolls": [
+    {
+     "k": "WeaponHandling",
+     "lo": -0.08,
+     "hi": 0.08
+    }
+   ],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolPickT3Auger",
+   "name": "螺旋钻",
+   "name_en": "Auger",
+   "cat": "electric",
+   "tier": "T3",
+   "desc": "拿着你的螺旋钻钻起来吧，任何矿工看到你施展着这把性感的气动螺旋钻，都会向你投来艳羡的目光。\n\n可用维修工具修理。\n可分解为电动工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       4.2,
+       4.62,
+       5.04,
+       5.46,
+       5.88,
+       6.3
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       22.0,
+       25.3,
+       28.6,
+       31.9,
+       35.2,
+       38.5
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       2000.0,
+       2600.0,
+       3200.0,
+       3800.0,
+       4400.0,
+       5000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "转速（发/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0
+      ]
+     ],
+     "stat": "RoundsPerMinute",
+     "primary": false
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.35,
+       2.35,
+       2.35,
+       2.35,
+       2.35,
+       2.35
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "经验获取",
+     "fmt": "pct",
+     "variants": [
+      [
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3,
+       -0.3
+      ]
+     ],
+     "stat": "PlayerExpGain",
+     "primary": false
+    },
+    {
+     "k": "燃料容量",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0,
+       300.0
+      ]
+     ],
+     "stat": "MagazineSize",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8,
+       -0.8
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "x",
+     "variants": [
+      [
+       5.0,
+       5.0,
+       5.0,
+       5.0,
+       5.0,
+       5.0
+      ]
+     ],
+     "stat": "WeaponHandling",
+     "roll": {
+      "op": "perc_add",
+      "lo": -0.08,
+      "hi": 0.08
+     },
+     "primary": false
+    }
+   ],
+   "has_roll": true,
+   "rolls": [
+    {
+     "k": "WeaponHandling",
+     "lo": -0.08,
+     "hi": 0.08
+    }
+   ],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolRepairT3Nailgun",
+   "name": "钉枪",
+   "name_en": "Nailgun",
+   "cat": "electric",
+   "tier": "T3",
+   "desc": "钉枪是修理和升级墙壁的最好工具，如果你有钉子的话，拿来当作武器也不赖。\n\n可用维修工具修理。\n可分解为机械零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       5.0,
+       5.5,
+       6.0,
+       6.5,
+       7.0,
+       7.5
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       1000.0,
+       1200.0,
+       1400.0,
+       1600.0,
+       1800.0,
+       2000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       10.0,
+       10.0,
+       10.0,
+       10.0,
+       10.0,
+       10.0
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "转速（发/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       257.0,
+       257.0,
+       257.0,
+       257.0,
+       257.0,
+       257.0
+      ]
+     ],
+     "stat": "RoundsPerMinute",
+     "primary": false
+    },
+    {
+     "k": "燃料容量",
+     "fmt": "num",
+     "variants": [
+      [
+       10.0,
+       10.0,
+       10.0,
+       10.0,
+       10.0,
+       10.0
+      ]
+     ],
+     "stat": "MagazineSize",
+     "primary": false
+    },
+    {
+     "k": "武器操控性",
+     "fmt": "x",
+     "variants": [
+      [
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7,
+       0.7
+      ]
+     ],
+     "stat": "WeaponHandling",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolSalvageT1Wrench",
+   "name": "扳手",
+   "name_en": "Wrench",
+   "cat": "salvage",
+   "tier": "T1",
+   "desc": "非常适合拆卸汽车、空调等机械设备。\n\n可用维修工具修理。\n可分解为铁。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       16.5,
+       18.15,
+       19.8,
+       21.45,
+       23.1,
+       24.75
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       39.0,
+       42.9,
+       46.8,
+       50.7,
+       54.6,
+       58.5
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       16.5,
+       16.5,
+       16.5,
+       16.5,
+       16.5,
+       16.5
+      ],
+      [
+       25.0,
+       25.0,
+       25.0,
+       25.0,
+       25.0,
+       25.0
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       200.0,
+       300.0,
+       400.0,
+       500.0,
+       600.0,
+       700.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       2.0,
+       2.0,
+       3.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolSalvageT2Ratchet",
+   "name": "棘齿",
+   "name_en": "Ratchet",
+   "cat": "salvage",
+   "tier": "T2",
+   "desc": "非常适合拆卸汽车、空调等机械设备。\n\n可用维修工具修理。\n可分解为钢制工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       16.5,
+       18.15,
+       19.8,
+       21.45,
+       23.1,
+       24.75
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       70.0,
+       77.0,
+       84.0,
+       91.0,
+       98.0,
+       105.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       18.0,
+       18.0,
+       18.0,
+       18.0,
+       18.0,
+       18.0
+      ],
+      [
+       30.0,
+       30.0,
+       30.0,
+       30.0,
+       30.0,
+       30.0
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       700.0,
+       850.0,
+       1000.0,
+       1150.0,
+       1300.0,
+       1450.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       2.0,
+       2.0,
+       2.0,
+       3.0,
+       3.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolSalvageT3ImpactDriver",
+   "name": "冲击起子",
+   "name_en": "Impact Driver",
+   "cat": "salvage",
+   "tier": "T3",
+   "desc": "非常适合拆卸汽车、空调等机械设备。\n\n可用维修工具修理。\n可分解为电动工具零件。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       16.5,
+       18.15,
+       19.8,
+       21.45,
+       23.1,
+       24.75
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       110.0,
+       121.0,
+       132.0,
+       143.0,
+       154.0,
+       165.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0,
+       50.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       20.0,
+       20.0,
+       20.0,
+       20.0,
+       20.0,
+       20.0
+      ],
+      [
+       35.0,
+       35.0,
+       35.0,
+       35.0,
+       35.0,
+       35.0
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       1450.0,
+       1650.0,
+       1850.0,
+       2050.0,
+       2250.0,
+       2450.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       4.0,
+       4.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4,
+       2.4
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5,
+       3.5
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "采集倍率",
+     "fmt": "x",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ]
+     ],
+     "stat": "HarvestCount",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对石头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  },
+  {
+   "id": "meleeToolRepairT1ClawHammer",
+   "name": "羊角锤",
+   "name_en": "Claw Hammer",
+   "cat": "repair",
+   "tier": "T1",
+   "desc": "羊角锤很适合用于修理和升级基础墙壁，做为武器也不赖。\n\n可用维修工具修理。\n可分解为铁。",
+   "chips": [
+    {
+     "k": "伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       12.0,
+       13.2,
+       14.4,
+       15.6,
+       16.8,
+       18.0
+      ]
+     ],
+     "stat": "EntityDamage",
+     "primary": true
+    },
+    {
+     "k": "物块伤害",
+     "fmt": "num",
+     "variants": [
+      [
+       22.0,
+       24.2,
+       26.4,
+       28.6,
+       30.8,
+       33.0
+      ]
+     ],
+     "stat": "BlockDamage",
+     "primary": true
+    },
+    {
+     "k": "攻速（次/分）",
+     "fmt": "num",
+     "variants": [
+      [
+       70.0,
+       70.0,
+       70.0,
+       70.0,
+       70.0,
+       70.0
+      ]
+     ],
+     "stat": "AttacksPerMinute",
+     "primary": true
+    },
+    {
+     "k": "体力消耗",
+     "fmt": "num",
+     "variants": [
+      [
+       17.1,
+       17.1,
+       17.1,
+       17.1,
+       17.1,
+       17.1
+      ]
+     ],
+     "stat": "StaminaLoss",
+     "primary": true
+    },
+    {
+     "k": "耐久",
+     "fmt": "num",
+     "variants": [
+      [
+       300.0,
+       440.0,
+       580.0,
+       720.0,
+       860.0,
+       1000.0
+      ]
+     ],
+     "stat": "DegradationMax",
+     "primary": true
+    },
+    {
+     "k": "模组槽",
+     "fmt": "num",
+     "variants": [
+      [
+       1.0,
+       1.0,
+       2.0,
+       2.0,
+       3.0,
+       4.0
+      ]
+     ],
+     "stat": "ModSlots",
+     "primary": true
+    },
+    {
+     "k": "射程",
+     "fmt": "num",
+     "variants": [
+      [
+       2.2,
+       2.2,
+       2.2,
+       2.2,
+       2.2,
+       2.2
+      ]
+     ],
+     "stat": "MaxRange",
+     "primary": false
+    },
+    {
+     "k": "物块攻击距离",
+     "fmt": "num",
+     "variants": [
+      [
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0,
+       3.0
+      ]
+     ],
+     "stat": "BlockRange",
+     "primary": false
+    },
+    {
+     "k": "对木头",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5,
+       -0.5
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    },
+    {
+     "k": "对泥土",
+     "fmt": "mult",
+     "variants": [
+      [
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75,
+       -0.75
+      ]
+     ],
+     "stat": "DamageModifier",
+     "primary": false
+    }
+   ],
+   "has_roll": false,
+   "rolls": [],
+   "tiered": true
+  }
+ ]
+}

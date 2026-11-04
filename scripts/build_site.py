@@ -36,11 +36,12 @@ LINK_MAP = {
     "七日杀V3.4丧尸图鉴.html": "zombies.html",
     "七日杀V3.4食物药品表.html": "food.html",
     "七日杀V3.4载具表.html": "vehicles.html",
+    "七日杀V3.4工具速查表.html": "tools.html",
 }
 
 NAV = [("index.html", "首页"), ("perks.html", "天赋"), ("armor.html", "装甲"),
        ("weapons.html", "武器"), ("mods.html", "模组"), ("zombies.html", "丧尸"),
-       ("food.html", "食物"), ("vehicles.html", "载具")]
+       ("food.html", "食物"), ("vehicles.html", "载具"), ("tools.html", "工具")]
 
 NAV_CSS = """
 .sitebar{position:relative;z-index:30;background:#14110e;border-bottom:1px solid #2a231d;
@@ -200,6 +201,7 @@ def search_entries():
     mods, weapons = j("mods_v34.json"), j("weapons_v34.json")
     zombies, food = j("zombies_v34.json"), j("consumables_v34.json")
     vehicles = j("vehicles_v34.json")
+    tools = j("tools_v34.json")
 
     out = []
     for p in perks["perks"]:
@@ -221,6 +223,8 @@ def search_entries():
         out.append({"n": c["name"], "e": c["name_en"], "k": c["id"], "t": "食物/药品", "u": "food.html#" + c["id"]})
     for v in vehicles["vehicles"]:
         out.append({"n": v["name"], "e": v["name_en"], "k": v["id"], "t": "载具", "u": "vehicles.html#" + v["id"]})
+    for t in tools["tools"]:
+        out.append({"n": t["name"], "e": t["name_en"], "k": t["id"], "t": "工具", "u": "tools.html#" + t["id"]})
     return out
 
 
@@ -287,6 +291,7 @@ def main():
     zombies = json.loads((DATA / "zombies_v34.json").read_text(encoding="utf-8"))
     food = json.loads((DATA / "consumables_v34.json").read_text(encoding="utf-8"))
     vehicles = json.loads((DATA / "vehicles_v34.json").read_text(encoding="utf-8"))
+    tools = json.loads((DATA / "tools_v34.json").read_text(encoding="utf-8"))
 
     cards = [
         {"name": "天赋", "en": "Perks", "color": "#49b6e8", "href": "perks.html",
@@ -310,6 +315,8 @@ def main():
          "meta": "%d 种 · 食物/水/生命/治疗" % len(food["items"])},
         {"name": "载具", "en": "Vehicles", "color": "#c58ae0", "href": "vehicles.html",
          "meta": "%d 台 · 耐久/模组槽/极速" % len(vehicles["vehicles"])},
+        {"name": "工具", "en": "Tools", "color": "#e08a3c", "href": "tools.html",
+         "meta": "%d 把 · 斧/镐/铲/电动/拆解 · 品质 1–6" % len(tools["tools"])},
     ]
 
     specs = [
@@ -334,6 +341,9 @@ def main():
         {"script": "render_vehicles_sheet.py", "json": "vehicles_v34.json", "out": "vehicles.html",
          "title": "七日杀 V3.4 载具表",
          "desc": "5 台载具的耐久、模组槽、可装模组类型与相对极速。"},
+        {"script": "render_tools_sheet.py", "json": "tools_v34.json", "out": "tools.html",
+         "title": "七日杀 V3.4 工具速查表",
+         "desc": "16 把斧/镐/铲/电动/拆解工具：伤害、物块伤害、攻速、体力与各材质效率，品质 1–6 与随机浮动。"},
     ]
 
     for spec in specs:

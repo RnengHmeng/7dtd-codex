@@ -138,9 +138,10 @@ JS = r"""
     pct:    function(v){ var x = Math.round(v * 1000) / 10; return (x > 0 ? '+' : '') + trim(x) + '%'; },
     raw:    function(v){ return (v > 0 ? '+' : '') + trim(v); },
     mult:   function(v){ return '×' + trim(1 + v); },
+    x:      function(v){ return '×' + (Math.round(v * 100) / 100); },
     pctset: function(v){ return '= ' + trim(Math.round(v * 1000) / 10) + '%'; },
     rawset: function(v){ return '= ' + trim(v); },
-    mulset: function(v){ return '×' + trim(v); },
+    mulset: function(v){ return '×' + (Math.round(v * 100) / 100); },
     pctabs: function(v){ return '= ' + trim(v) + '%'; }
   };
   function renderChip(el, q, t){
@@ -243,6 +244,13 @@ def trim(x):
     return ("%.1f" % x).rstrip("0").rstrip(".")
 
 
+def trim2(x):
+    x = round(float(x), 2)
+    if abs(x - round(x)) < 0.0001:
+        return str(int(round(x)))
+    return ("%.2f" % x).rstrip("0").rstrip(".")
+
+
 def fmt_one(v, fmt):
     v = float(v)
     if fmt == "pct":
@@ -252,6 +260,8 @@ def fmt_one(v, fmt):
         return ("+" if v > 0 else "") + trim(v)
     if fmt == "mult":
         return "×" + trim(1 + v)
+    if fmt == "x":
+        return "×" + trim2(v)
     if fmt == "pctset":
         return "= " + trim(round(v * 100, 1)) + "%"
     if fmt == "rawset":

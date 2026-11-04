@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>七日杀 V3.4 工具速查表</title>
+<style>
+:root{--bg:#100e0c;--panel:#1a1714;--line:#332b24;--text:#e8e1d8;--dim:#a2988c;
+  --accent:#e8a33d;--accent2:#c8762a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.65 "Microsoft YaHei","PingFang SC","Noto Sans SC",system-ui,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:34px 0 18px;border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:27px}
+h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
+  border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
+.sub{color:var(--dim);font-size:13px}
+.sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
+nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+  border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
+.navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navrow .spacer{flex:1}
+.chipbtn{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;
+  color:var(--text);background:var(--panel);cursor:pointer;font-family:inherit}
+.chipbtn:hover{border-color:var(--accent);color:var(--accent)}
+.chipbtn.on{background:var(--accent);color:#1a1208;border-color:var(--accent);font-weight:700}
+.chipbtn small{opacity:.65;margin-left:4px;font-size:11px}
+.search{display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.search input{background:transparent;border:0;outline:0;color:var(--text);
+  font-size:13px;width:190px;font-family:inherit}
+section.cat{margin:0 0 38px}
+.cat-head{display:flex;align-items:baseline;gap:12px;padding-bottom:10px;
+  border-bottom:2px solid var(--line);margin-bottom:8px}
+.cat-head .bar{width:6px;height:24px;border-radius:3px;display:inline-block}
+.cat-head h2{margin:0;font-size:20px}
+.cat-head .cnt{margin-left:auto;color:var(--dim);font-size:12px}
+.cat-intro{color:#c4b8a9;font-size:13px;margin:0 0 16px;max-width:900px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(335px,1fr));gap:14px}
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+  display:flex;flex-direction:column;padding-bottom:12px}
+.thead{display:flex;align-items:center;gap:8px;padding:12px 15px 6px;flex-wrap:wrap}
+.thead h3{margin:0;font-size:16px;color:#f3eadc}
+.thead h3 em{font-style:normal;font-weight:400;font-size:11px;color:#7d7367;margin-left:7px}
+.badge{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:10px;color:#141210}
+.badge.axe{background:#e0574c}.badge.pick{background:#e2b03c}.badge.shovel{background:#8fa3ad}
+.badge.electric{background:#49b6e8}.badge.salvage{background:#57b95f}.badge.repair{background:#c58ae0}
+.tier{font-size:10.5px;font-weight:700;color:#d9b477;border:1px solid #4a3a24;
+  border-radius:4px;padding:1px 6px}
+.setq,.rrow{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.setq .qlbl,.rrow .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.setq input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a3c2b,#c8762a,#e8a33d);outline:0}
+.setq input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
+.rrow input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a2f24,#332b24,#4a2f24);outline:0}
+.rrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;
+  border-radius:50%;background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
+.rrow .rnow{font-size:12px;color:#8fa3ad;font-weight:700;min-width:44px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 8px}
+.chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
+  border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
+.chips i b{font-weight:700;color:#f0c98a}
+.chips i.core{color:#e8d1a5;border-color:#6b5334;background:#302518}
+details.more{padding:0 15px 6px}
+details.more summary{cursor:pointer;font-size:11px;color:#8b8175;outline:0;padding:2px 0 4px}
+details.more .chips{padding:2px 0 4px}
+.desc{margin:8px 15px 0;padding-top:8px;font-size:11.5px;color:#8f857a;line-height:1.55;
+  border-top:1px dashed #2c2520}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  color:#6f665c;font-size:12px;line-height:1.9}
+.hide{display:none!important}
+@media (max-width:620px){.grid{grid-template-columns:1fr}.search input{width:110px}}
+@media print{body{background:#fff;color:#000}nav.jump,.setq,.rrow{display:none}
+  .tool{background:#fff;border-color:#ccc;break-inside:avoid}.thead h3,.desc{color:#000}}
+</style>
+<meta name="description" content="16 把斧/镐/铲/电动/拆解工具：伤害、物块伤害、攻速、体力与各材质效率，品质 1–6 与随机浮动。">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="search.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="七日杀 V3.4 工具速查表">
+<meta property="og:description" content="16 把斧/镐/铲/电动/拆解工具：伤害、物块伤害、攻速、体力与各材质效率，品质 1–6 与随机浮动。">
+<meta property="og:image" content="https://7dtd-codex.pages.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+</head><body>
+<div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><a href='tools.html' class='cur'>工具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
+<header class='top'><h1>七日杀 · 工具速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
+<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-04 16:43 ｜ 16 把工具 · 6 个分类</div>
+<div class='sub' style='margin-top:8px'>数值是品质 1–6 的区间；「对泥土 / 对石头 / 对金属」是工具对不同材质的效率倍率（×0.2 表示只有 20%）。电锯和螺旋钻另有 ±8% 的随机浮动，卡片上可以拖动查看。</div></header>
+<nav class='jump'><div class='navrow'>
+<button class='chipbtn on' data-cat='all'>全部<small>16</small></button>
+<button class='chipbtn' data-cat='axe'>斧头<small>4</small></button>
+<button class='chipbtn' data-cat='pick'>镐<small>2</small></button>
+<button class='chipbtn' data-cat='shovel'>铲子<small>3</small></button>
+<button class='chipbtn' data-cat='electric'>电动工具<small>3</small></button>
+<button class='chipbtn' data-cat='salvage'>拆解工具<small>3</small></button>
+<button class='chipbtn' data-cat='repair'>修理工具<small>1</small></button>
+<span class='spacer'></span>
+<label class='search'>🔍<input id='q' type='search' placeholder='搜索工具'></label>
+</div></nav>
+<section class='cat' id='axe'>
+<div class='cat-head'><span class='bar' style='background:#e0574c'></span><h2>斧头</h2><span class='cnt'>4 把</span></div>
+<p class='cat-intro'>砍树、拆木结构的主力，伐木速度最快。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolRepairT0TazasStoneAxe' data-cat='axe' data-text='塔萨的石斧 taza&#x27;s stone axe 塔萨的石斧是一把罕见而强大的古代印度手工制品。阿帕奇人相信那些使用它的人能够战无不胜。
+可用小石子修理。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 对泥土 对石头 对金属'>
+<div class='thead'><span class='badge axe'>斧头</span><span class='tier'>T0</span><h3>塔萨的石斧<em>Taza&#x27;s Stone Axe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='塔萨的石斧 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='8,8.8,9.6,10.4,11.2,12' data-fmt='num'>12</b></i><i class='core'>物块伤害 <b data-vals='22,25.3,28.6,31.9,35.2,38.5' data-fmt='num'>38.5</b></i><i class='core'>攻速（次/分） <b data-vals='105,105,105,105,105,105' data-fmt='num'>105</b></i><i class='core'>体力消耗 <b data-vals='9,9,9,9,9,9' data-fmt='num'>9</b></i><i class='core'>耐久 <b data-vals='300,375,450,525,600,675' data-fmt='num'>675</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>采集倍率 <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='x'>×0.7</b></i><i class=''>对泥土 <b data-vals='-0.85,-0.85,-0.85,-0.85,-0.85,-0.85' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.33,-0.33,-0.33,-0.33,-0.33,-0.33' data-fmt='mult'>×0.7</b></i><i class=''>对金属 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i></div></details>
+<p class='desc'>塔萨的石斧是一把罕见而强大的古代印度手工制品。阿帕奇人相信那些使用它的人能够战无不胜。<br>可用小石子修理。</p>
+</article>
+<article class='tool' id='meleeToolRepairT0StoneAxe' data-cat='axe' data-text='石斧 stone axe 一种原始的工具，可用于砍柴、挖矿、修理和升级墙壁以及门窗。并非最好的武器。
+
+可用小石子修理。
+可分解为小石子。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 dismemberchance 对泥土 对石头 对金属'>
+<div class='thead'><span class='badge axe'>斧头</span><span class='tier'>T0</span><h3>石斧<em>Stone Axe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='石斧 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='6,6.6,7.2,7.8,8.4,9' data-fmt='num'>9</b></i><i class='core'>物块伤害 <b data-vals='22,25.3,28.6,31.9,35.2,38.5' data-fmt='num'>38.5</b></i><i class='core'>攻速（次/分） <b data-vals='105,105,105,105,105,105' data-fmt='num'>105</b></i><i class='core'>体力消耗 <b data-vals='8,8,8,8,8,8' data-fmt='num'>8</b></i><i class='core'>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>采集倍率 <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='x'>×0.7</b></i><i class=''>DismemberChance <b data-vals='0.05,0.05,0.05,0.05,0.05,0.05' data-fmt='num'>0.1</b></i><i class=''>对泥土 <b data-vals='-0.85,-0.85,-0.85,-0.85,-0.85,-0.85' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.33,-0.33,-0.33,-0.33,-0.33,-0.33' data-fmt='mult'>×0.7</b></i><i class=''>对金属 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i></div></details>
+<p class='desc'>一种原始的工具，可用于砍柴、挖矿、修理和升级墙壁以及门窗。并非最好的武器。<br><br>可用小石子修理。<br>可分解为小石子。</p>
+</article>
+<article class='tool' id='meleeToolAxeT1IronFireaxe' data-cat='axe' data-text='铁斧 iron fireaxe 铁斧用来收集木材很不错。
+
+可用维修工具修理。
+可分解为铁。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 对泥土 对石头 对金属'>
+<div class='thead'><span class='badge axe'>斧头</span><span class='tier'>T1</span><h3>铁斧<em>Iron Fireaxe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁斧 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='15,16.5,18,19.5,21,22.5' data-fmt='num'>22.5</b></i><i class='core'>物块伤害 <b data-vals='47,54.05,61.1,68.15,75.2,82.25' data-fmt='num'>82.2</b></i><i class='core'>攻速（次/分） <b data-vals='65,65,65,65,65,65' data-fmt='num'>65</b></i><i class='core'>体力消耗 <b data-vals='18.4,18.4,18.4,18.4,18.4,18.4|31.3,31.3,31.3,31.3,31.3,31.3' data-fmt='num'>18.4</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>采集倍率 <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='x'>×0.7</b></i><i class=''>对泥土 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>铁斧用来收集木材很不错。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='tool' id='meleeToolAxeT2SteelAxe' data-cat='axe' data-text='钢斧 steel axe 钢斧斧刃经久耐用，非常适合伐木。
+
+可用维修工具修理。
+可分解为钢制工具零件。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 经验获取 采集倍率 对泥土 对石头 对金属'>
+<div class='thead'><span class='badge axe'>斧头</span><span class='tier'>T2</span><h3>钢斧<em>Steel Axe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢斧 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='29,31.9,34.8,37.7,40.6,43.5' data-fmt='num'>43.5</b></i><i class='core'>物块伤害 <b data-vals='89,102.35,115.7,129.05,142.4,155.75' data-fmt='num'>155.8</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='26.4,26.4,26.4,26.4,26.4,26.4|52.7,52.7,52.7,52.7,52.7,52.7' data-fmt='num'>26.4</b></i><i class='core'>耐久 <b data-vals='1000,1200,1400,1600,1800,2000' data-fmt='num'>2000</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>经验获取 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i class=''>采集倍率 <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='x'>×0.7</b></i><i class=''>对泥土 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>钢斧斧刃经久耐用，非常适合伐木。<br><br>可用维修工具修理。<br>可分解为钢制工具零件。</p>
+</article>
+</div></section>
+<section class='cat' id='pick'>
+<div class='cat-head'><span class='bar' style='background:#e2b03c'></span><h2>镐</h2><span class='cnt'>2 把</span></div>
+<p class='cat-intro'>挖矿、拆石头，对矿物和石头有加成。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolPickT1IronPickaxe' data-cat='pick' data-text='铁制鹤嘴锄 iron pickaxe 铁制鹤嘴锄用于破开石头、收集矿物很不错。
+
+可用维修工具修理。
+可分解为铁。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 对木头 对泥土 对砂砾'>
+<div class='thead'><span class='badge pick'>镐</span><span class='tier'>T1</span><h3>铁制鹤嘴锄<em>Iron Pickaxe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁制鹤嘴锄 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='11.2,12.32,13.44,14.56,15.68,16.8' data-fmt='num'>16.8</b></i><i class='core'>物块伤害 <b data-vals='42,48.3,54.6,60.9,67.2,73.5' data-fmt='num'>73.5</b></i><i class='core'>攻速（次/分） <b data-vals='65,65,65,65,65,65' data-fmt='num'>65</b></i><i class='core'>体力消耗 <b data-vals='18.4,18.4,18.4,18.4,18.4,18.4|31.3,31.3,31.3,31.3,31.3,31.3' data-fmt='num'>18.4</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>对木头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对泥土 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对砂砾 <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='mult'>×1.8</b></i></div></details>
+<p class='desc'>铁制鹤嘴锄用于破开石头、收集矿物很不错。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='tool' id='meleeToolPickT2SteelPickaxe' data-cat='pick' data-text='钢制鹤嘴锄 steel pickaxe 铁制鹤嘴锄用于破开石头、收集矿物简直绝佳。
+
+可用维修工具修理。
+可分解为钢制工具零件。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 经验获取 对木头 对泥土 对石头 对砂砾'>
+<div class='thead'><span class='badge pick'>镐</span><span class='tier'>T2</span><h3>钢制鹤嘴锄<em>Steel Pickaxe</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢制鹤嘴锄 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='23.2,25.52,27.84,30.16,32.48,34.8' data-fmt='num'>34.8</b></i><i class='core'>物块伤害 <b data-vals='85,97.75,110.5,123.25,136,148.75' data-fmt='num'>148.8</b></i><i class='core'>攻速（次/分） <b data-vals='55,55,55,55,55,55' data-fmt='num'>55</b></i><i class='core'>体力消耗 <b data-vals='26.4,26.4,26.4,26.4,26.4,26.4|52.7,52.7,52.7,52.7,52.7,52.7' data-fmt='num'>26.4</b></i><i class='core'>耐久 <b data-vals='1000,1200,1400,1600,1800,2000' data-fmt='num'>2000</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（7）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>经验获取 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i class=''>对木头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对泥土 <b data-vals='-0.6,-0.6,-0.6,-0.6,-0.6,-0.6' data-fmt='mult'>×0.4</b></i><i class=''>对石头 <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='mult'>×1.8</b></i><i class=''>对砂砾 <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='mult'>×1.8</b></i></div></details>
+<p class='desc'>铁制鹤嘴锄用于破开石头、收集矿物简直绝佳。<br><br>可用维修工具修理。<br>可分解为钢制工具零件。</p>
+</article>
+</div></section>
+<section class='cat' id='shovel'>
+<div class='cat-head'><span class='bar' style='background:#8fa3ad'></span><h2>铲子</h2><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>挖土、挖沙，对泥土和沙砾效率最高。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolShovelT0StoneShovel' data-cat='shovel' data-text='石铲 stone shovel 石铲是一种可以掘开泥土、沙地或雪地的原始工具。
+
+可用小石子修理。
+可分解为小石子。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 对木头 对石头 对金属'>
+<div class='thead'><span class='badge shovel'>铲子</span><span class='tier'>T0</span><h3>石铲<em>Stone Shovel</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='石铲 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='9,9.9,10.8,11.7,12.6,13.5' data-fmt='num'>13.5</b></i><i class='core'>物块伤害 <b data-vals='38,41.8,45.6,49.4,53.2,57' data-fmt='num'>57</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='16.2,16.2,16.2,16.2,16.2,16.2|32.5,32.5,32.5,32.5,32.5,32.5' data-fmt='num'>16.2</b></i><i class='core'>耐久 <b data-vals='250,300,350,400,450,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>对木头 <b data-vals='-0.7,-0.7,-0.7,-0.7,-0.7,-0.7' data-fmt='mult'>×0.3</b></i><i class=''>对石头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>石铲是一种可以掘开泥土、沙地或雪地的原始工具。<br><br>可用小石子修理。<br>可分解为小石子。</p>
+</article>
+<article class='tool' id='meleeToolShovelT1IronShovel' data-cat='shovel' data-text='铁铲 iron shovel 铁铲适合挖掘泥土、沙地或雪地。
+
+可用维修工具修理。
+可分解为铁。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 对木头 对石头 对金属'>
+<div class='thead'><span class='badge shovel'>铲子</span><span class='tier'>T1</span><h3>铁铲<em>Iron Shovel</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁铲 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='15,16.5,18,19.5,21,22.5' data-fmt='num'>22.5</b></i><i class='core'>物块伤害 <b data-vals='62,68.2,74.4,80.6,86.8,93' data-fmt='num'>93</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='20.3,20.3,20.3,20.3,20.3,20.3|40.6,40.6,40.6,40.6,40.6,40.6' data-fmt='num'>20.3</b></i><i class='core'>耐久 <b data-vals='500,600,700,800,900,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（5）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>对木头 <b data-vals='-0.7,-0.7,-0.7,-0.7,-0.7,-0.7' data-fmt='mult'>×0.3</b></i><i class=''>对石头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>铁铲适合挖掘泥土、沙地或雪地。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='tool' id='meleeToolShovelT2SteelShovel' data-cat='shovel' data-text='钢铲 steel shovel 钢铲耐久性高，是掘开泥土、沙地或雪地的理想工具。
+
+可用维修工具修理。
+可分解为钢制工具零件。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 经验获取 对木头 对石头 对金属'>
+<div class='thead'><span class='badge shovel'>铲子</span><span class='tier'>T2</span><h3>钢铲<em>Steel Shovel</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钢铲 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='25,27.5,30,32.5,35,37.5' data-fmt='num'>37.5</b></i><i class='core'>物块伤害 <b data-vals='100,110,120,130,140,150' data-fmt='num'>150</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='24.7,24.7,24.7,24.7,24.7,24.7|49.3,49.3,49.3,49.3,49.3,49.3' data-fmt='num'>24.7</b></i><i class='core'>耐久 <b data-vals='1000,1200,1400,1600,1800,2000' data-fmt='num'>2000</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.6,2.6,2.6,2.6,2.6,2.6' data-fmt='num'>2.6</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>经验获取 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i class=''>对木头 <b data-vals='-0.7,-0.7,-0.7,-0.7,-0.7,-0.7' data-fmt='mult'>×0.3</b></i><i class=''>对石头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>钢铲耐久性高，是掘开泥土、沙地或雪地的理想工具。<br><br>可用维修工具修理。<br>可分解为钢制工具零件。</p>
+</article>
+</div></section>
+<section class='cat' id='electric'>
+<div class='cat-head'><span class='bar' style='background:#49b6e8'></span><h2>电动工具</h2><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>电锯、螺旋钻、钉枪：耗油/耗电，但效率碾压手动工具。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolAxeT3Chainsaw' data-cat='electric' data-text='电锯 chainsaw 用这把汽油做燃料的大电锯，锯起树和丧尸来比保罗·班扬更快。
+
+可用维修工具修理。
+可分解为电动工具零件。 伤害 物块伤害 耐久 模组槽 转速（发/分） 射程 物块攻击距离 经验获取 燃料容量 采集倍率 dismemberchance 对泥土 对石头 对金属 武器操控性'>
+<div class='thead'><span class='badge electric'>电动工具</span><span class='tier'>T3</span><h3>电锯<em>Chainsaw</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='电锯 品质'><b class='qnow'>6</b></div>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='电锯 随机浮动'><b class='rnow'>基准</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='6,6.6,7.2,7.8,8.4,9' data-fmt='num'>9</b></i><i class='core'>物块伤害 <b data-vals='25,28.75,32.5,36.25,40,43.75' data-fmt='num'>43.8</b></i><i class='core'>耐久 <b data-vals='2000,2600,3200,3800,4400,5000' data-fmt='num'>5000</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（11）</summary><div class='chips'><i class=''>转速（发/分） <b data-vals='300,300,300,300,300,300' data-fmt='num'>300</b></i><i class=''>射程 <b data-vals='2.35,2.35,2.35,2.35,2.35,2.35' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>经验获取 <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='pct'>-30%</b></i><i class=''>燃料容量 <b data-vals='300,300,300,300,300,300' data-fmt='num'>300</b></i><i class=''>采集倍率 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='x'>×0.2</b></i><i class=''>DismemberChance <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>对泥土 <b data-vals='-0.85,-0.85,-0.85,-0.85,-0.85,-0.85' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.85,-0.85,-0.85,-0.85,-0.85,-0.85' data-fmt='mult'>×0.2</b></i><i class=''>对金属 <b data-vals='-0.85,-0.85,-0.85,-0.85,-0.85,-0.85' data-fmt='mult'>×0.2</b></i><i class=''>武器操控性 <b data-vals='5,5,5,5,5,5' data-fmt='x' data-roll='perc_add,-0.08,0.08'>×5</b></i></div></details>
+<p class='desc'>用这把汽油做燃料的大电锯，锯起树和丧尸来比保罗·班扬更快。<br><br>可用维修工具修理。<br>可分解为电动工具零件。</p>
+</article>
+<article class='tool' id='meleeToolPickT3Auger' data-cat='electric' data-text='螺旋钻 auger 拿着你的螺旋钻钻起来吧，任何矿工看到你施展着这把性感的气动螺旋钻，都会向你投来艳羡的目光。
+
+可用维修工具修理。
+可分解为电动工具零件。 伤害 物块伤害 耐久 模组槽 转速（发/分） 射程 物块攻击距离 经验获取 燃料容量 采集倍率 对木头 武器操控性'>
+<div class='thead'><span class='badge electric'>电动工具</span><span class='tier'>T3</span><h3>螺旋钻<em>Auger</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='螺旋钻 品质'><b class='qnow'>6</b></div>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='螺旋钻 随机浮动'><b class='rnow'>基准</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='4.2,4.62,5.04,5.46,5.88,6.3' data-fmt='num'>6.3</b></i><i class='core'>物块伤害 <b data-vals='22,25.3,28.6,31.9,35.2,38.5' data-fmt='num'>38.5</b></i><i class='core'>耐久 <b data-vals='2000,2600,3200,3800,4400,5000' data-fmt='num'>5000</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>转速（发/分） <b data-vals='300,300,300,300,300,300' data-fmt='num'>300</b></i><i class=''>射程 <b data-vals='2.35,2.35,2.35,2.35,2.35,2.35' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>经验获取 <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='pct'>-30%</b></i><i class=''>燃料容量 <b data-vals='300,300,300,300,300,300' data-fmt='num'>300</b></i><i class=''>采集倍率 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='x'>×0.2</b></i><i class=''>对木头 <b data-vals='-0.8,-0.8,-0.8,-0.8,-0.8,-0.8' data-fmt='mult'>×0.2</b></i><i class=''>武器操控性 <b data-vals='5,5,5,5,5,5' data-fmt='x' data-roll='perc_add,-0.08,0.08'>×5</b></i></div></details>
+<p class='desc'>拿着你的螺旋钻钻起来吧，任何矿工看到你施展着这把性感的气动螺旋钻，都会向你投来艳羡的目光。<br><br>可用维修工具修理。<br>可分解为电动工具零件。</p>
+</article>
+<article class='tool' id='meleeToolRepairT3Nailgun' data-cat='electric' data-text='钉枪 nailgun 钉枪是修理和升级墙壁的最好工具，如果你有钉子的话，拿来当作武器也不赖。
+
+可用维修工具修理。
+可分解为机械零件。 伤害 耐久 模组槽 射程 转速（发/分） 燃料容量 武器操控性'>
+<div class='thead'><span class='badge electric'>电动工具</span><span class='tier'>T3</span><h3>钉枪<em>Nailgun</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='钉枪 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='5,5.5,6,6.5,7,7.5' data-fmt='num'>7.5</b></i><i class='core'>耐久 <b data-vals='1000,1200,1400,1600,1800,2000' data-fmt='num'>2000</b></i><i class='core'>模组槽 <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>射程 <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>转速（发/分） <b data-vals='257,257,257,257,257,257' data-fmt='num'>257</b></i><i class=''>燃料容量 <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>武器操控性 <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='x'>×0.7</b></i></div></details>
+<p class='desc'>钉枪是修理和升级墙壁的最好工具，如果你有钉子的话，拿来当作武器也不赖。<br><br>可用维修工具修理。<br>可分解为机械零件。</p>
+</article>
+</div></section>
+<section class='cat' id='salvage'>
+<div class='cat-head'><span class='bar' style='background:#57b95f'></span><h2>拆解工具</h2><span class='cnt'>3 把</span></div>
+<p class='cat-intro'>扳手、棘轮、冲击起子：拆电器和载具能多回收零件。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolSalvageT1Wrench' data-cat='salvage' data-text='扳手 wrench 非常适合拆卸汽车、空调等机械设备。
+
+可用维修工具修理。
+可分解为铁。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 对木头 对泥土 对石头'>
+<div class='thead'><span class='badge salvage'>拆解工具</span><span class='tier'>T1</span><h3>扳手<em>Wrench</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='扳手 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='16.5,18.15,19.8,21.45,23.1,24.75' data-fmt='num'>24.8</b></i><i class='core'>物块伤害 <b data-vals='39,42.9,46.8,50.7,54.6,58.5' data-fmt='num'>58.5</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='16.5,16.5,16.5,16.5,16.5,16.5|25,25,25,25,25,25' data-fmt='num'>16.5</b></i><i class='core'>耐久 <b data-vals='200,300,400,500,600,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='1,1,1,2,2,3' data-fmt='num'>3</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>采集倍率 <b data-vals='1,1,1,1,1,1' data-fmt='x'>×1</b></i><i class=''>对木头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i><i class=''>对泥土 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i></div></details>
+<p class='desc'>非常适合拆卸汽车、空调等机械设备。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+<article class='tool' id='meleeToolSalvageT2Ratchet' data-cat='salvage' data-text='棘齿 ratchet 非常适合拆卸汽车、空调等机械设备。
+
+可用维修工具修理。
+可分解为钢制工具零件。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 对木头 对泥土 对石头'>
+<div class='thead'><span class='badge salvage'>拆解工具</span><span class='tier'>T2</span><h3>棘齿<em>Ratchet</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='棘齿 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='16.5,18.15,19.8,21.45,23.1,24.75' data-fmt='num'>24.8</b></i><i class='core'>物块伤害 <b data-vals='70,77,84,91,98,105' data-fmt='num'>105</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='18,18,18,18,18,18|30,30,30,30,30,30' data-fmt='num'>18</b></i><i class='core'>耐久 <b data-vals='700,850,1000,1150,1300,1450' data-fmt='num'>1450</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>采集倍率 <b data-vals='1,1,1,1,1,1' data-fmt='x'>×1</b></i><i class=''>对木头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i><i class=''>对泥土 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i></div></details>
+<p class='desc'>非常适合拆卸汽车、空调等机械设备。<br><br>可用维修工具修理。<br>可分解为钢制工具零件。</p>
+</article>
+<article class='tool' id='meleeToolSalvageT3ImpactDriver' data-cat='salvage' data-text='冲击起子 impact driver 非常适合拆卸汽车、空调等机械设备。
+
+可用维修工具修理。
+可分解为电动工具零件。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 采集倍率 对木头 对泥土 对石头'>
+<div class='thead'><span class='badge salvage'>拆解工具</span><span class='tier'>T3</span><h3>冲击起子<em>Impact Driver</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='冲击起子 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='16.5,18.15,19.8,21.45,23.1,24.75' data-fmt='num'>24.8</b></i><i class='core'>物块伤害 <b data-vals='110,121,132,143,154,165' data-fmt='num'>165</b></i><i class='core'>攻速（次/分） <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>体力消耗 <b data-vals='20,20,20,20,20,20|35,35,35,35,35,35' data-fmt='num'>20</b></i><i class='core'>耐久 <b data-vals='1450,1650,1850,2050,2250,2450' data-fmt='num'>2450</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（6）</summary><div class='chips'><i class=''>射程 <b data-vals='2.4,2.4,2.4,2.4,2.4,2.4' data-fmt='num'>2.4</b></i><i class=''>物块攻击距离 <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>采集倍率 <b data-vals='1,1,1,1,1,1' data-fmt='x'>×1</b></i><i class=''>对木头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i><i class=''>对泥土 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i><i class=''>对石头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i></div></details>
+<p class='desc'>非常适合拆卸汽车、空调等机械设备。<br><br>可用维修工具修理。<br>可分解为电动工具零件。</p>
+</article>
+</div></section>
+<section class='cat' id='repair'>
+<div class='cat-head'><span class='bar' style='background:#c58ae0'></span><h2>修理工具</h2><span class='cnt'>1 把</span></div>
+<p class='cat-intro'>石斧、羊角锤：修理建筑方块，也能当武器用。</p>
+<div class='grid'>
+<article class='tool' id='meleeToolRepairT1ClawHammer' data-cat='repair' data-text='羊角锤 claw hammer 羊角锤很适合用于修理和升级基础墙壁，做为武器也不赖。
+
+可用维修工具修理。
+可分解为铁。 伤害 物块伤害 攻速（次/分） 体力消耗 耐久 模组槽 射程 物块攻击距离 对木头 对泥土'>
+<div class='thead'><span class='badge repair'>修理工具</span><span class='tier'>T1</span><h3>羊角锤<em>Claw Hammer</em></h3></div>
+<div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='羊角锤 品质'><b class='qnow'>6</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='12,13.2,14.4,15.6,16.8,18' data-fmt='num'>18</b></i><i class='core'>物块伤害 <b data-vals='22,24.2,26.4,28.6,30.8,33' data-fmt='num'>33</b></i><i class='core'>攻速（次/分） <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>体力消耗 <b data-vals='17.1,17.1,17.1,17.1,17.1,17.1' data-fmt='num'>17.1</b></i><i class='core'>耐久 <b data-vals='300,440,580,720,860,1000' data-fmt='num'>1000</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>射程 <b data-vals='2.2,2.2,2.2,2.2,2.2,2.2' data-fmt='num'>2.2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>对木头 <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='mult'>×0.5</b></i><i class=''>对泥土 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='mult'>×0.2</b></i></div></details>
+<p class='desc'>羊角锤很适合用于修理和升级基础墙壁，做为武器也不赖。<br><br>可用维修工具修理。<br>可分解为铁。</p>
+</article>
+</div></section>
+<footer>数据来源：本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>。<br>游戏更新后重新运行 <code>parse_tools.py</code> 与 <code>render_tools_sheet.py</code> 即可刷新。</footer>
+</div><script>
+(function(){
+  function trim(x){
+    var r = Math.round(x * 10) / 10;
+    if (Math.abs(r - Math.round(r)) < 0.0001) return String(Math.round(r));
+    return String(r);
+  }
+  var FMT = {
+    num: function(v){ return trim(v); },
+    pct: function(v){ var x = Math.round(v * 1000) / 10; return (x > 0 ? '+' : '') + trim(x) + '%'; },
+    raw: function(v){ return (v > 0 ? '+' : '') + trim(v); },
+    mult: function(v){ return '×' + trim(1 + v); },
+    x: function(v){ return '×' + (Math.round(v * 100) / 100); }
+  };
+  function renderChip(el, q, t){
+    var groups = el.getAttribute('data-vals').split('|');
+    var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+    var roll = el.getAttribute('data-roll');
+    var off = 0, rop = '';
+    if (roll){
+      var rp = roll.split(',');
+      rop = rp[0];
+      var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+      off = lo + (hi - lo) * t;
+    }
+    var parts = [];
+    for (var i = 0; i < groups.length; i++){
+      var v = parseFloat(groups[i].split(',')[q - 1]);
+      if (roll) v = (rop === 'perc_add') ? v * (1 + off) : v + off;
+      parts.push(f(v));
+    }
+    el.textContent = parts.join(' / ');
+  }
+  function applyTo(root, q, t){
+    var nodes = root.querySelectorAll('[data-vals]');
+    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
+  }
+  var cards = [].slice.call(document.querySelectorAll('.tool'));
+  cards.forEach(function(card){
+    var s = card.querySelector('.qslider');
+    var rs = card.querySelector('.rslider');
+    var qnow = card.querySelector('.setq .qnow');
+    var rnow = card.querySelector('.rnow');
+    if (!s) return;
+    function sync(){
+      var q = parseInt(s.value, 10);
+      var t = rs ? parseInt(rs.value, 10) / 100 : 0.5;
+      if (qnow) qnow.textContent = q;
+      if (rnow && rs){
+        var roll = card.querySelector('[data-roll]');
+        var v = 0;
+        if (roll){
+          var rp = roll.getAttribute('data-roll').split(',');
+          var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+          v = lo + (hi - lo) * t;
+        }
+        rnow.textContent = Math.abs(t - 0.5) < 0.001 ? '基准'
+          : (v > 0 ? '+' : '') + (Math.round(v * 1000) / 10) + '%';
+      }
+      applyTo(card, q, t);
+    }
+    s.addEventListener('input', sync); s.addEventListener('change', sync);
+    if (rs){ rs.addEventListener('input', sync); rs.addEventListener('change', sync); }
+    sync();
+  });
+  var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
+  var secs = [].slice.call(document.querySelectorAll('section.cat'));
+  var q = document.getElementById('q');
+  var cat = 'all';
+  function filter(){
+    var v = (q.value || '').trim().toLowerCase();
+    cards.forEach(function(c){
+      var okCat = (cat === 'all' || c.dataset.cat === cat);
+      var okTxt = !v || c.dataset.text.indexOf(v) !== -1;
+      c.classList.toggle('hide', !(okCat && okTxt));
+    });
+    secs.forEach(function(s){
+      s.classList.toggle('hide', s.querySelectorAll('.tool:not(.hide)').length === 0);
+    });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    cat = b.dataset.cat;
+    btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+    filter();
+  }); });
+  q.addEventListener('input', filter);
+  document.addEventListener('keydown', function(e){
+    if (e.key === '/' && document.activeElement !== q){ e.preventDefault(); q.focus(); }
+    if (e.key === 'Escape' && document.activeElement === q){ q.value = ''; filter(); q.blur(); }
+  });
+})();
+</script><script src='search-index.js'></script><script src='search.js' defer></script>
+</body></html>

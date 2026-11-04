@@ -214,6 +214,7 @@ def main():
 
         dmg_eff, blk_eff, others = [], [], []
         rolls = {}
+        handling_base = None
         for eg in it.findall("effect_group"):
             if eg.findall("requirement"):      # conditional group -> skip
                 continue
@@ -235,6 +236,9 @@ def main():
                     continue
                 e = {"op": op, "vals": vals, "tags": ptags,
                      "secondary": "secondary" in ptags}
+                if pe_name == "WeaponHandling" and op == "base_set":
+                    handling_base = float(vals[0])
+                    continue
                 if pe_name == "EntityDamage":
                     dmg_eff.append(e)
                 elif pe_name == "BlockDamage":
@@ -273,6 +277,17 @@ def main():
                           "note": ("按 %s 计算" % t(default_ammo)) if default_ammo else ""})
         if block:
             chips.append({"k": "物块伤害", "fmt": "num", "variants": [block], "stat": "BlockDamage"})
+
+        if not melee and blk_eff:
+            mult = [1.0] * 6
+            for e in blk_eff:
+                if e["op"] == "perc_add":
+                    mult = [a + b for a, b in zip(mult, e["vals"])]
+            chips.append({"k": "物块伤害", "fmt": "x", "variants": [mult], "stat": "BlockDamage"})
+
+        if handling_base is not None:
+            chips.append({"k": "武器操控性", "fmt": "x",
+                          "variants": [[handling_base] * 6], "stat": "WeaponHandling"})
 
         mag_eff = [e for nm, e in others if nm == "MagazineSize"]
         if mag_eff:
