@@ -184,6 +184,15 @@ def main():
             tier = pe.get("tier", "")
             ptags = pe.get("tags", "") or ""
             q6 = tier_values(val, tier)
+            if not tier and "," in val:
+                try:
+                    lo, hi = [float(x) for x in val.split(",")[:2]]
+                except ValueError:
+                    continue
+                if pname in UNIVERSAL and pname in ("PhysicalDamageResist", "ElementalDamageResist"):
+                    universal.setdefault(pname, []).append(
+                        {"op": op, "roll": True, "lo": lo, "hi": hi, "vals": [0] * 6, "tags": ptags})
+                continue
             if pname in UNIVERSAL:
                 universal.setdefault(pname, []).append({"op": op, "vals": q6, "tags": ptags})
             elif pname in {"Mobility", "StaminaChangeOT", "NoiseMultiplier"}:
@@ -219,6 +228,13 @@ def main():
             for e in p0["universal"].get(key, []):
                 return e["vals"]
             return [0] * 6
+
+        rolls = {}
+        for key in ("PhysicalDamageResist", "ElementalDamageResist"):
+            for e in p0["universal"].get(key, []):
+                if e.get("roll"):
+                    rolls[key] = {"op": e["op"], "lo": e["lo"], "hi": e["hi"]}
+        s["rolls"] = rolls
 
         s["stats"] = {
             "armor": stat("PhysicalDamageResist"),

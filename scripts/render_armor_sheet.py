@@ -104,6 +104,15 @@ section.cls{margin:0 0 46px;scroll-margin-top:76px}
 .setq input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
   background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
 .setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
+.rrow{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.rrow .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.rrow input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a2f24,#332b24,#4a2f24);outline:0}
+.rrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;
+  border-radius:50%;background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow .rnow{font-size:12px;color:#8fa3ad;font-weight:700;min-width:44px}
 .strip{display:flex;flex-wrap:wrap;gap:6px 14px;padding:0 15px 10px;font-size:12px;color:var(--dim)}
 .strip b{color:#e2d5c3;font-weight:600}
 .penline{padding:0 15px 10px;font-size:11.5px;color:#c08a5a}
@@ -173,15 +182,29 @@ JS = r"""
     const: function(){ return '消除'; }
   };
 
-  function applyTo(root, q){
+  function applyTo(root, q, t){
     q = Math.max(1, Math.min(6, q));
+    t = (t === undefined) ? 0.5 : t;
     var nodes = root.querySelectorAll('[data-vals]');
     for (var i = 0; i < nodes.length; i++){
       var el = nodes[i];
-      var vals = el.getAttribute('data-vals').split(',');
-      var v = parseFloat(vals[q - 1]);
+      var groups = el.getAttribute('data-vals').split('|');
       var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
-      el.textContent = f(v);
+      var roll = el.getAttribute('data-roll');
+      var off = 0, rop = '';
+      if (roll){
+        var rp = roll.split(',');
+        rop = rp[0];
+        var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+        off = lo + (hi - lo) * t;
+      }
+      var parts = [];
+      for (var g = 0; g < groups.length; g++){
+        var v = parseFloat(groups[g].split(',')[q - 1]);
+        if (roll) v = (rop === 'perc_add') ? v * (1 + off) : v + off;
+        parts.push(f(v));
+      }
+      el.textContent = parts.join(' / ');
     }
     var spans = root.querySelectorAll('.qv');
     for (var j = 0; j < spans.length; j++){
@@ -193,15 +216,30 @@ JS = r"""
   var cards = [].slice.call(document.querySelectorAll('.set'));
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
+    var rslider = card.querySelector('.rslider');
     var qnow = card.querySelector('.setq .qnow');
+    var rnow = card.querySelector('.rnow');
     if (!slider) return;
     function sync(){
       var q = parseInt(slider.value, 10);
+      var t = rslider ? parseInt(rslider.value, 10) / 100 : 0.5;
       if (qnow) qnow.textContent = q;
-      applyTo(card, q);
+      if (rnow && rslider){
+        var roll = card.querySelector('[data-roll]');
+        var v = 0;
+        if (roll){
+          var rp = roll.getAttribute('data-roll').split(',');
+          var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+          v = lo + (hi - lo) * t;
+        }
+        rnow.textContent = Math.abs(t - 0.5) < 0.001 ? '基准'
+          : (v > 0 ? '+' : '') + (Math.round(v * 100) / 100).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+      }
+      applyTo(card, q, t);
     }
     slider.addEventListener('input', sync);
     slider.addEventListener('change', sync);
+    if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
     card.querySelector('.setq').addEventListener('mousedown', function(ev){ ev.stopPropagation(); });
     sync();
   });
@@ -416,17 +454,29 @@ def build():
               "<input class='qslider' type='range' min='1' max='6' step='1' value='6' "
               "aria-label='%s 品质'>"
               "<b class='qnow'>6</b></div>" % e(s["name"]))
+            if s.get("rolls"):
+                w("<div class='rrow'><span class='qlbl'>随机浮动</span>"
+                  "<input class='rslider' type='range' min='0' max='100' step='10' value='50' "
+                  "aria-label='%s 随机浮动'><b class='rnow'>基准</b></div>" % e(s["name"]))
 
             st = s["stats"]
             tags = "热/电" if "heat" in (st.get("element_tags") or "") else "元素"
+            def roll_attr(key):
+                r = s.get("rolls", {}).get(key)
+                if not r:
+                    return ""
+                return " data-roll='%s,%s,%s'" % (r["op"], r["lo"], r["hi"])
+
             w("<div class='strip'>"
-              "<span>护甲 <b data-vals='%s' data-fmt='num'>%s</b></span>"
-              "<span>元素抗 <b data-vals='%s' data-fmt='num'>%s</b> "
+              "<span>护甲 <b data-vals='%s' data-fmt='num'%s>%s</b></span>"
+              "<span>元素抗 <b data-vals='%s' data-fmt='num'%s>%s</b> "
               "<span style='font-size:10.5px'>(%s)</span></span>"
               "<span>耐久 <b data-vals='%s' data-fmt='num'>%s</b></span>"
               "<span>槽位 <b data-vals='%s' data-fmt='num'>%s</b></span></div>"
-              % (vals_attr(st["armor"]), e(fmt_val(st["armor"], "num", q)),
-                 vals_attr(st["element"]), e(fmt_val(st["element"], "num", q)), tags,
+              % (vals_attr(st["armor"]), roll_attr("PhysicalDamageResist"),
+                 e(fmt_val(st["armor"], "num", q)),
+                 vals_attr(st["element"]), roll_attr("ElementalDamageResist"),
+                 e(fmt_val(st["element"], "num", q)), tags,
                  vals_attr(st["durability"]), e(fmt_val(st["durability"], "num", q)),
                  vals_attr(st["modslots"]), e(fmt_val(st["modslots"], "num", q))))
 

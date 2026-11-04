@@ -88,6 +88,16 @@ section.cat{margin:0 0 42px;scroll-margin-top:84px}
   background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
 .setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
 .fixed{padding:0 15px 9px;font-size:11px;color:#6f665c}
+.rrow{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.rrow .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.rrow input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a2f24,#332b24,#4a2f24);outline:0}
+.rrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;
+  border-radius:50%;background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow .rnow{font-size:12px;color:#8fa3ad;font-weight:700;min-width:44px}
+.rollnote{padding:0 15px 9px;font-size:10.5px;color:#7d7367}
 .chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 8px}
 .chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
   border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
@@ -133,33 +143,57 @@ JS = r"""
     mulset: function(v){ return '×' + trim(v); },
     pctabs: function(v){ return '= ' + trim(v) + '%'; }
   };
-  function renderChip(el, q){
+  function renderChip(el, q, t){
     var groups = el.getAttribute('data-vals').split('|');
     var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+    var roll = el.getAttribute('data-roll');
+    var off = 0, rop = '';
+    if (roll){
+      var rp = roll.split(',');
+      rop = rp[0];
+      var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+      off = lo + (hi - lo) * t;
+    }
     var parts = [];
     for (var i = 0; i < groups.length; i++){
       var arr = groups[i].split(',');
-      parts.push(f(parseFloat(arr[q - 1])));
+      var v = parseFloat(arr[q - 1]);
+      if (roll) v = (rop === 'perc_add') ? v * (1 + off) : v + off;
+      parts.push(f(v));
     }
     el.textContent = parts.join(' / ');
   }
-  function applyTo(root, q){
+  function applyTo(root, q, t){
     q = Math.max(1, Math.min(6, q));
     var nodes = root.querySelectorAll('[data-vals]');
-    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q);
+    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
   }
   var cards = [].slice.call(document.querySelectorAll('.wpn'));
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
-    if (!slider) return;
+    var rslider = card.querySelector('.rslider');
+    if (!slider && !rslider) return;
     var qnow = card.querySelector('.setq .qnow');
+    var rnow = card.querySelector('.rnow');
     function sync(){
-      var q = parseInt(slider.value, 10);
+      var q = slider ? parseInt(slider.value, 10) : 6;
+      var t = rslider ? parseInt(rslider.value, 10) / 100 : 0.5;
       if (qnow) qnow.textContent = q;
-      applyTo(card, q);
+      if (rnow && rslider){
+        var roll = card.querySelector('[data-roll]');
+        var v = 0;
+        if (roll){
+          var rp = roll.getAttribute('data-roll').split(',');
+          var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+          v = lo + (hi - lo) * t;
+        }
+        rnow.textContent = Math.abs(t - 0.5) < 0.001 ? '基准'
+          : (v > 0 ? '+' : '') + (Math.round(v * 1000) / 10) + '%';
+      }
+      applyTo(card, q, t);
     }
-    slider.addEventListener('input', sync);
-    slider.addEventListener('change', sync);
+    if (slider){ slider.addEventListener('input', sync); slider.addEventListener('change', sync); }
+    if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
     sync();
   });
 
@@ -238,9 +272,13 @@ def fmt_chip(chip, q=6):
 
 
 def chip_html(chip, core, q=6):
-    return ("<i class='%s'>%s <b data-vals='%s' data-fmt='%s'>%s</b></i>"
+    roll = ""
+    if chip.get("roll"):
+        r = chip["roll"]
+        roll = " data-roll='%s,%s,%s'" % (r["op"], r["lo"], r["hi"])
+    return ("<i class='%s'>%s <b data-vals='%s' data-fmt='%s'%s>%s</b></i>"
             % ("core" if core else "", e(chip["k"]), e(spec_of(chip["variants"])),
-               e(chip["fmt"]), e(fmt_chip(chip, q))))
+               e(chip["fmt"]), roll, e(fmt_chip(chip, q))))
 
 
 def build():
@@ -330,6 +368,17 @@ def build():
                 w("<div class='fixed'>数值固定，无品质差异</div>")
             else:
                 w("<div class='fixed'>爆炸伤害由爆炸计算，无面板数值</div>")
+
+            if wp.get("has_roll"):
+                w("<div class='rrow'><span class='qlbl'>随机浮动</span>"
+                  "<input class='rslider' type='range' min='0' max='100' step='5' value='50' "
+                  "aria-label='%s 随机浮动'><b class='rnow'>基准</b></div>" % e(wp["name"]))
+            elif wp.get("rolls"):
+                bits = []
+                for r in wp["rolls"]:
+                    span = abs(r["hi"] - r["lo"]) / 2
+                    bits.append("%s ±%g%%" % (r["k"], round(span * 100, 1)))
+                w("<div class='rollnote'>随机浮动：%s（每件独立随机）</div>" % e(" · ".join(bits)))
 
             core = [ch for ch in wp["chips"] if ch["primary"]]
             other = [ch for ch in wp["chips"] if not ch["primary"]]

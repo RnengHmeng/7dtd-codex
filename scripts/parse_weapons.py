@@ -213,6 +213,7 @@ def main():
         ammo_dmg, ammo_blk, pellets = ammo_base(default_ammo) if default_ammo else (None, None, 1)
 
         dmg_eff, blk_eff, others = [], [], []
+        rolls = {}
         for eg in it.findall("effect_group"):
             if eg.findall("requirement"):      # conditional group -> skip
                 continue
@@ -222,7 +223,12 @@ def main():
                 val = pe.get("value", "")
                 tier = pe.get("tier", "")
                 ptags = pe.get("tags", "") or ""
-                if not tier and "," in val:     # random roll, not quality-based
+                if not tier and "," in val:     # random roll on the crafted item
+                    try:
+                        lo, hi = [float(x) for x in val.split(",")[:2]]
+                    except ValueError:
+                        continue
+                    rolls.setdefault(pe_name, {"op": op, "lo": lo, "hi": hi})
                     continue
                 vals = tier_values(val, tier)
                 if vals is None:
@@ -262,14 +268,15 @@ def main():
 
         chips = []
         if damage:
-            chips.append({"k": ("伤害/弹丸" if pellets > 1 else "伤害"), "fmt": "num", "variants": [damage],
+            chips.append({"k": ("伤害/弹丸" if pellets > 1 else "伤害"), "fmt": "num",
+                          "variants": [damage], "stat": "EntityDamage",
                           "note": ("按 %s 计算" % t(default_ammo)) if default_ammo else ""})
         if block:
-            chips.append({"k": "物块伤害", "fmt": "num", "variants": [block]})
+            chips.append({"k": "物块伤害", "fmt": "num", "variants": [block], "stat": "BlockDamage"})
 
         mag_eff = [e for nm, e in others if nm == "MagazineSize"]
         if mag_eff:
-            chips.append({"k": "弹匣", "fmt": "num", "variants": [combine(mag_eff, 0)]})
+            chips.append({"k": "弹匣", "fmt": "num", "variants": [combine(mag_eff, 0)], "stat": "MagazineSize"})
 
         grouped = {}
         order = []
@@ -299,7 +306,12 @@ def main():
                     mat = {"wood": "木头", "stone": "石头", "metal": "金属",
                            "iron": "铁", "dirt": "泥土"}.get(tag, tag)
                     label, fmt = "伤害（%s）" % mat, "pct"
-            chips.append({"k": label, "fmt": fmt, "variants": vals})
+            chips.append({"k": label, "fmt": fmt, "variants": vals, "stat": eff_name})
+
+        for c in chips:
+            r = rolls.get(c.get("stat") or "")
+            if r:
+                c["roll"] = r
 
         # sort: primary first in canonical order, then the rest
         cat = cat_of(name)
@@ -335,6 +347,10 @@ def main():
             "chips": chips,
             "damage": damage,
             "tiered": any(len(set(v)) > 1 for c in chips for v in c["variants"]),
+            "has_roll": any("roll" in c for c in chips),
+            "rolls": [{"k": (MANUAL_LABEL.get(nm) or nm),
+                       "lo": r["lo"], "hi": r["hi"], "op": r["op"]}
+                      for nm, r in rolls.items()],
         })
 
     order = {c[0]: i for i, c in enumerate(CATS)}

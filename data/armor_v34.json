@@ -203,13 +203,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -229,13 +232,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -349,13 +355,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -375,13 +384,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -495,13 +507,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -521,13 +536,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -654,13 +672,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -680,13 +701,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -736,6 +760,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -858,13 +894,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -884,13 +923,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -991,13 +1033,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        },
@@ -1029,13 +1074,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1149,13 +1197,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1175,13 +1226,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1282,13 +1336,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1308,13 +1365,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1364,6 +1424,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -1498,13 +1570,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1524,13 +1599,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1693,13 +1771,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1719,13 +1800,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1851,13 +1935,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1877,13 +1964,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -1984,13 +2074,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2010,13 +2103,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2066,6 +2162,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -2161,13 +2269,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2187,13 +2298,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2280,13 +2394,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2306,13 +2423,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2399,13 +2519,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2425,13 +2548,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2518,13 +2644,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2544,13 +2673,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2586,6 +2718,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -2720,13 +2864,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2746,13 +2893,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2866,13 +3016,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -2892,13 +3045,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3012,13 +3168,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3038,13 +3197,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3158,13 +3320,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3184,13 +3349,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3240,6 +3408,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -3362,13 +3542,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3388,13 +3571,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3508,13 +3694,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3534,13 +3723,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3654,13 +3846,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3680,13 +3875,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3800,13 +3998,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3826,13 +4027,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -3882,6 +4086,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      8.0,
@@ -4049,13 +4265,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -4075,29 +4294,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -4240,13 +4448,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -4266,29 +4477,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -4431,13 +4631,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -4457,29 +4660,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -4622,13 +4814,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -4648,29 +4843,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -4704,6 +4888,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -4917,13 +5113,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -4943,29 +5142,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -5145,13 +5333,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -5171,29 +5362,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -5337,13 +5517,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -5363,29 +5546,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -5541,13 +5713,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -5567,29 +5742,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -5623,6 +5787,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -5836,13 +6012,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -5862,29 +6041,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -6027,13 +6195,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -6053,29 +6224,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -6218,13 +6378,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -6244,29 +6407,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -6409,13 +6561,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -6435,29 +6590,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -6491,6 +6635,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -6703,13 +6859,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -6729,29 +6888,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -6894,13 +7042,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -6920,29 +7071,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -7085,13 +7225,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -7111,29 +7254,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -7276,13 +7408,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -7302,29 +7437,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -7358,6 +7482,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -7557,13 +7693,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -7583,41 +7722,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
-       },
-       {
-        "op": "base_add",
-        "vals": [
-         0.02,
-         0.04,
-         0.061,
-         0.08,
-         0.1,
-         0.2
-        ],
-        "tags": "buffInjuryStunned01"
        }
       ],
       "DegradationMax": [
@@ -7646,6 +7762,20 @@
          1.0
         ],
         "tags": "mediumArmorDeg"
+       }
+      ],
+      "BuffResistance": [
+       {
+        "op": "base_add",
+        "vals": [
+         0.02,
+         0.04,
+         0.061,
+         0.08,
+         0.1,
+         0.2
+        ],
+        "tags": "buffInjuryStunned01"
        }
       ]
      }
@@ -7760,13 +7890,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -7786,29 +7919,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -7951,13 +8073,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -7977,29 +8102,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -8142,13 +8256,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -8168,29 +8285,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -8224,6 +8330,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -8423,13 +8541,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -8449,41 +8570,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
-       },
-       {
-        "op": "base_add",
-        "vals": [
-         0.02,
-         0.04,
-         0.061,
-         0.08,
-         0.1,
-         0.2
-        ],
-        "tags": "buffInjuryStunned01"
        }
       ],
       "DegradationMax": [
@@ -8512,6 +8610,20 @@
          1.0
         ],
         "tags": "mediumArmorDeg"
+       }
+      ],
+      "BuffResistance": [
+       {
+        "op": "base_add",
+        "vals": [
+         0.02,
+         0.04,
+         0.061,
+         0.08,
+         0.1,
+         0.2
+        ],
+        "tags": "buffInjuryStunned01"
        }
       ]
      }
@@ -8613,13 +8725,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -8639,29 +8754,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -8804,13 +8908,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -8830,29 +8937,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -8995,13 +9091,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -9021,29 +9120,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043,
-         0.043
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -9077,6 +9165,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      13.0,
@@ -9289,13 +9389,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -9315,29 +9418,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -9467,13 +9559,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -9493,29 +9588,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -9658,13 +9742,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -9684,29 +9771,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -9836,13 +9912,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -9862,29 +9941,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -9918,6 +9986,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      18.0,
@@ -10142,13 +10222,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -10168,29 +10251,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -10333,13 +10405,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -10359,29 +10434,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -10524,13 +10588,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -10550,29 +10617,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -10715,13 +10771,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -10741,29 +10800,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -10797,6 +10845,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      18.0,
@@ -11009,13 +11069,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -11035,29 +11098,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -11200,13 +11252,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -11226,29 +11281,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -11391,13 +11435,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -11417,29 +11464,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -11569,13 +11605,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -11595,29 +11634,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -11651,6 +11679,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      18.0,
@@ -11850,13 +11890,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -11876,41 +11919,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
-       },
-       {
-        "op": "base_add",
-        "vals": [
-         0.1,
-         0.2,
-         0.3,
-         0.4,
-         0.5,
-         1.0
-        ],
-        "tags": "buffInjuryStunned01"
        }
       ],
       "DegradationMax": [
@@ -11939,6 +11959,20 @@
          1.0
         ],
         "tags": "heavyArmorDeg"
+       }
+      ],
+      "BuffResistance": [
+       {
+        "op": "base_add",
+        "vals": [
+         0.1,
+         0.2,
+         0.3,
+         0.4,
+         0.5,
+         1.0
+        ],
+        "tags": "buffInjuryStunned01"
        }
       ]
      }
@@ -12040,13 +12074,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -12066,29 +12103,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -12231,13 +12257,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -12257,29 +12286,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -12409,13 +12427,16 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
        }
@@ -12435,29 +12456,18 @@
        },
        {
         "op": "base_add",
+        "roll": true,
+        "lo": -0.2,
+        "hi": 0.2,
         "vals": [
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2,
-         -0.2
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
         ],
         "tags": ""
-       }
-      ],
-      "BuffResistance": [
-       {
-        "op": "base_add",
-        "vals": [
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061,
-         0.061
-        ],
-        "tags": "buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"
        }
       ],
       "DegradationMax": [
@@ -12491,6 +12501,18 @@
      }
     }
    ],
+   "rolls": {
+    "PhysicalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    },
+    "ElementalDamageResist": {
+     "op": "base_add",
+     "lo": -0.2,
+     "hi": 0.2
+    }
+   },
    "stats": {
     "armor": [
      18.0,
@@ -12668,13 +12690,16 @@
      },
      {
       "op": "base_add",
+      "roll": true,
+      "lo": -0.2,
+      "hi": 0.2,
       "vals": [
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
       ],
       "tags": ""
      }
@@ -12694,13 +12719,16 @@
      },
      {
       "op": "base_add",
+      "roll": true,
+      "lo": -0.2,
+      "hi": 0.2,
       "vals": [
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2,
-       -0.2
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
       ],
       "tags": ""
      }

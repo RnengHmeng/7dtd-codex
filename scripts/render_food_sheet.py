@@ -26,7 +26,7 @@ h1 .ver{font-size:14px;color:var(--accent);border:1px solid var(--accent2);
   border-radius:4px;padding:2px 7px;margin-left:10px;vertical-align:middle}
 .sub{color:var(--dim);font-size:13px}
 .sub code{background:#251f1a;padding:1px 5px;border-radius:3px;color:#d8c9b6}
-nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
+nav.jump{position:relative;z-index:20;background:rgba(16,14,12,.97);
   border-bottom:1px solid var(--line);padding:10px 0;margin:26px 0}
 .navrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .navrow .spacer{flex:1}
@@ -39,10 +39,11 @@ nav.jump{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.97);
   border:1px solid var(--line);border-radius:20px;padding:4px 12px}
 .search input{background:transparent;border:0;outline:0;color:var(--text);
   font-size:13px;width:190px;font-family:inherit}
-table.food{width:100%;border-collapse:collapse;font-size:13.5px;
-  background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-table.food th{position:sticky;top:64px;background:#211c18;color:#cdbfa9;font-size:12px;
-  font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);z-index:5}
+table.food{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;
+  background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table.food th{position:sticky;top:0;background:#211c18;color:#cdbfa9;font-size:12px;
+  font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);z-index:6;
+  box-shadow:0 1px 0 #332b24}
 table.food td{padding:8px 12px;border-bottom:1px solid #241f1b;color:#c9bdad}
 table.food tr:last-child td{border-bottom:0}
 table.food tr:hover td{background:#1f1a16}
@@ -61,7 +62,6 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   .search input{width:110px}
   table.food{font-size:12px}
   table.food th,table.food td{padding:6px 7px}
-  table.food th{top:56px}
   table.food td.num{width:52px}
 }
 @media print{body{background:#fff;color:#000}nav.jump{display:none}

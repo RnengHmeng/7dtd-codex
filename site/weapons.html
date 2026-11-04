@@ -78,6 +78,16 @@ section.cat{margin:0 0 42px;scroll-margin-top:84px}
   background:#f3eadc;border:3px solid var(--accent);cursor:pointer}
 .setq .qnow{font-size:12.5px;color:var(--accent);font-weight:700;min-width:12px}
 .fixed{padding:0 15px 9px;font-size:11px;color:#6f665c}
+.rrow{display:flex;align-items:center;gap:9px;padding:0 15px 9px}
+.rrow .qlbl{font-size:11px;color:#8b8175;letter-spacing:.5px;white-space:nowrap}
+.rrow input[type=range]{-webkit-appearance:none;appearance:none;width:150px;height:5px;
+  border-radius:3px;background:linear-gradient(90deg,#4a2f24,#332b24,#4a2f24);outline:0}
+.rrow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;
+  border-radius:50%;background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;
+  background:#f3eadc;border:2px solid #8fa3ad;cursor:pointer}
+.rrow .rnow{font-size:12px;color:#8fa3ad;font-weight:700;min-width:44px}
+.rollnote{padding:0 15px 9px;font-size:10.5px;color:#7d7367}
 .chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 15px 8px}
 .chips i{font-style:normal;font-size:11px;color:#d9b477;background:#2a2118;
   border:1px solid #4a3a24;border-radius:4px;padding:1px 6px;white-space:nowrap}
@@ -118,7 +128,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html' class='cur'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'>
 <h1>七日杀 · 武器速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 16:02 ｜ 51 把武器 · 13 个分类（已排除零件/开发物品）</div>
+<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 16:18 ｜ 51 把武器 · 13 个分类（已排除零件/开发物品）</div>
 <div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每把武器卡片有自己的 1–6 品质滑杆，拖动即可切换该卡显示的数值。<br><span style='color:#e8a33d'>更多数值：</span>核心数值直接显示，散布、后坐力、穿透等折叠在「更多数值」里。<br><span style='color:#e8a33d'>配套页面：</span><a href='perks.html'>天赋速查表</a> · <a href='armor.html'>装甲速查表</a> · <a href='mods.html'>模组速查表</a></div>
 </header>
 <div class='rules'>
@@ -166,6 +176,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T1</span><h3>手枪<em>Pistol</em></h3></div>
 <div class='ammo'><b>弹药</b> 9毫米弹药 · 9毫米空心弹 · 9毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='手枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='37,38.85,40.7,42.55,44.4,46.25' data-fmt='num'>46.3</b></i><i class='core'>射速（发/分） <b data-vals='180,180,180,180,180,180' data-fmt='num'>180</b></i><i class='core'>弹匣 <b data-vals='15,15,15,15,15,15' data-fmt='num'>15</b></i><i class='core'>射程 <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>耐久 <b data-vals='300,320,340,360,380,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='17,17,17,17,17,17' data-fmt='num'>17</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>散布（水平） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.7,0.7,0.7,0.7,0.7,0.7' data-fmt='num'>0.7</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.8,0.8,0.8,0.8,0.8,0.8' data-fmt='num'>0.8</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.25,-0.25,-0.25,-0.25,-0.25,-0.25' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.25,0.25,0.25,0.25,0.25,0.25' data-fmt='num'>0.3</b></i></div></details>
 <p class='desc'>一把基础手枪，使用9毫米弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
@@ -177,6 +188,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T2</span><h3>.44马格南<em>.44 Magnum</em></h3></div>
 <div class='ammo'><b>弹药</b> .44马格南弹药 · .44马格南空心弹 · .44马格南穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='.44马格南 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='65,68.25,71.5,74.75,78,81.25' data-fmt='num'>81.3</b></i><i class='core'>射速（发/分） <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>弹匣 <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class='core'>射程 <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>耐久 <b data-vals='400,420,440,460,480,500' data-fmt='num'>500</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='27,27,27,27,27,27' data-fmt='num'>27</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>散布（水平） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>后坐力（垂直·小） <b data-vals='4.5,4.5,4.5,4.5,4.5,4.5' data-fmt='num'>4.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='num'>0.2</b></i></div></details>
 <p class='desc'>.44马格南是手枪之王。火力十分强劲，但噪音也特别大。拿起这把好家伙，让克林特骄傲吧。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
@@ -188,6 +200,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T3</span><h3>.44 口径沙漠秃鹰<em>.44 Desert Vulture</em></h3></div>
 <div class='ammo'><b>弹药</b> .44马格南弹药 · .44马格南空心弹 · .44马格南穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='.44 口径沙漠秃鹰 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='90,94.5,99,103.5,108,112.5' data-fmt='num'>112.5</b></i><i class='core'>射速（发/分） <b data-vals='130,130,130,130,130,130' data-fmt='num'>130</b></i><i class='core'>弹匣 <b data-vals='8.8,8.8,8.8,8.8,8.8,8.8' data-fmt='num'>8.8</b></i><i class='core'>射程 <b data-vals='50,50,50,50,50,50' data-fmt='num'>50</b></i><i class='core'>耐久 <b data-vals='500,540,580,620,660,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>散布（水平） <b data-vals='1.3,1.3,1.3,1.3,1.3,1.3' data-fmt='num'>1.3</b></i><i class=''>后坐力（垂直·小） <b data-vals='3.5,3.5,3.5,3.5,3.5,3.5' data-fmt='num'>3.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='num'>0.2</b></i></div></details>
 <p class='desc'>这把重型手枪使用.44 口径的弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
@@ -199,6 +212,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge handgun'>手枪与冲锋枪</span><span class='tier'>T3</span><h3>SMG-5<em>SMG-5</em></h3></div>
 <div class='ammo'><b>弹药</b> 9毫米弹药 · 9毫米空心弹 · 9毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='SMG-5 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='50,52.5,55,57.5,60,62.5' data-fmt='num'>62.5</b></i><i class='core'>射速（发/分） <b data-vals='480,480,480,480,480,480' data-fmt='num'>480</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='65,65,65,65,65,65' data-fmt='num'>65</b></i><i class='core'>耐久 <b data-vals='500,540,580,620,660,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>散布（垂直） <b data-vals='1.35,1.35,1.35,1.35,1.35,1.35' data-fmt='num'>1.4</b></i><i class=''>散布（水平） <b data-vals='1.35,1.35,1.35,1.35,1.35,1.35' data-fmt='num'>1.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.3,-0.3,-0.3,-0.3,-0.3,-0.3' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='num'>0.3</b></i></div></details>
 <p class='desc'>这把冲锋枪使用9毫米弹药。<br><br>可使用维修工具修理。<br>可分解为手枪零件。</p>
@@ -227,6 +241,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T1</span><h3>双管霰弹枪<em>Double Barrel Shotgun</em></h3></div>
 <div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='双管霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害/弹丸 <b data-vals='11.1,11.65,12.21,12.76,13.32,13.88' data-fmt='num'>13.9</b></i><i class='core'>射速（发/分） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>弹匣 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
 <p class='desc'>锈迹斑斑的旧式双管霰弹枪，非常适合短距离屠杀。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
@@ -238,6 +253,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T2</span><h3>泵动式霰弹枪<em>Pump Shotgun</em></h3></div>
 <div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='泵动式霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害/弹丸 <b data-vals='15.1,15.86,16.61,17.36,18.12,18.88' data-fmt='num'>18.9</b></i><i class='core'>射速（发/分） <b data-vals='60,60,60,60,60,60' data-fmt='num'>60</b></i><i class='core'>弹匣 <b data-vals='8,8,8,8,8,8' data-fmt='num'>8</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
 <p class='desc'>长管霰弹枪，使用泵装填子弹。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
@@ -249,6 +265,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge shotgun'>霰弹枪</span><span class='tier'>T3</span><h3>自动霰弹枪<em>Auto Shotgun</em></h3></div>
 <div class='ammo'><b>弹药</b> 霰弹（弹药） · 霰弹枪穿甲弹（弹药） · 霰弹枪拆门弹（弹药） ｜ 每发 10 颗弹丸</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='自动霰弹枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8.5%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害/弹丸 <b data-vals='20.1,21.11,22.11,23.11,24.12,25.12' data-fmt='num'>25.1</b></i><i class='core'>射速（发/分） <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class='core'>弹匣 <b data-vals='16,16,16,16,16,16' data-fmt='num'>16</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（4）</summary><div class='chips'><i class=''>后坐力（垂直·小） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（垂直·大） <b data-vals='4.2,4.2,4.2,4.2,4.2,4.2' data-fmt='num'>4.2</b></i><i class=''>后坐力（水平·小） <b data-vals='-2.5,-2.5,-2.5,-2.5,-2.5,-2.5' data-fmt='num'>-2.5</b></i><i class=''>后坐力（水平·大） <b data-vals='2.5,2.5,2.5,2.5,2.5,2.5' data-fmt='num'>2.5</b></i></div></details>
 <p class='desc'>这种半自动霰弹枪是一种罕见而致命的近距离武器，它能把射程内的任何东西打成肉酱。<br><br>可使用维修工具修理。<br>可分解为霰弹枪零件。</p>
@@ -276,6 +293,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T1</span><h3>猎枪<em>Hunting Rifle</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='猎枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='58,60.9,63.8,66.7,69.6,72.5' data-fmt='num'>72.5</b></i><i class='core'>射速（发/分） <b data-vals='120,120,120,120,120,120' data-fmt='num'>120</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='59,59,59,59,59,59' data-fmt='num'>59</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>散布（水平） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.35,-0.35,-0.35,-0.35,-0.35,-0.35' data-fmt='num'>-0.3</b></i><i class=''>后坐力（水平·大） <b data-vals='0.35,0.35,0.35,0.35,0.35,0.35' data-fmt='num'>0.4</b></i><i class=''>爆头伤害 <b data-vals='50,50,50,50,50,50' data-fmt='pctabs'>= 50%</b></i></div></details>
 <p class='desc'>普通农民使用的猎枪，使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
@@ -287,6 +305,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T2</span><h3>杠杆式步枪<em>Lever Action Rifle</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='杠杆式步枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='76,79.8,83.6,87.4,91.2,95' data-fmt='num'>95</b></i><i class='core'>射速（发/分） <b data-vals='82,82,82,82,82,82' data-fmt='num'>82</b></i><i class='core'>弹匣 <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='69,69,69,69,69,69' data-fmt='num'>69</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>散布（水平） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>后坐力（垂直·小） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i><i class=''>爆头伤害 <b data-vals='100,100,100,100,100,100' data-fmt='pctabs'>= 100%</b></i></div></details>
 <p class='desc'>这把杠杆式步枪使用7.62毫米弹药。如果你想百发百中，它是你的不二选择。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
@@ -298,6 +317,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge rifle'>步枪</span><span class='tier'>T3</span><h3>狙击步枪<em>Sniper Rifle</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='狙击步枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='100,105,110,115,120,125' data-fmt='num'>125</b></i><i class='core'>射速（发/分） <b data-vals='140,140,140,140,140,140' data-fmt='num'>140</b></i><i class='core'>弹匣 <b data-vals='12,12,12,12,12,12' data-fmt='num'>12</b></i><i class='core'>射程 <b data-vals='150,150,150,150,150,150' data-fmt='num'>150</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='80,80,80,80,80,80' data-fmt='num'>80</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>散布（水平） <b data-vals='6,6,6,6,6,6' data-fmt='num'>6</b></i><i class=''>后坐力（垂直·小） <b data-vals='1.5,1.5,1.5,1.5,1.5,1.5' data-fmt='num'>1.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i><i class=''>爆头伤害 <b data-vals='200,200,200,200,200,200' data-fmt='pctabs'>= 200%</b></i></div></details>
 <p class='desc'>这种高精度的远程步枪非常适合远距离狙击敌人。<br><br>可使用维修工具修理。<br>可分解为步枪零件。</p>
@@ -325,6 +345,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T1</span><h3>KV-47机枪<em>KV-47 Machine Gun</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='KV-47机枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='40,42,44,46,48,50' data-fmt='num'>50</b></i><i class='core'>射速（发/分） <b data-vals='360,360,360,360,360,360' data-fmt='num'>360</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='200,240,280,320,360,400' data-fmt='num'>400</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='41,41,41,41,41,41' data-fmt='num'>41</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
 <p class='desc'>这款炫酷的KV-47机枪使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
@@ -336,6 +357,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T2</span><h3>战术突击步枪<em>Tactical Assault Rifle</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='战术突击步枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='53,55.65,58.3,60.95,63.6,66.25' data-fmt='num'>66.3</b></i><i class='core'>射速（发/分） <b data-vals='405,405,405,405,405,405' data-fmt='num'>405</b></i><i class='core'>弹匣 <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='400,460,520,580,640,700' data-fmt='num'>700</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='49,49,49,49,49,49' data-fmt='num'>49</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>连发数 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
 <p class='desc'>这款战术突击步枪使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
@@ -347,6 +369,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge mg'>机枪</span><span class='tier'>T3</span><h3>M60机枪<em>M60 Machine Gun</em></h3></div>
 <div class='ammo'><b>弹药</b> 7.62毫米弹药 · 7.62毫米马格南空心弹 · 7.62毫米穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='M60机枪 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='70,73.5,77,80.5,84,87.5' data-fmt='num'>87.5</b></i><i class='core'>射速（发/分） <b data-vals='440,440,440,440,440,440' data-fmt='num'>440</b></i><i class='core'>弹匣 <b data-vals='60,60,60,60,60,60' data-fmt='num'>60</b></i><i class='core'>射程 <b data-vals='90,90,90,90,90,90' data-fmt='num'>90</b></i><i class='core'>耐久 <b data-vals='700,780,860,940,1020,1100' data-fmt='num'>1100</b></i><i class='core'>模组槽 <b data-vals='4,4,4,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='58,58,58,58,58,58' data-fmt='num'>58</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.07,-0.04,-0.01,0.02,0.05' data-fmt='pct'>+5%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='-0.4,-0.4,-0.4,-0.4,-0.4,-0.4' data-fmt='num'>-0.4</b></i><i class=''>后坐力（垂直·大） <b data-vals='1.1,1.1,1.1,1.1,1.1,1.1' data-fmt='num'>1.1</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
 <p class='desc'>机枪使用起来可能有些笨重，但在自动射击方面表现优越。使用7.62毫米弹药。<br><br>可使用维修工具修理。<br>可分解为机枪零件。</p>
@@ -376,6 +399,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T1</span><h3>木弓<em>Wooden Bow</em></h3></div>
 <div class='ammo'><b>弹药</b> 石箭（弹药） · 铁箭（弹药） · 钢箭（弹药） · 燃烧箭（弹药） · 爆炸箭（弹药）</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='木弓 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 初速 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='44,47.08,50.16,53.24,56.32,59.4' data-fmt='num'>59.4</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='200,230,260,290,320,350' data-fmt='num'>350</b></i><i class='core'>模组槽 <b data-vals='2,2,2,3,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='25,25,25,25,25,25' data-fmt='num'>25</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>散布（水平） <b data-vals='2.8,2.8,2.8,2.8,2.8,2.8' data-fmt='num'>2.8</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
 <p class='desc'>非常适合打猎和射杀丧尸。使用箭矢作为弹药。<br>长按重新装填以使用备用弹药。<br><br>可使用维修工具修理。<br>可分解为弓/弩零件。</p>
@@ -389,8 +413,9 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T1</span><h3>铁弩<em>Iron Crossbow</em></h3></div>
 <div class='ammo'><b>弹药</b> 石头弩箭（弹药） · 铁弩箭（弹药） · 钢弩箭（弹药） · 燃烧弩箭（弹药） · 爆炸弩箭</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='铁弩 品质'><b class='qnow'>6</b></div>
-<div class='chips'><i class='core'>伤害 <b data-vals='50,54,58,62,66,70' data-fmt='num'>70</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='200,230,260,290,320,350' data-fmt='num'>350</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
-<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='28,28,28,28,28,28' data-fmt='num'>28</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>初速 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct'>-10%</b></i><i class=''>散布（垂直） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>散布（水平） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='铁弩 随机浮动'><b class='rnow'>基准</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='50,54,58,62,66,70' data-fmt='num' data-roll='perc_add,-0.02,0.02'>70</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='200,230,260,290,320,350' data-fmt='num'>350</b></i><i class='core'>模组槽 <b data-vals='2,2,3,3,4,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>有效射程 <b data-vals='28,28,28,28,28,28' data-fmt='num'>28</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>初速 <b data-vals='-0.1,-0.1,-0.1,-0.1,-0.1,-0.1' data-fmt='pct' data-roll='perc_add,-0.08,0.08'>-10%</b></i><i class=''>散布（垂直） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>散布（水平） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
 <p class='desc'>弩的重新装载速度较慢，不过造成的伤害比弓更大。<br>此武器可在水下发射。<br>长按重新装填以使用备用弹药。<br><br>可使用维修工具修理。<br>可分解为弓/弩零件。</p>
 </article>
 <article class='wpn' id='gunBowT3CompoundBow' data-id='gunBowT3CompoundBow' data-cat='bow' data-text='复合弓 compound bow 复合弓可造成更多伤害，箭矢在空中飞行路线更直，所以更加容易瞄准。
@@ -400,14 +425,16 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T3</span><h3>复合弓<em>Compound Bow</em></h3></div>
 <div class='ammo'><b>弹药</b> 石箭（弹药） · 铁箭（弹药） · 钢箭（弹药） · 燃烧箭（弹药） · 爆炸箭（弹药）</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='复合弓 品质'><b class='qnow'>6</b></div>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='复合弓 随机浮动'><b class='rnow'>基准</b></div>
 <div class='chips'><i class='core'>伤害 <b data-vals='64,68.48,72.96,77.44,81.92,86.4' data-fmt='num'>86.4</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='350,400,450,500,550,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
-<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>初速 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct'>+20%</b></i><i class=''>有效射程 <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>散布（水平） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
+<details class='more'><summary>更多数值（9）</summary><div class='chips'><i class=''>初速 <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='pct' data-roll='perc_add,-0.08,0.08'>+20%</b></i><i class=''>有效射程 <b data-vals='34,34,34,34,34,34' data-fmt='num'>34</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>散布（水平） <b data-vals='2.67,2.67,2.67,2.67,2.67,2.67' data-fmt='num'>2.7</b></i><i class=''>后坐力（垂直·小） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（垂直·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.2,-0.2,-0.2,-0.2,-0.2,-0.2' data-fmt='num'>-0.2</b></i><i class=''>后坐力（水平·大） <b data-vals='0.2,0.2,0.2,0.2,0.2,0.2' data-fmt='num'>0.2</b></i></div></details>
 <p class='desc'>复合弓可造成更多伤害，箭矢在空中飞行路线更直，所以更加容易瞄准。<br><br>可用维修工具修理。<br>可分解为弓/弩零件。</p>
 </article>
 <article class='wpn' id='gunBowT3CompoundCrossbow' data-id='gunBowT3CompoundCrossbow' data-cat='bow' data-text='复合弩 compound crossbow  弓弩 伤害 射速（发/分） 弹匣 射程 耐久 模组槽 有效射程 射程衰减 散布（垂直） 散布（水平） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大）'>
 <div class='whead'><span class='badge bow'>弓弩</span><span class='tier'>T3</span><h3>复合弩<em>Compound Crossbow</em></h3></div>
 <div class='ammo'><b>弹药</b> 石头弩箭（弹药） · 铁弩箭（弹药） · 钢弩箭（弹药） · 燃烧弩箭（弹药） · 爆炸弩箭</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='复合弩 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：物块伤害 ±8% · 初速 ±8% · 武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='75,81,87,93,99,105' data-fmt='num'>105</b></i><i class='core'>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class='core'>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class='core'>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class='core'>耐久 <b data-vals='350,400,450,500,550,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='3,3,3,4,4,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（8）</summary><div class='chips'><i class=''>有效射程 <b data-vals='40,40,40,40,40,40' data-fmt='num'>40</b></i><i class=''>射程衰减 <b data-vals='-0.1,-0.064,-0.028,0.008,0.044,0.08' data-fmt='pct'>+8%</b></i><i class=''>散布（垂直） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>散布（水平） <b data-vals='3.35,3.35,3.35,3.35,3.35,3.35' data-fmt='num'>3.4</b></i><i class=''>后坐力（垂直·小） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（垂直·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>后坐力（水平·小） <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>后坐力（水平·大） <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i></div></details>
 </article>
@@ -467,8 +494,9 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge explosive'>爆炸物</span><span class='tier'>T3</span><h3>火箭发射器<em>Rocket Launcher</em></h3></div>
 <div class='ammo'><b>弹药</b> 高爆火箭弹（弹药） · 火箭弹（弹药）</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='火箭发射器 品质'><b class='qnow'>6</b></div>
-<div class='chips'><i class='core'>伤害 <b data-vals='20,23,26,29,32,35' data-fmt='num'>35</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
-<details class='more'><summary>更多数值（13）</summary><div class='chips'><i class=''>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class=''>有效射程 <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>ExplosionEntityDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct'>+75%</b></i><i class=''>ExplosionBlockDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct'>+75%</b></i><i class=''>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class=''>散布（垂直） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>散布（水平） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>后坐力（垂直·小） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（垂直·大） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（水平·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i></div></details>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='火箭发射器 随机浮动'><b class='rnow'>基准</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='20,23,26,29,32,35' data-fmt='num' data-roll='perc_add,-0.08,0.08'>35</b></i><i class='core'>耐久 <b data-vals='100,120,140,160,180,200' data-fmt='num'>200</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<details class='more'><summary>更多数值（13）</summary><div class='chips'><i class=''>弹匣 <b data-vals='1,1,1,1,1,1' data-fmt='num'>1</b></i><i class=''>射程 <b data-vals='100,100,100,100,100,100' data-fmt='num'>100</b></i><i class=''>有效射程 <b data-vals='70,70,70,70,70,70' data-fmt='num'>70</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>ExplosionEntityDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct' data-roll='perc_add,-0.08,0.08'>+75%</b></i><i class=''>ExplosionBlockDamage <b data-vals='0,0.15,0.3,0.45,0.6,0.75' data-fmt='pct' data-roll='perc_add,-0.08,0.08'>+75%</b></i><i class=''>射速（发/分） <b data-vals='75,75,75,75,75,75' data-fmt='num'>75</b></i><i class=''>散布（垂直） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>散布（水平） <b data-vals='7,7,7,7,7,7' data-fmt='num'>7</b></i><i class=''>后坐力（垂直·小） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（垂直·大） <b data-vals='10,10,10,10,10,10' data-fmt='num'>10</b></i><i class=''>后坐力（水平·小） <b data-vals='-0.5,-0.5,-0.5,-0.5,-0.5,-0.5' data-fmt='num'>-0.5</b></i><i class=''>后坐力（水平·大） <b data-vals='0.5,0.5,0.5,0.5,0.5,0.5' data-fmt='num'>0.5</b></i></div></details>
 <p class='desc'>此款火箭发射器可发射火箭推进榴弹。<br><br>可使用维修工具修理。<br>可分解为火箭发射器零件。</p>
 </article>
 </div></section>
@@ -716,6 +744,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 可分解为机器人零件。 炮塔与杂项 伤害 耐久 模组槽 弹匣 射程衰减 射程 物块攻击距离 散布（垂直） 散布（水平） 射速（发/分） 后坐力（垂直·小） 后坐力（垂直·大） 后坐力（水平·小） 后坐力（水平·大） 采集量'>
 <div class='whead'><span class='badge misc'>炮塔与杂项</span><span class='tier'>T1</span><h3>机器人大锤<em>Robotic Sledge</em></h3></div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='机器人大锤 品质'><b class='qnow'>6</b></div>
+<div class='rollnote'>随机浮动：武器操控性 ±8%（每件独立随机）</div>
 <div class='chips'><i class='core'>伤害 <b data-vals='11.5,13.22,14.95,16.68,18.4,20.12' data-fmt='num'>20.1</b></i><i class='core'>耐久 <b data-vals='300,360,420,480,540,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（12）</summary><div class='chips'><i class=''>弹匣 <b data-vals='-1,-1,-1,-1,-1,-1' data-fmt='num'>-1</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>射程 <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i><i class=''>物块攻击距离 <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>散布（垂直） <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i><i class=''>散布（水平） <b data-vals='0,0,0,0,0,0' data-fmt='num'>0</b></i><i class=''>射速（发/分） <b data-vals='30,30,30,30,30,30' data-fmt='num'>30</b></i><i class=''>后坐力（垂直·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（垂直·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>后坐力（水平·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（水平·大） <b data-vals='5,5,5,5,5,5' data-fmt='num'>5</b></i><i class=''>采集量 <b data-vals='-0.75,-0.75,-0.75,-0.75,-0.75,-0.75' data-fmt='pct'>-75%</b></i></div></details>
 <p class='desc'>你可能不擅长打拳，但你有技术。<br>你也可使用辅助动作将它安装在地面上。<br><br>可使用维修工具修理。<br>可分解为机器人零件。</p>
@@ -728,7 +757,8 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='whead'><span class='badge misc'>炮塔与杂项</span><span class='tier'>T2</span><h3>机器人炮塔<em>Robotic Turret</em></h3></div>
 <div class='ammo'><b>弹药</b> 机器人炮塔弹药 · 机器人炮塔霰弹（弹药） · 机器人炮塔穿甲弹</div>
 <div class='setq'><span class='qlbl'>品质</span><input class='qslider' type='range' min='1' max='6' step='1' value='6' aria-label='机器人炮塔 品质'><b class='qnow'>6</b></div>
-<div class='chips'><i class='core'>伤害 <b data-vals='11.8,13.57,15.34,17.11,18.88,20.65' data-fmt='num'>20.7</b></i><i class='core'>耐久 <b data-vals='300,360,420,480,540,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
+<div class='rrow'><span class='qlbl'>随机浮动</span><input class='rslider' type='range' min='0' max='100' step='5' value='50' aria-label='机器人炮塔 随机浮动'><b class='rnow'>基准</b></div>
+<div class='chips'><i class='core'>伤害 <b data-vals='11.8,13.57,15.34,17.11,18.88,20.65' data-fmt='num' data-roll='perc_add,-0.08,0.08'>20.7</b></i><i class='core'>耐久 <b data-vals='300,360,420,480,540,600' data-fmt='num'>600</b></i><i class='core'>模组槽 <b data-vals='1,1,2,2,3,4' data-fmt='num'>4</b></i></div>
 <details class='more'><summary>更多数值（10）</summary><div class='chips'><i class=''>弹匣 <b data-vals='62,68,74,80,86,92' data-fmt='num'>92</b></i><i class=''>射程衰减 <b data-vals='-0.2,-0.12,-0.04,0.04,0.12,0.2' data-fmt='pct'>+20%</b></i><i class=''>瞄准精确度 <b data-vals='-0.13,-0.13,-0.13,-0.13,-0.13,-0.13' data-fmt='pct'>-13%</b></i><i class=''>蹲伏精确度 <b data-vals='-0.05,-0.05,-0.05,-0.05,-0.05,-0.05' data-fmt='pct'>-5%</b></i><i class=''>移动精确度 <b data-vals='0.15,0.15,0.15,0.15,0.15,0.15' data-fmt='pct'>+15%</b></i><i class=''>奔跑精确度 <b data-vals='0.3,0.3,0.3,0.3,0.3,0.3' data-fmt='pct'>+30%</b></i><i class=''>后坐力（垂直·小） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（垂直·大） <b data-vals='3,3,3,3,3,3' data-fmt='num'>3</b></i><i class=''>后坐力（水平·小） <b data-vals='-2,-2,-2,-2,-2,-2' data-fmt='num'>-2</b></i><i class=''>后坐力（水平·大） <b data-vals='2,2,2,2,2,2' data-fmt='num'>2</b></i></div></details>
 <p class='desc'>这种装置可以像枪一样发射和装填。使用机器人炮塔弹药作为其弹药。<br>你也可使用辅助动作将其安装在地面上。<br><br>可使用维修工具修理。<br>可分解为机器人炮塔零件。</p>
 </article>
@@ -751,33 +781,57 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
     mulset: function(v){ return '×' + trim(v); },
     pctabs: function(v){ return '= ' + trim(v) + '%'; }
   };
-  function renderChip(el, q){
+  function renderChip(el, q, t){
     var groups = el.getAttribute('data-vals').split('|');
     var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
+    var roll = el.getAttribute('data-roll');
+    var off = 0, rop = '';
+    if (roll){
+      var rp = roll.split(',');
+      rop = rp[0];
+      var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+      off = lo + (hi - lo) * t;
+    }
     var parts = [];
     for (var i = 0; i < groups.length; i++){
       var arr = groups[i].split(',');
-      parts.push(f(parseFloat(arr[q - 1])));
+      var v = parseFloat(arr[q - 1]);
+      if (roll) v = (rop === 'perc_add') ? v * (1 + off) : v + off;
+      parts.push(f(v));
     }
     el.textContent = parts.join(' / ');
   }
-  function applyTo(root, q){
+  function applyTo(root, q, t){
     q = Math.max(1, Math.min(6, q));
     var nodes = root.querySelectorAll('[data-vals]');
-    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q);
+    for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
   }
   var cards = [].slice.call(document.querySelectorAll('.wpn'));
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
-    if (!slider) return;
+    var rslider = card.querySelector('.rslider');
+    if (!slider && !rslider) return;
     var qnow = card.querySelector('.setq .qnow');
+    var rnow = card.querySelector('.rnow');
     function sync(){
-      var q = parseInt(slider.value, 10);
+      var q = slider ? parseInt(slider.value, 10) : 6;
+      var t = rslider ? parseInt(rslider.value, 10) / 100 : 0.5;
       if (qnow) qnow.textContent = q;
-      applyTo(card, q);
+      if (rnow && rslider){
+        var roll = card.querySelector('[data-roll]');
+        var v = 0;
+        if (roll){
+          var rp = roll.getAttribute('data-roll').split(',');
+          var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
+          v = lo + (hi - lo) * t;
+        }
+        rnow.textContent = Math.abs(t - 0.5) < 0.001 ? '基准'
+          : (v > 0 ? '+' : '') + (Math.round(v * 1000) / 10) + '%';
+      }
+      applyTo(card, q, t);
     }
-    slider.addEventListener('input', sync);
-    slider.addEventListener('change', sync);
+    if (slider){ slider.addEventListener('input', sync); slider.addEventListener('change', sync); }
+    if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
     sync();
   });
 
