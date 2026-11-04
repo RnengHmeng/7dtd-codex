@@ -150,6 +150,7 @@ section.cls{margin:0 0 46px;scroll-margin-top:76px}
 footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none !important}
+body.range .setq,body.range .rrow{display:none}
 @media (max-width:620px){
   .grid{grid-template-columns:1fr}
   .search input{width:100px}
@@ -182,6 +183,8 @@ JS = r"""
     const: function(){ return '消除'; }
   };
 
+  var mode = 'single';
+
   function applyTo(root, q, t){
     q = Math.max(1, Math.min(6, q));
     t = (t === undefined) ? 0.5 : t;
@@ -197,6 +200,26 @@ JS = r"""
         rop = rp[0];
         var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
         off = lo + (hi - lo) * t;
+      }
+      if (mode === 'range'){
+        var lo2 = Infinity, hi2 = -Infinity;
+        for (var qq = 1; qq <= 6; qq++){
+          for (var gi = 0; gi < groups.length; gi++){
+            var base = parseFloat(groups[gi].split(',')[qq - 1]);
+            var vals = [base];
+            if (roll){
+              if (rop === 'perc_add'){
+                vals.push(base * (1 + parseFloat(rp[1])), base * (1 + parseFloat(rp[2])));
+              } else {
+                vals.push(base + parseFloat(rp[1]), base + parseFloat(rp[2]));
+              }
+            }
+            lo2 = Math.min(lo2, Math.min.apply(null, vals));
+            hi2 = Math.max(hi2, Math.max.apply(null, vals));
+          }
+        }
+        el.textContent = (hi2 - lo2 < 1e-9) ? f(lo2) : (f(lo2) + ' ~ ' + f(hi2));
+        continue;
       }
       var parts = [];
       for (var g = 0; g < groups.length; g++){
@@ -214,6 +237,7 @@ JS = r"""
 
   // one independent quality slider per armor set card
   var cards = [].slice.call(document.querySelectorAll('.set'));
+  var syncers = [];
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
     var rslider = card.querySelector('.rslider');
@@ -241,7 +265,16 @@ JS = r"""
     slider.addEventListener('change', sync);
     if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
     card.querySelector('.setq').addEventListener('mousedown', function(ev){ ev.stopPropagation(); });
+    syncers.push(sync);
     sync();
+  });
+
+  var rt = document.getElementById('rangetoggle');
+  if (rt) rt.addEventListener('click', function(){
+    mode = (mode === 'single') ? 'range' : 'single';
+    document.body.classList.toggle('range', mode === 'range');
+    rt.textContent = (mode === 'range') ? '显示单值' : '显示区间';
+    syncers.forEach(function(fn){ fn(); });
   });
 
   // class filter + search
@@ -426,6 +459,7 @@ def build():
     w("<button class='chipbtn' data-cls='medium'>中甲</button>")
     w("<button class='chipbtn' data-cls='heavy'>重甲</button>")
     w("<span class='spacer'></span>")
+    w("<button class='btn' id='rangetoggle'>显示区间</button>")
     w("<label class='search'>🔍<input id='q' type='search' placeholder='搜索套装 / 部位 / 效果'></label>")
     w("</div>")
     w("</nav>")

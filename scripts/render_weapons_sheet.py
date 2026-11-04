@@ -112,6 +112,8 @@ details.more .chips{padding:2px 0 4px}
 footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none !important}
+body.range .setq,body.range .rrow{display:none}
+.rangechip{color:#8fa3ad}
 @media (max-width:620px){
   .grid{grid-template-columns:1fr}
   .search input{width:100px}
@@ -144,6 +146,8 @@ JS = r"""
     mulset: function(v){ return '×' + (Math.round(v * 100) / 100); },
     pctabs: function(v){ return '= ' + trim(v) + '%'; }
   };
+  var mode = 'single';
+
   function renderChip(el, q, t){
     var groups = el.getAttribute('data-vals').split('|');
     var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
@@ -154,6 +158,24 @@ JS = r"""
       rop = rp[0];
       var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
       off = lo + (hi - lo) * t;
+    }
+    if (mode === 'range'){
+      var lo2 = Infinity, hi2 = -Infinity;
+      for (var qq = 1; qq <= 6; qq++){
+        for (var gi = 0; gi < groups.length; gi++){
+          var base = parseFloat(groups[gi].split(',')[qq - 1]);
+          var vals = [base];
+          if (roll){
+            var l = (rop === 'perc_add') ? base * (1 + parseFloat(rp[1])) : base + parseFloat(rp[1]);
+            var h = (rop === 'perc_add') ? base * (1 + parseFloat(rp[2])) : base + parseFloat(rp[2]);
+            vals.push(l, h);
+          }
+          lo2 = Math.min(lo2, Math.min.apply(null, vals));
+          hi2 = Math.max(hi2, Math.max.apply(null, vals));
+        }
+      }
+      el.textContent = (hi2 - lo2 < 1e-9) ? f(lo2) : (f(lo2) + ' ~ ' + f(hi2));
+      return;
     }
     var parts = [];
     for (var i = 0; i < groups.length; i++){
@@ -170,6 +192,7 @@ JS = r"""
     for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
   }
   var cards = [].slice.call(document.querySelectorAll('.wpn'));
+  var syncers = [];
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
     var rslider = card.querySelector('.rslider');
@@ -195,7 +218,16 @@ JS = r"""
     }
     if (slider){ slider.addEventListener('input', sync); slider.addEventListener('change', sync); }
     if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
+    syncers.push(sync);
     sync();
+  });
+
+  var rt = document.getElementById('rangetoggle');
+  if (rt) rt.addEventListener('click', function(){
+    mode = (mode === 'single') ? 'range' : 'single';
+    document.body.classList.toggle('range', mode === 'range');
+    rt.textContent = (mode === 'range') ? '显示单值' : '显示区间';
+    syncers.forEach(function(fn){ fn(); });
   });
 
   var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
@@ -340,6 +372,7 @@ def build():
         w("<button class='chipbtn' data-cat='%s'>%s<small>%d</small></button>"
           % (c["id"], e(c["name"]), c["count"]))
     w("<span class='spacer'></span>")
+    w("<button class='btn' id='rangetoggle'>显示区间</button>")
     w("<label class='search'>🔍<input id='q' type='search' placeholder='搜索武器 / 种类'></label>")
     w("</div></nav>")
 

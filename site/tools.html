@@ -71,6 +71,7 @@ details.more .chips{padding:2px 0 4px}
 footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none!important}
+body.range .setq,body.range .rrow{display:none}
 @media (max-width:620px){.grid{grid-template-columns:1fr}.search input{width:110px}}
 @media print{body{background:#fff;color:#000}nav.jump,.setq,.rrow{display:none}
   .tool{background:#fff;border-color:#ccc;break-inside:avoid}.thead h3,.desc{color:#000}}
@@ -86,7 +87,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 </head><body>
 <div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><a href='tools.html' class='cur'>工具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'><h1>七日杀 · 工具速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-04 16:43 ｜ 16 把工具 · 6 个分类</div>
+<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-04 17:28 ｜ 16 把工具 · 6 个分类</div>
 <div class='sub' style='margin-top:8px'>数值是品质 1–6 的区间；「对泥土 / 对石头 / 对金属」是工具对不同材质的效率倍率（×0.2 表示只有 20%）。电锯和螺旋钻另有 ±8% 的随机浮动，卡片上可以拖动查看。</div></header>
 <nav class='jump'><div class='navrow'>
 <button class='chipbtn on' data-cat='all'>全部<small>16</small></button>
@@ -97,6 +98,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <button class='chipbtn' data-cat='salvage'>拆解工具<small>3</small></button>
 <button class='chipbtn' data-cat='repair'>修理工具<small>1</small></button>
 <span class='spacer'></span>
+<button class='btn' id='rangetoggle'>显示区间</button>
 <label class='search'>🔍<input id='q' type='search' placeholder='搜索工具'></label>
 </div></nav>
 <section class='cat' id='axe'>
@@ -304,6 +306,8 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
     mult: function(v){ return '×' + trim(1 + v); },
     x: function(v){ return '×' + (Math.round(v * 100) / 100); }
   };
+  var mode = 'single';
+
   function renderChip(el, q, t){
     var groups = el.getAttribute('data-vals').split('|');
     var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
@@ -314,6 +318,24 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
       rop = rp[0];
       var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
       off = lo + (hi - lo) * t;
+    }
+    if (mode === 'range'){
+      var lo2 = Infinity, hi2 = -Infinity;
+      for (var qq = 1; qq <= 6; qq++){
+        for (var gi = 0; gi < groups.length; gi++){
+          var base = parseFloat(groups[gi].split(',')[qq - 1]);
+          var vals = [base];
+          if (roll){
+            var l = (rop === 'perc_add') ? base * (1 + parseFloat(rp[1])) : base + parseFloat(rp[1]);
+            var h = (rop === 'perc_add') ? base * (1 + parseFloat(rp[2])) : base + parseFloat(rp[2]);
+            vals.push(l, h);
+          }
+          lo2 = Math.min(lo2, Math.min.apply(null, vals));
+          hi2 = Math.max(hi2, Math.max.apply(null, vals));
+        }
+      }
+      el.textContent = (hi2 - lo2 < 1e-9) ? f(lo2) : (f(lo2) + ' ~ ' + f(hi2));
+      return;
     }
     var parts = [];
     for (var i = 0; i < groups.length; i++){
@@ -328,6 +350,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
     for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
   }
   var cards = [].slice.call(document.querySelectorAll('.tool'));
+  var syncers = [];
   cards.forEach(function(card){
     var s = card.querySelector('.qslider');
     var rs = card.querySelector('.rslider');
@@ -353,7 +376,16 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
     }
     s.addEventListener('input', sync); s.addEventListener('change', sync);
     if (rs){ rs.addEventListener('input', sync); rs.addEventListener('change', sync); }
+    syncers.push(sync);
     sync();
+  });
+
+  var rt = document.getElementById('rangetoggle');
+  if (rt) rt.addEventListener('click', function(){
+    mode = (mode === 'single') ? 'range' : 'single';
+    document.body.classList.toggle('range', mode === 'range');
+    rt.textContent = (mode === 'range') ? '显示单值' : '显示区间';
+    syncers.forEach(function(fn){ fn(); });
   });
   var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));
   var secs = [].slice.call(document.querySelectorAll('section.cat'));

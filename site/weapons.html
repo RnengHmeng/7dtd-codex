@@ -102,6 +102,8 @@ details.more .chips{padding:2px 0 4px}
 footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none !important}
+body.range .setq,body.range .rrow{display:none}
+.rangechip{color:#8fa3ad}
 @media (max-width:620px){
   .grid{grid-template-columns:1fr}
   .search input{width:100px}
@@ -128,7 +130,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html' class='cur'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><a href='tools.html'>工具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'>
 <h1>七日杀 · 武器速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 16:43 ｜ 51 把武器 · 13 个分类（已排除零件/开发物品）</div>
+<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code> 与 <code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 17:28 ｜ 51 把武器 · 13 个分类（已排除零件/开发物品）</div>
 <div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每把武器卡片有自己的 1–6 品质滑杆，拖动即可切换该卡显示的数值。<br><span style='color:#e8a33d'>更多数值：</span>核心数值直接显示，散布、后坐力、穿透等折叠在「更多数值」里。<br><span style='color:#e8a33d'>配套页面：</span><a href='perks.html'>天赋速查表</a> · <a href='armor.html'>装甲速查表</a> · <a href='mods.html'>模组速查表</a></div>
 </header>
 <div class='rules'>
@@ -152,6 +154,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
 <button class='chipbtn' data-cat='baton'>电击棍<small>2</small></button>
 <button class='chipbtn' data-cat='misc'>炮塔与杂项<small>3</small></button>
 <span class='spacer'></span>
+<button class='btn' id='rangetoggle'>显示区间</button>
 <label class='search'>🔍<input id='q' type='search' placeholder='搜索武器 / 种类'></label>
 </div></nav>
 <section class='cat' id='handgun'>
@@ -782,6 +785,8 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
     mulset: function(v){ return '×' + (Math.round(v * 100) / 100); },
     pctabs: function(v){ return '= ' + trim(v) + '%'; }
   };
+  var mode = 'single';
+
   function renderChip(el, q, t){
     var groups = el.getAttribute('data-vals').split('|');
     var f = FMT[el.getAttribute('data-fmt')] || FMT.num;
@@ -792,6 +797,24 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
       rop = rp[0];
       var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
       off = lo + (hi - lo) * t;
+    }
+    if (mode === 'range'){
+      var lo2 = Infinity, hi2 = -Infinity;
+      for (var qq = 1; qq <= 6; qq++){
+        for (var gi = 0; gi < groups.length; gi++){
+          var base = parseFloat(groups[gi].split(',')[qq - 1]);
+          var vals = [base];
+          if (roll){
+            var l = (rop === 'perc_add') ? base * (1 + parseFloat(rp[1])) : base + parseFloat(rp[1]);
+            var h = (rop === 'perc_add') ? base * (1 + parseFloat(rp[2])) : base + parseFloat(rp[2]);
+            vals.push(l, h);
+          }
+          lo2 = Math.min(lo2, Math.min.apply(null, vals));
+          hi2 = Math.max(hi2, Math.max.apply(null, vals));
+        }
+      }
+      el.textContent = (hi2 - lo2 < 1e-9) ? f(lo2) : (f(lo2) + ' ~ ' + f(hi2));
+      return;
     }
     var parts = [];
     for (var i = 0; i < groups.length; i++){
@@ -808,6 +831,7 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
     for (var i = 0; i < nodes.length; i++) renderChip(nodes[i], q, t);
   }
   var cards = [].slice.call(document.querySelectorAll('.wpn'));
+  var syncers = [];
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
     var rslider = card.querySelector('.rslider');
@@ -833,7 +857,16 @@ footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);
     }
     if (slider){ slider.addEventListener('input', sync); slider.addEventListener('change', sync); }
     if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
+    syncers.push(sync);
     sync();
+  });
+
+  var rt = document.getElementById('rangetoggle');
+  if (rt) rt.addEventListener('click', function(){
+    mode = (mode === 'single') ? 'range' : 'single';
+    document.body.classList.toggle('range', mode === 'range');
+    rt.textContent = (mode === 'range') ? '显示单值' : '显示区间';
+    syncers.forEach(function(fn){ fn(); });
   });
 
   var btns = [].slice.call(document.querySelectorAll('.chipbtn[data-cat]'));

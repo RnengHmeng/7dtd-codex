@@ -126,6 +126,7 @@ section.cls{margin:0 0 46px;scroll-margin-top:76px}
 footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none !important}
+body.range .setq,body.range .rrow{display:none}
 @media (max-width:620px){
   .grid{grid-template-columns:1fr}
   .search input{width:100px}
@@ -155,7 +156,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html' class='cur'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html'>食物</a><a href='vehicles.html'>载具</a><a href='tools.html'>工具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'>
 <h1>七日杀 · 装甲速查表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code>、<code>buffs.xml</code>、<code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 16:43 ｜ 16 套护甲 · 65 件装备 · 轻甲 6 套 / 中甲 6 套 / 重甲 4 套</div>
+<div class='sub'>数据取自本机 <code>Data/Config/items.xml</code>、<code>buffs.xml</code>、<code>Localization.csv</code>（简体中文）<br>生成时间 2026-11-04 17:28 ｜ 16 套护甲 · 65 件装备 · 轻甲 6 套 / 中甲 6 套 / 重甲 4 套</div>
 <div class='sub' style='margin-top:8px'><span style='color:#e8a33d'>品质滑杆：</span>每套卡片标题下面有自己的 1–6 滑杆，拖动即可切换该套的护甲值、耐久、模组槽、逐件词条和 4 件套奖励，方便两套并排比较。<br><span style='color:#e8a33d'>筛选：</span>按轻/中/重筛选，搜索框可搜套装名、部位名和效果（按 <code>/</code> 聚焦）。<br><span style='color:#e8a33d'>配套页面：</span><a href='weapons.html'>武器速查表</a> · <a href='mods.html'>模组速查表</a>（护甲模组在这里）· <a href='perks.html'>天赋速查表</a></div>
 </header>
 <div class='rules'>
@@ -188,6 +189,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 <button class='chipbtn' data-cls='medium'>中甲</button>
 <button class='chipbtn' data-cls='heavy'>重甲</button>
 <span class='spacer'></span>
+<button class='btn' id='rangetoggle'>显示区间</button>
 <label class='search'>🔍<input id='q' type='search' placeholder='搜索套装 / 部位 / 效果'></label>
 </div>
 </nav>
@@ -833,6 +835,8 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
     const: function(){ return '消除'; }
   };
 
+  var mode = 'single';
+
   function applyTo(root, q, t){
     q = Math.max(1, Math.min(6, q));
     t = (t === undefined) ? 0.5 : t;
@@ -848,6 +852,26 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
         rop = rp[0];
         var lo = parseFloat(rp[1]), hi = parseFloat(rp[2]);
         off = lo + (hi - lo) * t;
+      }
+      if (mode === 'range'){
+        var lo2 = Infinity, hi2 = -Infinity;
+        for (var qq = 1; qq <= 6; qq++){
+          for (var gi = 0; gi < groups.length; gi++){
+            var base = parseFloat(groups[gi].split(',')[qq - 1]);
+            var vals = [base];
+            if (roll){
+              if (rop === 'perc_add'){
+                vals.push(base * (1 + parseFloat(rp[1])), base * (1 + parseFloat(rp[2])));
+              } else {
+                vals.push(base + parseFloat(rp[1]), base + parseFloat(rp[2]));
+              }
+            }
+            lo2 = Math.min(lo2, Math.min.apply(null, vals));
+            hi2 = Math.max(hi2, Math.max.apply(null, vals));
+          }
+        }
+        el.textContent = (hi2 - lo2 < 1e-9) ? f(lo2) : (f(lo2) + ' ~ ' + f(hi2));
+        continue;
       }
       var parts = [];
       for (var g = 0; g < groups.length; g++){
@@ -865,6 +889,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 
   // one independent quality slider per armor set card
   var cards = [].slice.call(document.querySelectorAll('.set'));
+  var syncers = [];
   cards.forEach(function(card){
     var slider = card.querySelector('.qslider');
     var rslider = card.querySelector('.rslider');
@@ -892,7 +917,16 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
     slider.addEventListener('change', sync);
     if (rslider){ rslider.addEventListener('input', sync); rslider.addEventListener('change', sync); }
     card.querySelector('.setq').addEventListener('mousedown', function(ev){ ev.stopPropagation(); });
+    syncers.push(sync);
     sync();
+  });
+
+  var rt = document.getElementById('rangetoggle');
+  if (rt) rt.addEventListener('click', function(){
+    mode = (mode === 'single') ? 'range' : 'single';
+    document.body.classList.toggle('range', mode === 'range');
+    rt.textContent = (mode === 'range') ? '显示单值' : '显示区间';
+    syncers.forEach(function(fn){ fn(); });
   });
 
   // class filter + search
