@@ -55,11 +55,17 @@ table.food td.num.zero{color:#5a5148}
 .catpill.food{color:#ef8377}.catpill.raw{color:#9aa8b0}
 .catpill.drink{color:#6ec6ef}.catpill.medical{color:#7fd487}
 .tags{color:#8b8175;font-size:11.5px}
+td.recipe{font-size:11.5px;color:#b9ab97;min-width:210px;line-height:1.5}
+td.recipe b{color:#e8a33d;font-weight:600}
+td.recipe .ing{color:#8b8175;font-size:11px}
+td.recipe .none{color:#5a5148}
 footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none!important}
 @media (max-width:620px){
   .search input{width:110px}
+  table.food th:nth-child(7),table.food td:nth-child(7){display:none}
+  td.recipe{min-width:0}
   table.food{font-size:12px}
   table.food th,table.food td{padding:6px 7px}
   table.food td.num{width:52px}
@@ -137,7 +143,7 @@ def build():
     w("<table class='food'><thead><tr><th>名称</th><th>类别</th>"
       "<th style='text-align:right'>食物</th><th style='text-align:right'>水</th>"
       "<th style='text-align:right'>生命</th><th style='text-align:right'>治疗</th>"
-      "<th>标签</th></tr></thead><tbody>")
+      "<th>标签</th><th>配方</th></tr></thead><tbody>")
     for it in items:
         tags = " · ".join(it["effect_tags"])
         blob = " ".join([it["name"], it["name_en"], it["desc"], tags]).lower()
@@ -148,7 +154,17 @@ def build():
         for key in ("food", "water", "health", "heal"):
             txt, cls = num(it.get(key))
             w("<td class='num %s'>%s</td>" % (cls, txt))
-        w("<td class='tags'>%s</td></tr>" % e(tags))
+        w("<td class='tags'>%s</td>" % e(tags))
+        r = it.get("recipe")
+        if r:
+            head = "<b>%s</b>" % e(r["area"] or "随身制作")
+            if r["tool"]:
+                head += " · " + e(r["tool"])
+            ing = " · ".join("%s×%d" % (e(i["n"]), i["c"]) for i in r["ingredients"])
+            w("<td class='recipe'>%s<br><span class='ing'>%s</span></td>" % (head, ing))
+        else:
+            w("<td class='recipe'><span class='none'>—</span></td>")
+        w("</tr>")
     w("</tbody></table>")
 
     w("<footer>数据来源：本机 <code>Data/Config/items.xml</code>（食用效果写在该物品及其 Extends 父物品的 CVar 里）"

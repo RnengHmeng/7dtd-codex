@@ -13,6 +13,11 @@ OUT = r"C:\Users\RunHao\Documents\ChatGPT\fgo小助手\consumables_v34.json"
 csv.field_size_limit(10 ** 9)
 COLOR_RE = re.compile(r"\[[0-9A-Fa-f]{6}\]|\[-\]")
 
+AREAS = {"campfire": "营火", "workbench": "工作台", "chemistryStation": "化学工作台",
+         "forge": "熔炉", "cementMixer": "水泥搅拌机"}
+TOOLS = {"toolCookingPot": "烹饪锅", "toolCookingGrill": "烤架", "toolBeaker": "烧杯",
+         "toolForgeCrucible": "坩埚"}
+
 CVAIRS = {
     "$foodAmountAdd": "food",
     "$waterAmountAdd": "water",
@@ -71,6 +76,22 @@ def main():
     root = ET.parse(CFG + r"\items.xml").getroot()
     items = {it.get("name"): it for it in root.iter("item")}
 
+    recipes = {}
+    rroot = ET.parse(CFG + r"\recipes.xml").getroot()
+    for rec in rroot.iter("recipe"):
+        rn = rec.get("name")
+        if not rn or rn in recipes:
+            continue
+        ings = []
+        for ing in rec.findall("ingredient"):
+            ings.append({"id": ing.get("name"), "count": int(float(ing.get("count", "1")))})
+        recipes[rn] = {
+            "area": AREAS.get(rec.get("craft_area", ""), rec.get("craft_area", "")) or "随身制作",
+            "tool": TOOLS.get(rec.get("craft_tool", ""), rec.get("craft_tool", "")),
+            "tags": rec.get("tags", ""),
+            "ingredients": ings,
+        }
+
     def props_of(it):
         return {p.get("name"): p.get("value") for p in it.findall("property") if p.get("class") is None}
 
@@ -117,6 +138,11 @@ def main():
             "heal": vals.get("heal"),
             "stamina": vals.get("stamina"),
             "cure": vals.get("cure"),
+            "recipe": (lambda rc: {
+                "area": rc["area"], "tool": rc["tool"],
+                "ingredients": [{"n": t(i["id"], i["id"]), "c": i["count"]}
+                                for i in rc["ingredients"]],
+            } if rc else None)(recipes.get(it.get("name"))),
         })
 
     order = {"food": 0, "raw": 1, "drink": 2, "medical": 3}
