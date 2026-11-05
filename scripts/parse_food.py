@@ -80,17 +80,17 @@ def main():
     rroot = ET.parse(CFG + r"\recipes.xml").getroot()
     for rec in rroot.iter("recipe"):
         rn = rec.get("name")
-        if not rn or rn in recipes:
+        if not rn:
             continue
         ings = []
         for ing in rec.findall("ingredient"):
             ings.append({"id": ing.get("name"), "count": int(float(ing.get("count", "1")))})
-        recipes[rn] = {
+        recipes.setdefault(rn, []).append({
             "area": AREAS.get(rec.get("craft_area", ""), rec.get("craft_area", "")) or "随身制作",
             "tool": TOOLS.get(rec.get("craft_tool", ""), rec.get("craft_tool", "")),
             "tags": rec.get("tags", ""),
             "ingredients": ings,
-        }
+        })
 
     def props_of(it):
         return {p.get("name"): p.get("value") for p in it.findall("property") if p.get("class") is None}
@@ -138,11 +138,11 @@ def main():
             "heal": vals.get("heal"),
             "stamina": vals.get("stamina"),
             "cure": vals.get("cure"),
-            "recipe": (lambda rc: {
+            "recipes": [{
                 "area": rc["area"], "tool": rc["tool"],
                 "ingredients": [{"n": t(i["id"], i["id"]), "c": i["count"]}
                                 for i in rc["ingredients"]],
-            } if rc else None)(recipes.get(it.get("name"))),
+            } for rc in recipes.get(it.get("name"), [])],
         })
 
     order = {"food": 0, "raw": 1, "drink": 2, "medical": 3}

@@ -59,6 +59,7 @@ td.recipe{font-size:11.5px;color:#b9ab97;min-width:210px;line-height:1.5}
 td.recipe b{color:#e8a33d;font-weight:600}
 td.recipe .ing{color:#8b8175;font-size:11px}
 td.recipe .none{color:#5a5148}
+td.recipe .rline + .rline{border-top:1px dashed #2c2520;margin-top:5px;padding-top:5px}
 footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none!important}
@@ -155,13 +156,16 @@ def build():
             txt, cls = num(it.get(key))
             w("<td class='num %s'>%s</td>" % (cls, txt))
         w("<td class='tags'>%s</td>" % e(tags))
-        r = it.get("recipe")
-        if r:
-            head = "<b>%s</b>" % e(r["area"] or "随身制作")
-            if r["tool"]:
-                head += " · " + e(r["tool"])
-            ing = " · ".join("%s×%d" % (e(i["n"]), i["c"]) for i in r["ingredients"])
-            w("<td class='recipe'>%s<br><span class='ing'>%s</span></td>" % (head, ing))
+        rl = it.get("recipes") or []
+        if rl:
+            blocks = []
+            for r in rl:
+                head = "<b>%s</b>" % e(r["area"] or "随身制作")
+                if r["tool"]:
+                    head += " · " + e(r["tool"])
+                ing = " · ".join("%s×%d" % (e(i["n"]), i["c"]) for i in r["ingredients"])
+                blocks.append("<div class='rline'>%s<br><span class='ing'>%s</span></div>" % (head, ing))
+            w("<td class='recipe'>%s</td>" % "".join(blocks))
         else:
             w("<td class='recipe'><span class='none'>—</span></td>")
         w("</tr>")

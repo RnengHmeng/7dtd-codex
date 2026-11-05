@@ -48,6 +48,7 @@ td.recipe{font-size:11.5px;color:#b9ab97;min-width:210px;line-height:1.5}
 td.recipe b{color:#e8a33d;font-weight:600}
 td.recipe .ing{color:#8b8175;font-size:11px}
 td.recipe .none{color:#5a5148}
+td.recipe .rline + .rline{border-top:1px dashed #2c2520;margin-top:5px;padding-top:5px}
 footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
   color:#6f665c;font-size:12px;line-height:1.9}
 .hide{display:none!important}
@@ -73,7 +74,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 </head><body>
 <div class='sitebar'><div class='in'><a href='index.html'>首页</a><a href='perks.html'>天赋</a><a href='armor.html'>装甲</a><a href='weapons.html'>武器</a><a href='mods.html'>模组</a><a href='zombies.html'>丧尸</a><a href='food.html' class='cur'>食物</a><a href='vehicles.html'>载具</a><a href='tools.html'>工具</a><span class='ss'>V 3.4 · 数据来自游戏文件</span></div></div><button id='sbtn' title='搜索（Ctrl+K）'>🔍</button><div id='sbox' hidden><div class='sbox-in'><input id='sinput' placeholder='搜索天赋 / 装甲 / 武器 / 模组 / 丧尸 / 食物…'><div id='sres'></div></div></div><div class='wrap'>
 <header class='top'><h1>七日杀 · 食物药品表<span class='ver'>V 3.4.0 (b9)</span></h1>
-<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-05 15:01 ｜ 66 种消耗品（料理 23 · 生食 15 · 饮品 11 · 药品 17）</div>
+<div class='sub'>数据取自本机 <code>items.xml</code> 与 <code>Localization.csv</code><br>生成时间 2026-11-05 16:54 ｜ 66 种消耗品（料理 23 · 生食 15 · 饮品 11 · 药品 17）</div>
 <div class='sub' style='margin-top:8px'>数值来自物品的食用/使用效果（食物、水、生命、治疗量）。生食大多需要烹饪，部分带疾病风险，表里只列数值。</div></header>
 <nav class='jump'><div class='navrow'>
 <button class='chipbtn on' data-cat='all'>全部<small>66</small></button>
@@ -95,7 +96,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>70</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×3 · 粗玉米粉×1 · 蘑菇×1 · 动物脂肪×1 · 一罐蜂蜜×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×3 · 粗玉米粉×1 · 蘑菇×1 · 动物脂肪×1 · 一罐蜂蜜×1</span></div></td>
 </tr>
 <tr id='foodSpaghetti' data-cat='food' data-text='意大利面 spaghetti 这不是上档次的意大利菜，但很填肚子，并且你吐了也不会退款给你。 '>
 <td class='n'>意大利面<em>Spaghetti</em></td>
@@ -105,7 +106,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>61</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>大份牛肉罐头×1 · 通心粉罐头×1 · 蘑菇×1 · 动物脂肪×3 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>大份牛肉罐头×1 · 通心粉罐头×1 · 蘑菇×1 · 动物脂肪×3 · 水×1</span></div></td>
 </tr>
 <tr id='foodShepardsPie' data-cat='food' data-text='牧羊人派 shepherd&#x27;s pie 牧羊人派确实美味，而且超级饱腹。 '>
 <td class='n'>牧羊人派<em>Shepherd&#x27;s Pie</em></td>
@@ -115,7 +116,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>52</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>羊肉罐头×1 · 豌豆罐头×1 · 玉米穗×1 · 动物脂肪×3 · 土豆×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>羊肉罐头×1 · 豌豆罐头×1 · 玉米穗×1 · 动物脂肪×3 · 土豆×1</span></div></td>
 </tr>
 <tr id='foodHoneyGlazedSham' data-cat='food' data-text='蜜汁山威 honey glazed sham 高级山威罐头，里面装着的是该公司最优质的仿肉产品，现在还刷上了一层甜黏的蜂蜜酱汁！
 
@@ -129,7 +130,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>49</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>山威罐头×1 · 玉米穗×4 · 土豆×1 · 动物脂肪×1 · 一罐蜂蜜×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>山威罐头×1 · 玉米穗×4 · 土豆×1 · 动物脂肪×1 · 一罐蜂蜜×1</span></div></td>
 </tr>
 <tr id='foodChickenWings' data-cat='food' data-text='鸡翅 chicken wings 爷爷拍胸脯保证这些超猛的鸡翅能让你长出胸毛，变得硬气十足，狠狠地把丧尸干趴下。一口下去，热辣直冲五脏六腑，让你充满力量，干翻这个末日世界。
 提高近战伤害。
@@ -141,7 +142,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>49</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>家鸡×1 · 粗玉米粉×1 · 鸡蛋×1 · 机油×1 · 一罐蜂蜜×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>家鸡×1 · 粗玉米粉×1 · 鸡蛋×1 · 机油×1 · 一罐蜂蜜×1</span></div></td>
 </tr>
 <tr id='foodTunaFishGravyToast' data-cat='food' data-text='金枪鱼肉汁吐司 tuna fish gravy toast 有些人叫它“瓦上屎”，但实际上它很好吃，也很填肚子。 '>
 <td class='n'>金枪鱼肉汁吐司<em>Tuna Fish Gravy Toast</em></td>
@@ -151,7 +152,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>45</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>金枪鱼罐头×1 · 粗玉米粉×1 · 玉米面包×2 · 动物脂肪×3 · 豌豆罐头×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>金枪鱼罐头×1 · 粗玉米粉×1 · 玉米面包×2 · 动物脂肪×3 · 豌豆罐头×1</span></div></td>
 </tr>
 <tr id='foodShamChowder' data-cat='food' data-text='山威杂烩 sham chowder 山威杂烩能提升你的强健度，还会让你长胸毛！ '>
 <td class='n'>山威杂烩<em>Sham Chowder</em></td>
@@ -161,7 +162,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>80</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>山威罐头×1 · 土豆×2 · 玉米穗×2 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>山威罐头×1 · 土豆×2 · 玉米穗×2 · 水×1</span></div></td>
 </tr>
 <tr id='foodChiliDog' data-cat='food' data-text='辣狗 chili dog 好吃！ '>
 <td class='n'>辣狗<em>Chili Dog</em></td>
@@ -171,7 +172,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>30</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>辣椒罐头×1 · 烤肉×1 · 玉米面包×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>辣椒罐头×1 · 烤肉×1 · 玉米面包×1</span></div></td>
 </tr>
 <tr id='foodPumpkinPie' data-cat='food' data-text='南瓜派 pumpkin pie 如果在世界末日要感激一样东西，那就是南瓜派。 '>
 <td class='n'>南瓜派<em>Pumpkin Pie</em></td>
@@ -181,7 +182,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>25</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×2 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×2 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodSteakAndPotato' data-cat='food' data-text='牛排配土豆 steak and potato meal 简直是国王享用的饱腹一餐！ '>
 <td class='n'>牛排配土豆<em>Steak and Potato Meal</em></td>
@@ -191,7 +192,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>25</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>烤肉×1 · 土豆×2 · 蘑菇×2 · 动物脂肪×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>烤肉×1 · 土豆×2 · 蘑菇×2 · 动物脂肪×1</span></div></td>
 </tr>
 <tr id='foodFishTacos' data-cat='food' data-text='鱼肉塔可 fish tacos 塔可星期二啦，谁还愿意吃别的？还是说今天不是星期二？ '>
 <td class='n'>鱼肉塔可<em>Fish Tacos</em></td>
@@ -201,7 +202,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>40</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>三文鱼罐头×1 · 粗玉米粉×2</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>三文鱼罐头×1 · 粗玉米粉×2</span></div></td>
 </tr>
 <tr id='foodBlueberryPie' data-cat='food' data-text='蓝莓派 blueberry pie 这个家庭自制蓝莓派跟奶奶以前做的味道一样。 '>
 <td class='n'>蓝莓派<em>Blueberry Pie</em></td>
@@ -211,7 +212,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>22</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>蓝莓×5 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>蓝莓×5 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodPumpkinCheesecake' data-cat='food' data-text='南瓜芝士蛋糕 pumpkin cheesecake 南瓜芝士蛋糕味道很棒，以物易物时可优惠5%。 '>
 <td class='n'>南瓜芝士蛋糕<em>Pumpkin Cheesecake</em></td>
@@ -221,7 +222,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>21</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×1 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 啤酒×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×1 · 鸡蛋×1 · 粗玉米粉×1 · 动物脂肪×1 · 啤酒×1</span></div></td>
 </tr>
 <tr id='foodBaconAndEggs' data-cat='food' data-text='培根鸡蛋 bacon and eggs 培根和鸡蛋可以迅速让你饱腹，并提升最大耐力值。现在可不是担心胆固醇的时候。 '>
 <td class='n'>培根鸡蛋<em>Bacon and Eggs</em></td>
@@ -231,7 +232,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>18</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>生肉×5 · 鸡蛋×2</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>生肉×5 · 鸡蛋×2</span></div></td>
 </tr>
 <tr id='foodFrostbiteSmoothie' data-cat='food' data-text='灼热炖肉 scorcher stew 在雪地中暂时降低环境危害影响并提升移动速度。 '>
 <td class='n'>灼热炖肉<em>Scorcher Stew</em></td>
@@ -241,7 +242,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>15</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>蓝莓×5 · 烤肉×1 · 辣椒罐头×1 · 啤酒×1</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>蓝莓×5 · 烤肉×1 · 辣椒罐头×1 · 啤酒×1</span></div></td>
 </tr>
 <tr id='foodRoadrunnerChickenJerky' data-cat='food' data-text='走鹃鸡肉干 roadrunner chicken jerky 带点土腥味的鸡肉风味，混合丝兰和啤酒花的味道，尾调还有一丝化学的刺激感。警告：会让人突然产生逃离一切拔腿狂奔的冲动。
 
@@ -253,7 +254,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>15</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>家鸡×1 · 丝兰果实×2 · 硝酸盐粉×1 · 啤酒×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>家鸡×1 · 丝兰果实×2 · 硝酸盐粉×1 · 啤酒×1</span></div></td>
 </tr>
 <tr id='foodChickenNuggets' data-cat='food' data-text='鸡块 chicken nuggets 重量很轻，又不肥腻，非常适合在路上食用。这种简单的鸡肉餐食不会增加你的负担，还能让你像真正的废土流浪者一样一直前行。
 
@@ -265,7 +266,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>12</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×1 · 羽毛×2 · 粗玉米粉×1 · 动物脂肪×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×1 · 羽毛×2 · 粗玉米粉×1 · 动物脂肪×1</span></div></td>
 </tr>
 <tr id='foodPumpkinBread' data-cat='food' data-text='南瓜面包 pumpkin bread 南瓜面包比玉米面包报复感强，而且味道超棒。 '>
 <td class='n'>南瓜面包<em>Pumpkin Bread</em></td>
@@ -275,7 +276,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>6</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×1 · 粗玉米粉×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>南瓜×1 · 粗玉米粉×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodOasisSmoothie' data-cat='food' data-text='中暑补剂 sunstroke tonic 在沙漠中暂时降低环境危害影响并提升移动速度。 '>
 <td class='n'>中暑补剂<em>Sunstroke Tonic</em></td>
@@ -285,7 +286,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>10</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>芦荟叶×5 · 油页岩×5 · 蘑菇×5 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>芦荟叶×5 · 油页岩×5 · 蘑菇×5 · 水×1</span></div></td>
 </tr>
 <tr id='foodEggBoiled' data-cat='food' data-text='水煮蛋 boiled egg 水煮蛋是个美味可口的小食。 '>
 <td class='n'>水煮蛋<em>Boiled Egg</em></td>
@@ -295,7 +296,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>鸡蛋×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>鸡蛋×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodGrilledMeat' data-cat='food' data-text='烤肉 grilled meat 肉！在火上烤的肉！太棒了！刚烤好的肉既营养又美味，还很饱腹。 '>
 <td class='n'>烤肉<em>Grilled Meat</em></td>
@@ -305,7 +306,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>生肉×5</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>生肉×5</span></div></td>
 </tr>
 <tr id='foodCornBread' data-cat='food' data-text='玉米面包 corn bread 一块美味的玉米面包，家庭制作的风味足以让你打起精神。 '>
 <td class='n'>玉米面包<em>Corn Bread</em></td>
@@ -315,7 +316,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>粗玉米粉×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>粗玉米粉×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodHoney' data-cat='food' data-text='一罐蜂蜜 jar of honey 蜂蜜是大自然的奇迹之一。可以提供能量，味道甜美，还可以帮助抵抗早期感染。
 （无法立即治愈） 医疗'>
@@ -427,7 +428,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num zero'>0</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'></span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'></span></div></td>
 </tr>
 <tr id='foodCropBlueberries' data-cat='raw' data-text='蓝莓 blueberries 蓝莓可食用，也可用来制作派或转化为蓝莓种子。 '>
 <td class='n'>蓝莓<em>Blueberries</em></td>
@@ -479,7 +480,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>0</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'></span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'></span></div></td>
 </tr>
 <tr id='foodGumboStew' data-cat='drink' data-text='秋葵浓汤 gumbo stew 呕吐是乡巴佬才干的事！要像世界末日的国王一样优雅地享受这超级饱腹且美味的秋葵浓汤。 '>
 <td class='n'>秋葵浓汤<em>Gumbo Stew</em></td>
@@ -489,7 +490,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>56</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>大份牛肉罐头×1 · 豌豆罐头×1 · 浓汤罐头×1 · 动物脂肪×3 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>大份牛肉罐头×1 · 豌豆罐头×1 · 浓汤罐头×1 · 动物脂肪×3 · 水×1</span></div></td>
 </tr>
 <tr id='foodAshChickenStew' data-cat='drink' data-text='灰烬鸡肉炖 ash chicken stew 没错，这尝起来像有人把一堆篝火倒进了你的碗里，但丧尸不会知道你在吃它。
 
@@ -501,7 +502,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>37</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>家鸡×1 · 蘑菇×2 · 玉米穗×3 · 煤炭×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>家鸡×1 · 蘑菇×2 · 玉米穗×3 · 煤炭×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodHoboStew' data-cat='drink' data-text='蔬菜炖肉 hobo stew 既营养又美……反正能吃啦，不行吗？ '>
 <td class='n'>蔬菜炖肉<em>Hobo Stew</em></td>
@@ -511,7 +512,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>32</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>腐肉×10 · 土豆×2 · 玉米穗×2 · 动物脂肪×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>腐肉×10 · 土豆×2 · 玉米穗×2 · 动物脂肪×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodMeatStew' data-cat='drink' data-text='炖肉 meat stew 如果一个幸存者无能到没有盐巴，那他就不能炖一锅好肉。 '>
 <td class='n'>炖肉<em>Meat Stew</em></td>
@@ -521,7 +522,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>25</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×1 · 土豆×2 · 玉米穗×2 · 动物脂肪×1 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>烤肉×1 · 土豆×2 · 玉米穗×2 · 动物脂肪×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodVegetableStew' data-cat='drink' data-text='炖杂蔬 vegetable stew 妈妈常说要多吃蔬菜。现在你有机会让她开心了，而且你知道吗？这对你十分有益。 '>
 <td class='n'>炖杂蔬<em>Vegetable Stew</em></td>
@@ -531,7 +532,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>15</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>土豆×2 · 玉米穗×2 · 蘑菇×2 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>土豆×2 · 玉米穗×2 · 蘑菇×2 · 水×1</span></div></td>
 </tr>
 <tr id='foodCanMiso' data-cat='drink' data-text='味增罐头 can of miso 加点味增做碗味增汤吧。嗯~美味。 '>
 <td class='n'>味增罐头<em>Can of Miso</em></td>
@@ -551,7 +552,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>15</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>生肉×5 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>生肉×5 · 水×1</span></div></td>
 </tr>
 <tr id='foodBakedPotato' data-cat='drink' data-text='烤土豆 baked potato 富含碳水化合物的营养烤土豆。也很适合“沙发土豆”哦。 '>
 <td class='n'>烤土豆<em>Baked Potato</em></td>
@@ -561,7 +562,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b><br><span class='ing'>土豆×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b><br><span class='ing'>土豆×1</span></div></td>
 </tr>
 <tr id='foodCornOnTheCob' data-cat='drink' data-text='烤玉米 grilled corn 烤玉米棒不一定是最饱腹或最有营养的食物，不过还是很让人满意的。 '>
 <td class='n'>烤玉米<em>Grilled Corn</em></td>
@@ -571,7 +572,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b> · 烤架<br><span class='ing'>玉米穗×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烤架<br><span class='ing'>玉米穗×1</span></div></td>
 </tr>
 <tr id='foodCharredMeat' data-cat='drink' data-text='烧焦的肉 charred meat 把肉烧焦不是最好的烹饪方法，但至少比吃生肉要好。 '>
 <td class='n'>烧焦的肉<em>Charred Meat</em></td>
@@ -581,7 +582,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>5</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>营火</b><br><span class='ing'>生肉×5</span></td>
+<td class='recipe'><div class='rline'><b>营火</b><br><span class='ing'>生肉×5</span></div></td>
 </tr>
 <tr id='foodCornMeal' data-cat='drink' data-text='粗玉米粉 cornmeal 粗玉米粉可在篝火处作为几种配方的食材，不过你也可以这样食用。
 一次制作 2 份。 '>
@@ -592,7 +593,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>3</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>玉米穗×1</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>玉米穗×1</span></div></td>
 </tr>
 <tr id='drugAtomJunkies' data-cat='medical' data-text='原子迷 atom junkies 原子大小的糖果和原子大小的能量！可以增加炸药的伤害。 医疗'>
 <td class='n'>原子迷<em>Atom Junkies</em></td>
@@ -716,7 +717,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num zero'>0</td>
 <td class='num '>180</td>
 <td class='tags'></td>
-<td class='recipe'><b>化学工作台</b><br><span class='ing'>血袋×1 · 啤酒×1 · 绷带×5 · 针线包×1</span></td>
+<td class='recipe'><div class='rline'><b>化学工作台</b><br><span class='ing'>血袋×1 · 啤酒×1 · 绷带×5 · 针线包×1</span></div></td>
 </tr>
 <tr id='drugAntibiotics' data-cat='medical' data-text='抗生素 antibiotics 抗生素可治愈感染。
 
@@ -728,7 +729,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num zero'>0</td>
 <td class='num zero'>0</td>
 <td class='tags'>医疗</td>
-<td class='recipe'><b>营火</b> · 烧杯<br><span class='ing'>过期的山威三明治×4 · 硝酸盐粉×3 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烧杯<br><span class='ing'>过期的山威三明治×4 · 硝酸盐粉×3 · 水×1</span></div><div class='rline'><b>化学工作台</b><br><span class='ing'>过期的山威三明治×1 · 硝酸盐粉×1 · 水×1</span></div></td>
 </tr>
 <tr id='medicalAloeCream' data-cat='medical' data-text='芦荟霜 aloe cream 芦荟霜可用于基础治疗，提高擦伤治疗速度，或制作急救绷带。
 使用辅助动作治疗另一个玩家。 医疗'>
@@ -739,7 +740,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num zero'>0</td>
 <td class='num '>5</td>
 <td class='tags'>医疗</td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>芦荟叶×4</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>芦荟叶×4</span></div></td>
 </tr>
 <tr id='drugHerbalAntibiotics' data-cat='medical' data-text='草药抗生素 herbal antibiotics 草药抗生素可治愈感染。
 
@@ -751,7 +752,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num zero'>0</td>
 <td class='num zero'>0</td>
 <td class='tags'>医疗</td>
-<td class='recipe'><b>营火</b> · 烹饪锅<br><span class='ing'>蓝莓×5 · 蘑菇×3 · 菊花×3 · 硝酸盐粉×3 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>营火</b> · 烹饪锅<br><span class='ing'>蓝莓×5 · 蘑菇×3 · 菊花×3 · 硝酸盐粉×3 · 水×1</span></div><div class='rline'><b>化学工作台</b><br><span class='ing'>蓝莓×2 · 蘑菇×1 · 菊花×1 · 硝酸盐粉×1 · 水×1</span></div></td>
 </tr>
 <tr id='foodAtomicSmoothie' data-cat='medical' data-text='辐射净化剂 fallout flush 在荒野中暂时降低环境危害影响，并提升移动速度。 '>
 <td class='n'>辐射净化剂<em>Fallout Flush</em></td>
@@ -761,7 +762,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>10</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>丝兰果实×5 · 超级玉米穗×1 · 辐射蘑菇×5 · 一瓶酸液×1</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>丝兰果实×5 · 超级玉米穗×1 · 辐射蘑菇×5 · 一瓶酸液×1</span></div></td>
 </tr>
 <tr id='foodBurntSmoothie' data-cat='medical' data-text='黑肺血清 black lung serum 在焚毁的森林中暂时降低环境危害影响，并提升移动速度。 '>
 <td class='n'>黑肺血清<em>Black Lung Serum</em></td>
@@ -771,7 +772,7 @@ footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
 <td class='num '>10</td>
 <td class='num zero'>0</td>
 <td class='tags'></td>
-<td class='recipe'><b>随身制作</b><br><span class='ing'>煤炭×5 · 植物纤维×20 · 蘑菇×5 · 水×1</span></td>
+<td class='recipe'><div class='rline'><b>随身制作</b><br><span class='ing'>煤炭×5 · 植物纤维×20 · 蘑菇×5 · 水×1</span></div></td>
 </tr>
 </tbody></table>
 <footer>数据来源：本机 <code>Data/Config/items.xml</code>（食用效果写在该物品及其 Extends 父物品的 CVar 里）与 <code>Localization.csv</code>。<br>游戏更新后重新运行 <code>parse_food.py</code> 与 <code>render_food_sheet.py</code> 即可刷新。</footer>

@@ -14,32 +14,34 @@
    "heal": null,
    "stamina": 40.0,
    "cure": 5.0,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "烤肉",
-      "c": 3
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "蘑菇",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "一罐蜂蜜",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "烤肉",
+       "c": 3
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "蘑菇",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "一罐蜂蜜",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodSpaghetti",
@@ -55,32 +57,34 @@
    "heal": null,
    "stamina": 40.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "大份牛肉罐头",
-      "c": 1
-     },
-     {
-      "n": "通心粉罐头",
-      "c": 1
-     },
-     {
-      "n": "蘑菇",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 3
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "大份牛肉罐头",
+       "c": 1
+      },
+      {
+       "n": "通心粉罐头",
+       "c": 1
+      },
+      {
+       "n": "蘑菇",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 3
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodShepardsPie",
@@ -96,32 +100,34 @@
    "heal": null,
    "stamina": 40.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "羊肉罐头",
-      "c": 1
-     },
-     {
-      "n": "豌豆罐头",
-      "c": 1
-     },
-     {
-      "n": "玉米穗",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 3
-     },
-     {
-      "n": "土豆",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "羊肉罐头",
+       "c": 1
+      },
+      {
+       "n": "豌豆罐头",
+       "c": 1
+      },
+      {
+       "n": "玉米穗",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 3
+      },
+      {
+       "n": "土豆",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodHoneyGlazedSham",
@@ -137,32 +143,34 @@
    "heal": null,
    "stamina": 30.0,
    "cure": 5.0,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "山威罐头",
-      "c": 1
-     },
-     {
-      "n": "玉米穗",
-      "c": 4
-     },
-     {
-      "n": "土豆",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "一罐蜂蜜",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "山威罐头",
+       "c": 1
+      },
+      {
+       "n": "玉米穗",
+       "c": 4
+      },
+      {
+       "n": "土豆",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "一罐蜂蜜",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodChickenWings",
@@ -178,32 +186,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "家鸡",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "鸡蛋",
-      "c": 1
-     },
-     {
-      "n": "机油",
-      "c": 1
-     },
-     {
-      "n": "一罐蜂蜜",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "家鸡",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "鸡蛋",
+       "c": 1
+      },
+      {
+       "n": "机油",
+       "c": 1
+      },
+      {
+       "n": "一罐蜂蜜",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodTunaFishGravyToast",
@@ -219,32 +229,34 @@
    "heal": null,
    "stamina": 40.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "金枪鱼罐头",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "玉米面包",
-      "c": 2
-     },
-     {
-      "n": "动物脂肪",
-      "c": 3
-     },
-     {
-      "n": "豌豆罐头",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "金枪鱼罐头",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "玉米面包",
+       "c": 2
+      },
+      {
+       "n": "动物脂肪",
+       "c": 3
+      },
+      {
+       "n": "豌豆罐头",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodShamChowder",
@@ -260,28 +272,30 @@
    "heal": null,
    "stamina": 30.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "山威罐头",
-      "c": 1
-     },
-     {
-      "n": "土豆",
-      "c": 2
-     },
-     {
-      "n": "玉米穗",
-      "c": 2
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "山威罐头",
+       "c": 1
+      },
+      {
+       "n": "土豆",
+       "c": 2
+      },
+      {
+       "n": "玉米穗",
+       "c": 2
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodChiliDog",
@@ -297,24 +311,26 @@
    "heal": null,
    "stamina": 30.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "辣椒罐头",
-      "c": 1
-     },
-     {
-      "n": "烤肉",
-      "c": 1
-     },
-     {
-      "n": "玉米面包",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "辣椒罐头",
+       "c": 1
+      },
+      {
+       "n": "烤肉",
+       "c": 1
+      },
+      {
+       "n": "玉米面包",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodPumpkinPie",
@@ -330,32 +346,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "南瓜",
-      "c": 2
-     },
-     {
-      "n": "鸡蛋",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "南瓜",
+       "c": 2
+      },
+      {
+       "n": "鸡蛋",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodSteakAndPotato",
@@ -371,28 +389,30 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "烤肉",
-      "c": 1
-     },
-     {
-      "n": "土豆",
-      "c": 2
-     },
-     {
-      "n": "蘑菇",
-      "c": 2
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "烤肉",
+       "c": 1
+      },
+      {
+       "n": "土豆",
+       "c": 2
+      },
+      {
+       "n": "蘑菇",
+       "c": 2
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodFishTacos",
@@ -408,20 +428,22 @@
    "heal": null,
    "stamina": 30.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "三文鱼罐头",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 2
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "三文鱼罐头",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 2
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodBlueberryPie",
@@ -437,32 +459,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "蓝莓",
-      "c": 5
-     },
-     {
-      "n": "鸡蛋",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "蓝莓",
+       "c": 5
+      },
+      {
+       "n": "鸡蛋",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodPumpkinCheesecake",
@@ -478,32 +502,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "南瓜",
-      "c": 1
-     },
-     {
-      "n": "鸡蛋",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "啤酒",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "南瓜",
+       "c": 1
+      },
+      {
+       "n": "鸡蛋",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "啤酒",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodBaconAndEggs",
@@ -519,20 +545,22 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "生肉",
-      "c": 5
-     },
-     {
-      "n": "鸡蛋",
-      "c": 2
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "生肉",
+       "c": 5
+      },
+      {
+       "n": "鸡蛋",
+       "c": 2
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodFrostbiteSmoothie",
@@ -548,28 +576,30 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "蓝莓",
-      "c": 5
-     },
-     {
-      "n": "烤肉",
-      "c": 1
-     },
-     {
-      "n": "辣椒罐头",
-      "c": 1
-     },
-     {
-      "n": "啤酒",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "蓝莓",
+       "c": 5
+      },
+      {
+       "n": "烤肉",
+       "c": 1
+      },
+      {
+       "n": "辣椒罐头",
+       "c": 1
+      },
+      {
+       "n": "啤酒",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodRoadrunnerChickenJerky",
@@ -585,28 +615,30 @@
    "heal": null,
    "stamina": 15.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "家鸡",
-      "c": 1
-     },
-     {
-      "n": "丝兰果实",
-      "c": 2
-     },
-     {
-      "n": "硝酸盐粉",
-      "c": 1
-     },
-     {
-      "n": "啤酒",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "家鸡",
+       "c": 1
+      },
+      {
+       "n": "丝兰果实",
+       "c": 2
+      },
+      {
+       "n": "硝酸盐粉",
+       "c": 1
+      },
+      {
+       "n": "啤酒",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodChickenNuggets",
@@ -622,28 +654,30 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "烤肉",
-      "c": 1
-     },
-     {
-      "n": "羽毛",
-      "c": 2
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "烤肉",
+       "c": 1
+      },
+      {
+       "n": "羽毛",
+       "c": 2
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodPumpkinBread",
@@ -659,24 +693,26 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "南瓜",
-      "c": 1
-     },
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "南瓜",
+       "c": 1
+      },
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodOasisSmoothie",
@@ -692,28 +728,30 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "芦荟叶",
-      "c": 5
-     },
-     {
-      "n": "油页岩",
-      "c": 5
-     },
-     {
-      "n": "蘑菇",
-      "c": 5
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "芦荟叶",
+       "c": 5
+      },
+      {
+       "n": "油页岩",
+       "c": 5
+      },
+      {
+       "n": "蘑菇",
+       "c": 5
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodEggBoiled",
@@ -729,20 +767,22 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "鸡蛋",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "鸡蛋",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodGrilledMeat",
@@ -758,16 +798,18 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "生肉",
-      "c": 5
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "生肉",
+       "c": 5
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodCornBread",
@@ -783,20 +825,22 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "粗玉米粉",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "粗玉米粉",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodHoney",
@@ -814,7 +858,7 @@
    "heal": null,
    "stamina": null,
    "cure": 5.0,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCanBeef",
@@ -830,7 +874,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodShamSandwich",
@@ -846,7 +890,7 @@
    "heal": null,
    "stamina": -1.0,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "resourceAnimalFat",
@@ -862,7 +906,7 @@
    "heal": null,
    "stamina": -1.0,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodEgg",
@@ -878,7 +922,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropPumpkin",
@@ -894,7 +938,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropGraceCorn",
@@ -910,7 +954,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropYuccaFruit",
@@ -926,7 +970,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropPotato",
@@ -942,7 +986,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropCorn",
@@ -958,7 +1002,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodRawMeat",
@@ -974,11 +1018,13 @@
    "heal": null,
    "stamina": -1.0,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": []
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": []
+    }
+   ]
   },
   {
    "id": "foodCropBlueberries",
@@ -994,7 +1040,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropMushrooms",
@@ -1010,7 +1056,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodCropMushroomsRadiated",
@@ -1026,7 +1072,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodRottingFlesh",
@@ -1042,7 +1088,7 @@
    "heal": null,
    "stamina": -1.0,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "resourceBrokenGlass",
@@ -1058,11 +1104,13 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": []
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": []
+    }
+   ]
   },
   {
    "id": "foodGumboStew",
@@ -1078,32 +1126,34 @@
    "heal": null,
    "stamina": 40.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "大份牛肉罐头",
-      "c": 1
-     },
-     {
-      "n": "豌豆罐头",
-      "c": 1
-     },
-     {
-      "n": "浓汤罐头",
-      "c": 1
-     },
-     {
-      "n": "动物脂肪",
-      "c": 3
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "大份牛肉罐头",
+       "c": 1
+      },
+      {
+       "n": "豌豆罐头",
+       "c": 1
+      },
+      {
+       "n": "浓汤罐头",
+       "c": 1
+      },
+      {
+       "n": "动物脂肪",
+       "c": 3
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodAshChickenStew",
@@ -1119,32 +1169,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "家鸡",
-      "c": 1
-     },
-     {
-      "n": "蘑菇",
-      "c": 2
-     },
-     {
-      "n": "玉米穗",
-      "c": 3
-     },
-     {
-      "n": "煤炭",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "家鸡",
+       "c": 1
+      },
+      {
+       "n": "蘑菇",
+       "c": 2
+      },
+      {
+       "n": "玉米穗",
+       "c": 3
+      },
+      {
+       "n": "煤炭",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodHoboStew",
@@ -1160,32 +1212,34 @@
    "heal": null,
    "stamina": 30.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "腐肉",
-      "c": 10
-     },
-     {
-      "n": "土豆",
-      "c": 2
-     },
-     {
-      "n": "玉米穗",
-      "c": 2
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "腐肉",
+       "c": 10
+      },
+      {
+       "n": "土豆",
+       "c": 2
+      },
+      {
+       "n": "玉米穗",
+       "c": 2
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodMeatStew",
@@ -1201,32 +1255,34 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "烤肉",
-      "c": 1
-     },
-     {
-      "n": "土豆",
-      "c": 2
-     },
-     {
-      "n": "玉米穗",
-      "c": 2
-     },
-     {
-      "n": "动物脂肪",
-      "c": 1
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "烤肉",
+       "c": 1
+      },
+      {
+       "n": "土豆",
+       "c": 2
+      },
+      {
+       "n": "玉米穗",
+       "c": 2
+      },
+      {
+       "n": "动物脂肪",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodVegetableStew",
@@ -1242,28 +1298,30 @@
    "heal": null,
    "stamina": 20.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "土豆",
-      "c": 2
-     },
-     {
-      "n": "玉米穗",
-      "c": 2
-     },
-     {
-      "n": "蘑菇",
-      "c": 2
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "土豆",
+       "c": 2
+      },
+      {
+       "n": "玉米穗",
+       "c": 2
+      },
+      {
+       "n": "蘑菇",
+       "c": 2
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodCanMiso",
@@ -1279,7 +1337,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "foodBoiledMeat",
@@ -1295,20 +1353,22 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "生肉",
-      "c": 5
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "生肉",
+       "c": 5
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodBakedPotato",
@@ -1324,16 +1384,18 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "土豆",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "土豆",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodCornOnTheCob",
@@ -1349,16 +1411,18 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "烤架",
-    "ingredients": [
-     {
-      "n": "玉米穗",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烤架",
+     "ingredients": [
+      {
+       "n": "玉米穗",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodCharredMeat",
@@ -1374,16 +1438,18 @@
    "heal": null,
    "stamina": 10.0,
    "cure": null,
-   "recipe": {
-    "area": "营火",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "生肉",
-      "c": 5
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "生肉",
+       "c": 5
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodCornMeal",
@@ -1399,16 +1465,18 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "玉米穗",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "玉米穗",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "drugAtomJunkies",
@@ -1426,7 +1494,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugSkullCrushers",
@@ -1442,7 +1510,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugNerdTats",
@@ -1458,7 +1526,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugEyeKandy",
@@ -1474,7 +1542,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugRockBusters",
@@ -1490,7 +1558,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugSugarButts",
@@ -1506,7 +1574,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugHealthBar",
@@ -1522,7 +1590,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugOhShitzDrops",
@@ -1538,7 +1606,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugJailBreakers",
@@ -1554,7 +1622,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugCovertCats",
@@ -1570,7 +1638,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "drugHackers",
@@ -1586,7 +1654,7 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": null
+   "recipes": []
   },
   {
    "id": "medicalFirstAidKit",
@@ -1602,28 +1670,30 @@
    "heal": 180.0,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "化学工作台",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "血袋",
-      "c": 1
-     },
-     {
-      "n": "啤酒",
-      "c": 1
-     },
-     {
-      "n": "绷带",
-      "c": 5
-     },
-     {
-      "n": "针线包",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "化学工作台",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "血袋",
+       "c": 1
+      },
+      {
+       "n": "啤酒",
+       "c": 1
+      },
+      {
+       "n": "绷带",
+       "c": 5
+      },
+      {
+       "n": "针线包",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "drugAntibiotics",
@@ -1641,24 +1711,44 @@
    "heal": null,
    "stamina": null,
    "cure": 25.0,
-   "recipe": {
-    "area": "营火",
-    "tool": "烧杯",
-    "ingredients": [
-     {
-      "n": "过期的山威三明治",
-      "c": 4
-     },
-     {
-      "n": "硝酸盐粉",
-      "c": 3
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烧杯",
+     "ingredients": [
+      {
+       "n": "过期的山威三明治",
+       "c": 4
+      },
+      {
+       "n": "硝酸盐粉",
+       "c": 3
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "area": "化学工作台",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "过期的山威三明治",
+       "c": 1
+      },
+      {
+       "n": "硝酸盐粉",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "medicalAloeCream",
@@ -1676,16 +1766,18 @@
    "heal": 5.0,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "芦荟叶",
-      "c": 4
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "芦荟叶",
+       "c": 4
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "drugHerbalAntibiotics",
@@ -1703,32 +1795,60 @@
    "heal": null,
    "stamina": null,
    "cure": 10.0,
-   "recipe": {
-    "area": "营火",
-    "tool": "烹饪锅",
-    "ingredients": [
-     {
-      "n": "蓝莓",
-      "c": 5
-     },
-     {
-      "n": "蘑菇",
-      "c": 3
-     },
-     {
-      "n": "菊花",
-      "c": 3
-     },
-     {
-      "n": "硝酸盐粉",
-      "c": 3
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "营火",
+     "tool": "烹饪锅",
+     "ingredients": [
+      {
+       "n": "蓝莓",
+       "c": 5
+      },
+      {
+       "n": "蘑菇",
+       "c": 3
+      },
+      {
+       "n": "菊花",
+       "c": 3
+      },
+      {
+       "n": "硝酸盐粉",
+       "c": 3
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    },
+    {
+     "area": "化学工作台",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "蓝莓",
+       "c": 2
+      },
+      {
+       "n": "蘑菇",
+       "c": 1
+      },
+      {
+       "n": "菊花",
+       "c": 1
+      },
+      {
+       "n": "硝酸盐粉",
+       "c": 1
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodAtomicSmoothie",
@@ -1744,28 +1864,30 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "丝兰果实",
-      "c": 5
-     },
-     {
-      "n": "超级玉米穗",
-      "c": 1
-     },
-     {
-      "n": "辐射蘑菇",
-      "c": 5
-     },
-     {
-      "n": "一瓶酸液",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "丝兰果实",
+       "c": 5
+      },
+      {
+       "n": "超级玉米穗",
+       "c": 1
+      },
+      {
+       "n": "辐射蘑菇",
+       "c": 5
+      },
+      {
+       "n": "一瓶酸液",
+       "c": 1
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "foodBurntSmoothie",
@@ -1781,28 +1903,30 @@
    "heal": null,
    "stamina": null,
    "cure": null,
-   "recipe": {
-    "area": "随身制作",
-    "tool": "",
-    "ingredients": [
-     {
-      "n": "煤炭",
-      "c": 5
-     },
-     {
-      "n": "植物纤维",
-      "c": 20
-     },
-     {
-      "n": "蘑菇",
-      "c": 5
-     },
-     {
-      "n": "水",
-      "c": 1
-     }
-    ]
-   }
+   "recipes": [
+    {
+     "area": "随身制作",
+     "tool": "",
+     "ingredients": [
+      {
+       "n": "煤炭",
+       "c": 5
+      },
+      {
+       "n": "植物纤维",
+       "c": 20
+      },
+      {
+       "n": "蘑菇",
+       "c": 5
+      },
+      {
+       "n": "水",
+       "c": 1
+      }
+     ]
+    }
+   ]
   }
  ]
 }
